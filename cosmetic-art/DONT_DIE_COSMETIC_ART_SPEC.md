@@ -232,16 +232,21 @@ Correct character-relative **position and scale take priority over attractive sh
 
 Image generators tend to center and enlarge isolated objects inside blank cells. That behavior is explicitly incorrect for this production workflow.
 
-### Required procedure
+### Required procedure — validated two-stage workflow
 
 For every exploration sheet:
 
-1. Use `reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4.png` or `SPATIAL_TEMPLATE_MAIN_HERO_4X4_FAINT.png` as the spatial composition reference.
+1. Use `reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_FAINT.png` as the mandatory spatial composition reference.
 2. Treat it as sixteen identical MAIN HERO characters at **exactly 100% canonical scale**, one character per 480×640 cell.
-3. Design each cosmetic **directly on top of the appropriate location on that unchanged character**.
-4. Do not move, scale, enlarge, normalize, or recenter the cosmetic after fitting it to the character.
-5. Before final output, hide/remove the MAIN HERO template completely.
-6. Output only the cosmetics on pure white.
+3. The MAIN HERO registration layer must remain visibly present at approximately **5–8% opacity during the generation pass**.
+4. Design each cosmetic **directly on top of the appropriate location on that unchanged character** at its FINAL production position and FINAL production size.
+5. Do not move, scale, enlarge, normalize, or recenter the cosmetic after fitting it to the character.
+6. The generation pass should output the full-opacity cosmetics **with the faint MAIN HERO still visible**.
+7. Removing the MAIN HERO is a **separate post-generation cleanup operation**. Do not ask image generation to remove the character while simultaneously creating/redesigning the cosmetics.
+8. During cleanup, preserve the cosmetic pixels/shapes, position, scale, silhouette, and colors. Template removal must not invoke generative redesign, repositioning, rescaling, or recomposition.
+9. Final cleaned production output contains only the cosmetics on pure white.
+
+This two-stage method is mandatory because testing showed that asking the generator to imagine an invisible character or remove the character during the generation pass can cause the model to recenter and enlarge the cosmetics.
 
 ### Empty-space rule
 
@@ -410,18 +415,23 @@ This underlay is used to determine:
 - accessory placement
 - true relative scale
 
-### Final output rule
+### Generation-pass vs final-cleaned-output rule
 
-The actual exploration sheet must contain **zero visible trace of the character template**, except where the requested category itself requires body/hand artwork, such as armor.
+During the **generation pass**, the exact MAIN HERO registration template remains visible at approximately **5–8% opacity**. This is intentional and required for reliable spatial registration.
 
-No:
+During the **post-generation cleanup pass**, remove the faint MAIN HERO without regenerating, moving, scaling, or redesigning the cosmetics.
 
-- faint guide
+The **final cleaned production sheet** must contain zero visible trace of:
+
+- MAIN HERO registration layer
 - grid
-- ghost silhouette
+- cell borders
+- guides
 - registration marks
-- bounding box
-- crosshair
+- bounding boxes
+- crosshairs
+
+Exception: armor may contain body/hand artwork that is itself part of the requested cosmetic workflow.
 
 ---
 
@@ -761,7 +771,9 @@ Before generation, verify:
 - [ ] MAIN HERO positioning used
 - [ ] 4×4 MAIN HERO spatial template used during composition
 - [ ] MAIN HERO held at exactly 100% canonical scale
-- [ ] Cosmetic was not recentered/enlarged after template removal
+- [ ] MAIN HERO registration layer visible at ~5–8% during generation
+- [ ] Cosmetic was not recentered/enlarged after fitting to template
+- [ ] Template removal reserved for separate non-generative cleanup
 - [ ] Large intentional white space preserved
 - [ ] Object not presentation-centered
 - [ ] Correct left/right grip geometry
@@ -794,3 +806,5 @@ For armor additionally:
 **The cosmetic is not an icon floating in a 480×640 box. It is a production layer attached to an invisible 480×640 MAIN HERO.**
 
 Position, relative scale, grip, silhouette, stroke consistency, and layering are more important than filling the canvas or creating a visually balanced exploration sheet.
+
+**Validated production method:** generate against the visible 5–8% MAIN HERO registration layer first; remove that registration layer only afterward as a non-generative cleanup step.

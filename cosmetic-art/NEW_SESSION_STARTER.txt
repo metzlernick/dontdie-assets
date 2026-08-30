@@ -22,3 +22,11 @@ SPATIAL POSITIONING IS A HARD REQUIREMENT:
 - Then hide/remove the character WITHOUT moving or resizing the cosmetic.
 - Large empty white areas are correct.
 - Never center, enlarge, or normalize cosmetics to make the sheet look balanced.
+
+
+VALIDATED GENERATION WORKFLOW:
+- Keep the exact MAIN HERO spatial template visibly present at approximately 5–8% opacity during generation.
+- Generate cosmetics directly on that registration layer at final production size and position.
+- DO NOT remove the MAIN HERO during the generation pass.
+- DO NOT center/enlarge cosmetics after fitting.
+- Removal of the faint MAIN HERO happens afterward as a separate non-generative cleanup operation.

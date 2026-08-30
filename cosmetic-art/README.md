@@ -39,3 +39,8 @@ https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
 exist specifically to prevent image generators from centering/enlarging cosmetics.
 
 Use the faint template as the composition reference, fit the cosmetics to the characters at 100% scale, then remove the character layer for the final white-background output.
+
+
+## Validated workflow
+
+See `PRODUCTION_WORKFLOW.md`. The current required method is **faint visible MAIN HERO during generation → separate non-generative template removal → Illustrator**.
