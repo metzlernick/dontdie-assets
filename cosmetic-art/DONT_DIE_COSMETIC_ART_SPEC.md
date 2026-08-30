@@ -226,6 +226,62 @@ Use existing approved art as the authority for how these exceptions are handled.
 
 ---
 
+## 7A. Mandatory Spatial-Template Generation Procedure
+
+Correct character-relative **position and scale take priority over attractive sheet composition**.
+
+Image generators tend to center and enlarge isolated objects inside blank cells. That behavior is explicitly incorrect for this production workflow.
+
+### Required procedure
+
+For every exploration sheet:
+
+1. Use `reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4.png` or `SPATIAL_TEMPLATE_MAIN_HERO_4X4_FAINT.png` as the spatial composition reference.
+2. Treat it as sixteen identical MAIN HERO characters at **exactly 100% canonical scale**, one character per 480×640 cell.
+3. Design each cosmetic **directly on top of the appropriate location on that unchanged character**.
+4. Do not move, scale, enlarge, normalize, or recenter the cosmetic after fitting it to the character.
+5. Before final output, hide/remove the MAIN HERO template completely.
+6. Output only the cosmetics on pure white.
+
+### Empty-space rule
+
+**Large amounts of empty white space are intentional and mandatory.**
+
+A cosmetic should occupy only the amount of the 480×640 cell that it would occupy when worn/held by MAIN HERO.
+
+Examples:
+
+- A normal hat occupies the head region near the top of the cell; it must not be vertically centered in the cell.
+- Small glasses remain small around the eye coordinates.
+- A mustache remains small around the mouth coordinates.
+- A small handheld object remains small at its canonical grip.
+- A large weapon may occupy much more of the cell because its true character-relative size is larger.
+
+### Forbidden normalization
+
+Never:
+
+- center each cosmetic inside its cell
+- enlarge cosmetics to fill available white space
+- make all four rows approximately equal in visual size
+- make all four variations occupy similar bounding boxes merely for presentation
+- shift objects away from their canonical body location to improve balance
+
+**If a sheet looks visually unbalanced because the production assets occupy different amounts of space, that is acceptable and often correct.**
+
+### Spatial compliance test
+
+Immediately before generation, mentally overlay MAIN HERO at 100% scale in every populated cell and verify:
+
+- Would the hat actually sit on the head?
+- Would the right-arm item actually meet the right-hand grip?
+- Would the left-arm item actually meet the left-hand grip?
+- Would the accessory actually align to its specified body location?
+- Does the cosmetic have the same approximate physical scale relative to MAIN HERO as intended?
+
+If the answer is no, correct the layout before generating.
+
+
 ## 8. Category Rules
 
 Only cosmetics from the **same category** should be generated on one 4×4 sheet.
@@ -244,6 +300,8 @@ Rules:
 - The attachment point is fixed; silhouette above/around the head is flexible.
 - A large hat may extend substantially above or beside the head if it remains inside the cell.
 - Do not center the hat in the 480×640 cell.
+- **A normal hat should visibly occupy the canonical head region near the top of the 480×640 cell, leaving the majority of the cell white.**
+- Fit the hat while MAIN HERO is present at 100% scale, then hide MAIN HERO without moving or resizing the hat.
 - Follow approved references for when the cosmetic covers the face/head versus sitting above it.
 - Keep the 5 px primary cosmetic stroke.
 
@@ -562,7 +620,7 @@ Repository roles:
 - `templates/` — canonical vector character and hand geometry
 - `reference-pack/svg/` — canonical vector copies of the minimum reference pack
 - `reference-pack/png/` — exact 480×640 white-background raster renders for web/session inspection
-- `reference-sheets/` — category contact sheets and placement sheets designed for visual inspection
+- `reference-sheets/` — category contact sheets, placement sheets, and mandatory 4×4 spatial templates designed for visual inspection/composition
 - `approved-art/` — complete approved in-game SVG cosmetic library
 
 ### Cross-session visual verification rule
@@ -587,6 +645,8 @@ A session may truthfully proceed when the required MD and PNG visual references 
 These raw GitHub URLs are intended for cross-session visual access:
 
 - Master character: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/MASTER_CHARACTER_REFERENCE.png`
+- 4×4 spatial template: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4.png`
+- 4×4 faint spatial template: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_FAINT.png`
 - Hats: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/HATS_REFERENCE.png`
 - Hat placement: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/HATS_PLACEMENT_REFERENCE.png`
 - Right arm: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/RIGHT_ARM_REFERENCE.png`
@@ -699,6 +759,10 @@ Before generation, verify:
 - [ ] No visible grid
 - [ ] Pure white background
 - [ ] MAIN HERO positioning used
+- [ ] 4×4 MAIN HERO spatial template used during composition
+- [ ] MAIN HERO held at exactly 100% canonical scale
+- [ ] Cosmetic was not recentered/enlarged after template removal
+- [ ] Large intentional white space preserved
 - [ ] Object not presentation-centered
 - [ ] Correct left/right grip geometry
 - [ ] Straight-on perspective

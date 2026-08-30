@@ -30,3 +30,12 @@ A future session should:
 ## Repository
 
 https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
+
+
+## Mandatory spatial templates
+
+`reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4.png` and
+`reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_FAINT.png`
+exist specifically to prevent image generators from centering/enlarging cosmetics.
+
+Use the faint template as the composition reference, fit the cosmetics to the characters at 100% scale, then remove the character layer for the final white-background output.
