@@ -236,7 +236,7 @@ Image generators tend to center and enlarge isolated objects inside blank cells.
 
 For every exploration sheet:
 
-1. Use `reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_FAINT.png` as the **actual image-editing base**. Do not recreate it from scratch.
+1. Use `reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_NEUTRAL_GRAY.png` as the **actual image-editing base**. Do not recreate it from scratch.
 2. Treat it as sixteen identical MAIN HERO characters at **exactly 100% canonical scale**, one character per 480×640 cell.
 3. The existing MAIN HERO registration layer must remain visibly present at approximately **5–8% opacity during the image-editing pass**, with its original pixels/geometry preserved.
 4. Design each cosmetic **directly on top of the appropriate location on that unchanged character** at its FINAL production position and FINAL production size.
@@ -630,7 +630,7 @@ Repository roles:
 - `templates/` — canonical vector character and hand geometry
 - `reference-pack/svg/` — canonical vector copies of the minimum reference pack
 - `reference-pack/png/` — exact 480×640 white-background raster renders for web/session inspection
-- `reference-sheets/` — category contact sheets, placement sheets, and mandatory 4×4 spatial templates designed for visual inspection/composition
+- `reference-sheets/` — category contact sheets, placement sheets, mandatory 4×4 spatial templates, and the approved-art style-lock sheet
 - `approved-art/` — complete approved in-game SVG cosmetic library
 
 ### Cross-session visual verification rule
@@ -657,6 +657,8 @@ These raw GitHub URLs are intended for cross-session visual access:
 - Master character: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/MASTER_CHARACTER_REFERENCE.png`
 - 4×4 spatial template: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4.png`
 - 4×4 faint spatial template: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_FAINT.png`
+- 4×4 neutral-gray spatial template: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_NEUTRAL_GRAY.png`
+- Approved-art style lock: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/STYLE_LOCK_APPROVED_ART.png`
 - Hats: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/HATS_REFERENCE.png`
 - Hat placement: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/HATS_PLACEMENT_REFERENCE.png`
 - Right arm: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/RIGHT_ARM_REFERENCE.png`
@@ -778,6 +780,10 @@ Before generation, verify:
 - [ ] Object not presentation-centered
 - [ ] Correct left/right grip geometry
 - [ ] Straight-on perspective
+- [ ] Approved-art STYLE LOCK sheet reviewed
+- [ ] Rendering uses hard-edged flat fills only
+- [ ] No soft gradients / painterly shading / glossy modeling
+- [ ] 5 px true-black outer stroke visually matches approved references
 - [ ] Flat colors
 - [ ] Approximately 6–10 colors per design
 - [ ] No gradient unless requested
@@ -877,3 +883,80 @@ For accessories:
 For armor:
 - armor is the special category where body/hand appearance is intentionally part of the cosmetic workflow, but the canonical pose and proportions still remain fixed.
 
+
+
+## 21. Mandatory Style Lock
+
+Spatial registration alone is not sufficient. The cosmetic must also match the existing approved Don't Die production artwork.
+
+The generator must use `reference-sheets/STYLE_LOCK_APPROVED_ART.png` plus the relevant category reference sheet as the visual style authority.
+
+### Hard visual requirements
+
+The target style is:
+
+- flat 2D vector-style artwork
+- **solid flat color fills**
+- **5 px true-black primary outer outline at 480×640 scale**
+- round caps and round joins
+- minimal interior linework
+- clean, simple silhouettes
+- low detail density
+- crisp color boundaries
+- no painterly rendering
+- no airbrushed shading
+- no soft gradients
+- no soft highlights
+- no glossy rendering unless an approved reference explicitly demonstrates a flat-shape equivalent
+- no ambient occlusion
+- no soft drop shadow
+- no textured brushwork
+- no sketch lines
+- no semi-realistic rendering
+- no anime rendering
+- no 3D rendering
+- no soft gray modeling used to create volume
+
+### Flat-color rule
+
+A cosmetic should read as a small number of discrete vector regions.
+
+Shading, when needed, must be represented as a **separate flat shape with a hard edge**, not a gradient or feathered tonal transition.
+
+Default target: approximately 6–10 colors per design.
+
+### Stroke consistency rule
+
+The primary silhouette outline must visually match the approved production assets.
+
+- target outer stroke: 5 px at canonical 480×640 scale
+- true black `#000000`
+- consistent width across the entire cosmetic
+- do not taper the outer stroke
+- do not use soft/dark-gray outlines
+- do not reduce the outer stroke because an object is small
+- interior black lines are optional and should be sparse; when used they may be thinner
+
+### Style rejection test
+
+Before generation, compare the intended rendering against `STYLE_LOCK_APPROVED_ART.png`.
+
+Reject the intended rendering if it resembles:
+- polished mobile-game illustration
+- painterly concept art
+- shaded cartoon/anime art
+- 3D icon art
+- glossy clip-art
+- soft vector illustration with gradients
+
+If the cosmetic could not plausibly sit beside the approved source SVG artwork without looking like it came from another game, it is noncompliant.
+
+### Priority
+
+For generation quality, these three constraints are co-equal and mandatory:
+
+1. correct MAIN HERO-relative position
+2. correct MAIN HERO-relative scale
+3. correct approved Don't Die art style
+
+A generation that satisfies positioning but not style is a failed production result.

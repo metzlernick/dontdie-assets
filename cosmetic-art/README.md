@@ -49,3 +49,8 @@ See `PRODUCTION_WORKFLOW.md`. The current required method is **faint visible MAI
 ## v4 image-editing requirement
 
 The faint 4×4 MAIN HERO spatial template is now the **actual image-editing base**. Future sessions should edit that exact PNG and add cosmetics; they should not regenerate a new template from visual reference.
+
+
+## v5 style + cleanup update
+
+Use `SPATIAL_TEMPLATE_MAIN_HERO_4X4_NEUTRAL_GRAY.png` as the preferred registration base and `STYLE_LOCK_APPROVED_ART.png` as the mandatory visual style authority. Correct position alone is not sufficient; output must match the approved flat-fill, 5 px black-outline production art.

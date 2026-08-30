@@ -56,3 +56,28 @@ Required instruction:
 - add only cosmetic artwork
 
 This prevents character drift that was observed when the template was merely supplied as a visual reference.
+
+
+## Stage 0 — Style lock
+
+Before any generation, inspect:
+- `reference-sheets/STYLE_LOCK_APPROVED_ART.png`
+- the relevant category reference sheet
+- the relevant placement sheet
+
+The output must simultaneously match:
+1. approved style
+2. character-relative placement
+3. character-relative scale
+
+Do not accept a correctly positioned result if it uses soft shading, gradients, painterly rendering, glossy modeling, or inconsistent black outlines.
+
+## Preferred registration base
+
+Use `reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_NEUTRAL_GRAY.png` as the actual image-editing base.
+
+This version removes the hero's color information and keeps the registration figure neutral and faint, making later removal easier while still providing spatial guidance.
+
+The registration figure is disposable. Its job is only to enforce position and scale.
+
+The cosmetic itself must remain full opacity and must match the approved flat-color / 5 px black-outline production style.

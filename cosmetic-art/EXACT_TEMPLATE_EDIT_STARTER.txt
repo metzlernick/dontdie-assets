@@ -6,7 +6,7 @@ https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
 Retrieve:
 - DONT_DIE_COSMETIC_ART_SPEC.md
 - PRODUCTION_WORKFLOW.md
-- reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_FAINT.png
+- reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_NEUTRAL_GRAY.png
 - the relevant category reference sheet
 - the relevant placement reference sheet if one exists
 
@@ -42,3 +42,28 @@ No grid lines, cell borders, labels, guides, gutters, or registration marks.
 Before editing, confirm that you are editing the exact spatial-template PNG rather than creating a new composition.
 
 Then wait for my category and row descriptions.
+
+
+MANDATORY STYLE LOCK:
+Retrieve and visually review:
+- reference-sheets/STYLE_LOCK_APPROVED_ART.png
+- the relevant category reference sheet
+
+The cosmetic artwork MUST match those approved assets.
+
+Required appearance:
+- flat 2D vector art
+- hard-edged solid color regions
+- 5 px true-black primary outer stroke
+- round caps/joins
+- minimal interior black detail
+- simple low-detail silhouettes
+- no gradients
+- no soft shading
+- no painterly rendering
+- no glossy/3D modeling
+- no soft highlights
+- no drop shadows
+- no texture/noise
+
+Do not accept a result merely because position is correct. STYLE + POSITION + SCALE are all mandatory.
