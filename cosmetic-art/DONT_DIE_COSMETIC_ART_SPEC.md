@@ -1,95 +1,8 @@
 # Don't Die Cosmetic Artwork — Master Production Specification
 
-**Version:** 1.1  
+**Version:** 1.0  
 **Purpose:** Canonical reference for generating new 2D vector-style cosmetic artwork for *Don't Die*.  
 **Primary goal:** Produce consistent, Illustrator-friendly exploration sheets that align to the existing MAIN HERO coordinate system and require minimal cleanup or repositioning.
-
----
-
-## 0. Mandatory AI Pre-Flight — MUST OCCUR BEFORE EVERY GENERATION
-
-This section is a **hard production gate**, not a suggestion.
-
-Before generating any cosmetic exploration sheet, the AI must freshly retrieve and review the current canonical production materials. It must **not** rely on memory, prior conversations, prior summaries, or a previous reading of these files.
-
-### Required fresh review
-
-For every new generation request, retrieve and review:
-
-1. The CURRENT `DONT_DIE_COSMETIC_ART_SPEC.md`
-2. `templates/MAIN HERO.svg`
-3. `templates/Character Master Template.svg`
-4. The relevant files in `reference-pack/`
-5. The relevant category inside `approved-art/`
-6. Any approved cosmetic that is especially similar to the requested design
-
-Canonical repository:
-
-`https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art`
-
-If any required source cannot be accessed or verified, **STOP BEFORE IMAGE GENERATION** and tell the user exactly what could not be accessed.
-
-### Required compliance report
-
-Before image generation, explicitly report the following back to the user:
-
-- **Sheet:** `1920 × 2560` logical canvas, 4 columns × 4 rows
-- **Cell:** `480 × 640`
-- **MAIN HERO:** invisible alignment underlay; not visible in final output except where a category explicitly requires body/hand artwork
-- **Positioning:** cosmetic positioned relative to the invisible canonical MAIN HERO, never presentation-centered
-- **Stroke:** default `5 px` true-black outer stroke at canonical scale, round caps and joins; category exceptions must be stated
-- **Style:** straight-on, flat 2D vector-style art, large readable shapes, minimal detail, Illustrator/Image-Trace friendly
-- **Background:** pure white `#FFFFFF`
-- **Guides:** no visible grid, labels, numbers, separators, registration marks, character ghosts, crosshairs, or bounding boxes
-- **Category rules:** state the applicable category-specific attachment/positioning/layering rules
-- **References reviewed:** identify the relevant templates/reference artwork actually reviewed
-
-The AI must not simply say "I reviewed the specification." It must demonstrate the review by reporting the applicable rules above.
-
-### Second compliance gate immediately before generation
-
-After receiving the user's row descriptions and immediately before calling an image-generation tool, verify the intended output against:
-
-1. This entire specification
-2. The canonical coordinate system
-3. The applicable category rules
-4. The Character Underlay Method
-5. The Generation Checklist
-6. The specific approved reference artwork reviewed
-
-If the planned output violates any applicable requirement, correct the plan **before** generation.
-
-### No inferred presentation elements
-
-Do not add anything because it makes the sheet easier to read or more visually balanced.
-
-In particular, unless the category itself explicitly requires it, never add:
-
-- MAIN HERO
-- a substitute character
-- mannequin/body silhouette
-- visible cell borders
-- grid lines
-- labels
-- row names
-- numbers
-- decorative backgrounds
-- shadows beneath the cosmetic
-- framing devices
-
-The exploration sheet is a **production asset sheet**, not a concept-art presentation board.
-
-### Authority of this gate
-
-The AI may not skip this pre-flight because:
-
-- the same specification was reviewed earlier in the conversation
-- the category was used previously
-- the user says "same as before"
-- the requested cosmetic seems simple
-- an earlier generated sheet established a visual pattern
-
-Every generation gets a fresh source check.
 
 ---
 
@@ -273,7 +186,7 @@ Stroke width is **absolute across cosmetics**, not proportional to the size of t
 Example:
 
 - A tiny cigarette may look heavily outlined because its stroke is still 5 px.
-- A giant sickle may appear relatively lightly outlined because it is also 5 px.
+- A giant sickle may appear relatively lightly outlined because its stroke is also 5 px.
 - When placed beside each other, their outer strokes should visually match.
 
 **Never reduce the outer stroke simply because an object is small.**
@@ -333,8 +246,6 @@ Rules:
 - Do not center the hat in the 480×640 cell.
 - Follow approved references for when the cosmetic covers the face/head versus sitting above it.
 - Keep the 5 px primary cosmetic stroke.
-- **Generate the hat/head cosmetic only. Do not render MAIN HERO, hair, face, neck, body, clothing, or a substitute character merely to show fit.**
-- Use MAIN HERO only as an invisible positioning underlay.
 
 ### 8.2 Right-Arm Items
 
@@ -460,20 +371,18 @@ No:
 
 Before generating:
 
-1. Complete **Section 0: Mandatory AI Pre-Flight** using freshly retrieved canonical sources.
-2. Identify the category supplied by the user.
-3. Confirm that every populated row belongs to that category.
-4. Parse each row as its own independent cosmetic brief.
-5. Check for conflicts with:
+1. Identify the category supplied by the user.
+2. Confirm that every populated row belongs to that category.
+3. Parse each row as its own independent cosmetic brief.
+4. Check for conflicts with:
    - canonical position
    - scale
    - bounding box
    - stroke/style rules
    - accessory placement
    - special layering
-6. Report the required compliance summary to the user.
-7. If the prompt is materially unclear or intentionally conflicts with the master spec, ask a focused question before generation.
-8. Otherwise, after the user supplies the row briefs, perform the second compliance gate and generate directly.
+5. If the prompt is materially unclear or intentionally conflicts with the master spec, ask a focused question before generation.
+6. Otherwise generate directly.
 
 ### Important
 
@@ -521,7 +430,6 @@ Unless explicitly requested, do **not** use:
 - numbers
 - presentation-driven centering
 - redesigned character anatomy
-- visible MAIN HERO or substitute character for non-armor categories
 
 ---
 
@@ -611,7 +519,7 @@ Recommended repository organization:
 ```text
 dontdie-assets/
 └── cosmetic-art/
-    ├── DONT_DIE_COSMETIC_ART_SPEC.md
+    ├── COSMETIC_ART_SPEC.md
     │
     ├── templates/
     │   ├── MAIN HERO.svg
@@ -644,22 +552,52 @@ GitHub is the canonical archive. A new generation session should still be given 
 
 ## 15A. Canonical GitHub Source
 
-The persistent canonical source for this cosmetic artwork system is the **dontdie-assets GitHub repository**:
+The persistent canonical source for this cosmetic artwork system is:
 
 `https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art`
 
 Repository roles:
 
-- `cosmetic-art/DONT_DIE_COSMETIC_ART_SPEC.md` — canonical production specification
-- `cosmetic-art/templates/` — canonical character and hand geometry
-- `cosmetic-art/reference-pack/` — minimum visual reference pack for new sessions
-- `cosmetic-art/approved-art/` — complete approved in-game cosmetic library organized by category
+- `DONT_DIE_COSMETIC_ART_SPEC.md` — canonical production specification
+- `templates/` — canonical vector character and hand geometry
+- `reference-pack/svg/` — canonical vector copies of the minimum reference pack
+- `reference-pack/png/` — exact 480×640 white-background raster renders for web/session inspection
+- `reference-sheets/` — category contact sheets and placement sheets designed for visual inspection
+- `approved-art/` — complete approved in-game SVG cosmetic library
 
-When beginning a new session, use this repository as the source of truth when it is accessible. If repository access is unavailable, upload the current MD, both templates, and the relevant reference SVGs directly to the session.
+### Cross-session visual verification rule
 
-If the GitHub copy of this specification is newer than a separately uploaded copy, use the GitHub version.
+**Do not require direct SVG rendering/inspection in order to begin generation.**
 
-**The canonical GitHub source must be freshly checked before each new generation request. Prior retrieval in the same conversation does not satisfy the Mandatory AI Pre-Flight requirement.**
+Some ChatGPT/web environments can retrieve SVG files but cannot visually inspect `image/svg+xml`. That limitation must not block the workflow when the corresponding PNG references are accessible.
+
+Use this verification hierarchy:
+
+1. Read this MD.
+2. Visually inspect the appropriate PNG reference sheet(s).
+3. Visually inspect `MASTER_CHARACTER_REFERENCE.png`.
+4. For placement-sensitive categories, inspect the corresponding `*_PLACEMENT_REFERENCE.png`.
+5. Use individual 480×640 PNGs from `reference-pack/png/` when a closer look is needed.
+6. Treat the SVG files as the canonical vector originals, but **direct visual SVG inspection is optional** if the corresponding approved PNG render has been reviewed.
+
+A session may truthfully proceed when the required MD and PNG visual references have been successfully reviewed, even if its web reader cannot render SVG.
+
+### Direct raw PNG locations
+
+These raw GitHub URLs are intended for cross-session visual access:
+
+- Master character: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/MASTER_CHARACTER_REFERENCE.png`
+- Hats: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/HATS_REFERENCE.png`
+- Hat placement: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/HATS_PLACEMENT_REFERENCE.png`
+- Right arm: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/RIGHT_ARM_REFERENCE.png`
+- Right-arm placement: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/RIGHT_ARM_PLACEMENT_REFERENCE.png`
+- Left arm: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/LEFT_ARM_REFERENCE.png`
+- Left-arm placement: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/LEFT_ARM_PLACEMENT_REFERENCE.png`
+- Armor: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/ARMOR_REFERENCE.png`
+- Accessories: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/ACCESSORIES_REFERENCE.png`
+- Accessory placement: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/ACCESSORIES_PLACEMENT_REFERENCE.png`
+
+If GitHub access itself fails, ask the user to provide the current MD and relevant reference sheet(s). Do not demand re-upload of the complete SVG library unless exact vector inspection is specifically required.
 
 ---
 
@@ -700,49 +638,39 @@ The complete approved-art library should remain in GitHub even when only the sma
 
 ## 17. Starting a New ChatGPT Session
 
-The preferred workflow is to point ChatGPT at the canonical GitHub repository and require the Mandatory AI Pre-Flight rather than relying on an old cached/uploaded copy.
+In a new session, first provide the GitHub `cosmetic-art` URL. The session should read the MD and inspect the PNG reference sheets directly from GitHub.
 
-Use this starter prompt:
+Manual re-upload is a fallback, not the normal workflow.
 
-```text
-I'm creating new cosmetic artwork for Don't Die.
-
-Use the Don't Die Cosmetic Artwork Master Production Specification and approved reference artwork here as the ONLY source of truth:
-https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
-
-MANDATORY:
-Before every generation, freshly retrieve and review:
-- DONT_DIE_COSMETIC_ART_SPEC.md
-- templates/
-- reference-pack/
-- the relevant category inside approved-art/
-
-Do not rely on memory, previous conversations, previous generations, or a previous reading of the specification.
-
-Before generating, execute Section 0 — Mandatory AI Pre-Flight and report the required compliance summary to me.
-
-If you cannot access or verify any required source, STOP and tell me what could not be accessed.
-
-I will give you:
-1. The cosmetic category
-2. Up to four separate design descriptions
-
-Each description corresponds to one ROW of the 4×4 sheet.
-Generate four moderately different interpretations of each row's description.
-Any unused rows must remain completely blank white.
-
-Do not generate yet.
-
-First complete the pre-flight review and compliance report. Then I will give you the descriptions.
-```
-
-If files are being uploaded directly instead of using GitHub, provide:
+If GitHub visual access fails, provide only:
 
 1. `DONT_DIE_COSMETIC_ART_SPEC.md`
-2. `MAIN HERO.svg`
-3. `Character Master Template.svg`
-4. The minimum reference pack
-5. Any existing approved cosmetic especially relevant to the new design
+2. `MASTER_CHARACTER_REFERENCE.png`
+3. The relevant category reference sheet
+4. The relevant placement reference sheet, when applicable
+5. Any individual PNG especially relevant to the new design
+
+The complete SVG library does **not** need to be re-uploaded merely because the session cannot render SVG.
+
+Then give instructions in this format:
+
+```text
+Use COSMETIC_ART_SPEC.md as the master production rules.
+
+Category: RIGHT ARM
+
+Row 1:
+[Detailed design brief]
+
+Row 2:
+[Detailed design brief]
+
+Row 3:
+[Detailed design brief]
+
+Row 4:
+[Detailed design brief]
+```
 
 If fewer than four rows are needed:
 
@@ -757,20 +685,7 @@ The blank rows must remain pure white.
 
 ## 18. Generation Checklist
 
-### Mandatory source verification
-
 Before generation, verify:
-
-- [ ] Current canonical `DONT_DIE_COSMETIC_ART_SPEC.md` freshly retrieved for this generation
-- [ ] `MAIN HERO.svg` freshly reviewed
-- [ ] `Character Master Template.svg` freshly reviewed
-- [ ] Relevant `reference-pack/` artwork reviewed
-- [ ] Relevant `approved-art/` category reviewed
-- [ ] Especially similar approved cosmetics reviewed when applicable
-- [ ] Required compliance report given to user
-- [ ] No required source was inaccessible or unverified
-
-### Sheet and prompt
 
 - [ ] Correct category
 - [ ] Maximum four prompts
@@ -783,56 +698,23 @@ Before generation, verify:
 - [ ] No gutters
 - [ ] No visible grid
 - [ ] Pure white background
-
-### Geometry and visibility
-
 - [ ] MAIN HERO positioning used
-- [ ] MAIN HERO remains invisible unless category rules explicitly require body/hand artwork
-- [ ] No substitute character/mannequin rendered
 - [ ] Object not presentation-centered
-- [ ] Correct left/right grip geometry when applicable
-- [ ] Correct category attachment geometry
-- [ ] True relative scale preserved
-- [ ] No clipping
-- [ ] No neighboring-cell spill
-
-### Art style
-
+- [ ] Correct left/right grip geometry
 - [ ] Straight-on perspective
 - [ ] Flat colors
 - [ ] Approximately 6–10 colors per design
 - [ ] No gradient unless requested
 - [ ] No texture unless requested
 - [ ] No cast shadow
-- [ ] No glow/feathering into white
 - [ ] 5 px true-black outer stroke
 - [ ] Round caps / joins
 - [ ] Minimal interior linework
-- [ ] No visible guides, borders, labels, or registration marks
-- [ ] Explicit user instructions override defaults only when intentionally stated
+- [ ] No clipping
+- [ ] No neighboring-cell spill
+- [ ] Explicit user instructions override defaults
 
-### Hats additionally
-
-- [ ] Exact MAIN HERO head position used
-- [ ] Canonical head attachment/baseline preserved
-- [ ] Hat is not centered in the cell
-- [ ] Hat/head cosmetic only; no visible hero, hair, face, neck, or body unless specifically part of the requested cosmetic
-
-### Right-arm additionally
-
-- [ ] Exact canonical right-hand grip used
-- [ ] Object only
-- [ ] No character hand
-- [ ] No fake grip cutout
-
-### Left-arm additionally
-
-- [ ] Exact canonical left-hand grip/attachment used
-- [ ] Object only
-- [ ] No character hand
-- [ ] No fake grip cutout
-
-### Armor additionally
+For armor additionally:
 
 - [ ] Canonical body pose
 - [ ] Hands included in exploration
@@ -841,20 +723,6 @@ Before generation, verify:
 - [ ] Hands use 4.38 px stroke
 - [ ] Intentional left-hand missing outline is preserved
 
-### Final immediate pre-generation check
-
-Immediately before invoking image generation:
-
-- [ ] Re-read the applicable row briefs
-- [ ] Re-check Section 0
-- [ ] Re-check applicable Category Rules
-- [ ] Re-check Character Underlay Method
-- [ ] Re-check this Generation Checklist
-- [ ] Confirm no visible character/template/grid has accidentally entered the generation plan
-- [ ] Confirm production positioning takes priority over visual balance
-
-If any box fails, **do not generate until corrected**.
-
 ---
 
 ## 19. Core Principle
@@ -862,5 +730,3 @@ If any box fails, **do not generate until corrected**.
 **The cosmetic is not an icon floating in a 480×640 box. It is a production layer attached to an invisible 480×640 MAIN HERO.**
 
 Position, relative scale, grip, silhouette, stroke consistency, and layering are more important than filling the canvas or creating a visually balanced exploration sheet.
-
-**The AI must prove it has freshly reviewed the production rules before generating; familiarity from an earlier turn is never a substitute for the Mandatory AI Pre-Flight.**

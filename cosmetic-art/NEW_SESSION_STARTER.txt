@@ -1,0 +1,15 @@
+I'm creating new cosmetic artwork for Don't Die.
+
+Use this GitHub repository as the persistent source of truth:
+https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
+
+Before generating anything:
+1. Read DONT_DIE_COSMETIC_ART_SPEC.md.
+2. Visually inspect reference-sheets/MASTER_CHARACTER_REFERENCE.png.
+3. Visually inspect the reference sheet for the category I give you.
+4. If the category is Hats, Right Arm, Left Arm, or Accessories, also inspect that category's *_PLACEMENT_REFERENCE.png.
+5. Use individual PNGs in reference-pack/png/ if you need a closer look.
+
+IMPORTANT: The SVGs are the canonical vector originals, but direct SVG visual inspection is NOT required. If your web reader cannot render image/svg+xml, use the corresponding PNG references and continue. Do not stop merely because SVG rendering is unsupported.
+
+Do not generate yet. Confirm that you successfully reviewed the MD and the required PNG visual references. Then I will give you the category and up to four row descriptions.
