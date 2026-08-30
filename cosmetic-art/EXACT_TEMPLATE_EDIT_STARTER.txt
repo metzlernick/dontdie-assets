@@ -1,0 +1,44 @@
+COSMETIC PRODUCTION — EXACT TEMPLATE IMAGE EDIT
+
+Use the CURRENT repository:
+https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
+
+Retrieve:
+- DONT_DIE_COSMETIC_ART_SPEC.md
+- PRODUCTION_WORKFLOW.md
+- reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_FAINT.png
+- the relevant category reference sheet
+- the relevant placement reference sheet if one exists
+
+CRITICAL:
+DO NOT CREATE A NEW SHEET FROM SCRATCH.
+
+Use SPATIAL_TEMPLATE_MAIN_HERO_4X4_FAINT.png as the ACTUAL INPUT IMAGE and EDIT that exact image.
+
+Preserve every existing MAIN HERO registration pixel, pose, proportion, scale, and position.
+
+DO NOT:
+- redraw MAIN HERO
+- regenerate MAIN HERO
+- reinterpret MAIN HERO
+- restyle MAIN HERO
+- alter hair/face/outfit/body
+- resize MAIN HERO
+- reposition MAIN HERO
+- create a replacement character
+
+ADD ONLY the requested cosmetics on top of the unchanged faint template.
+
+Cosmetics may visually cover the character where appropriate, but the character itself must remain unchanged underneath.
+
+Every cosmetic must be added at its FINAL production position and FINAL production size.
+
+Do not center, enlarge, normalize, rebalance, or reposition cosmetics after fitting.
+
+Keep the faint MAIN HERO visible in this output. It will be removed later in a separate non-generative cleanup step.
+
+No grid lines, cell borders, labels, guides, gutters, or registration marks.
+
+Before editing, confirm that you are editing the exact spatial-template PNG rather than creating a new composition.
+
+Then wait for my category and row descriptions.

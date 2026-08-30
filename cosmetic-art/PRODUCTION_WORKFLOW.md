@@ -42,3 +42,17 @@ Testing established:
 - A very faint MAIN HERO retained that positioning behavior while minimizing registration contamination.
 
 Therefore the visible faint registration layer is part of the generation process, while removal is a separate cleanup process.
+
+
+## Stage 1A — Exact input-image requirement
+
+The spatial template must be used as the actual image being edited.
+
+Do not ask the model to recreate a new sheet "based on" the template.
+
+Required instruction:
+- edit `SPATIAL_TEMPLATE_MAIN_HERO_4X4_FAINT.png`
+- preserve existing pixels
+- add only cosmetic artwork
+
+This prevents character drift that was observed when the template was merely supplied as a visual reference.

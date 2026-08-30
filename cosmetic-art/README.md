@@ -44,3 +44,8 @@ Use the faint template as the composition reference, fit the cosmetics to the ch
 ## Validated workflow
 
 See `PRODUCTION_WORKFLOW.md`. The current required method is **faint visible MAIN HERO during generation → separate non-generative template removal → Illustrator**.
+
+
+## v4 image-editing requirement
+
+The faint 4×4 MAIN HERO spatial template is now the **actual image-editing base**. Future sessions should edit that exact PNG and add cosmetics; they should not regenerate a new template from visual reference.

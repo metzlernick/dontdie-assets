@@ -236,9 +236,9 @@ Image generators tend to center and enlarge isolated objects inside blank cells.
 
 For every exploration sheet:
 
-1. Use `reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_FAINT.png` as the mandatory spatial composition reference.
+1. Use `reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_FAINT.png` as the **actual image-editing base**. Do not recreate it from scratch.
 2. Treat it as sixteen identical MAIN HERO characters at **exactly 100% canonical scale**, one character per 480×640 cell.
-3. The MAIN HERO registration layer must remain visibly present at approximately **5–8% opacity during the generation pass**.
+3. The existing MAIN HERO registration layer must remain visibly present at approximately **5–8% opacity during the image-editing pass**, with its original pixels/geometry preserved.
 4. Design each cosmetic **directly on top of the appropriate location on that unchanged character** at its FINAL production position and FINAL production size.
 5. Do not move, scale, enlarge, normalize, or recenter the cosmetic after fitting it to the character.
 6. The generation pass should output the full-opacity cosmetics **with the faint MAIN HERO still visible**.
@@ -808,3 +808,72 @@ For armor additionally:
 Position, relative scale, grip, silhouette, stroke consistency, and layering are more important than filling the canvas or creating a visually balanced exploration sheet.
 
 **Validated production method:** generate against the visible 5–8% MAIN HERO registration layer first; remove that registration layer only afterward as a non-generative cleanup step.
+
+
+## 20. Mandatory Image-Editing Base Workflow
+
+Testing established that asking an image generator to merely *reference* the MAIN HERO spatial template can still cause the character itself to be regenerated or reinterpreted.
+
+Therefore, for production positioning, the spatial template must be treated as the **actual image-editing base**, not as a visual suggestion.
+
+### Required method
+
+1. Open/use `reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_FAINT.png` as the actual input image.
+2. Perform an **image edit/addition** on that exact image.
+3. Add cosmetics onto the existing image without recreating the sheet from scratch.
+4. Preserve every existing MAIN HERO registration pixel, position, pose, proportion, and scale.
+5. Do **not** redraw, regenerate, reinterpret, restyle, replace, or alter MAIN HERO.
+6. Cosmetics may visually cover/occlude parts of the faint template where correct, but they must not cause the underlying template to change.
+7. Each cosmetic must be added at its FINAL production position and FINAL production size.
+8. Do not recenter, enlarge, normalize, or rebalance cosmetics after placement.
+9. Keep the faint MAIN HERO registration layer visible in the edited output.
+10. Remove the registration layer only afterward in a separate non-generative cleanup stage.
+
+### Critical distinction
+
+Incorrect:
+- "Create a new 4×4 image inspired by this template."
+- "Use MAIN HERO as a reference."
+- "Reproduce the character faintly and add cosmetics."
+
+Correct:
+- "Edit this exact spatial-template PNG."
+- "Keep the existing pixels unchanged."
+- "Add only the requested cosmetic artwork."
+
+### Character integrity rule
+
+If the character's:
+- face
+- hair
+- outfit
+- pose
+- proportions
+- position
+- scale
+- silhouette
+
+changes between cells or rows, the generation is noncompliant.
+
+The cosmetic may cover the character visually, but the character itself must remain the exact supplied registration image underneath.
+
+### Category interaction
+
+For hats/headwear:
+- hats may cover hair/head areas
+- headphones may overlap ears/hair
+- masks may cover face areas
+
+However, this must occur by **drawing the cosmetic over the unchanged template**, not by regenerating the character to accommodate the cosmetic.
+
+For right-arm/left-arm items:
+- items may overlap the hand/body visually
+- underlying template geometry remains unchanged
+
+For accessories:
+- accessory overlays the specified body region
+- underlying template remains unchanged
+
+For armor:
+- armor is the special category where body/hand appearance is intentionally part of the cosmetic workflow, but the canonical pose and proportions still remain fixed.
+

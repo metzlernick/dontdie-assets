@@ -30,3 +30,13 @@ VALIDATED GENERATION WORKFLOW:
 - DO NOT remove the MAIN HERO during the generation pass.
 - DO NOT center/enlarge cosmetics after fitting.
 - Removal of the faint MAIN HERO happens afterward as a separate non-generative cleanup operation.
+
+
+MANDATORY IMAGE-EDITING BASE RULE:
+- Do NOT create a fresh sheet from scratch.
+- Use reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_FAINT.png as the ACTUAL INPUT IMAGE.
+- Perform an image edit that ADDS cosmetics onto that exact image.
+- Preserve every existing MAIN HERO pixel/pose/proportion/position/scale.
+- Do not redraw, regenerate, reinterpret, restyle, or replace MAIN HERO.
+- Cosmetics may cover the template visually, but must not modify the underlying character.
+- If MAIN HERO changes between cells, the result is noncompliant.
