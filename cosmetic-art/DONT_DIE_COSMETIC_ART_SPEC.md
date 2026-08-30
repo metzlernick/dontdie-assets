@@ -943,3 +943,47 @@ Never produce:
 - any layout where a populated row contains fewer than four distinct cosmetic variations
 
 The required structure is always four columns across and four logical rows down.
+
+
+## 16. v6.2 HAT Coordinate-Anchor Workflow
+
+For HAT generation, do **not** use a visible full MAIN HERO character as the generation registration layer.
+
+Testing showed that a visible character encourages the image model to redraw/reinterpret the character and can also pull the output toward the wrong illustration style.
+
+Use a minimal coordinate-only anchor instead:
+
+- Full-sheet hat anchor: `reference-sheets/HAT_ANCHOR_TEMPLATE_4X4.png`
+- Row-1-only test anchor: `reference-sheets/HAT_ANCHOR_TEMPLATE_ROW1_ONLY.png`
+
+These templates contain only a faint neutral head-attachment arc/tick at the canonical hat location. They contain no face, hair, body, clothing, weapons, or character artwork.
+
+### Hat generation rule
+
+1. Use the appropriate HAT anchor template as the actual composition base.
+2. Treat each faint anchor as the canonical head attachment location.
+3. Build the hat around that anchor at the character-relative size established by approved HAT references.
+4. Do not center the hat within the 480×640 slot.
+5. Do not enlarge the hat to fill white space.
+6. Do not generate any character, face, hair, head, body, clothing, hands, weapons, or other registration artwork.
+7. The only generated full-opacity content is the cosmetic itself.
+8. Blank slots remain completely pure white and contain no anchors in the source template used for that test.
+
+### Style remains higher priority
+
+The coordinate anchor controls **position only**. It must never be interpreted as style reference.
+
+Style comes exclusively from:
+- `STYLE_LOCK_APPROVED_ART.png`
+- `HATS_REFERENCE.png`
+- relevant individual approved HAT PNGs
+
+The output must still use:
+- flat hard-edged fills
+- 5 px true-black outer stroke
+- round joins/caps
+- minimal detail
+- no gradients
+- no soft shading
+- no glossy/painterly modeling
+

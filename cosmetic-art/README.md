@@ -11,3 +11,7 @@ Core production priority:
 4. design details
 
 Use `EXACT_TEMPLATE_EDIT_STARTER.txt` to begin a new session.
+
+
+## v6.2 HAT calibration
+For HAT generation, prefer the coordinate-only HAT anchor templates over a visible MAIN HERO registration character. This prevents character regeneration and separates positioning guidance from style guidance.

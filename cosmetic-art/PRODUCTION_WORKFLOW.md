@@ -24,3 +24,14 @@ Treat the sheet as 16 fixed 480×640 slots.
 Every populated logical row must generate four distinct variations.
 
 Blank rows are fully empty white and contain no registration character.
+
+
+## v6.2 HAT workflow
+
+For HATS, use the coordinate-only HAT anchor template instead of the full-character registration template.
+
+The anchor exists only to communicate canonical head position. Do not generate a character underneath the hat.
+
+Use:
+- `HAT_ANCHOR_TEMPLATE_4X4.png` for full sheets
+- `HAT_ANCHOR_TEMPLATE_ROW1_ONLY.png` for the one-row calibration test

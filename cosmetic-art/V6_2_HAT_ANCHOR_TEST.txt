@@ -1,0 +1,79 @@
+DON'T DIE COSMETIC ART — V6.2 HAT ANCHOR TEST
+
+Repository:
+https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
+
+Retrieve and review the CURRENT:
+- DONT_DIE_COSMETIC_ART_SPEC.md
+- PRODUCTION_WORKFLOW.md
+- reference-sheets/STYLE_LOCK_APPROVED_ART.png
+- reference-sheets/HATS_REFERENCE.png
+- reference-sheets/HAT_ANCHOR_TEMPLATE_ROW1_ONLY.png
+
+Do NOT use or generate MAIN HERO for this test.
+
+Use HAT_ANCHOR_TEMPLATE_ROW1_ONLY.png as the actual composition base.
+
+The faint arc/tick in each of the first four 480×640 slots is ONLY a coordinate anchor for the canonical hat attachment location.
+
+GENERATE NO CHARACTER ARTWORK.
+NO face.
+NO hair.
+NO head.
+NO body.
+NO clothing.
+NO hands.
+NO weapons.
+
+Only the four hats may appear at full opacity.
+
+SLOTS:
+- Slot 1 = Banana Peel variation A
+- Slot 2 = Banana Peel variation B
+- Slot 3 = Banana Peel variation C
+- Slot 4 = Banana Peel variation D
+- Slots 5–16 = completely pure white
+
+DESIGN:
+Banana peel — a half-opened banana peel sitting on top of the head, pointy side up and open side laying on top of the hair. Comedic, mostly yellow with some brown accents.
+
+MANDATORY DON'T DIE STYLE:
+- flat 2D vector-style artwork
+- hard-edged solid color regions
+- 5 px true-black outer stroke at canonical 480×640 scale
+- consistent outer stroke width
+- round caps/joins
+- minimal interior black detail
+- low detail
+- no gradients
+- no soft shading
+- no glossy rendering
+- no painterly highlights
+- no shadows
+- no textures/noise
+
+POSITION:
+- build each hat around the faint canonical head anchor
+- preserve approved HAT-relative scale
+- do not center within the slot
+- do not enlarge to fill white space
+
+LAYOUT:
+- 1920×2560
+- 16 fixed logical 480×640 slots
+- no visible labels
+- no dividers
+- no grid lines
+- no borders
+- no guides
+- no text
+
+Before generation explicitly confirm:
+1. no character will be generated
+2. four banana variations occupy slots 1–4
+3. slots 5–16 are pure white
+4. style is derived from approved Don't Die references, not generic vector art
+5. 5 px true-black outer stroke and hard flat fills
+6. the anchor controls position only
+
+Then generate.
