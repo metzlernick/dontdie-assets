@@ -1,8 +1,307 @@
-# Don't Die Cosmetic Artwork — Master Production Specification
+# DON'T DIE COSMETIC ART — MASTER PRODUCTION SPECIFICATION v6
 
-**Version:** 1.0  
-**Purpose:** Canonical reference for generating new 2D vector-style cosmetic artwork for *Don't Die*.  
-**Primary goal:** Produce consistent, Illustrator-friendly exploration sheets that align to the existing MAIN HERO coordinate system and require minimal cleanup or repositioning.
+This document is the canonical production specification for Don't Die cosmetic exploration artwork.
+
+Repository:
+https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
+
+The repository is the ONLY source of truth. In a new session, retrieve the current files rather than relying on memory or prior conversations.
+
+---
+
+## 1. Production Priorities
+
+Every generated cosmetic must satisfy these requirements in this order:
+
+1. **APPROVED DON'T DIE ART STYLE**
+2. **Correct MAIN HERO-relative position**
+3. **Correct MAIN HERO-relative scale**
+4. **Prompt-specific design details and variation**
+
+A result that is correctly positioned but does not match the approved art style is a FAILED production result.
+
+A visually attractive sheet is not a goal. Production usability is the goal.
+
+---
+
+## 2. Canonical Canvas and Grid
+
+- Exploration sheet: **1920×2560 px**
+- Logical layout: **4 columns × 4 rows**
+- Each logical cell: **480×640 px**
+- No gutters
+- No visible grid
+- No cell borders
+- No labels
+- No guides
+- No registration marks
+- Background: **pure white**
+- Each row corresponds to one user design description.
+- Each populated row contains four moderately different interpretations of that same description.
+- Unused rows remain completely blank pure white.
+
+Each 480×640 cell is the exact canonical MAIN HERO coordinate system. It is NOT an icon canvas.
+
+---
+
+## 3. Mandatory Style Authority
+
+Before generating, visually review:
+
+1. `reference-sheets/STYLE_LOCK_APPROVED_ART.png`
+2. the relevant category reference sheet
+3. individual approved PNG references when useful
+
+Approved artwork is the authority for visual style.
+
+### Required style
+
+- flat 2D vector-style artwork
+- hard-edged solid color fills
+- primary outer stroke: **5 px at canonical 480×640 scale**
+- outer stroke: **true black #000000**
+- outer stroke width must remain consistent regardless of cosmetic size
+- round caps and round joins
+- clean/simple silhouettes
+- minimal interior linework
+- interior lines may be thinner than the 5 px outer stroke
+- low detail density
+- generally 6–10 colors maximum unless explicitly overridden
+- straight-on presentation consistent with approved references
+- isolated cosmetic artwork
+
+### Forbidden by default
+
+- gradients
+- soft shading
+- airbrushed shading
+- painterly rendering
+- glossy/3D modeling
+- soft highlights
+- ambient occlusion
+- cast shadows
+- drop shadows
+- texture/noise
+- sketch lines
+- feathered edges
+- excessive tiny decorative details
+- generic polished “AI vector” rendering
+
+If shading/highlight is needed, represent it as a **separate flat hard-edged color shape**.
+
+### Style rejection test
+
+Immediately before generation ask:
+
+> Would this cosmetic plausibly sit directly beside the approved in-game SVG artwork without looking like it came from another game or art pipeline?
+
+If no, do not generate until the rendering plan is corrected.
+
+---
+
+## 4. Mandatory Spatial Registration
+
+Use:
+
+`reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_NEUTRAL_GRAY.png`
+
+as the spatial registration base.
+
+The MAIN HERO registration figure exists only to establish body-relative coordinates and scale.
+
+### During generation
+
+- MAIN HERO remains faint and neutral.
+- Every character occupies the canonical 480×640 coordinate system.
+- Generate the cosmetic directly at its final attachment location.
+- Generate the cosmetic at its final production size.
+- Large amounts of empty white space are correct.
+
+### Never
+
+- center a cosmetic inside its cell
+- enlarge it to fill available white space
+- normalize sizes between rows
+- make cosmetics similar in bounding-box size for presentation
+- reposition after fitting to MAIN HERO
+- resize after fitting to MAIN HERO
+- optimize individual-cell composition
+
+The registration character is disposable. Correct cosmetic coordinates are what matter.
+
+---
+
+## 5. Registration Character Integrity
+
+When possible, use the neutral-gray spatial template as the actual image-editing base rather than recreating it.
+
+Do not intentionally redesign the registration character.
+
+However, **registration-character pixel fidelity is not a production requirement**. The character will be removed later. Do not sacrifice cosmetic style, position, or scale trying to make the disposable registration character perfect.
+
+The cosmetic itself is the production asset.
+
+---
+
+## 6. Category Rules
+
+### HAT
+
+- Fit directly to the canonical head.
+- Normal hats remain near the head region toward the top of the 480×640 cell.
+- The majority of the cell may remain white.
+- Hat size is determined by how it fits MAIN HERO, not by available canvas space.
+- Hair/head may be visually occluded by the cosmetic.
+- Do not vertically center hats.
+
+### RIGHT ARM
+
+- Align to the canonical right-arm/right-hand grip position shown by approved references.
+- Generate the cosmetic object only.
+- Do not intentionally leave an empty grip gap; the hand/layering workflow is handled separately.
+- Long weapons may extend substantially through the cell while preserving their canonical grip.
+
+### LEFT ARM
+
+- Align to the canonical left-arm/left-hand grip position shown by approved references.
+- Generate the cosmetic object only.
+- Do not intentionally leave an empty grip gap.
+- Preserve approved left-arm orientation and layering behavior.
+
+### ARMOR
+
+Armor uses a two-pass workflow.
+
+**Pass 1:** armor/outfit with the required hands/body treatment at the canonical character pose.
+
+**Pass 2:** hands-only artwork for layering/cutout use.
+
+- Canonical pose and proportions remain fixed.
+- Hand size/stroke must remain consistent with approved armor references.
+- Follow the supplied hand reference geometry, including intentionally absent outline areas required for layering.
+
+### ACCESSORY
+
+- User specifies the intended body location.
+- Align to that location on MAIN HERO.
+- If attachment location is genuinely ambiguous, ask before generating.
+- Scale is determined by the character/body relationship, not by cell size.
+
+---
+
+## 7. Variation Rules
+
+For each user description:
+
+- create four moderately different design interpretations across the row
+- preserve the core requested object/concept
+- vary silhouette, proportion, shape language, secondary details, or flat color arrangement
+- do not vary so aggressively that the four results become different cosmetic concepts
+- do not introduce extra decorative elements merely to make variations feel different
+
+User instructions explicitly overriding this specification take precedence only for the specific rule they override.
+
+If an override is unclear or conflicts with another production requirement, ask before generating.
+
+---
+
+## 8. Mandatory Pre-Generation Compliance Check
+
+Before every generation explicitly verify:
+
+### STYLE
+- [ ] STYLE_LOCK_APPROVED_ART.png reviewed
+- [ ] relevant category references reviewed
+- [ ] 5 px true-black outer stroke planned
+- [ ] flat hard-edged fills only
+- [ ] no gradients/soft shading/glossy modeling
+- [ ] minimal interior detail
+- [ ] complexity matches approved Don't Die art
+
+### POSITION
+- [ ] correct category attachment point identified
+- [ ] cosmetic will be generated directly at that point
+- [ ] cosmetic will not be centered in the cell
+
+### SCALE
+- [ ] size is based on MAIN HERO relationship
+- [ ] cosmetic will not be enlarged to fill white space
+- [ ] size will not be normalized against other rows
+
+### SHEET
+- [ ] 1920×2560
+- [ ] 4×4 logical layout
+- [ ] 480×640 coordinate system per cell
+- [ ] no gutters/grid/borders/labels/guides
+- [ ] unused rows pure white
+
+If any mandatory item cannot be satisfied, stop before generation.
+
+---
+
+## 9. Generation Pass
+
+The generation pass outputs:
+
+- pure white background
+- faint neutral registration characters in populated spatial cells
+- full-opacity cosmetics
+- correct approved art style
+- correct position
+- correct scale
+
+Do NOT ask the image generator to remove MAIN HERO during this same pass.
+
+Testing established that simultaneous character removal can cause the model to recenter/enlarge the cosmetics.
+
+---
+
+## 10. Selection and Cleanup
+
+After selecting preferred variations:
+
+1. Preserve cosmetic artwork exactly.
+2. Remove the faint registration character in a separate cleanup operation.
+3. Cleanup must not redesign, regenerate, move, resize, recolor, or recompose the cosmetic.
+4. Final cleaned asset contains only the cosmetic on pure white.
+
+Use `REGISTRATION_CLEANUP.md` for cleanup guidance.
+
+---
+
+## 11. Reference Hierarchy
+
+For cross-session use:
+
+1. this current MD
+2. `STYLE_LOCK_APPROVED_ART.png`
+3. relevant category reference sheet
+4. relevant placement reference sheet
+5. individual approved PNG references
+6. canonical SVG originals when direct SVG inspection is available
+
+SVG files remain the canonical vector originals.
+
+Direct SVG visual inspection is NOT required when the corresponding approved PNG render has been successfully reviewed.
+
+Do not stop merely because a web reader cannot render `image/svg+xml`.
+
+---
+
+## 12. GitHub Structure
+
+- `DONT_DIE_COSMETIC_ART_SPEC.md` — canonical specification
+- `PRODUCTION_WORKFLOW.md` — concise workflow
+- `REGISTRATION_CLEANUP.md` — cleanup guidance
+- `EXACT_TEMPLATE_EDIT_STARTER.txt` — standard new-session starter
+- `templates/` — canonical vector character/hand geometry
+- `reference-pack/svg/` — vector reference copies
+- `reference-pack/png/` — web-readable raster references
+- `reference-sheets/STYLE_LOCK_APPROVED_ART.png` — mandatory style authority
+- `reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_NEUTRAL_GRAY.png` — preferred spatial base
+- `reference-sheets/*_REFERENCE.png` — category reference sheets
+- `reference-sheets/*_PLACEMENT_REFERENCE.png` — category placement references
+- `approved-art/` — complete approved SVG cosmetic library
 
 ---
 
@@ -580,383 +879,10 @@ Settings are a production starting point, not a prohibition against small adjust
 
 ---
 
-## 15. Canonical Repository Structure
-
-Recommended repository organization:
-
-```text
-dontdie-assets/
-└── cosmetic-art/
-    ├── COSMETIC_ART_SPEC.md
-    │
-    ├── templates/
-    │   ├── MAIN HERO.svg
-    │   └── Character Master Template.svg
-    │
-    ├── reference-pack/
-    │   ├── Bucket Hat.svg
-    │   ├── Arena Helmet.svg
-    │   ├── Wraithwrap.svg
-    │   ├── Gold Sword.svg
-    │   ├── IceSickle.svg
-    │   ├── Volcannon.svg
-    │   ├── Glints Shield.svg
-    │   ├── Potion of Death.svg
-    │   ├── Black Armor.svg
-    │   ├── Toxic Armor.svg
-    │   └── Meme Glass.svg
-    │
-    └── approved-art/
-        ├── hats/
-        ├── right-arm/
-        ├── left-arm/
-        ├── armor/
-        └── accessories/
-```
-
-GitHub is the canonical archive. A new generation session should still be given the master specification plus the minimum reference pack whenever practical.
-
 ---
 
-## 15A. Canonical GitHub Source
+## 14. Final Rule
 
-The persistent canonical source for this cosmetic artwork system is:
+**Do not trade art-style compliance for positioning, and do not trade positioning for attractive composition.**
 
-`https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art`
-
-Repository roles:
-
-- `DONT_DIE_COSMETIC_ART_SPEC.md` — canonical production specification
-- `templates/` — canonical vector character and hand geometry
-- `reference-pack/svg/` — canonical vector copies of the minimum reference pack
-- `reference-pack/png/` — exact 480×640 white-background raster renders for web/session inspection
-- `reference-sheets/` — category contact sheets, placement sheets, mandatory 4×4 spatial templates, and the approved-art style-lock sheet
-- `approved-art/` — complete approved in-game SVG cosmetic library
-
-### Cross-session visual verification rule
-
-**Do not require direct SVG rendering/inspection in order to begin generation.**
-
-Some ChatGPT/web environments can retrieve SVG files but cannot visually inspect `image/svg+xml`. That limitation must not block the workflow when the corresponding PNG references are accessible.
-
-Use this verification hierarchy:
-
-1. Read this MD.
-2. Visually inspect the appropriate PNG reference sheet(s).
-3. Visually inspect `MASTER_CHARACTER_REFERENCE.png`.
-4. For placement-sensitive categories, inspect the corresponding `*_PLACEMENT_REFERENCE.png`.
-5. Use individual 480×640 PNGs from `reference-pack/png/` when a closer look is needed.
-6. Treat the SVG files as the canonical vector originals, but **direct visual SVG inspection is optional** if the corresponding approved PNG render has been reviewed.
-
-A session may truthfully proceed when the required MD and PNG visual references have been successfully reviewed, even if its web reader cannot render SVG.
-
-### Direct raw PNG locations
-
-These raw GitHub URLs are intended for cross-session visual access:
-
-- Master character: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/MASTER_CHARACTER_REFERENCE.png`
-- 4×4 spatial template: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4.png`
-- 4×4 faint spatial template: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_FAINT.png`
-- 4×4 neutral-gray spatial template: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_NEUTRAL_GRAY.png`
-- Approved-art style lock: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/STYLE_LOCK_APPROVED_ART.png`
-- Hats: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/HATS_REFERENCE.png`
-- Hat placement: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/HATS_PLACEMENT_REFERENCE.png`
-- Right arm: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/RIGHT_ARM_REFERENCE.png`
-- Right-arm placement: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/RIGHT_ARM_PLACEMENT_REFERENCE.png`
-- Left arm: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/LEFT_ARM_REFERENCE.png`
-- Left-arm placement: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/LEFT_ARM_PLACEMENT_REFERENCE.png`
-- Armor: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/ARMOR_REFERENCE.png`
-- Accessories: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/ACCESSORIES_REFERENCE.png`
-- Accessory placement: `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/cosmetic-art/reference-sheets/ACCESSORIES_PLACEMENT_REFERENCE.png`
-
-If GitHub access itself fails, ask the user to provide the current MD and relevant reference sheet(s). Do not demand re-upload of the complete SVG library unless exact vector inspection is specifically required.
-
----
-
-## 16. Minimum Reference Pack for New Sessions
-
-Always provide:
-
-### Geometry
-1. `MAIN HERO.svg`
-2. `Character Master Template.svg`
-
-### Hats
-3. `Bucket Hat.svg`
-4. `Arena Helmet.svg`
-5. `Wraithwrap.svg`
-
-### Right arm
-6. `Gold Sword.svg`
-7. `IceSickle.svg`
-8. `Volcannon.svg`
-
-### Left arm
-9. `Glints Shield.svg`
-10. `Potion of Death.svg`
-
-### Armor
-11. `Black Armor.svg`
-12. `Toxic Armor.svg`
-
-### Accessories
-13. `Meme Glass.svg` — especially when creating accessories
-
-For a new asset that closely resembles an existing production cosmetic, also provide that specific approved SVG.
-
-The complete approved-art library should remain in GitHub even when only the smaller pack is uploaded to an image-generation session.
-
----
-
-## 17. Starting a New ChatGPT Session
-
-In a new session, first provide the GitHub `cosmetic-art` URL. The session should read the MD and inspect the PNG reference sheets directly from GitHub.
-
-Manual re-upload is a fallback, not the normal workflow.
-
-If GitHub visual access fails, provide only:
-
-1. `DONT_DIE_COSMETIC_ART_SPEC.md`
-2. `MASTER_CHARACTER_REFERENCE.png`
-3. The relevant category reference sheet
-4. The relevant placement reference sheet, when applicable
-5. Any individual PNG especially relevant to the new design
-
-The complete SVG library does **not** need to be re-uploaded merely because the session cannot render SVG.
-
-Then give instructions in this format:
-
-```text
-Use COSMETIC_ART_SPEC.md as the master production rules.
-
-Category: RIGHT ARM
-
-Row 1:
-[Detailed design brief]
-
-Row 2:
-[Detailed design brief]
-
-Row 3:
-[Detailed design brief]
-
-Row 4:
-[Detailed design brief]
-```
-
-If fewer than four rows are needed:
-
-```text
-Row 3: BLANK
-Row 4: BLANK
-```
-
-The blank rows must remain pure white.
-
----
-
-## 18. Generation Checklist
-
-Before generation, verify:
-
-- [ ] Correct category
-- [ ] Maximum four prompts
-- [ ] One prompt per row
-- [ ] Four variations per populated row
-- [ ] Blank rows remain white
-- [ ] 4×4 logical grid
-- [ ] 480×640 logical cell
-- [ ] 1920×2560 logical sheet
-- [ ] No gutters
-- [ ] No visible grid
-- [ ] Pure white background
-- [ ] MAIN HERO positioning used
-- [ ] 4×4 MAIN HERO spatial template used during composition
-- [ ] MAIN HERO held at exactly 100% canonical scale
-- [ ] MAIN HERO registration layer visible at ~5–8% during generation
-- [ ] Cosmetic was not recentered/enlarged after fitting to template
-- [ ] Template removal reserved for separate non-generative cleanup
-- [ ] Large intentional white space preserved
-- [ ] Object not presentation-centered
-- [ ] Correct left/right grip geometry
-- [ ] Straight-on perspective
-- [ ] Approved-art STYLE LOCK sheet reviewed
-- [ ] Rendering uses hard-edged flat fills only
-- [ ] No soft gradients / painterly shading / glossy modeling
-- [ ] 5 px true-black outer stroke visually matches approved references
-- [ ] Flat colors
-- [ ] Approximately 6–10 colors per design
-- [ ] No gradient unless requested
-- [ ] No texture unless requested
-- [ ] No cast shadow
-- [ ] 5 px true-black outer stroke
-- [ ] Round caps / joins
-- [ ] Minimal interior linework
-- [ ] No clipping
-- [ ] No neighboring-cell spill
-- [ ] Explicit user instructions override defaults
-
-For armor additionally:
-
-- [ ] Canonical body pose
-- [ ] Hands included in exploration
-- [ ] Selected armor receives separate hands-only pass
-- [ ] Hands match Character Master Template
-- [ ] Hands use 4.38 px stroke
-- [ ] Intentional left-hand missing outline is preserved
-
----
-
-## 19. Core Principle
-
-**The cosmetic is not an icon floating in a 480×640 box. It is a production layer attached to an invisible 480×640 MAIN HERO.**
-
-Position, relative scale, grip, silhouette, stroke consistency, and layering are more important than filling the canvas or creating a visually balanced exploration sheet.
-
-**Validated production method:** generate against the visible 5–8% MAIN HERO registration layer first; remove that registration layer only afterward as a non-generative cleanup step.
-
-
-## 20. Mandatory Image-Editing Base Workflow
-
-Testing established that asking an image generator to merely *reference* the MAIN HERO spatial template can still cause the character itself to be regenerated or reinterpreted.
-
-Therefore, for production positioning, the spatial template must be treated as the **actual image-editing base**, not as a visual suggestion.
-
-### Required method
-
-1. Open/use `reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_FAINT.png` as the actual input image.
-2. Perform an **image edit/addition** on that exact image.
-3. Add cosmetics onto the existing image without recreating the sheet from scratch.
-4. Preserve every existing MAIN HERO registration pixel, position, pose, proportion, and scale.
-5. Do **not** redraw, regenerate, reinterpret, restyle, replace, or alter MAIN HERO.
-6. Cosmetics may visually cover/occlude parts of the faint template where correct, but they must not cause the underlying template to change.
-7. Each cosmetic must be added at its FINAL production position and FINAL production size.
-8. Do not recenter, enlarge, normalize, or rebalance cosmetics after placement.
-9. Keep the faint MAIN HERO registration layer visible in the edited output.
-10. Remove the registration layer only afterward in a separate non-generative cleanup stage.
-
-### Critical distinction
-
-Incorrect:
-- "Create a new 4×4 image inspired by this template."
-- "Use MAIN HERO as a reference."
-- "Reproduce the character faintly and add cosmetics."
-
-Correct:
-- "Edit this exact spatial-template PNG."
-- "Keep the existing pixels unchanged."
-- "Add only the requested cosmetic artwork."
-
-### Character integrity rule
-
-If the character's:
-- face
-- hair
-- outfit
-- pose
-- proportions
-- position
-- scale
-- silhouette
-
-changes between cells or rows, the generation is noncompliant.
-
-The cosmetic may cover the character visually, but the character itself must remain the exact supplied registration image underneath.
-
-### Category interaction
-
-For hats/headwear:
-- hats may cover hair/head areas
-- headphones may overlap ears/hair
-- masks may cover face areas
-
-However, this must occur by **drawing the cosmetic over the unchanged template**, not by regenerating the character to accommodate the cosmetic.
-
-For right-arm/left-arm items:
-- items may overlap the hand/body visually
-- underlying template geometry remains unchanged
-
-For accessories:
-- accessory overlays the specified body region
-- underlying template remains unchanged
-
-For armor:
-- armor is the special category where body/hand appearance is intentionally part of the cosmetic workflow, but the canonical pose and proportions still remain fixed.
-
-
-
-## 21. Mandatory Style Lock
-
-Spatial registration alone is not sufficient. The cosmetic must also match the existing approved Don't Die production artwork.
-
-The generator must use `reference-sheets/STYLE_LOCK_APPROVED_ART.png` plus the relevant category reference sheet as the visual style authority.
-
-### Hard visual requirements
-
-The target style is:
-
-- flat 2D vector-style artwork
-- **solid flat color fills**
-- **5 px true-black primary outer outline at 480×640 scale**
-- round caps and round joins
-- minimal interior linework
-- clean, simple silhouettes
-- low detail density
-- crisp color boundaries
-- no painterly rendering
-- no airbrushed shading
-- no soft gradients
-- no soft highlights
-- no glossy rendering unless an approved reference explicitly demonstrates a flat-shape equivalent
-- no ambient occlusion
-- no soft drop shadow
-- no textured brushwork
-- no sketch lines
-- no semi-realistic rendering
-- no anime rendering
-- no 3D rendering
-- no soft gray modeling used to create volume
-
-### Flat-color rule
-
-A cosmetic should read as a small number of discrete vector regions.
-
-Shading, when needed, must be represented as a **separate flat shape with a hard edge**, not a gradient or feathered tonal transition.
-
-Default target: approximately 6–10 colors per design.
-
-### Stroke consistency rule
-
-The primary silhouette outline must visually match the approved production assets.
-
-- target outer stroke: 5 px at canonical 480×640 scale
-- true black `#000000`
-- consistent width across the entire cosmetic
-- do not taper the outer stroke
-- do not use soft/dark-gray outlines
-- do not reduce the outer stroke because an object is small
-- interior black lines are optional and should be sparse; when used they may be thinner
-
-### Style rejection test
-
-Before generation, compare the intended rendering against `STYLE_LOCK_APPROVED_ART.png`.
-
-Reject the intended rendering if it resembles:
-- polished mobile-game illustration
-- painterly concept art
-- shaded cartoon/anime art
-- 3D icon art
-- glossy clip-art
-- soft vector illustration with gradients
-
-If the cosmetic could not plausibly sit beside the approved source SVG artwork without looking like it came from another game, it is noncompliant.
-
-### Priority
-
-For generation quality, these three constraints are co-equal and mandatory:
-
-1. correct MAIN HERO-relative position
-2. correct MAIN HERO-relative scale
-3. correct approved Don't Die art style
-
-A generation that satisfies positioning but not style is a failed production result.
+The target is an asset that looks like existing Don't Die production art and already exists at the correct character-relative coordinates and scale.

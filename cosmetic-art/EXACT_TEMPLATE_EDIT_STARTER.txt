@@ -1,69 +1,50 @@
-COSMETIC PRODUCTION — EXACT TEMPLATE IMAGE EDIT
+I'm creating new cosmetic artwork for Don't Die.
 
-Use the CURRENT repository:
+The repository below is the ONLY source of truth:
 https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
 
-Retrieve:
+Do not rely on memory or previous conversations.
+
+Before generating, retrieve and review the CURRENT:
 - DONT_DIE_COSMETIC_ART_SPEC.md
 - PRODUCTION_WORKFLOW.md
-- reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_NEUTRAL_GRAY.png
-- the relevant category reference sheet
-- the relevant placement reference sheet if one exists
-
-CRITICAL:
-DO NOT CREATE A NEW SHEET FROM SCRATCH.
-
-Use SPATIAL_TEMPLATE_MAIN_HERO_4X4_FAINT.png as the ACTUAL INPUT IMAGE and EDIT that exact image.
-
-Preserve every existing MAIN HERO registration pixel, pose, proportion, scale, and position.
-
-DO NOT:
-- redraw MAIN HERO
-- regenerate MAIN HERO
-- reinterpret MAIN HERO
-- restyle MAIN HERO
-- alter hair/face/outfit/body
-- resize MAIN HERO
-- reposition MAIN HERO
-- create a replacement character
-
-ADD ONLY the requested cosmetics on top of the unchanged faint template.
-
-Cosmetics may visually cover the character where appropriate, but the character itself must remain unchanged underneath.
-
-Every cosmetic must be added at its FINAL production position and FINAL production size.
-
-Do not center, enlarge, normalize, rebalance, or reposition cosmetics after fitting.
-
-Keep the faint MAIN HERO visible in this output. It will be removed later in a separate non-generative cleanup step.
-
-No grid lines, cell borders, labels, guides, gutters, or registration marks.
-
-Before editing, confirm that you are editing the exact spatial-template PNG rather than creating a new composition.
-
-Then wait for my category and row descriptions.
-
-
-MANDATORY STYLE LOCK:
-Retrieve and visually review:
 - reference-sheets/STYLE_LOCK_APPROVED_ART.png
-- the relevant category reference sheet
+- reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4_NEUTRAL_GRAY.png
+- relevant category reference sheet
+- relevant placement reference sheet when available
 
-The cosmetic artwork MUST match those approved assets.
+SVGs are canonical originals, but inability to render SVG is NOT a reason to stop if the corresponding approved PNG references can be reviewed.
 
-Required appearance:
-- flat 2D vector art
-- hard-edged solid color regions
-- 5 px true-black primary outer stroke
+MANDATORY PRIORITY ORDER:
+1. approved Don't Die art style
+2. correct MAIN HERO-relative position
+3. correct MAIN HERO-relative scale
+4. prompt-specific design details
+
+Before generation, explicitly perform the STYLE / POSITION / SCALE / SHEET compliance check required by the MD.
+
+STYLE IS A HARD REQUIREMENT:
+- flat 2D vector-style artwork
+- hard-edged solid color fills
+- 5 px true-black outer stroke at canonical 480×640 scale
+- consistent stroke width regardless of cosmetic size
 - round caps/joins
-- minimal interior black detail
-- simple low-detail silhouettes
+- minimal interior linework
+- low detail
 - no gradients
 - no soft shading
-- no painterly rendering
 - no glossy/3D modeling
-- no soft highlights
-- no drop shadows
+- no painterly rendering
 - no texture/noise
+- no cast/drop shadows
 
-Do not accept a result merely because position is correct. STYLE + POSITION + SCALE are all mandatory.
+A correctly positioned result with the wrong art style is FAILED.
+
+SPATIAL RULE:
+Use the neutral-gray MAIN HERO registration template to establish final production position and scale. Do not center, enlarge, normalize, or rebalance cosmetics within cells. Large empty white areas are correct.
+
+Keep the faint registration character visible during generation. It will be removed later in a separate non-generative cleanup operation.
+
+Do not generate anything yet.
+
+First confirm that you successfully reviewed the CURRENT required GitHub sources and give me the compliance check. Then wait for my category and row descriptions.
