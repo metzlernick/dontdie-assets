@@ -550,6 +550,25 @@ GitHub is the canonical archive. A new generation session should still be given 
 
 ---
 
+## 15A. Canonical GitHub Source
+
+The persistent canonical source for this cosmetic artwork system is the **dontdie-assets GitHub repository**:
+
+`https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art`
+
+Repository roles:
+
+- `cosmetic-art/DONT_DIE_COSMETIC_ART_SPEC.md` — canonical production specification
+- `cosmetic-art/templates/` — canonical character and hand geometry
+- `cosmetic-art/reference-pack/` — minimum visual reference pack for new sessions
+- `cosmetic-art/approved-art/` — complete approved in-game cosmetic library organized by category
+
+When beginning a new session, use this repository as the source of truth when it is accessible. If repository access is unavailable, upload the current MD, both templates, and the relevant reference SVGs directly to the session.
+
+If the GitHub copy of this specification is newer than a separately uploaded copy, use the GitHub version.
+
+---
+
 ## 16. Minimum Reference Pack for New Sessions
 
 Always provide:
