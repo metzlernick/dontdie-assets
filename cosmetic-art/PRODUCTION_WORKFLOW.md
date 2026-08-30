@@ -10,3 +10,17 @@
 8. Select preferred variation(s).
 9. Remove the registration character separately without regenerating or altering the cosmetic.
 10. Image Trace / clean / recolor in Illustrator as needed.
+
+
+## v6.1 Slot enforcement
+
+Treat the sheet as 16 fixed 480×640 slots.
+
+- Slots 1–4: first brief
+- Slots 5–8: second brief
+- Slots 9–12: third brief
+- Slots 13–16: fourth brief
+
+Every populated logical row must generate four distinct variations.
+
+Blank rows are fully empty white and contain no registration character.

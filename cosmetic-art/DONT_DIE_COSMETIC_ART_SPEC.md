@@ -886,3 +886,60 @@ Settings are a production starting point, not a prohibition against small adjust
 **Do not trade art-style compliance for positioning, and do not trade positioning for attractive composition.**
 
 The target is an asset that looks like existing Don't Die production art and already exists at the correct character-relative coordinates and scale.
+
+
+## 15. v6.1 Fixed 16-Slot Geometry Clarification
+
+The exploration sheet must always be interpreted as **16 fixed slots**, not four presentation panels.
+
+### Slot map
+
+There are exactly 16 logical slots arranged as:
+
+- Slots 1–4 = logical Row 1
+- Slots 5–8 = logical Row 2
+- Slots 9–12 = logical Row 3
+- Slots 13–16 = logical Row 4
+
+Each slot is exactly 480×640 px.
+
+The word "ROW" is a logical grouping instruction only. It must NEVER appear visually in the output.
+
+### For every populated logical row
+
+All four slots in that row must contain four separate moderately different interpretations of the same design brief.
+
+Example:
+
+- Row 1 Banana Peel
+  - Slot 1 = Banana Peel variation A
+  - Slot 2 = Banana Peel variation B
+  - Slot 3 = Banana Peel variation C
+  - Slot 4 = Banana Peel variation D
+
+### Blank behavior
+
+If a logical row is BLANK:
+
+- every slot in that row must be completely pure white
+- do not show MAIN HERO
+- do not show a registration character
+- do not show placeholder art
+- do not show labels
+- do not show guides
+- do not show borders
+- do not show anything at all
+
+Blank means visually empty.
+
+### Forbidden layout interpretations
+
+Never produce:
+- a 2×2 quadrant layout
+- four labeled panels
+- visible "ROW 1", "ROW 2", etc.
+- one design per row
+- one design per quadrant
+- any layout where a populated row contains fewer than four distinct cosmetic variations
+
+The required structure is always four columns across and four logical rows down.

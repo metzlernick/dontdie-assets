@@ -48,3 +48,29 @@ Keep the faint registration character visible during generation. It will be remo
 Do not generate anything yet.
 
 First confirm that you successfully reviewed the CURRENT required GitHub sources and give me the compliance check. Then wait for my category and row descriptions.
+
+
+V6.1 FIXED SLOT RULE:
+Interpret the sheet as 16 fixed slots, not four panels.
+
+SLOTS:
+1-4 = logical Row 1
+5-8 = logical Row 2
+9-12 = logical Row 3
+13-16 = logical Row 4
+
+"ROW 1", "ROW 2", etc. are instructions only and MUST NOT appear visually.
+
+For every populated row, generate FOUR distinct variations across that row's four slots.
+
+If a row is BLANK, all four of its slots must be COMPLETELY PURE WHITE:
+- no MAIN HERO
+- no registration character
+- no labels
+- no borders
+- no guides
+- no placeholders
+
+Do not create a 2×2 quadrant composition.
+Do not create one image per row.
+Do not add visible row labels or dividing lines.
