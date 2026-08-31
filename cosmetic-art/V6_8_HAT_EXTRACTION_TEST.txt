@@ -1,0 +1,51 @@
+DON'T DIE COSMETIC ART — V6.8 HAT EXTRACTION TEST
+
+This is NOT a new cosmetic generation.
+
+Use the already-generated successful v6.7 1920×2560 composite as the INPUT IMAGE.
+
+Retrieve:
+- V6_8_HAT_EXTRACTION.md
+- reference-sheets/HAT_EXTRACTION_MASK_4X4.png
+
+TASK:
+Create a cosmetics-only cleanup of the existing composite.
+
+PRESERVE all 16 existing hats EXACTLY:
+- exact X/Y coordinates
+- exact size
+- exact silhouette
+- exact stroke
+- exact colors
+- exact design details
+
+REMOVE:
+- MAIN HERO
+- pedestal/base
+- body
+- face
+- hair
+- clothing
+- weapons
+- all non-cosmetic character art
+
+FINAL BACKGROUND:
+pure white.
+
+MASK:
+Use HAT_EXTRACTION_MASK_4X4.png to constrain the operation.
+
+Outside the white mask regions, output must be pure white.
+Inside the white mask regions, keep only the existing HAT cosmetic pixels and remove the character registration art.
+
+DO NOT regenerate or reinterpret the hats.
+DO NOT center them.
+DO NOT resize them.
+DO NOT redraw them.
+DO NOT improve them.
+DO NOT alter stroke width.
+DO NOT change the 1920×2560 canvas.
+
+Before performing cleanup, confirm this is an isolation/removal operation on the existing image, not a new generation.
+
+Then produce the cleaned cosmetics-only sheet.
