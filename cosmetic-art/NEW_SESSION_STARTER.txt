@@ -1,0 +1,46 @@
+I'm creating new cosmetic artwork for Don't Die.
+
+The repository below is the ONLY source of truth:
+https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
+
+MANDATORY:
+
+1. Freshly retrieve and review the CURRENT:
+- DONT_DIE_COSMETIC_ART_SPEC.md
+- templates/
+- reference-pack/
+- relevant category inside approved-art/
+- applicable category registration/extraction references
+
+2. Do not rely on memory or an earlier reading.
+
+3. Before generation, report:
+- sheet/cell dimensions
+- Stage A MAIN HERO visibility
+- positioning method
+- stroke/style
+- rendering rules
+- visible-guide restrictions
+- category-specific rules
+- references reviewed
+- Stage B isolation plan
+
+4. If required sources cannot be verified, STOP.
+
+WORKFLOW:
+
+STAGE A — REGISTRATION GENERATION
+Generate the 4×4 exploration sheet WITH the full MAIN HERO visibly present in every populated cell. The hero is a disposable spatial registration mannequin. Generate each cosmetic directly at its final production-relative position, scale, orientation, and attachment point.
+
+Do not center or enlarge cosmetics for presentation.
+
+Each supplied description = one row.
+Generate four moderately different interpretations across that row.
+Unused rows = blank white.
+
+After I approve Stage A:
+
+STAGE B — COSMETIC ISOLATION
+Use the approved Stage A sheet as the input and remove the registration hero, leaving only the cosmetics at the same production-relative positions on pure white.
+
+Do not generate anything yet. Complete the pre-flight first, then I will give you the category and row descriptions.
