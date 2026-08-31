@@ -1,0 +1,74 @@
+DON'T DIE COSMETIC ART — V6.6 FULL 16 HAT TEST
+
+Repository:
+https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
+
+Retrieve and follow the CURRENT master specification/workflow plus:
+- V6_6_HAT_MAIN_HERO_REGISTRATION.md
+- reference-sheets/HAT_MAIN_HERO_REGISTRATION_4X4.png
+- reference-sheets/STYLE_LOCK_APPROVED_ART.png
+- reference-sheets/HATS_REFERENCE.png
+
+USE `HAT_MAIN_HERO_REGISTRATION_4X4.png` AS THE EXACT COMPOSITION BASE.
+
+Do not replace, redraw, move, resize, rotate, reinterpret, or restyle the faint MAIN HERO.
+
+GENERATE EACH COSMETIC DIRECTLY ON THE FAINT CHARACTER.
+
+Every cosmetic must already be at its FINAL in-game production position and FINAL in-game production size.
+
+DO NOT center cosmetics in their logical cells.
+DO NOT enlarge them to use empty white space.
+DO NOT normalize cosmetic sizes.
+DO NOT create isolated icon compositions.
+DO NOT ignore or mirror the character's slight rightward-facing head geometry.
+
+POSITIONS 1–4:
+Banana peel — half-opened banana peel sitting directly on top of the hair, pointy side up, open side laying on the hair. Comedic, mostly yellow with brown accents. Four moderately different interpretations.
+
+POSITIONS 5–8:
+Cat Headphones — over-head headphones with plastic cat ears and chunky earcups physically fitted around the faint hero's exact head and ears. Mostly pink/white with optional light blue. Four moderately different interpretations. Follow the hero's slight rightward-facing orientation; do not make a generic symmetrical front-facing headphone icon.
+
+POSITIONS 9–12:
+Chef Hat — standard white chef hat physically fitted to the hero's head. Mostly white with minimal HARD-EDGED flat gray accent shapes. Four moderately different interpretations.
+
+POSITIONS 13–16:
+Top Hat — luxurious black top hat physically fitted to the hero's head, subtle concave crown sides, restrained HARD-EDGED flat gray highlight shapes. Four moderately different interpretations.
+
+STYLE HARD LOCK:
+- match approved Don't Die artwork
+- bold true-black outer stroke visually matching approved 5 px SVG stroke
+- consistent outer stroke width
+- flat 2D vector-style artwork
+- hard-edged solid fills
+- minimal interior linework
+- low detail
+- no gradients
+- no soft gray shading
+- no feathered highlights
+- no glossy or painterly rendering
+- no ambient/cast/drop shadows
+- no texture/noise
+
+FOR THIS TEST ONLY:
+KEEP THE FAINT MAIN HERO VISIBLE UNDER ALL 16 COSMETICS.
+
+Do not add dots, anchors, grid lines, labels, borders, or dividers.
+
+FINAL:
+- 1920×2560
+- exactly 16 cosmetics
+- four concepts × four variations
+- exact faint MAIN HERO remains underneath every cosmetic
+- every cosmetic is fitted directly to that character
+
+Before generation explicitly confirm:
+1. supplied registration template remains unchanged
+2. cosmetics are generated directly on the faint hero
+3. final character-relative size and position are mandatory
+4. hero's rightward-facing geometry is preserved
+5. headphones follow actual head/ear orientation
+6. approved bold stroke and flat style are preserved
+7. no dots/grid/labels will be added
+
+Then generate.
