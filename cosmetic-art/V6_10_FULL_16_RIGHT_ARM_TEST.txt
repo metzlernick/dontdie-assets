@@ -1,0 +1,76 @@
+DON'T DIE COSMETIC ART — V6.10 RIGHT ARM 16-DESIGN REGISTRATION TEST
+
+Repository/source of truth:
+https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
+
+Freshly retrieve and review the CURRENT:
+- DONT_DIE_COSMETIC_ART_SPEC.md
+- templates/MAIN HERO.svg
+- templates/Character Master Template.svg
+- reference-pack/Gold Sword.svg
+- reference-pack/IceSickle.svg
+- reference-pack/Volcannon.svg
+- approved-art/right-arm/
+- V6_10_RIGHT_ARM_CALIBRATION.md
+
+This is STAGE A: VISIBLE MAIN HERO REGISTRATION.
+Do NOT attempt the cosmetics-only final sheet yet.
+
+CANVAS:
+- 1920×2560
+- 4×4 logical 480×640 cells
+- no gutters
+- no visible grid, borders, labels, text, guides, dots, or anchors
+- white background
+
+MANDATORY GEOMETRY:
+Use the FULL canonical MAIN HERO as the spatial registration mannequin in every cell.
+The exact RIGHT-HAND grip is sacred.
+Generate each object directly through/behind that right hand at its FINAL production position, scale, angle, and orientation.
+
+Do NOT center objects in cells.
+Do NOT enlarge objects to fill space.
+Do NOT move the hero/hand to accommodate an object.
+Do NOT mirror the right-arm geometry.
+The hand should visibly overlap the grip during this registration pass.
+
+STYLE:
+Match approved Don't Die production artwork, not generic vector/game art:
+- flat hard-edged fills
+- true-black 5 px primary object outer stroke at 480×640 scale
+- stroke width is absolute across objects
+- round caps/joins
+- minimal 3–4 px interior lines where needed
+- low detail
+- no cast shadows
+- no texture/noise
+- no painterly rendering
+
+ROW 1 — CUTLASS
+A silver pirate-style standard cutlass with a piece of tattered red cloth ribbon hanging from the handle. Four moderately different versions. Keep the cutlass conventional and readable. Silver/grey blade, pirate guard/handle, tattered red cloth.
+
+ROW 2 — FRYING PAN
+A standard black frying pan with a handle long enough that the handle is still clearly visible even when the player's right hand overlays the grip. Add restrained hard-edged grey coloring so it does not read as a plain black circle. Four moderately different versions. Keep it an ordinary frying pan.
+
+ROW 3 — FLAMETHROWER
+An epic grey and black steel flamethrower with red reflective/accent areas and a burst of flames shooting from the top/nozzle. Four moderately different versions. Physical weapon uses normal 5 px black outer stroke. EXPLICIT EXCEPTION: the flames do NOT need the thick black perimeter. Flames should use crisp layered fire shapes rather than soft smoke/painterly rendering.
+
+ROW 4 — ENERGY SWORD
+A Halo-inspired futuristic energy sword with purple, pink, and blue hues. Four moderately different versions. EXPLICIT OVERRIDE: gradient color and localized luminous glow ARE ALLOWED on the energy blade despite the default prohibition. Keep the physical hilt in Don't Die flat-vector styling with the normal black outline. Interpret rather than exactly copy a specific existing sword design.
+
+BEFORE GENERATING, explicitly confirm:
+1. 1920×2560 / sixteen 480×640 logical cells.
+2. Full MAIN HERO will be visible in all 16 cells for registration.
+3. Exact canonical RIGHT-HAND grip is the anchor and the object—not the hero—must conform to it.
+4. Hand will overlay the grip; this is intentional.
+5. Objects will use final production-relative scale and will not be presentation-centered.
+6. Right-arm orientation will not be mirrored.
+7. Physical objects use the approved absolute 5 px true-black primary outline.
+8. Row 3 flame has the outline exception.
+9. Row 4 energy blade has the gradient/glow exception, and that exception does not propagate to other rows.
+10. No grid/labels/guides/anchors will appear.
+11. Name the exact reference artwork you reviewed.
+
+If any required source cannot be verified, STOP instead of generating.
+
+After the compliance confirmation, generate STAGE A.
