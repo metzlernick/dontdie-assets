@@ -45,3 +45,8 @@ Canonical dot: X=220, Y=190 in each 480×640 slot.
 Typical ordinary-hat envelope: X=105–335, Y=35–205.
 
 For partial sheets, the source template must contain dots only in populated slots.
+
+
+## v6.4 Full HAT sheet
+
+For four populated HAT briefs, use `HAT_DOT_ANCHOR_4X4.png` and map four variations of each brief to positions 1–4, 5–8, 9–12, and 13–16 respectively. Treat the layout as 16 predetermined coordinates on one production canvas, not as a presentation grid.

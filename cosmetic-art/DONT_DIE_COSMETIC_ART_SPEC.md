@@ -1040,3 +1040,15 @@ A blank slot contains:
 - no text
 - pure white only
 
+
+
+## 18. v6.4 Full 16-Cosmetic Production Mapping
+
+For a fully populated HAT sheet, use all 16 predetermined HAT coordinates on one 1920×2560 canvas.
+
+- positions 1–4 = first design brief, four variations
+- positions 5–8 = second design brief, four variations
+- positions 9–12 = third design brief, four variations
+- positions 13–16 = fourth design brief, four variations
+
+Treat the 4×4 structure as a logical coordinate system, not a presentation grid. All 16 positions use the same category-relative attachment coordinate within their respective canonical 480×640 MAIN HERO coordinate spaces.

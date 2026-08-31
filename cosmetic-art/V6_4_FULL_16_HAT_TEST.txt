@@ -1,0 +1,75 @@
+DON'T DIE COSMETIC ART — V6.4 FULL 16-DESIGN HAT TEST
+
+Repository:
+https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
+
+Retrieve and review the CURRENT:
+- DONT_DIE_COSMETIC_ART_SPEC.md
+- PRODUCTION_WORKFLOW.md
+- reference-sheets/STYLE_LOCK_APPROVED_ART.png
+- reference-sheets/HATS_REFERENCE.png
+- reference-sheets/HAT_DOT_ANCHOR_4X4.png
+
+Do not rely on memory or previous sessions.
+
+USE `HAT_DOT_ANCHOR_4X4.png` AS THE COMPOSITION BASE.
+
+This is ONE 1920×2560 pure-white production canvas containing 16 independently positioned HAT cosmetics. Do NOT interpret this as a presentation grid. Do NOT draw a grid, row labels, slot labels, borders, guides, or dividers.
+
+The 16 tiny gray dots are predetermined registration coordinates. Each represents the same canonical hat/head attachment coordinate within an invisible 480×640 MAIN HERO coordinate space.
+
+POSITIONS 1–4 — BANANA PEEL:
+A half-opened banana peel sitting on top of the head, pointy side up and open side laying on top of the hair. Comedic, mostly yellow with some brown accents. Create four moderately different interpretations.
+
+POSITIONS 5–8 — CAT HEADPHONES:
+Over-the-top-of-the-head headphones with plastic cat ears on top, big chunky earphones around the ears. Mostly pinks and whites with optional light-blue accents. Create four moderately different interpretations.
+
+POSITIONS 9–12 — CHEF HAT:
+A standard white chef hat, mostly white with minimal gray accents. Create four moderately different interpretations.
+
+POSITIONS 13–16 — TOP HAT:
+A luxurious high-class black top hat with restrained flat gray highlight shapes so it is not featureless black. Give the vertical crown a subtle concave curve. Create four moderately different interpretations.
+
+POSITION / SCALE:
+- Build every cosmetic around its predetermined HAT registration coordinate.
+- Do not center cosmetics within available white space.
+- Do not enlarge cosmetics to fill their invisible 480×640 region.
+- Do not normalize cosmetic types to identical bounding-box dimensions.
+- Do not move objects for visual balance.
+- Generate no character underneath them.
+- Headphones may naturally extend farther downward because their earcups surround the ears.
+
+GENERATE COSMETICS ONLY. No character, head, face, hair, body, clothing, hands, weapons, presentation graphics, labels, or guides.
+
+STYLE — HARD REQUIREMENT:
+- match approved Don't Die cosmetic artwork
+- flat 2D vector-style artwork
+- hard-edged solid color fills
+- true-black outer stroke
+- approximately 5 px outer stroke at canonical 480×640 scale
+- consistent outer stroke width regardless of cosmetic size
+- rounded joins/caps
+- minimal interior black linework
+- low detail density
+- simple readable silhouettes
+- generally 6–10 colors maximum
+- NO gradients, soft shading, airbrushing, glossy 3D rendering, painterly rendering, feathered highlights, ambient occlusion, cast/drop shadows, texture/noise, or excessive tiny decoration
+- any highlight/shadow-like region must be a separate HARD-EDGED FLAT COLOR SHAPE
+
+Within each group of four, preserve the same cosmetic concept while moderately varying silhouette, proportions, shape language, small secondary details, and/or flat color arrangement.
+
+REGISTRATION DOTS:
+The tiny gray dots are position metadata only. Do not duplicate them, turn them into design elements, or add other marks. They may remain visible for this calibration test.
+
+FINAL CANVAS:
+- 1920×2560
+- pure white
+- exactly 16 cosmetics
+- positions 1–4 Banana Peels
+- positions 5–8 Cat Headphones
+- positions 9–12 Chef Hats
+- positions 13–16 Top Hats
+- no visible grid/labels/dividers
+- no character artwork
+
+Before generating, explicitly confirm: exactly 16 cosmetics; four variations per design; predetermined attachment coordinates; approved flat style; no character; no grid/labels/dividers. Then generate.
