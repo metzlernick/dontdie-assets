@@ -1,0 +1,68 @@
+DON'T DIE COSMETIC ART — V6.3 SINGLE-DOT HAT TEST
+
+Repository:
+https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
+
+Retrieve the CURRENT:
+- DONT_DIE_COSMETIC_ART_SPEC.md
+- PRODUCTION_WORKFLOW.md
+- reference-sheets/STYLE_LOCK_APPROVED_ART.png
+- reference-sheets/HATS_REFERENCE.png
+- reference-sheets/HAT_DOT_ANCHOR_ROW1_ONLY.png
+
+Use HAT_DOT_ANCHOR_ROW1_ONLY.png as the composition base.
+
+It contains exactly four tiny light-gray dots: one in each populated top-row slot.
+There must be NO registration marks anywhere else.
+
+SLOTS:
+1–4 = four Banana Peel variations
+5–16 = completely pure white
+
+The tiny dot in slots 1–4 is the canonical hat bottom-center/head-contact coordinate:
+X=220, Y=190 within each 480×640 slot.
+
+For an ordinary hat, target approximately:
+X=105–335
+Y=35–205
+
+This bounding region is scale guidance, NOT a visible box. Do not draw it.
+
+GENERATE ONLY THE COSMETICS.
+Do not generate a character, head, hair, face, body, clothing, hands, weapons, arcs, guides, boxes, labels, or other registration artwork.
+
+DESIGN:
+Banana peel — a half-opened banana peel sitting on top of the head, pointy side up and open side laying on top of the hair. Comedic, mostly yellow with some brown accents.
+
+STYLE — HARD REQUIREMENT:
+- match approved Don't Die cosmetic artwork
+- flat hard-edged color fills
+- 5 px true-black outer stroke at canonical scale
+- consistent outer stroke
+- round joins/caps
+- minimal interior detail
+- no gradients
+- no soft shading
+- no glossy modeling
+- no painterly rendering
+- no shadows
+- no texture/noise
+
+LAYOUT:
+- 1920×2560
+- 16 fixed 480×640 slots
+- four variations across slots 1–4
+- slots 5–16 pure white
+- no visible grid, labels, borders, dividers, or text
+
+The four tiny source dots may remain for this calibration test; do not invent or repeat dots elsewhere.
+
+Before generating confirm:
+1. four banana variations only
+2. no character artwork
+3. only four tiny registration dots, all in slots 1–4
+4. slots 5–16 pure white
+5. correct approved flat style
+6. canonical position and typical bounding region understood
+
+Then generate.

@@ -987,3 +987,56 @@ The output must still use:
 - no soft shading
 - no glossy/painterly modeling
 
+
+
+## 17. v6.3 HAT Single-Dot Anchor and Bounding Region
+
+v6.3 supersedes the HAT arc-anchor method from v6.2.
+
+### Anchor
+
+Use a single tiny neutral-gray registration dot only.
+
+- canonical dot center inside each 480×640 slot: **X=220, Y=190**
+- dot diameter: approximately 4–5 px
+- dot is position metadata only
+- no arc, head outline, character silhouette, or other registration drawing
+
+Templates:
+- `reference-sheets/HAT_DOT_ANCHOR_4X4.png`
+- `reference-sheets/HAT_DOT_ANCHOR_ROW1_ONLY.png`
+
+For partial-sheet tests, use a template containing dots ONLY in populated slots. Blank slots must be pixel-pure white.
+
+### Hat attachment interpretation
+
+The dot represents the canonical **bottom-center / head-contact center** of a normal hat.
+
+Build the hat around and primarily ABOVE this attachment point. The cosmetic may extend below/around the point when the design requires it (for example headphones).
+
+### Typical HAT production region
+
+For an ordinary hat, use the approved HAT references to keep the design approximately within:
+
+- **X = 105–335 px**
+- **Y = 35–205 px**
+
+inside each 480×640 slot.
+
+This is a typical production envelope, not a forced crop box. Prompt-specific geometry may exceed it when appropriate.
+
+The envelope exists to prevent:
+- icon-style enlargement
+- arbitrary centering
+- inconsistent scale between generations
+
+### Critical blank-slot rule
+
+A blank slot contains:
+- no dot
+- no arc
+- no registration artwork
+- no cosmetic
+- no text
+- pure white only
+

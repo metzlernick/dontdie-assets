@@ -35,3 +35,13 @@ The anchor exists only to communicate canonical head position. Do not generate a
 Use:
 - `HAT_ANCHOR_TEMPLATE_4X4.png` for full sheets
 - `HAT_ANCHOR_TEMPLATE_ROW1_ONLY.png` for the one-row calibration test
+
+
+## v6.3 HAT production
+
+Use the single-dot HAT anchor, not the old arc anchor.
+
+Canonical dot: X=220, Y=190 in each 480×640 slot.
+Typical ordinary-hat envelope: X=105–335, Y=35–205.
+
+For partial sheets, the source template must contain dots only in populated slots.
