@@ -1,0 +1,82 @@
+DON'T DIE COSMETIC ART — V6.7 EXACT MAIN HERO EDIT TEST
+
+Repository:
+https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
+
+Retrieve the CURRENT specification/workflow and:
+- V6_7_EXACT_MAIN_HERO_PRESERVATION.md
+- reference-sheets/HAT_EXACT_MAIN_HERO_4X4.png
+- reference-sheets/STYLE_LOCK_APPROVED_ART.png
+- reference-sheets/HATS_REFERENCE.png
+
+CRITICAL: USE `HAT_EXACT_MAIN_HERO_4X4.png` AS THE LITERAL IMAGE-EDITING BASE.
+
+THIS IS AN IMAGE EDIT, NOT A CHARACTER GENERATION TASK.
+
+The existing MAIN HERO artwork in all 16 positions is immutable source artwork.
+
+DO NOT generate a new character.
+DO NOT redraw the character.
+DO NOT approximate the character.
+DO NOT reinterpret the character.
+DO NOT restyle the character.
+DO NOT change character pixels except where newly added cosmetic pixels naturally cover them.
+
+ADD COSMETIC PIXELS ONLY.
+
+The complete original character must remain visible and pixel-identical everywhere not covered by a cosmetic.
+
+Keep the successful v6.6 cosmetic behavior unchanged:
+- same approximate scale
+- same character-relative positioning
+- cosmetics may sit directly in front of hair
+- current bold black stroke behavior
+- hard-edged solid-color shading is allowed
+- four moderately different variations per concept
+
+POSITIONS 1–4:
+Banana peel — half-opened banana peel sitting directly on top of the hair, pointy side up, open side laying on top of the hair. Comedic, mostly yellow with brown accents.
+
+POSITIONS 5–8:
+Cat Headphones — over-head headphones with plastic cat ears and chunky earcups fitted around the exact MAIN HERO head. Mostly pink/white with optional light blue. Respect the supplied character's head orientation.
+
+POSITIONS 9–12:
+Chef Hat — standard white chef hat fitted directly onto MAIN HERO. Mostly white with solid gray accent/shading shapes allowed.
+
+POSITIONS 13–16:
+Top Hat — luxurious black top hat fitted directly onto MAIN HERO, subtle concave crown sides, solid gray highlight/shading shapes allowed.
+
+COSMETIC STYLE:
+- approved Don't Die cosmetic style
+- bold true-black consistent outer stroke
+- flat 2D vector-style artwork
+- hard-edged solid fills
+- solid-color highlight/shading shapes allowed
+- minimal unnecessary detail
+- no soft/airbrushed shading
+- no painterly rendering
+- no texture/noise
+- no cast/drop shadows
+
+FINAL:
+- preserve exact supplied 1920×2560 base composition
+- exactly 16 cosmetics
+- four concepts × four variations
+- full exact MAIN HERO visible in every position except where cosmetic pixels overlap it
+- no dots
+- no grid
+- no labels
+- no borders/dividers
+
+MANDATORY CHECK BEFORE GENERATING:
+1. Confirm this is an edit of HAT_EXACT_MAIN_HERO_4X4.png, not a new composition.
+2. Confirm MAIN HERO will not be redrawn or regenerated.
+3. Confirm source character artwork remains unchanged outside cosmetic overlap.
+4. Confirm cosmetic scale/position behavior stays as v6.6.
+5. Confirm foreground-over-hair layering is allowed.
+6. Confirm solid hard-edged shading is allowed.
+7. Confirm exactly 16 cosmetics will be added.
+
+If you cannot actually use the supplied PNG as an image-editing base and preserve its existing pixels, STOP. Do not substitute a newly generated character. State that exact source-image editing could not be verified.
+
+Then perform the image edit.
