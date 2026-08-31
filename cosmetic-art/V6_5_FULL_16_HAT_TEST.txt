@@ -1,0 +1,77 @@
+DON'T DIE COSMETIC ART — V6.5 FULL 16 HAT CALIBRATION TEST
+
+Repository:
+https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
+
+Retrieve the CURRENT master specification/workflow plus:
+- reference-sheets/STYLE_LOCK_APPROVED_ART.png
+- reference-sheets/HATS_REFERENCE.png
+- reference-sheets/HAT_HEAD_ORIENTATION_REFERENCE.png
+- reference-sheets/HAT_DIRECTIONAL_CALIBRATION_REFERENCE.png
+- reference-sheets/HAT_DIRECTIONAL_ANCHOR_4X4.png
+- V6_5_HAT_CALIBRATION.md
+
+Use HAT_DIRECTIONAL_ANCHOR_4X4.png as the composition base.
+
+DO NOT CREATE A CHARACTER.
+
+The three tiny points in each logical 480×640 region define:
+- crown/contact center
+- near-ear direction
+- far-ear direction
+
+They exist only to force correct position, size, and the MAIN HERO's slight rightward-facing orientation.
+
+HARD REQUIREMENTS:
+- hats must be SMALLER than the previous v6.4 test
+- do not center them as icons
+- fit them to the canonical head coordinates
+- respect the hero's slight rightward-facing orientation
+- headphones must wrap around the head in that same direction and must not be mirrored
+- outer outline must visually match the approved bold 5 px SVG stroke
+- true-black outline
+- flat hard-edged fills
+- no gradients
+- no soft shading
+- no glossy/painterly rendering
+- low detail
+- minimal interior lines
+
+Typical ordinary-HAT envelope:
+X=125–310
+Y=60–200
+Headphones may extend beyond this envelope to meet the ear-direction anchors.
+
+POSITIONS 1–4:
+Banana peel — half-opened peel sitting on top of the head, pointy side up, open side laying on top of hair. Comedic, mostly yellow with brown accents. Four variations.
+
+POSITIONS 5–8:
+Cat Headphones — over-head band with plastic cat ears, chunky earcups aligned to the hero's head orientation. Mostly pink/white with optional light blue. Four variations.
+
+POSITIONS 9–12:
+Chef Hat — standard white chef hat, mostly white with minimal flat gray accents. Four variations.
+
+POSITIONS 13–16:
+Top Hat — luxurious black top hat with subtle concave crown sides and restrained hard-edged gray highlight shapes. Four variations.
+
+FINAL CANVAS:
+- 1920×2560
+- exactly 16 cosmetics
+- no character
+- no grid
+- no labels
+- no borders
+- no guides
+- pure white background
+- tiny registration points may remain for this calibration test
+
+Before generating, explicitly confirm:
+1. 16 cosmetics, four variations per brief
+2. hats are smaller than v6.4 and fitted to MAIN HERO scale
+3. hero orientation is slight rightward-facing and will be respected
+4. headphones will not be mirrored
+5. bold visual stroke matches approved 5 px SVG appearance
+6. flat hard-edged Don't Die style
+7. no character or presentation grid
+
+Then generate.
