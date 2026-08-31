@@ -3,25 +3,13 @@ I'm creating new cosmetic artwork for Don't Die.
 Repository/source of truth:
 https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
 
-Before EVERY generation, freshly retrieve and review:
-- DONT_DIE_COSMETIC_ART_SPEC.md
-- templates/
-- reference-pack/
-- relevant approved-art category/
-- applicable registration/extraction references
+Before generation:
+1. Freshly retrieve the current `DONT_DIE_COSMETIC_ART_SPEC.md`.
+2. Review the relevant category references and approved art.
+3. Use the attached `MAIN_HERO_REGISTRATION_4X4.png` as the Stage A starting image.
+4. Edit the existing 1920×2560 registration sheet; do not construct a new hero grid.
+5. Generate only the requested cosmetics at final production-relative position, scale, angle, and attachment point.
+6. After Stage A approval, Stage B removes the character and reconstructs only small hidden cosmetic regions.
 
-Do not rely on memory or previous sessions.
-
-UNIVERSAL WORKFLOW:
-
-STAGE A — REGISTRATION
-Use the exact supplied MAIN HERO registration image as the literal image-editing base.
-Do not redraw, regenerate, reinterpret, restyle, resize, move, mirror, crop, or replace MAIN HERO.
-Only ADD the requested cosmetic artwork at its final production position, scale, orientation, and attachment/grip point.
-
-If you cannot actually preserve the supplied MAIN HERO image as an edit-base, STOP instead of inventing a substitute character.
-
-STAGE B — ISOLATION
-After I approve Stage A, remove MAIN HERO and leave only the cosmetics on pure white at the same registered production-relative coordinates.
-
-Before generating anything, give me the mandatory pre-flight/compliance report from the current master spec and wait for my category + row briefs.
+Do not generate anything yet.
+Give the brief pre-flight check from the current master spec, then wait for my category + row briefs.
