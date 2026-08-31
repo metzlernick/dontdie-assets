@@ -1,0 +1,63 @@
+DON'T DIE COSMETIC ART — V7 RIGHT ARM VALIDATION TEST
+
+Repository/source of truth:
+https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
+
+Use the CURRENT v7 master specification.
+
+Freshly review:
+- DONT_DIE_COSMETIC_ART_SPEC.md
+- templates/MAIN HERO.svg
+- templates/Character Master Template.svg
+- reference-pack/Gold Sword.svg
+- reference-pack/IceSickle.svg
+- reference-pack/Volcannon.svg
+- approved-art/right-arm/
+
+THIS IS STAGE A ONLY.
+
+Use the exact MAIN HERO registration image as the literal edit-base in all 16 logical cells.
+MAIN HERO must remain unchanged. Do not generate a substitute character.
+
+RIGHT ARM:
+The exact canonical right-hand grip is sacred.
+Generate each object directly through/behind the existing hand at its final production scale, angle, and position.
+Do not move the hand.
+Do not center the object in the cell.
+Do not enlarge it to fill space.
+The hand may cover the grip.
+
+ROW 1:
+A silver pirate-style standard cutlass with a piece of tattered red cloth ribbon hanging from the handle. Four moderately different interpretations.
+
+ROW 2:
+A standard black frying pan with a handle long enough to remain visibly identifiable as a handle even when the player's hand overlays the grip. Use restrained hard-edged gray color shapes so it does not read as a featureless black circle. Four moderately different interpretations.
+
+ROW 3:
+An epic gray/black steel flamethrower with red reflective/accent regions and a burst of flames shooting from the top/nozzle. Four moderately different interpretations.
+Physical weapon uses normal 5 px black outer stroke.
+EXCEPTION: flames do not require the thick black perimeter.
+
+ROW 4:
+A Halo-inspired futuristic energy sword with purple, pink, and blue hues. Four moderately different interpretations.
+EXPLICIT ROW-ONLY OVERRIDE:
+gradient color and localized luminous glow are allowed on the energy blade.
+The hilt remains in Don't Die flat-vector styling with normal black outline.
+Interpret the concept rather than exactly copying a specific existing sword.
+
+Before generation explicitly confirm:
+1. 1920×2560 / 16 logical 480×640 cells.
+2. Exact MAIN HERO is used as a protected edit-base, not regenerated.
+3. Exact right-hand grip is sacred.
+4. Objects conform to the hand, not vice versa.
+5. Hand overlap over the grip is intentional.
+6. Final production-relative scale/angle/position is used.
+7. Normal 5 px absolute black stroke applies to physical objects.
+8. Row 3 flame outline exception applies only to flame.
+9. Row 4 gradient/glow override applies only to the energy blade.
+10. No grid/labels/guides/anchors.
+11. List the exact references reviewed.
+
+If exact MAIN HERO preservation cannot be verified, STOP.
+
+Then generate Stage A.

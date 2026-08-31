@@ -1,46 +1,27 @@
 I'm creating new cosmetic artwork for Don't Die.
 
-The repository below is the ONLY source of truth:
+Repository/source of truth:
 https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
 
-MANDATORY:
-
-1. Freshly retrieve and review the CURRENT:
+Before EVERY generation, freshly retrieve and review:
 - DONT_DIE_COSMETIC_ART_SPEC.md
 - templates/
 - reference-pack/
-- relevant category inside approved-art/
-- applicable category registration/extraction references
+- relevant approved-art category/
+- applicable registration/extraction references
 
-2. Do not rely on memory or an earlier reading.
+Do not rely on memory or previous sessions.
 
-3. Before generation, report:
-- sheet/cell dimensions
-- Stage A MAIN HERO visibility
-- positioning method
-- stroke/style
-- rendering rules
-- visible-guide restrictions
-- category-specific rules
-- references reviewed
-- Stage B isolation plan
+UNIVERSAL WORKFLOW:
 
-4. If required sources cannot be verified, STOP.
+STAGE A — REGISTRATION
+Use the exact supplied MAIN HERO registration image as the literal image-editing base.
+Do not redraw, regenerate, reinterpret, restyle, resize, move, mirror, crop, or replace MAIN HERO.
+Only ADD the requested cosmetic artwork at its final production position, scale, orientation, and attachment/grip point.
 
-WORKFLOW:
+If you cannot actually preserve the supplied MAIN HERO image as an edit-base, STOP instead of inventing a substitute character.
 
-STAGE A — REGISTRATION GENERATION
-Generate the 4×4 exploration sheet WITH the full MAIN HERO visibly present in every populated cell. The hero is a disposable spatial registration mannequin. Generate each cosmetic directly at its final production-relative position, scale, orientation, and attachment point.
+STAGE B — ISOLATION
+After I approve Stage A, remove MAIN HERO and leave only the cosmetics on pure white at the same registered production-relative coordinates.
 
-Do not center or enlarge cosmetics for presentation.
-
-Each supplied description = one row.
-Generate four moderately different interpretations across that row.
-Unused rows = blank white.
-
-After I approve Stage A:
-
-STAGE B — COSMETIC ISOLATION
-Use the approved Stage A sheet as the input and remove the registration hero, leaving only the cosmetics at the same production-relative positions on pure white.
-
-Do not generate anything yet. Complete the pre-flight first, then I will give you the category and row descriptions.
+Before generating anything, give me the mandatory pre-flight/compliance report from the current master spec and wait for my category + row briefs.

@@ -1,271 +1,357 @@
-# DON'T DIE COSMETIC ART — MASTER PRODUCTION SPEC v6.9
+# DON'T DIE COSMETIC ART — MASTER PRODUCTION SPEC v7.0
 
 Canonical source:
 https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
 
-## 1. Core production architecture
+This document defines the repeatable production workflow for ALL cosmetic categories.
 
-Every cosmetic sheet uses a canonical 4×4 logical layout:
-- Canvas: 1920×2560
-- Cell: 480×640
-- 4 columns × 4 rows
-- No gutters, visible grid, labels, numbers, guides, or registration marks
-- Pure white #FFFFFF final background
-- One user brief per row
+---
+
+## 1. Canonical sheet geometry
+
+Every exploration sheet uses:
+
+- Canvas: 1920×2560 px
+- Logical layout: 4 columns × 4 rows
+- Logical cell: 480×640 px
+- Gutters: none
+- Visible grid: none
+- Labels/numbers/guides: none
+- Final background: pure white #FFFFFF
+- One user brief per logical row
 - Four moderately different interpretations across that row
 - Unused rows remain completely blank white
 
-Every 480×640 cell corresponds to the exact MAIN HERO coordinate system.
+Each 480×640 cell represents the exact canonical MAIN HERO coordinate system.
 
-The cosmetic is NOT an icon centered in a cell. It is a production layer attached to MAIN HERO at its real in-game position and relative scale.
+The cosmetic is NOT an icon centered in a box. It is a production layer attached to the canonical character.
 
-## 2. Two-stage generation architecture — REQUIRED
+---
 
-The validated workflow is now:
+## 2. Universal two-stage workflow — applies to ALL categories
 
 ### STAGE A — REGISTRATION GENERATION
-Generate the cosmetics while the FULL MAIN HERO is visibly present in every cell.
 
-Purpose:
-- force correct scale
-- force correct X/Y placement
-- force correct orientation
-- force correct grip/attachment geometry
-- give the model spatial context
+Stage A exists to solve:
+- final in-game X/Y position
+- final relative scale
+- final orientation
+- grip/attachment geometry
+- body-relative fit
+- layering relationship
 
-The character is a registration mannequin during this stage.
+The FULL MAIN HERO must be visibly present in every populated cell during Stage A.
 
-It is acceptable if the image model redraws/reinterprets the character during Stage A. Exact preservation of hero pixels is NOT required. The hero is temporary and will be removed.
+### Exact MAIN HERO preservation rule
 
-The cosmetic must be designed at its FINAL production scale and FINAL production location during Stage A.
+MAIN HERO is supplied source artwork and must be treated as a protected registration layer.
 
 Do NOT:
-- center cosmetics for presentation
-- enlarge them to fill empty space
-- move them away from their true attachment point
+- redraw MAIN HERO
+- regenerate MAIN HERO
+- reinterpret MAIN HERO
+- restyle MAIN HERO
+- simplify MAIN HERO
+- recolor MAIN HERO
+- alter face/hair/body/clothing/base
+- resize MAIN HERO
+- reposition MAIN HERO
+- rotate MAIN HERO
+- mirror MAIN HERO
+- crop MAIN HERO
+- substitute a similar character
+- invent a new pose
 
-### STAGE B — COSMETIC ISOLATION
-After Stage A is approved spatially, perform a separate image-edit/isolation pass.
+Only ADD the requested cosmetic artwork on top of the supplied MAIN HERO registration image.
+
+If the image-generation system cannot actually use the supplied registration image as an edit/base image and preserve it, it must STOP rather than silently create a substitute character.
+
+### Stage A cosmetic rule
+
+Generate the cosmetic directly at its FINAL:
+- production position
+- production scale
+- angle/orientation
+- attachment/grip point
+
+Do not center, enlarge, normalize, or rebalance the cosmetic for presentation.
+
+It is acceptable and expected for MAIN HERO to visually cover parts of the cosmetic during Stage A where the final production hand/body will later layer over the object.
+
+---
+
+## 3. STAGE B — COSMETIC ISOLATION
+
+After Stage A is approved, perform a separate isolation/edit pass.
 
 Input:
-Stage A sheet containing MAIN HERO + cosmetics.
+- approved Stage A composite containing MAIN HERO + cosmetics
 
 Output:
-same 1920×2560 coordinate system containing ONLY the cosmetics on pure white.
+- same 1920×2560 canvas
+- cosmetics only
+- pure white background
+- no MAIN HERO
+- no pedestal/base
+- no registration artwork
+- no guides, dots, masks, labels, or borders
 
-The isolation pass must preserve:
-- approximate Stage A X/Y position
-- approximate Stage A scale
+Preserve the cosmetic's:
+- X/Y location
+- scale
+- orientation
 - design identity
 - silhouette
 - stroke language
 - colors
 
-Remove:
-- hero
-- hair
-- face
-- body
-- pedestal
-- unrelated clothing
-- unrelated weapons
-- all registration artwork
+The isolation pass is NOT an opportunity to redesign, recenter, resize, or “improve” the cosmetic.
 
-IMPORTANT:
-This is a visual production-isolation workflow. Pixel-identical preservation is not required if the image model necessarily regenerates the isolated cosmetic. The requirement is that the isolated result remains production-equivalent and spatially registered.
+If the image model necessarily regenerates small details during isolation, the output must remain production-equivalent and spatially registered.
 
-## 3. Art style lock
+---
 
-Default production style:
+## 4. Universal art style
+
+Unless explicitly overridden by the current cosmetic brief:
+
 - flat 2D vector-style artwork
-- true-black primary outer stroke
-- primary cosmetic stroke: approximately 5 px at canonical 480×640 scale
-- consistent stroke width across cosmetics regardless of object size
+- true black #000000 primary outer stroke
+- primary cosmetic stroke: 5 px at canonical 480×640 scale
+- stroke width is absolute across cosmetics, not proportional to object size
 - round caps and joins
-- minimal interior linework
-- interior lines may be thinner when necessary
-- approximately 6–10 colors per design
-- hard-edged solid-color highlights/shading allowed
-- no gradients unless explicitly requested
-- no texture/noise unless explicitly requested
+- minimal interior black linework
+- interior lines may be approximately 3–4 px when genuinely needed
+- prefer flat color boundaries over extra black detail
+- generally 6–10 colors maximum
+- hard-edged solid-color highlight/shadow shapes allowed
+- no gradients
+- no soft shading
+- no painterly rendering
+- no texture/noise
 - no cast/drop shadows
-- no feathered glow into background
-- no unnecessary tiny decoration
-- pure white final background
-- straight-on orientation consistent with MAIN HERO and approved references
+- no feathered glow into the white background
+- Illustrator/Image-Trace friendly edges
 
-Approved production art is the visual authority. Do not modernize, painterly-render, or otherwise “improve” it into another style.
+### Explicit override rule
 
-## 4. Category rules
+A user brief may intentionally override a master style rule for that row only.
+
+Examples:
+- gradient energy blade
+- luminous glow
+- special material treatment
+
+The exception applies ONLY to that specific row/design and does not change the global master style.
+
+### Amorphous effect exception
+
+Effects such as:
+- flame
+- smoke
+- vapor
+- clouds
+
+do not require a complete thick black perimeter when the approved art language supports an outline-free effect.
+
+The physical object producing the effect still follows the normal stroke rule unless explicitly overridden.
+
+---
+
+## 5. Category geometry rules
 
 ### HAT
+
 Stage A:
-- Fit to exact MAIN HERO head location.
-- Preserve real head-relative scale.
-- Foreground overlap over hair is allowed and expected.
-- Follow MAIN HERO's facing/orientation.
-- Do not center in cell.
+- Fit to exact canonical head/hair position.
+- Preserve character-relative scale.
+- Follow MAIN HERO orientation.
+- Foreground overlap over hair is allowed.
+- Do not center in the cell.
 
 Stage B:
-- Remove hero and retain only head cosmetic.
-- Use the HAT extraction region/mask when available.
+- Remove MAIN HERO.
+- Retain only head cosmetic.
+- Use category extraction references/masks when available.
+
+---
 
 ### RIGHT ARM
+
 Stage A:
-- Use exact canonical right-hand grip position.
-- Grip position is sacred.
-- Object orientation at hand must follow approved right-arm references.
-- Object may extend substantially away from hand when design requires.
-- Do not scale object to fill cell.
-- Registration hero/hand may be visible during Stage A.
+- Exact canonical RIGHT-HAND grip position is sacred.
+- Object must conform to the hand; never move the hand toward the object.
+- Orientation at the grip follows approved RIGHT ARM references.
+- Generate the object through/behind the hand as needed.
+- The hand may cover the grip region during Stage A.
+- Scale is determined by how the object actually sits on MAIN HERO.
+- Long/large weapons may extend substantially through the cell if correct.
 
 Stage B:
 - Final output is OBJECT ONLY.
-- Remove hero and hand.
-- Do NOT create a fake empty/transparent grip cutout.
-- Preserve the object artwork through the grip region; the production hand will later layer over it.
+- Remove MAIN HERO and the hand.
+- Do NOT create a hand-shaped empty gap.
+- Preserve/reconstruct continuous object artwork through the grip region.
+- The production hand will later layer on top.
 
-Canonical references:
+Canonical minimum references:
 - Gold Sword.svg
 - IceSickle.svg
 - Volcannon.svg
 
+---
+
 ### LEFT ARM
+
 Stage A:
-- Use exact canonical left-hand grip/attachment position.
-- Grip/attachment position is sacred.
-- Preserve distinct left-arm geometry.
+- Exact canonical LEFT-HAND grip/attachment position is sacred.
+- Object must conform to the canonical left-hand geometry.
+- Preserve distinction between left-arm and right-arm orientation.
 - Small objects remain small.
-- Registration hero/hand may be visible during Stage A.
+- The hand may cover the grip/attachment region during Stage A.
 
 Stage B:
 - Final output is OBJECT ONLY.
-- Remove hero and hand.
+- Remove MAIN HERO and hand.
 - Do NOT create an empty grip cutout.
-- Preserve object artwork behind the eventual hand layer.
+- Preserve/reconstruct continuous object artwork behind the eventual hand layer.
 
-Canonical references:
+Canonical minimum references:
 - Glints Shield.svg
 - Potion of Death.svg
 
-### ARMOR / OUTFIT
-Armor remains a two-pass production category.
+---
 
-Stage A exploration:
-- Use exact MAIN HERO pose/body silhouette.
-- Preserve body proportions.
-- Outfit follows canonical body.
+### ARMOR / OUTFIT
+
+Armor uses the universal Stage A/Stage B workflow plus a separate hands production pass.
+
+Stage A:
+- Use exact MAIN HERO pose and body proportions.
+- Outfit conforms to canonical body silhouette.
 - Include hands in exploration.
 - Hands remain canonical size/position.
-- Decorative outfit parts may extend modestly beyond body silhouette.
+- Decorative outfit elements may extend modestly outside the body silhouette.
 
-Stage B isolation:
-- Remove unrelated registration character artwork.
-- Retain the armor/outfit plus the hands required for the exploration asset.
+Stage B:
+- Remove unrelated registration artwork.
+- Retain the armor/outfit and required exploration hands.
 
 After a design is selected:
 - Create a separate HANDS-ONLY production layer.
-- Character Master Template.svg is exact hand geometry authority.
-- Hand stroke = 4.38 px.
+- Character Master Template.svg is the exact geometry authority.
+- Hand stroke: 4.38 px.
 - Round caps/joins.
 - Preserve canonical hand positions.
-- Preserve the intentional missing outline on the specified left-hand finger region. Do not repair it.
+- Preserve the intentional missing outline on the specified left-hand finger region.
+- Do not repair that missing outline.
 
-Canonical references:
+Canonical minimum references:
 - Black Armor.svg
 - Toxic Armor.svg
 
+---
+
 ### ACCESSORY
+
 Stage A:
-- User states intended body location.
-- Infer only when placement is obvious; ask if ambiguous.
-- Fit to MAIN HERO at true relative scale.
-- Do not center accessory in cell.
-- Accessories may naturally leave large amounts of empty space.
+- User specifies intended body location.
+- Infer only if obvious.
+- Ask before generation if placement is ambiguous.
+- Fit to MAIN HERO at true body-relative scale.
+- Do not center accessory in the cell.
+- Large empty white areas are normal.
 
 Stage B:
-- Remove registration hero.
-- Retain only accessory at its registered body-relative location.
+- Remove MAIN HERO.
+- Retain accessory only at its registered body-relative coordinates.
 
-Canonical reference:
+Canonical minimum reference:
 - Meme Glass.svg
-- Also review any approved accessory close to the requested design.
+- plus any approved accessory especially similar to the requested design
 
-## 5. Reference hierarchy
+---
 
-1. User's explicit current cosmetic brief
+## 6. Reference hierarchy
+
+1. User's explicit current brief
 2. Current master specification
 3. MAIN HERO.svg / Character Master Template.svg
-4. Approved in-game category references
+4. Approved category artwork
 5. General artistic judgment
 
-Explicit user overrides take precedence when intentional.
+Approved in-game art defines the visual language. Do not “improve” it into another style.
 
-## 6. Mandatory pre-generation review
+---
 
-Before EVERY new generation request, freshly retrieve:
+## 7. Mandatory fresh pre-flight before EVERY generation
+
+Freshly retrieve and review:
+
 - current DONT_DIE_COSMETIC_ART_SPEC.md
 - templates/
 - reference-pack/
 - relevant approved-art category/
-- especially similar approved cosmetics when applicable
-- applicable category registration/extraction references
+- especially similar approved cosmetics
+- applicable registration/extraction references
 
-Do not rely on a previous reading.
+Do not rely on memory or a previous reading.
 
-Before generating, report:
+Before generating, explicitly report:
+
 - 1920×2560 sheet / 480×640 cells
-- MAIN HERO visible during Stage A registration
-- production-relative positioning, never presentation centering
-- 5 px primary cosmetic stroke
-- flat vector-style / hard-edged fills
-- no visible grid/labels/guides
-- applicable category rules
+- Stage A exact MAIN HERO edit-base requirement
+- final production-relative positioning method
+- 5 px primary stroke
+- flat/hard-edged style rules
+- allowed row-specific overrides
+- no grid/labels/guides
+- category-specific geometry
 - references actually reviewed
 - Stage B isolation requirement
 
-If a required source cannot be verified, stop before generation.
+If required sources cannot be verified, STOP.
 
-## 7. Stage A acceptance criteria
+---
 
-Approve Stage A based primarily on:
-1. correct relative position
-2. correct relative scale
-3. correct orientation
-4. correct attachment/grip
-5. correct art style
-6. useful four-variation exploration
+## 8. Stage A acceptance criteria
 
-Do NOT reject Stage A merely because MAIN HERO itself was regenerated differently. The registration hero is disposable.
+Approve Stage A only if:
 
-## 8. Stage B acceptance criteria
+- correct MAIN HERO source artwork is preserved
+- correct category attachment/grip
+- correct relative scale
+- correct orientation
+- correct position
+- correct style
+- four meaningful variations per populated row
+- no grid/labels/guides
 
-Approve final isolated sheet when:
-- exactly the intended cosmetics remain
+A beautiful cosmetic with the wrong attachment geometry is a failure.
+
+---
+
+## 9. Stage B acceptance criteria
+
+Approve Stage B only if:
+
 - hero/registration artwork is gone
-- background is pure white
-- cosmetics remain at correct production-relative coordinates
-- scale remains correct
-- orientation remains correct
-- stroke/style remains consistent
-- no extraction guides/masks/dots/labels remain
+- intended cosmetics remain
+- pure white background
+- correct production-relative coordinates
+- correct scale/orientation
+- correct stroke/style
+- no extraction marks/guides
+- grip regions reconstructed continuously where required
 
-## 9. Illustrator handoff
+---
 
-Final isolated output is intended for Image Trace and cleanup in Adobe Illustrator.
+## 10. Core rule
 
-Prioritize:
-- clean hard edges
-- true black outlines
-- discrete solid fills
-- minimal micro-detail
-- no soft transparency at edges
-- no background shadows
-- clean white separation around assets
+USE THE EXACT MAIN HERO AS A PROTECTED EDIT-BASE FOR STAGE A.
 
-## 10. Core principle
+GENERATE THE COSMETIC ON THE CHARACTER.
 
-GENERATE WITH THE CHARACTER FOR SPATIAL ACCURACY.
-REMOVE THE CHARACTER AFTERWARD FOR PRODUCTION.
+REMOVE THE CHARACTER ONLY IN STAGE B.
 
-Never sacrifice production position/scale merely to create a balanced-looking sheet.
+Never substitute a newly generated character.
