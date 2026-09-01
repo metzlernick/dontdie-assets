@@ -39,9 +39,9 @@ Angles use image-coordinate convention:
 - 270° = up
 
 ### LEFT_GRIP
-Canonical grip axis: **105°**.
+Canonical grip axis: **45°**.
 
-A held object's local grip segment should cross `(123,382)` along approximately this diagonal unless the approved item type requires a deliberate exception.
+A held object's local grip segment should cross `(123,382)` along approximately this top-left → bottom-right diagonal unless the approved item type requires a deliberate exception.
 
 This means the hidden grip segment should not default to perfectly vertical or horizontal.
 

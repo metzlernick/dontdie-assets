@@ -8,7 +8,7 @@ Before generating:
 5. Review relevant approved-art and reference-pack assets.
 
 For held objects:
-- LEFT ARM = viewer-left lowered fist; canonical anchor `(123,382)`, default grip axis 105°.
+- LEFT ARM = viewer-left lowered fist; canonical anchor `(123,382)`, default grip axis 45° (top-left → bottom-right).
 - RIGHT ARM = viewer-right raised fist; canonical anchor `(360,344)`, default grip axis 75°.
 - Generated finger pixels are not production truth.
 - The cosmetic must contain continuous usable geometry through the grip anchor for later canonical-hand overlay in Illustrator.
