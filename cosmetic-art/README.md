@@ -1,21 +1,37 @@
 # Don't Die Cosmetic Art
 
-The canonical current specification is `DONT_DIE_COSMETIC_ART_SPEC.md` (v6).
+This folder contains the canonical production system for generating and finishing Don't Die cosmetic artwork.
 
-v6 consolidates the previous experimental spatial/style rules into one definitive workflow. Older experimental instructions should not override v6.
+## Current production authority
 
-Core production priority:
-1. approved art style
-2. correct position
-3. correct scale
-4. design details
+Use these files for all new work:
 
-Use `EXACT_TEMPLATE_EDIT_STARTER.txt` to begin a new session.
+1. `DONT_DIE_COSMETIC_ART_SPEC.md` — master visual and category specification
+2. `REPEATABLE_PRODUCTION_WORKFLOW.md` — repeatable Stage A / Stage B / Illustrator Stage C workflow
+3. `PRODUCTION_SESSION_STARTER.txt` — new-session starter
+4. `CANONICAL_REGISTRATION_SYSTEM.md` — canonical anchors and registration metadata
 
+Supporting production assets live in:
 
-## v6.2 HAT calibration
-For HAT generation, prefer the coordinate-only HAT anchor templates over a visible MAIN HERO registration character. This prevents character regeneration and separates positioning guidance from style guidance.
+- `templates/` — canonical MAIN HERO and character geometry
+- `registration/` — current registration references
+- `reference-pack/` — approved source artwork in PNG/SVG form
+- `reference-sheets/` — active category, placement, style, and spatial references
+- `approved-art/` — approved production cosmetics by category
 
+## Production model
 
-## v6.3 HAT calibration
-HAT generation now uses a 4–5 px single-dot attachment anchor plus a numeric typical bounding region. The prior arc anchors are retained only as historical references and are superseded by v6.3.
+AI generation is responsible for design, Don't Die style, approximate body-relative scale and placement, broad orientation, and usable object geometry.
+
+For held LEFT ARM and RIGHT ARM cosmetics, exact final hand registration is completed in Adobe Illustrator. Generated hand/finger geometry is contextual rather than production truth. Stage B isolates the selected cosmetic; Illustrator Stage C performs exact X/Y, final scale/rotation, canonical hand occlusion, and final vector cleanup.
+
+## Calibration archive
+
+`archive-calibration/` preserves superseded prompts, tests, workflows, and registration experiments. These files document how the current system was reached and should not be treated as active production authority.
+
+Important progress is intentionally retained there, including:
+
+- HAT calibration that established visible MAIN HERO registration followed by a separate cosmetic-only extraction/isolation pass.
+- RIGHT ARM calibration that validated the same Stage A → Stage B pattern, continuous grip geometry, body-relative scale, and low-complexity weapon construction.
+
+Do not delete calibration history merely because it is superseded. Move obsolete production instructions into the archive so future sessions do not confuse them with current authority.
