@@ -1,239 +1,927 @@
-# DON'T DIE COSMETIC ART — MASTER PRODUCTION SPEC v7.5
+# Don't Die Cosmetic Artwork — Master Production Specification
+
+**Version:** 1.2  
+**Purpose:** Canonical reference for generating new 2D vector-style cosmetic artwork for *Don't Die*.  
+**Primary goal:** Produce consistent, Illustrator-friendly exploration sheets that align to the existing MAIN HERO coordinate system and require minimal cleanup or repositioning.
+
+---
+
+## 0. Mandatory AI Pre-Flight — MUST OCCUR BEFORE EVERY GENERATION
+
+This section is a **hard production gate**, not a suggestion.
+
+Before generating any cosmetic exploration sheet, the AI must freshly retrieve and review the current canonical production materials. It must **not** rely on memory, prior conversations, prior summaries, or a previous reading of these files.
+
+### Required fresh review
+
+For every new generation request, retrieve and review:
+
+1. The CURRENT `DONT_DIE_COSMETIC_ART_SPEC.md`
+2. `templates/MAIN HERO.svg`
+3. `templates/Character Master Template.svg`
+4. The relevant files in `reference-pack/`
+5. The relevant category inside `approved-art/`
+6. Any approved cosmetic that is especially similar to the requested design
 
 Canonical repository:
-https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
 
-This document defines the repeatable production workflow for ALL cosmetic categories.
+`https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art`
 
-## CANONICAL SHEET GEOMETRY
-- Canvas: 1920×2560
-- Logical layout: 4 columns × 4 rows
-- Cell: 480×640
-- No gutters
-- No visible grid
-- No labels/guides
-- Pure white background
-- One cosmetic brief per row
-- Four moderately different interpretations across that row
+If any required source cannot be accessed or verified, **STOP BEFORE IMAGE GENERATION** and tell the user exactly what could not be accessed.
 
-Each cell uses the exact canonical MAIN HERO coordinate system.
+### Required compliance report
 
-## UNIVERSAL TWO-STAGE WORKFLOW
+Before image generation, explicitly report the following back to the user:
 
-### STAGE A — REGISTRATION
-Use `registration/MAIN_HERO_REGISTRATION_4X4.png` as the starting image whenever possible.
+- **Sheet:** `1920 × 2560` logical canvas, 4 columns × 4 rows
+- **Cell:** `480 × 640`
+- **MAIN HERO:** invisible alignment underlay; not visible in final output except where a category explicitly requires body/hand artwork
+- **Positioning:** cosmetic positioned relative to the invisible canonical MAIN HERO, never presentation-centered
+- **Stroke:** default `5 px` true-black outer stroke at canonical scale, round caps and joins; category exceptions must be stated
+- **Style:** straight-on, flat 2D vector-style art, large readable shapes, minimal detail, Illustrator/Image-Trace friendly
+- **Background:** pure white `#FFFFFF`
+- **Guides:** no visible grid, labels, numbers, separators, registration marks, character ghosts, crosshairs, or bounding boxes
+- **Category rules:** state the applicable category-specific attachment/positioning/layering rules
+- **References reviewed:** identify the relevant templates/reference artwork actually reviewed
 
-The 4×4 registration image already contains the character in all 16 canonical cell positions.
+The AI must not simply say "I reviewed the specification." It must demonstrate the review by reporting the applicable rules above.
 
-EDIT THE EXISTING 1920×2560 SHEET.
-Do not ask the image model to construct or duplicate the hero grid.
+### Second compliance gate immediately before generation
 
-Preserve the character's:
-- position
-- scale
-- pose
+After receiving the user's row descriptions and immediately before calling an image-generation tool, verify the intended output against:
+
+1. This entire specification
+2. The canonical coordinate system
+3. The applicable category rules
+4. The Character Underlay Method
+5. The Generation Checklist
+6. The specific approved reference artwork reviewed
+
+If the planned output violates any applicable requirement, correct the plan **before** generation.
+
+### No inferred presentation elements
+
+Do not add anything because it makes the sheet easier to read or more visually balanced.
+
+In particular, unless the category itself explicitly requires it, never add:
+
+- MAIN HERO
+- a substitute character
+- mannequin/body silhouette
+- visible cell borders
+- grid lines
+- labels
+- row names
+- numbers
+- decorative backgrounds
+- shadows beneath the cosmetic
+- framing devices
+
+The exploration sheet is a **production asset sheet**, not a concept-art presentation board.
+
+### Authority of this gate
+
+The AI may not skip this pre-flight because:
+
+- the same specification was reviewed earlier in the conversation
+- the category was used previously
+- the user says "same as before"
+- the requested cosmetic seems simple
+- an earlier generated sheet established a visual pattern
+
+Every generation gets a fresh source check.
+
+---
+
+## 1. Authority and Reference Hierarchy
+
+Use the following order of authority:
+
+1. **The user's explicit cosmetic prompt**
+2. **This master specification**
+3. **MAIN HERO.svg and Character Master Template.svg**
+4. **Approved in-game cosmetic SVG references**
+5. General artistic judgment
+
+If an explicit prompt intentionally conflicts with this document, the prompt overrides the master style. **Before generating, resolve any meaningful ambiguity or conflict with the user.**
+
+All supplied approved cosmetics are already production-approved and in the game. They define the visual language; do not "improve" them into a different style.
+
+---
+
+## 2. Canonical Coordinate System
+
+Every approved source SVG uses:
+
+- **ViewBox:** `0 0 480 640`
+- **Logical character artboard:** `480 × 640`
+- **Orientation:** straight-on
+- **MAIN HERO.svg** defines the canonical character position and proportions.
+
+Every exploration-sheet cell represents one complete invisible MAIN HERO artboard.
+
+### Critical positioning rule
+
+**Never compose the cosmetic for the visual center of its cell. Compose it for the invisible MAIN HERO occupying that cell.**
+
+Examples:
+
+- Glasses sit at the face coordinates even though most of the cell remains empty.
+- A mustache sits at the mouth coordinates.
+- A hat sits at the canonical head location.
+- A right-arm weapon begins at the canonical right-hand grip.
+- A left-arm item begins at the canonical left-hand grip.
+- Armor follows the canonical body silhouette.
+
+Do not enlarge, recenter, or reposition an item merely to make the exploration sheet look more balanced.
+
+---
+
+## 3. Exploration Sheet Format
+
+### Default sheet
+
+- **Canvas:** `1920 × 2560 px`
+- **Grid:** 4 columns × 4 rows
+- **Cell:** exactly `480 × 640 px`
+- **Gutters:** none
+- **Visible grid:** none
+- **Background:** pure white `#FFFFFF`
+- **Separators / labels / numbers:** none
+
+Logical cell coordinates:
+
+| Cell | X Range | Y Range |
+|---|---:|---:|
+| Row 1, Col 1 | 0–480 | 0–640 |
+| Row 1, Col 2 | 480–960 | 0–640 |
+| Row 1, Col 3 | 960–1440 | 0–640 |
+| Row 1, Col 4 | 1440–1920 | 0–640 |
+| Row 2 | same X ranges | 640–1280 |
+| Row 3 | same X ranges | 1280–1920 |
+| Row 4 | same X ranges | 1920–2560 |
+
+Each row is one user-supplied design brief.
+
+### Row behavior
+
+The user may supply up to four different cosmetic briefs in one generation.
+
+Example:
+
+- Row 1: Flaming scythe
+- Row 2: Pirate cutlass
+- Row 3: Whip
+- Row 4: Garden rake
+
+For **each row**, create **four moderately different interpretations of that exact brief**.
+
+Thus:
+
+- 4 prompts × 4 variations = 16 designs maximum.
+- If only 2 prompts are supplied, Rows 3 and 4 remain **completely blank pure white**.
+- Do not fill unused rows with extra concepts.
+
+### Variation strength
+
+Variations should be **moderately different executions**, not tiny recolors and not fundamentally different concepts.
+
+Allowed variation can include:
+
+- silhouette refinements
 - proportions
-- orientation
-- overall appearance
+- decorative shape placement
+- modest color variation
+- grip/guard/blade treatment
+- shape language consistent with the prompt
 
-Minor incidental redraw differences from image editing are acceptable.
-Pixel-identical character preservation is NOT the acceptance criterion.
+Do not change the identity of the requested cosmetic merely to make the four options more different.
 
-Production coordinate truth is defined by `CANONICAL_REGISTRATION_SYSTEM.md`; generated hero hand/finger geometry is contextual only.
+---
 
-The acceptance criterion is cosmetic registration:
-- correct attachment/grip point
-- final production-relative X/Y
-- final scale
-- final angle/orientation
-- correct body-relative fit
+## 4. Output Scaling
 
-Generate only the requested cosmetic additions.
+The logical output is always based on the `1920 × 2560` sheet and `480 × 640` cells.
+
+If the image generator produces a different physical raster resolution:
+
+1. Treat the generated sheet as a proportional representation of `1920 × 2560`.
+2. Scale the entire completed sheet proportionally afterward.
+3. Never independently resize cells or cosmetics.
+4. Preserve the relationship between stroke width, character coordinates, and item size.
+
+---
+
+## 5. Core Art Style
+
+### General
+
+- 2D vector-style artwork
+- Straight-on perspective
+- Large, readable shapes
+- Flat colors
+- Minimal detail
+- Cartoon/game-icon visual language
+- Clean silhouette
+- Isolated artwork on white
+- No cast shadows
+
+### Color
+
+- Default maximum: approximately **6–10 colors per design**
+- Existing Don't Die colors should be reused when appropriate.
+- New colors and neighboring hues are allowed.
+- Current game palette is a reference palette, **not a restriction**.
+- Flat regions must remain easy to select and recolor in Adobe Illustrator.
+- **No gradients unless explicitly requested.**
+- **No texture/noise unless explicitly requested.**
+- Highlights and shadows may exist as separate flat-color shapes but should be sparse.
+
+### Background
+
+Always:
+
+- `#FFFFFF`
+- completely flat
+- no off-white
+- no texture
+- no shadow
+- no glow bleeding into the white
+- no feathering
+
+There must be a crisp boundary between the artwork and the white background for clean Image Trace results.
+
+---
+
+## 6. Stroke System
+
+### Primary cosmetic stroke
+
+Approved production references most commonly use a **5 px primary outer stroke** at the canonical `480 × 640` scale.
+
+Use:
+
+- **Outer stroke:** `5 px`
+- **Color:** true black `#000000`
+- **Line caps:** round
+- **Line joins:** round
+
+### Absolute stroke rule
+
+Stroke width is **absolute across cosmetics**, not proportional to the size of the object.
+
+Example:
+
+- A tiny cigarette may look heavily outlined because its stroke is still 5 px.
+- A giant sickle may appear relatively lightly outlined because it is also 5 px.
+- When placed beside each other, their outer strokes should visually match.
+
+**Never reduce the outer stroke simply because an object is small.**
+
+### Interior lines
+
+- Use sparingly.
+- Avoid unnecessary internal contouring.
+- Interior lines may be thinner than 5 px when genuinely needed.
+- Approximate acceptable secondary range: **3–4 px**, based on approved references.
+- Prefer flat color boundaries over extra black linework.
+- Keep the overall design non-detailed.
+
+### Exceptions to full black outlines
+
+Some soft/non-solid effects do not require a complete black perimeter, including:
+
+- flame
+- smoke
+- clouds
+- vapor
+- similar amorphous effects
+
+Use existing approved art as the authority for how these exceptions are handled.
+
+---
+
+## 7. Bounding and Cropping Rules
+
+- Default: every cosmetic must fit inside its own `480 × 640` cell.
+- Items may approach or touch one cell edge if the design requires it.
+- Do not clip artwork.
+- Avoid a design touching multiple cell boundaries.
+- Never allow artwork to spill into a neighboring cell.
+- If the correct in-game scale genuinely cannot fit, flag the issue before generation rather than silently shrinking the asset unnaturally.
+- The user may explicitly override the normal bounding rule.
+
+---
+
+## 8. Category Rules
+
+Only cosmetics from the **same category** should be generated on one 4×4 sheet.
+
+The user will identify the category before generation.
+
+### 8.1 Hats
+
+Canonical references include helmets, crowns, hoods, hats, masks, halos, and related head cosmetics.
+
+Rules:
+
+- Position relative to the exact MAIN HERO head.
+- Preserve canonical head attachment/baseline.
+- Straight-on.
+- The attachment point is fixed; silhouette above/around the head is flexible.
+- A large hat may extend substantially above or beside the head if it remains inside the cell.
+- Do not center the hat in the 480×640 cell.
+- Follow approved references for when the cosmetic covers the face/head versus sitting above it.
+- Keep the 5 px primary cosmetic stroke.
+- **Generate the hat/head cosmetic only. Do not render MAIN HERO, hair, face, neck, body, clothing, or a substitute character merely to show fit.**
+- Use MAIN HERO only as an invisible positioning underlay.
+
+### 8.2 Right-Arm Items
+
+Examples include swords, sickles, spears, cannons, rods, flamethrowers, maces, and hybrid weapons.
+
+Rules:
+
+- Use the exact canonical **right-hand grip position**.
+- Grip position is sacred.
+- Orientation at the hand should align with approved right-arm references.
+- Everything extending outward from the grip may vary according to the design.
+- Generate the **object only**.
+- Do **not** include the character hand.
+- Do **not** leave a fake transparent/empty grip cutout.
+- The user will create/color/layer the hand separately where needed.
+- Scale is determined by how the object would actually sit on MAIN HERO, not by filling the cell.
+
+### 8.3 Left-Arm Items
+
+Examples include shields, bottles, dice, blades, small handheld items, and unusual props.
+
+Rules:
+
+- Use the exact canonical **left-hand grip/attachment position**.
+- Grip position is sacred.
+- Generate the **object only**.
+- Do not include the hand.
+- Do not create an empty grip area.
+- Preserve the distinction between left-arm and right-arm geometry.
+- Small items should remain small if that is their correct size on the character.
+- Do not enlarge an item just to occupy more of the cell.
+
+### 8.3A Held-Object Registration Responsibility — RIGHT ARM + LEFT ARM
+
+For RIGHT ARM and LEFT ARM cosmetics, **exact final hand registration is completed in Adobe Illustrator, not by image generation.**
+
+The image-generation pass is responsible for:
+- correct category and viewer-side/body region
+- correct approximate body-relative scale
+- correct approximate position
+- correct broad orientation
+- correct silhouette and Don't Die style
+- continuous, usable grip/attachment geometry
+
+Generated hand/finger geometry used during a registration/exploration pass is **contextual and disposable**. Exact generated finger placement is not production truth and is not, by itself, an acceptance criterion.
+
+#### Registration-safe grip geometry
+
+Held cosmetics must contain enough continuous local geometry to tolerate a modest production adjustment in Illustrator:
+- small X/Y translation
+- small rotation
+- modest scale correction
+- canonical hand/finger overlay
 
 Do not:
-- center cosmetics in cells
-- enlarge them for presentation
-- move the character to fit a cosmetic
-- mirror category geometry
-- invent a new attachment point
+- create a hand-shaped hole in the cosmetic
+- create a fake transparent/empty grip cutout
+- place design-critical detail only inside the future hand-occlusion zone
+- excessively lengthen the entire object merely to create registration tolerance
+- enlarge the cosmetic merely because exact generated grip registration is difficult
 
-Natural character occlusion is desirable during Stage A where the final body/hand will overlap the cosmetic.
+For rigid held objects, provide a clean continuous handle/grip segment with modest usable geometry around the approximate grip region.
 
-### STAGE B — ISOLATION
-Input: approved Stage A registration sheet.
+For hanging or flexible objects, separate **local grip geometry** from **gravity geometry**:
+- provide usable attachment geometry near the approximate grip
+- allow the attachment/neck/handle to bend or transition after the grip
+- the main hanging body should obey gravity and hang naturally
+- do not force the entire hanging object to follow the local grip angle
 
-Remove:
-- character
-- hair/face/body/clothing
-- hands/gloves
-- pedestal/base
-- all registration artwork
+#### Stage responsibilities
 
-Keep:
-- exact cosmetic-relative X/Y
-- scale
-- angle/orientation
-- overall silhouette
-- colors
-- design identity
-- stroke language
+**Stage A — Registration / exploration**
+- MAIN HERO may be used visibly as registration context when the category workflow calls for it.
+- Optimize design, style, body-relative scale, approximate placement, broad orientation, and registration-safe geometry.
+- Do not spend repeated generations trying to preserve pixel-perfect hand/finger geometry.
 
-Final background: pure white.
+**Stage B — Isolation**
+- Remove MAIN HERO, generated hands, body, pedestal, and registration context.
+- Preserve the chosen cosmetic's design, approximate scale/orientation, and continuous usable attachment geometry.
+- Reconstruct geometry hidden by a generated hand where practical.
+- Final isolated arm cosmetics remain object-only.
 
-IMPORTANT OCCLUSION RECONSTRUCTION:
-Where the character covered part of the cosmetic in Stage A, reconstruct only the small logically continuous hidden portion.
+**Stage C — Adobe Illustrator production registration**
+- exact final X/Y
+- exact final scale and rotation corrections
+- exact canonical hand/finger overlay
+- exact grip alignment and occlusion
+- final vector cleanup
 
-For held objects:
-- do not leave hand-shaped gaps
-- do not shorten grips
-- do not reposition the object
-- complete the handle/grip continuously
-- production hands will later layer on top
+**Stage C is the authority for exact held-object registration.**
 
-Stage B is cleanup/isolation, not redesign.
+Stage A passes when the cosmetic can be finalized with a **modest Illustrator registration adjustment**. It should not fail solely because generated fingers differ from the canonical production hand or because the generated grip is a few pixels off.
 
-## UNIVERSAL ART STYLE
-Unless explicitly overridden by the current brief:
-- flat 2D vector/cartoon art
-- approximately 5 px true-black primary outer stroke at canonical scale
-- absolute stroke width, not proportional to object size
-- round caps/joins
-- hard-edged solid-color regions
-- minimal interior black linework
-- low detail
-- no texture/noise
-- no painterly rendering
-- no cast shadows
-- no gradients
-- no glow
+### 8.4 Armor / Outfits
 
-Explicit row-level instructions may override a rule only for that row.
+Armor is tied directly to the canonical MAIN HERO body.
 
-Amorphous effects such as flame/smoke/vapor may omit a complete thick black perimeter when appropriate.
+#### Pass 1 — Armor exploration
 
-## COMPLEX-OBJECT DETAIL LIMIT
-Mechanically complex cosmetics must remain readable at gameplay scale.
+- Use the exact MAIN HERO pose and body silhouette.
+- Preserve body proportions.
+- Do not redesign the pose.
+- Create armor/clothing only where the cosmetic replaces or covers the body.
+- Head, legs, and unrelated body areas remain absent unless the established asset structure requires otherwise.
+- Decorative armor elements may extend modestly outside the base body silhouette if appropriate.
+- Include the hands during the first armor exploration so the complete outfit reads correctly.
+- Hands must remain the canonical size and position.
 
-Prefer:
-- strong silhouette
-- approximately 3–5 major physical forms
-- large readable color blocks
-- minimal secondary details
+#### Pass 2 — Hands-only layer
 
-Avoid:
-- clusters of vents
-- repeated holes
-- excessive bolts
-- tiny warning decals
-- dense exposed mechanisms
-- multiple unnecessary tanks
-- excessive hoses/tubing
-- mechanical greebles
-- micro-panels
+After the armor direction is selected/approved, create the hands as a separate layer/output.
 
-This is especially important for weapons such as flamethrowers, guns, machinery, and sci-fi devices.
+Hand rules:
 
-## CATEGORY RULES
+- Use **Character Master Template.svg** as the exact geometry authority.
+- Preserve hand size and position.
+- Preserve layering conventions.
+- **Hand stroke:** `4.38 px`, not the normal 5 px cosmetic stroke.
+- Round caps and joins.
+- Recolor skin/glove/hand areas as appropriate to the approved outfit.
+- The left hand includes an intentional section of fingers without outline because that region layers directly onto existing artwork beneath it.
+- Do not "repair" that missing outline.
 
-### HAT
-- Fit exact head/hair geometry.
-- Preserve character-relative scale.
-- Follow canonical head orientation.
-- Hair overlap is allowed.
-- Do not center in cell.
-Stage B: remove hero and retain hat at registered coordinates.
+Armor is therefore a **two-pass workflow**:
+1. Armor + hands exploration
+2. Selected design → hands-only production layer
 
-### RIGHT ARM
-- Exact canonical RIGHT-HAND grip is sacred.
-- Object conforms to hand, never hand to object.
-- Generate through/behind hand as needed.
-- Hand overlap over grip is desirable in Stage A.
-- Preserve true relative scale and orientation.
-Stage B:
-- remove character/hand
-- reconstruct continuous grip
-- leave object only
+### 8.5 Accessories
 
-Reference examples:
-- `reference-pack/svg/Gold Sword.svg`
-- `reference-pack/svg/IceSickle.svg`
-- `reference-pack/svg/Volcannon.svg`
-- `approved-art/right-arm/`
+Accessories may occur anywhere on the body.
 
-### LEFT ARM
-- Exact canonical LEFT-HAND grip/attachment point is sacred.
-- Preserve left-arm orientation.
-- Object conforms to existing hand geometry.
-Stage B:
-- remove character/hand
-- reconstruct continuous hidden object region
-- leave object only
+Examples include:
 
-Reference examples:
-- `reference-pack/svg/Glints Shield.svg`
-- `reference-pack/svg/Potion of Death.svg`
-- `approved-art/left-arm/`
+- glasses
+- mustaches
+- eye patches
+- badges
+- face pieces
+- chest pieces
+- other small attachments
 
-### ARMOR / OUTFIT
-- Conform to exact canonical body geometry.
-- Preserve body pose/proportions.
-- Include hands during exploration if required by the current armor workflow.
-- Do not enlarge costume elements simply to fill space.
-Selected production hands may require a separate hands-only pass using Character Master Template geometry.
+Rules:
 
-Reference examples:
-- `reference-pack/svg/Black Armor.svg`
-- `reference-pack/svg/Toxic Armor.svg`
-- `approved-art/armor/`
+- User should state intended body location.
+- Infer obvious placement when safe.
+- Ask before generation if placement is ambiguous.
+- Position according to the invisible MAIN HERO, not the center of the cell.
+- Preserve true relative scale.
+- Accessories may have significant empty white space around them because their body position is the priority.
 
-### ACCESSORY
-- Use user-specified body location.
-- If placement is genuinely ambiguous, ask before generation.
-- Preserve true body-relative scale.
-- Large empty white areas are normal.
-Stage B: remove hero and retain accessory only at registered coordinates.
+---
 
-Reference example:
-- `reference-pack/svg/Meme Glass.svg`
-- `approved-art/accessories/`
+## 9. Character Underlay Method
 
-## REFERENCE REVIEW
-Before generation:
-- retrieve current master spec
-- review templates
-- review relevant approved-art category
-- review especially similar approved cosmetics
-- review relevant SVG/PNG references when available
+For design reasoning, treat MAIN HERO as a temporary invisible alignment template beneath each cell.
 
-Reference retrieval should inform style and geometry.
+This underlay is used to determine:
 
-The mandatory generation substrate for Stage A is:
-`registration/MAIN_HERO_REGISTRATION_4X4.png`
+- head location
+- face location
+- body outline
+- right-hand grip
+- left-hand grip
+- armor coverage
+- accessory placement
+- true relative scale
 
-## STAGE A ACCEPTANCE
-Approve only if:
-- registration geometry is consistent
-- cosmetic attachment/grip is correct
-- relative scale is correct
-- orientation is correct
-- style is correct
-- four meaningful variations per populated row
-- no grid/labels/guides
+### Final output rule
 
-## STAGE B ACCEPTANCE
-Approve only if:
-- hero/registration art is gone
-- cosmetics remain isolated
-- pure white background
-- production-relative coordinates are preserved
-- scale/orientation remain correct
-- hidden grip/attachment regions are reconstructed continuously
-- no redesign
-- no guides/grid/labels
+The actual exploration sheet must contain **zero visible trace of the character template**, except where the requested category itself requires body/hand artwork, such as armor.
 
-## CORE RULE
-START FROM THE PREBUILT 4×4 MAIN HERO REGISTRATION SHEET.
+No:
 
-GENERATE COSMETICS ON THE CHARACTER.
+- faint guide
+- grid
+- ghost silhouette
+- registration marks
+- bounding box
+- crosshair
 
-REMOVE THE CHARACTER ONLY IN STAGE B.
+---
+
+## 10. Prompt Intake Workflow
+
+Before generating:
+
+1. Complete **Section 0: Mandatory AI Pre-Flight** using freshly retrieved canonical sources.
+2. Identify the category supplied by the user.
+3. Confirm that every populated row belongs to that category.
+4. Parse each row as its own independent cosmetic brief.
+5. Check for conflicts with:
+   - canonical position
+   - scale
+   - bounding box
+   - stroke/style rules
+   - accessory placement
+   - special layering
+6. Report the required compliance summary to the user.
+7. If the prompt is materially unclear or intentionally conflicts with the master spec, ask a focused question before generation.
+8. Otherwise, after the user supplies the row briefs, perform the second compliance gate and generate directly.
+
+### Important
+
+Do not ask unnecessary questions when the prompt is already clear.
+
+The user may give extensive direction for each row. Preserve that direction. Do not replace a very specific requested design with unrelated concept exploration.
+
+---
+
+## 11. Four-Variation Logic
+
+For each populated row:
+
+- Create four design variations.
+- Keep requested concept intact.
+- Keep canonical attachment geometry intact.
+- Explore execution rather than changing the object identity.
+- Colors may vary because recoloring in Illustrator is straightforward.
+- Shape variation is generally more valuable than mere color variation.
+- Do not intentionally carry Row 1's design language into Row 2 unless the user says the cosmetics are a coordinated set.
+
+---
+
+## 12. Prohibited Defaults
+
+Unless explicitly requested, do **not** use:
+
+- gradients
+- raster textures
+- noise
+- grain
+- painterly rendering
+- photorealism
+- 3D rendering
+- perspective tilt
+- cast shadows
+- glow outside the asset
+- feathering
+- blur
+- tiny ornamental detail
+- inconsistent outline thickness
+- sharp/mitered outer joins
+- visual cell borders
+- labels
+- numbers
+- presentation-driven centering
+- redesigned character anatomy
+- visible MAIN HERO or substitute character for non-armor categories
+
+---
+
+## 13. Approved SVG Findings
+
+Quantitative inspection of the supplied production library:
+
+- **62 SVG files inspected**
+- **All 62:** `viewBox="0 0 480 640"`
+- Dominant primary production stroke: **5 px**
+- Explicit approved files commonly use **round line caps**
+- Explicit approved files commonly use **round line joins**
+- Character Master Template hand stroke: **4.38 px**
+- Approved files contain some secondary/detail stroke values around 3–5 px and occasional special-case heavier strokes.
+- Existing art uses flat color regions and a broad game palette rather than a tiny restricted master palette.
+
+Therefore:
+
+- `5 px` is the default cosmetic outer-stroke target.
+- `4.38 px` is reserved for canonical armor-hand geometry.
+- Exact approved reference art overrides statistical averages where a special construction is clearly intentional.
+
+---
+
+## 14. Adobe Illustrator — Recommended Image Trace
+
+The generated sheet is raster exploration artwork intended to become editable vector shapes.
+
+### Recommended starting preset
+
+Open **Window → Image Trace** and use:
+
+- **Mode:** Color
+- **Palette:** Limited
+- **Colors:** `10–16`
+- **Paths:** approximately `90%`
+- **Corners:** approximately `70%`
+- **Noise:** `1 px`
+- **Method:** Abutting
+- **Create:** Fills
+- **Strokes:** Off
+- **Snap Curves to Lines:** Off
+- **Ignore White:** On
+
+Then click **Expand**.
+
+### Why Strokes should be OFF
+
+The black outlines should generally be traced as **filled black vector shapes**, rather than asking Illustrator to infer them as actual Illustrator stroke objects.
+
+This better preserves:
+
+- rounded contour geometry
+- apparent stroke width
+- irregular cartoon shapes
+- transitions between outer outlines and interior shapes
+
+It also avoids variable-width or blobbed reconstructed strokes.
+
+### If tracing becomes blobby
+
+Adjust in this order:
+
+1. Keep **Noise at 1 px**.
+2. Reduce **Paths** slightly from 90 toward 85.
+3. Reduce **Corners** if small angular artifacts appear.
+4. Increase the Colors value if two intentionally separate flat fills are being merged.
+5. Do not add blur to the raster before tracing.
+6. Do not use antialiased shadows or glow in the generated source.
+
+After Expand:
+
+- Ungroup as needed.
+- Use **Select → Same → Fill Color** or Magic Wand to select color regions.
+- Recolor flat fills.
+- Remove any accidental tiny shapes introduced by tracing.
+- Verify black silhouette edges remain smooth.
+
+Settings are a production starting point, not a prohibition against small adjustments for an individual sheet.
+
+---
+
+## 15. Canonical Repository Structure
+
+Recommended repository organization:
+
+```text
+dontdie-assets/
+└── cosmetic-art/
+    ├── DONT_DIE_COSMETIC_ART_SPEC.md
+    │
+    ├── templates/
+    │   ├── MAIN HERO.svg
+    │   └── Character Master Template.svg
+    │
+    ├── reference-pack/
+    │   ├── Bucket Hat.svg
+    │   ├── Arena Helmet.svg
+    │   ├── Wraithwrap.svg
+    │   ├── Gold Sword.svg
+    │   ├── IceSickle.svg
+    │   ├── Volcannon.svg
+    │   ├── Glints Shield.svg
+    │   ├── Potion of Death.svg
+    │   ├── Black Armor.svg
+    │   ├── Toxic Armor.svg
+    │   └── Meme Glass.svg
+    │
+    └── approved-art/
+        ├── hats/
+        ├── right-arm/
+        ├── left-arm/
+        ├── armor/
+        └── accessories/
+```
+
+GitHub is the canonical archive. A new generation session should still be given the master specification plus the minimum reference pack whenever practical.
+
+---
+
+## 15A. Canonical GitHub Source
+
+The persistent canonical source for this cosmetic artwork system is the **dontdie-assets GitHub repository**:
+
+`https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art`
+
+Repository roles:
+
+- `cosmetic-art/DONT_DIE_COSMETIC_ART_SPEC.md` — canonical production specification
+- `cosmetic-art/templates/` — canonical character and hand geometry
+- `cosmetic-art/reference-pack/` — minimum visual reference pack for new sessions
+- `cosmetic-art/approved-art/` — complete approved in-game cosmetic library organized by category
+
+When beginning a new session, use this repository as the source of truth when it is accessible. If repository access is unavailable, upload the current MD, both templates, and the relevant reference SVGs directly to the session.
+
+If the GitHub copy of this specification is newer than a separately uploaded copy, use the GitHub version.
+
+**The canonical GitHub source must be freshly checked before each new generation request. Prior retrieval in the same conversation does not satisfy the Mandatory AI Pre-Flight requirement.**
+
+---
+
+## 16. Minimum Reference Pack for New Sessions
+
+Always provide:
+
+### Geometry
+1. `MAIN HERO.svg`
+2. `Character Master Template.svg`
+
+### Hats
+3. `Bucket Hat.svg`
+4. `Arena Helmet.svg`
+5. `Wraithwrap.svg`
+
+### Right arm
+6. `Gold Sword.svg`
+7. `IceSickle.svg`
+8. `Volcannon.svg`
+
+### Left arm
+9. `Glints Shield.svg`
+10. `Potion of Death.svg`
+
+### Armor
+11. `Black Armor.svg`
+12. `Toxic Armor.svg`
+
+### Accessories
+13. `Meme Glass.svg` — especially when creating accessories
+
+For a new asset that closely resembles an existing production cosmetic, also provide that specific approved SVG.
+
+The complete approved-art library should remain in GitHub even when only the smaller pack is uploaded to an image-generation session.
+
+---
+
+## 17. Starting a New ChatGPT Session
+
+The preferred workflow is to point ChatGPT at the canonical GitHub repository and require the Mandatory AI Pre-Flight rather than relying on an old cached/uploaded copy.
+
+Use this starter prompt:
+
+```text
+I'm creating new cosmetic artwork for Don't Die.
+
+Use the Don't Die Cosmetic Artwork Master Production Specification and approved reference artwork here as the ONLY source of truth:
+https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
+
+MANDATORY:
+Before every generation, freshly retrieve and review:
+- DONT_DIE_COSMETIC_ART_SPEC.md
+- templates/
+- reference-pack/
+- the relevant category inside approved-art/
+
+Do not rely on memory, previous conversations, previous generations, or a previous reading of the specification.
+
+Before generating, execute Section 0 — Mandatory AI Pre-Flight and report the required compliance summary to me.
+
+If you cannot access or verify any required source, STOP and tell me what could not be accessed.
+
+I will give you:
+1. The cosmetic category
+2. Up to four separate design descriptions
+
+Each description corresponds to one ROW of the 4×4 sheet.
+Generate four moderately different interpretations of each row's description.
+Any unused rows must remain completely blank white.
+
+Do not generate yet.
+
+First complete the pre-flight review and compliance report. Then I will give you the descriptions.
+```
+
+If files are being uploaded directly instead of using GitHub, provide:
+
+1. `DONT_DIE_COSMETIC_ART_SPEC.md`
+2. `MAIN HERO.svg`
+3. `Character Master Template.svg`
+4. The minimum reference pack
+5. Any existing approved cosmetic especially relevant to the new design
+
+If fewer than four rows are needed:
+
+```text
+Row 3: BLANK
+Row 4: BLANK
+```
+
+The blank rows must remain pure white.
+
+---
+
+## 18. Generation Checklist
+
+### Mandatory source verification
+
+Before generation, verify:
+
+- [ ] Current canonical `DONT_DIE_COSMETIC_ART_SPEC.md` freshly retrieved for this generation
+- [ ] `MAIN HERO.svg` freshly reviewed
+- [ ] `Character Master Template.svg` freshly reviewed
+- [ ] Relevant `reference-pack/` artwork reviewed
+- [ ] Relevant `approved-art/` category reviewed
+- [ ] Especially similar approved cosmetics reviewed when applicable
+- [ ] Required compliance report given to user
+- [ ] No required source was inaccessible or unverified
+
+### Sheet and prompt
+
+- [ ] Correct category
+- [ ] Maximum four prompts
+- [ ] One prompt per row
+- [ ] Four variations per populated row
+- [ ] Blank rows remain white
+- [ ] 4×4 logical grid
+- [ ] 480×640 logical cell
+- [ ] 1920×2560 logical sheet
+- [ ] No gutters
+- [ ] No visible grid
+- [ ] Pure white background
+
+### Geometry and visibility
+
+- [ ] MAIN HERO positioning used
+- [ ] MAIN HERO remains invisible unless category rules explicitly require body/hand artwork
+- [ ] No substitute character/mannequin rendered
+- [ ] Object not presentation-centered
+- [ ] Correct left/right grip geometry when applicable
+- [ ] Correct category attachment geometry
+- [ ] True relative scale preserved
+- [ ] No clipping
+- [ ] No neighboring-cell spill
+
+### Art style
+
+- [ ] Straight-on perspective
+- [ ] Flat colors
+- [ ] Approximately 6–10 colors per design
+- [ ] No gradient unless requested
+- [ ] No texture unless requested
+- [ ] No cast shadow
+- [ ] No glow/feathering into white
+- [ ] 5 px true-black outer stroke
+- [ ] Round caps / joins
+- [ ] Minimal interior linework
+- [ ] No visible guides, borders, labels, or registration marks
+- [ ] Explicit user instructions override defaults only when intentionally stated
+
+### Hats additionally
+
+- [ ] Exact MAIN HERO head position used
+- [ ] Canonical head attachment/baseline preserved
+- [ ] Hat is not centered in the cell
+- [ ] Hat/head cosmetic only; no visible hero, hair, face, neck, or body unless specifically part of the requested cosmetic
+
+### Right-arm additionally
+
+- [ ] Exact canonical right-hand grip used
+- [ ] Object only
+- [ ] No character hand
+- [ ] No fake grip cutout
+
+### Left-arm additionally
+
+- [ ] Exact canonical left-hand grip/attachment used
+- [ ] Object only
+- [ ] No character hand
+- [ ] No fake grip cutout
+
+### Armor additionally
+
+- [ ] Canonical body pose
+- [ ] Hands included in exploration
+- [ ] Selected armor receives separate hands-only pass
+- [ ] Hands match Character Master Template
+- [ ] Hands use 4.38 px stroke
+- [ ] Intentional left-hand missing outline is preserved
+
+### Final immediate pre-generation check
+
+Immediately before invoking image generation:
+
+- [ ] Re-read the applicable row briefs
+- [ ] Re-check Section 0
+- [ ] Re-check applicable Category Rules
+- [ ] Re-check Character Underlay Method
+- [ ] Re-check this Generation Checklist
+- [ ] Confirm no visible character/template/grid has accidentally entered the generation plan
+- [ ] Confirm production positioning takes priority over visual balance
+
+If any box fails, **do not generate until corrected**.
+
+---
+
+## 19. Core Principle
+
+**The cosmetic is not an icon floating in a 480×640 box. It is a production layer attached to an invisible 480×640 MAIN HERO.**
+
+Position, relative scale, grip, silhouette, stroke consistency, and layering are more important than filling the canvas or creating a visually balanced exploration sheet.
+
+**The AI must prove it has freshly reviewed the production rules before generating; familiarity from an earlier turn is never a substitute for the Mandatory AI Pre-Flight.**

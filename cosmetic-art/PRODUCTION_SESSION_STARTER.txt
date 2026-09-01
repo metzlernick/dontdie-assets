@@ -1,0 +1,58 @@
+DON'T DIE COSMETIC ART — REPEATABLE PRODUCTION SESSION STARTER v7.19
+
+SOURCE OF TRUTH:
+https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
+
+Before generation, freshly review:
+- current DONT_DIE_COSMETIC_ART_SPEC.md
+- REPEATABLE_PRODUCTION_WORKFLOW.md
+- templates/MAIN HERO.svg
+- templates/Character Master Template.svg
+- relevant reference-pack files
+- relevant approved-art category
+- especially similar approved cosmetics
+
+IMPORTANT PRODUCTION ARCHITECTURE
+
+Do NOT try to achieve pixel-perfect hand/finger registration during image generation.
+
+AI Stage A owns:
+- design
+- style
+- approximate body-relative scale
+- approximate position
+- broad orientation
+- registration-safe object geometry
+
+AI Stage B owns:
+- cosmetic isolation
+- removal of hero/hand/body/pedestal
+- preservation/reconstruction of continuous usable object geometry
+
+Illustrator Stage C owns:
+- exact X/Y
+- exact final scale/rotation
+- exact canonical hand/finger overlay
+- exact grip registration
+- final cleanup
+
+For held objects, generated hand geometry is contextual/disposable.
+
+The cosmetic must contain enough continuous grip/attachment geometry to tolerate a modest Illustrator move/rotation beneath the canonical hand.
+
+Do NOT create:
+- hand-shaped holes
+- fake transparent grip cutouts
+- overly long handles merely for tolerance
+- oversized objects merely to fill the cell
+
+Hanging objects:
+- provide usable attachment geometry near the hand
+- then allow a bend/transition
+- main body obeys gravity and hangs vertically
+
+Use the full MAIN HERO registration sheet for Stage A when it materially improves scale and body-relative placement.
+
+Evaluate Stage A based on whether the OBJECT can be finalized with modest Illustrator registration—not whether generated fingers are exact.
+
+After source review, report the normal compliance summary and proceed with the supplied category/rows.
