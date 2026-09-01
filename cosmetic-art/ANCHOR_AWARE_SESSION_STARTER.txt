@@ -1,0 +1,19 @@
+DON'T DIE COSMETIC GENERATION — ANCHOR-AWARE STARTER
+
+Before generating:
+1. Retrieve the current `DONT_DIE_COSMETIC_ART_SPEC.md`.
+2. Retrieve `CANONICAL_REGISTRATION_SYSTEM.md`.
+3. Review `registration/CANONICAL_ANCHOR_REFERENCE.png` as REFERENCE ONLY.
+4. Use `registration/MAIN_HERO_REGISTRATION_4X4.png` as the Stage A edit base.
+5. Review relevant approved-art and reference-pack assets.
+
+For held objects:
+- LEFT ARM = viewer-left lowered fist; canonical anchor `(123,382)`, default grip axis 105°.
+- RIGHT ARM = viewer-right raised fist; canonical anchor `(360,344)`, default grip axis 75°.
+- Generated finger pixels are not production truth.
+- The cosmetic must contain continuous usable geometry through the grip anchor for later canonical-hand overlay in Illustrator.
+
+Never reproduce anchor-reference dots, lines, labels, or guides in generated art.
+Never leave logical rows blank during a full-sheet correction pass.
+
+Wait for category + row briefs before generation.

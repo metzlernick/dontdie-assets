@@ -39,6 +39,8 @@ Preserve the character's:
 Minor incidental redraw differences from image editing are acceptable.
 Pixel-identical character preservation is NOT the acceptance criterion.
 
+Production coordinate truth is defined by `CANONICAL_REGISTRATION_SYSTEM.md`; generated hero hand/finger geometry is contextual only.
+
 The acceptance criterion is cosmetic registration:
 - correct attachment/grip point
 - final production-relative X/Y
