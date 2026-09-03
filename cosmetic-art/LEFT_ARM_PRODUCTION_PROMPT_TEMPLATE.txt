@@ -1,0 +1,130 @@
+DON'T DIE — LEFT ARM LOCKED PRODUCTION TEMPLATE
+
+IMPORTANT:
+This template is production infrastructure.
+Only the four ROW brief slots may change during normal production.
+Do not add row-specific scale exceptions or alter the invariant rules below.
+
+ROW_1:
+{{ROW_1_BRIEF}}
+
+ROW_2:
+{{ROW_2_BRIEF}}
+
+ROW_3:
+{{ROW_3_BRIEF}}
+
+ROW_4:
+{{ROW_4_BRIEF}}
+
+LOCKED PRODUCTION INVARIANTS
+
+Generate ONE 4×4 LEFT ARM production sheet in one image-generation pass.
+
+- 2400×2560 px
+- 4 columns × 4 rows
+- 600×640 logical cells
+- one brief per populated row
+- four moderately different variations per populated row
+- pure white background
+- no gutters or visible grid
+- preserve canonical MAIN HERO scale and approximate position from the reference
+- hero context on screen-right
+- complete cosmetic on screen-left
+- clean zero-contact separation
+- no generated grip/hand interaction
+- no hidden geometry
+- no AI isolation/reconstruction pass
+
+FINISHED-EXEMPLAR SCALE AUTHORITY
+
+Use:
+reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4.png
+
+Each cell contains a tiny neutral outlined finished-cosmetic exemplar on screen-left.
+Replace the exemplar with the assigned cosmetic. Do not reproduce the exemplar itself.
+
+The exemplar controls intended final cosmetic visual mass, small-side bias, outline behavior, simplicity, and relationship to MAIN HERO.
+
+The replacement should occupy approximately the SAME OR SMALLER total visual mass as the exemplar.
+When uncertain, choose smaller.
+
+Do not enlarge because:
+- the real-world object is large
+- an approved reference asset is larger
+- another cosmetic is a similar shape
+- empty space remains
+- optional detail needs room
+- the brief uses words such as large, big, full-size, same size as, or similar scale to
+
+Existing approved art may guide palette, design language, silhouette vocabulary, material treatment, thematic family, and non-scale proportion cues. It may not override canonical LEFT ARM generation scale.
+
+DETAIL MUST FOLLOW SCALE
+
+Establish production size first, then simplify until the object reads at that size.
+If optional detail requires enlargement, remove or simplify the detail.
+
+Use few major shapes, sparse interior lines, few color regions, large readable identity cues, no micro-decoration, and no texture-like detail.
+
+SCALE → SIMPLIFY DETAIL → EXACT IDENTITY → POSE/DESIGN/VARIATION.
+
+OBJECT-SHAPE BEHAVIOR
+
+- compact/simple: at or below exemplar visual mass
+- long/thin/hanging: extra extent permitted only by staying narrow and low-mass
+- creatures/character-like: strong miniature bias and simplified anatomy/face
+- bottles/containers/multi-part handheld: strong miniature bias and minimal secondary construction
+- broad objects: may widen naturally but remain tiny relative to MAIN HERO
+
+ROW IDENTITY
+
+Every cell in a populated row must remain the exact requested object type.
+Required features repeat in every applicable variation unless explicitly stated otherwise.
+Do not transfer features between rows.
+Do not substitute generic fantasy defaults.
+
+VARIATION
+
+Four useful but simple interpretations per populated row.
+Variation may change modest silhouette/proportions and a few major design details.
+Variation may not increase scale or complexity enough to violate the finished-exemplar visual-mass rule.
+
+ZERO-CONTACT — MANDATORY
+
+Every cosmetic must:
+- stay viewer-left / screen-left
+- remain separated from every hero pixel by clean white space
+- not touch or overlap hero, hand, cape, body, pedestal, or shadow
+- remain complete and unobstructed
+- contain standalone geometry for later Illustrator placement
+
+The hero must not hold or interact with the cosmetic during generation.
+
+STYLE
+
+Match approved Don't Die production art:
+- flat vector-like cartoon
+- bold smooth true-black outer contour, visually about 5 px at canonical scale
+- rounded joins/caps
+- sparse interior linework
+- hard-edged solid colors
+- extremely low detail appropriate for tiny display
+- no cosmetic cast shadow
+- no texture/noise
+- no painterly rendering
+- no gradients unless explicitly requested and not scale-inducing
+- Illustrator/Image-Trace friendly
+
+FINAL CHECK
+
+Before generation verify:
+- all row briefs are identity/design descriptions only
+- no row brief has been converted into a scale/placement/controller exception
+- approved references affect design, not generation scale
+- all rows remain governed by the same canonical exemplar authority
+- all cosmetics are screen-left, complete, zero-contact, tiny, and simple
+
+IF SIZE AND DETAIL CONFLICT: KEEP THE SMALLER SIZE AND REMOVE THE DETAIL.
+IF UNSURE: MAKE IT SMALLER AND SIMPLER.
+
+Generate the single 4×4 sheet now.
