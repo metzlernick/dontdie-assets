@@ -1,4 +1,4 @@
-DON'T DIE COSMETIC ART — REPEATABLE PRODUCTION SESSION STARTER v7.19
+DON'T DIE COSMETIC ART — REPEATABLE PRODUCTION SESSION STARTER v7.54
 
 SOURCE OF TRUTH:
 https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
@@ -12,47 +12,25 @@ Before generation, freshly review:
 - relevant approved-art category
 - especially similar approved cosmetics
 
-IMPORTANT PRODUCTION ARCHITECTURE
+CATEGORY OVERRIDE — LEFT ARM
+If the requested category is LEFT ARM, you MUST ALSO read:
+- LEFT_ARM_ZERO_CONTACT_WORKFLOW.md
 
-Do NOT try to achieve pixel-perfect hand/finger registration during image generation.
+For LEFT ARM, LEFT_ARM_ZERO_CONTACT_WORKFLOW.md is the current category-specific production authority wherever older general documentation conflicts with it.
 
-AI Stage A owns:
-- design
-- style
-- approximate body-relative scale
-- approximate position
-- broad orientation
-- registration-safe object geometry
+LEFT ARM v7.54 architecture:
+- Stage A must generate complete object geometry on the first pass.
+- Show canonical MAIN HERO on screen-right as scale reference.
+- Generate the complete cosmetic separately on screen-left.
+- Maintain clear white zero-contact separation between item and hero.
+- Never place the item under/over/in the hero hand during generation.
+- Never hide object geometry behind hero pixels.
+- Do not use image-generation Stage B reconstruction/isolation.
+- Do not require Illustrator reconstruction of missing geometry.
+- Object must have a crisp continuous black outline and be Image-Trace friendly.
+- Spatula, money bag, and lantern v7.54 scales are validated.
+- Shield target is approximately 20–25% larger than the v7.54 shield calibration.
 
-AI Stage B owns:
-- cosmetic isolation
-- removal of hero/hand/body/pedestal
-- preservation/reconstruction of continuous usable object geometry
+For non-LEFT-ARM categories, continue using the applicable current category workflow and canonical references.
 
-Illustrator Stage C owns:
-- exact X/Y
-- exact final scale/rotation
-- exact canonical hand/finger overlay
-- exact grip registration
-- final cleanup
-
-For held objects, generated hand geometry is contextual/disposable.
-
-The cosmetic must contain enough continuous grip/attachment geometry to tolerate a modest Illustrator move/rotation beneath the canonical hand.
-
-Do NOT create:
-- hand-shaped holes
-- fake transparent grip cutouts
-- overly long handles merely for tolerance
-- oversized objects merely to fill the cell
-
-Hanging objects:
-- provide usable attachment geometry near the hand
-- then allow a bend/transition
-- main body obeys gravity and hangs vertically
-
-Use the full MAIN HERO registration sheet for Stage A when it materially improves scale and body-relative placement.
-
-Evaluate Stage A based on whether the OBJECT can be finalized with modest Illustrator registration—not whether generated fingers are exact.
-
-After source review, report the normal compliance summary and proceed with the supplied category/rows.
+After source review, report the applicable compliance summary and proceed with the supplied category/brief.
