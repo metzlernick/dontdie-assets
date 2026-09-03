@@ -11,8 +11,9 @@ Use these files for all new work:
 3. `PRODUCTION_SESSION_STARTER.txt` — new-session starter
 4. `CANONICAL_REGISTRATION_SYSTEM.md` — canonical anchors and final registration metadata
 5. `LEFT_ARM_ZERO_CONTACT_WORKFLOW.md` — validated LEFT ARM category override
-6. `LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md` — validated one-pass LEFT ARM 4×4 controller
-7. `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4.png` — active LEFT ARM visual scale/detail controller
+6. `LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md` — validated and locked LEFT ARM 4×4 controller
+7. `LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt` — immutable production-prompt body; only row briefs may change
+8. `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4.png` — active LEFT ARM visual scale/detail controller
 
 Supporting production assets live in:
 
@@ -22,7 +23,7 @@ Supporting production assets live in:
 - `reference-sheets/` — active category, placement, style, and spatial references
 - `approved-art/` — approved production cosmetics by category
 
-## LEFT ARM production model — validated
+## LEFT ARM production model — validated and locked
 
 LEFT ARM uses one-pass zero-contact generation with a tiny finished-cosmetic exemplar as the active visual controller.
 
@@ -40,7 +41,7 @@ Validated production format:
 - no hidden cosmetic geometry
 - no AI isolation/reconstruction pass
 
-The active exemplar is not merely a position marker. It communicates intended **final visual mass, finished-art status, bold outline, low detail, and relationship to MAIN HERO**.
+The active exemplar is not merely a position marker. It communicates intended final visual mass, finished-art status, bold outline, low detail, and relationship to MAIN HERO.
 
 The production hierarchy is:
 
@@ -53,17 +54,38 @@ The production hierarchy is:
 
 **When uncertain: smaller and simpler wins.**
 
-Slightly undersized source art is preferred because Illustrator enlargement is easy. Real-world object size and empty canvas space never authorize enlargement.
+Slightly undersized source art is preferred because Illustrator enlargement is easy. Real-world object size, empty canvas space, and comparison-asset size do not authorize enlargement.
 
-Long/thin/hanging objects may extend farther in one direction only while remaining narrow and low in total visual mass. Creatures and bottles/containers receive strong miniature bias because semantic complexity otherwise tends to inflate scale.
+## Mandatory conflict gate
 
-Normal production briefs should mention only the current requested cosmetics. Do not include calibration-object names, previous failures, or negative examples from old sheets.
+Before any LEFT ARM production package is created, every user instruction must be checked against the locked controller.
+
+If a brief attempts to change generation scale, exemplar authority, hero placement, zero-contact behavior, sheet geometry, detail hierarchy, generated grip/hand behavior, or reconstruction workflow, production stops before files are created.
+
+The instance must:
+
+1. identify the conflicting instruction
+2. explain the likely failure mode
+3. offer a safe rewording that preserves design intent
+4. proceed only after the brief no longer conflicts
+
+Do not silently reinterpret the conflict and do not invent a one-off exception.
+
+Comparison language such as `same size as`, `similar scale to`, or `make it large like` cannot override canonical LEFT ARM generation scale. Approved assets may control palette, design language, material treatment, thematic family, silhouette vocabulary, and non-scale proportion cues only.
+
+## Prompt-construction lock
+
+Normal LEFT ARM production uses `LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt` as the invariant production body.
+
+Only the four row brief slots may change.
+
+The invariant section must not be rewritten or expanded with row-specific exceptions. If the invariant body genuinely needs modification, that is a separate calibration/change-control task rather than normal production.
 
 ## Why the finished exemplar replaced the abstract marker
 
 Clean unseen-object testing showed that an abstract gray scale marker controlled position but did not reliably override the model's semantic idea of how large a finished object should be. Unseen trophy, grappling-hook, sunflower, and skull briefs reverted toward presentation-sized icon scale.
 
-Replacing the marker with a tiny neutral **finished cosmetic exemplar** immediately produced much smaller transferable results across those unseen object classes while preserving semantic binding, four variations, and zero-contact geometry.
+Replacing the marker with a tiny neutral finished cosmetic exemplar produced materially smaller transferable results across those unseen object classes while preserving semantic binding, four variations, and zero-contact geometry.
 
 The finished exemplar is therefore the canonical LEFT ARM visual controller.
 
