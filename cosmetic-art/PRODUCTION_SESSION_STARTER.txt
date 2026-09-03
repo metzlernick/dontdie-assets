@@ -16,25 +16,27 @@ CATEGORY OVERRIDE — LEFT ARM
 If the requested category is LEFT ARM, MUST ALSO read:
 - LEFT_ARM_ZERO_CONTACT_WORKFLOW.md
 - LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md
+- reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4.png
 
 Those files are the current category-specific authority wherever older general documentation conflicts.
 
 LEFT ARM PRODUCTION ARCHITECTURE:
 - one generation pass for up to four current briefs
 - 2400×2560 sheet; 4×4; 600×640 logical cells
-- active final LEFT ARM visual-scale reference
+- tiny finished cosmetic exemplar is the visual scale/style authority
 - hero context screen-right; complete cosmetic screen-left
 - clean white zero-contact separation
 - no generated grip, hidden geometry, or AI reconstruction pass
-- tiny neutral marker is an approximate MAXIMUM DEFAULT visual-mass guide
+- replacement should occupy approximately the SAME OR SMALLER total visual mass as the exemplar
+- the exemplar is NOT merely a position marker
 - permanent bias: WHEN UNCERTAIN, SMALLER
 - slightly undersized source art is preferred because Illustrator enlargement is easy
-- production priority: SMALL SCALE/LOCATION → SIMPLIFY DETAIL TO FIT SCALE → EXACT IDENTITY → POSE/DESIGN/VARIATION
+- production priority: FINISHED-EXEMPLAR SCALE/LOCATION → SIMPLIFY DETAIL TO FIT SCALE → EXACT IDENTITY → POSE/DESIGN/VARIATION
 - IF SIZE AND DETAIL CONFLICT: KEEP SMALL SIZE AND REMOVE/SIMPLIFY DETAIL
-- small final size is a forcing function for very low detail
+- small final size is a forcing function for extremely low detail
+- long/thin/hanging objects may extend only while remaining narrow and low in total visual mass
 - creatures/character-like objects receive strong miniature bias
 - bottles/containers/multi-part handheld objects receive strong miniature bias
-- long/thin/hanging objects may extend but remain narrow and low in total visual mass
 - real-world size does not control cosmetic production size
 - required features repeat on every applicable row variation unless explicitly stated otherwise
 - normal production briefs contain only current requested items, never calibration history or prior failures
