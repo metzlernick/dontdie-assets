@@ -1,10 +1,10 @@
-# DON'T DIE — CANONICAL COSMETIC REGISTRATION SYSTEM v7.19
+# DON'T DIE — CANONICAL COSMETIC REGISTRATION SYSTEM v7.65
 
-This file defines production registration independently from incidental character redraws made by image generation.
+This file defines final production registration independently from incidental character redraws made by image generation.
 
 ## Coordinate system
 
-Every cosmetic cell uses the canonical MAIN HERO artboard:
+Canonical production assets remain based on the 480×640 MAIN HERO artboard:
 
 - Width: 480 px
 - Height: 640 px
@@ -12,11 +12,7 @@ Every cosmetic cell uses the canonical MAIN HERO artboard:
 - X increases rightward
 - Y increases downward
 
-The 1920×2560 exploration sheet is exactly four 480×640 cells across and four down.
-
-## Canonical anchors
-
-These coordinates are deliberate production anchors and are the source of truth for final production registration.
+Canonical anchors:
 
 | Anchor | X | Y | Purpose |
 |---|---:|---:|---|
@@ -26,141 +22,98 @@ These coordinates are deliberate production anchors and are the source of truth 
 | FACE_CENTER | 218 | 249 | Face accessory reference |
 | TORSO_CENTER | 218 | 365 | Body/outfit reference |
 
-See `registration/CANONICAL_ANCHOR_REFERENCE.png` for a visual reference.
-
-IMPORTANT: the annotated anchor image is REFERENCE ONLY. Never use it as final artwork and never reproduce its dots, axes, labels, or guides.
+See `registration/CANONICAL_ANCHOR_REFERENCE.png` for visual metadata only.
 
 ## Grip axes
 
-Angles use image-coordinate convention:
+Image-coordinate convention:
 - 0° = right
 - 90° = down
 - 180° = left
 - 270° = up
 
 ### LEFT_GRIP
-Canonical grip axis: **45°**.
-
-A held object's local grip segment should cross the intended left-hand attachment region along approximately this top-left → bottom-right diagonal unless the approved item type requires a deliberate exception.
-
-This is final Illustrator registration metadata. Image generation should approximate the direction and provide enough continuous local geometry for later adjustment; it does not need to hit the anchor pixel-perfectly.
+Canonical final grip axis: **45°**.
 
 ### RIGHT_GRIP
-Canonical grip axis: **75°**.
+Canonical final grip axis: **75°**.
 
-A held object's local grip segment should cross the intended right-hand attachment region along approximately this diagonal unless an approved reference establishes another orientation.
+These are Illustrator registration targets. Image generation does not need pixel-perfect anchor intersection.
 
-This is final Illustrator registration metadata. Image generation should approximate the direction and provide enough continuous local geometry for later adjustment; it does not need to hit the anchor pixel-perfectly.
+## Critical LEFT ARM override
 
-## Held-object production rule
+LEFT ARM generation no longer uses the older visible-grip → Stage B reconstruction model.
 
-The generated character hand is NOT coordinate truth.
+For LEFT ARM, the active production authority is:
 
-For every held cosmetic, the cosmetic itself must contain a registration-safe grip/attachment region that:
+- `LEFT_ARM_ZERO_CONTACT_WORKFLOW.md`
+- `LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md`
 
-1. is on the correct viewer-side/body region;
-2. has enough continuous material underneath the future canonical hand for Illustrator layering;
-3. follows the broad intended grip direction or a justified item-specific angle;
-4. is not interrupted by a hand-shaped hole or fake transparent cutout;
-5. remains continuous after Stage B extraction;
-6. tolerates modest X/Y, rotation, and scale correction in Illustrator without breaking the design.
+During LEFT ARM generation:
 
-Minor Stage A hand/finger redraw is acceptable.
+- cosmetic is complete and separate on screen-left
+- hero context remains on screen-right
+- there is clean white zero-contact separation
+- no generated grip is required
+- no object geometry is hidden behind the generated hand
+- no AI Stage B isolation/reconstruction is used
 
-The final Illustrator hand is canonical and will be layered over the cosmetic.
+Final registration still uses `LEFT_GRIP (123,382)` and the intended item-specific orientation in Illustrator after Image Trace.
 
-## Stage A — concept + approximate registration
+The validated LEFT ARM generation sheet is wider than the canonical production artboard: 600×640 logical generation cells within a 2400×2560 4×4 sheet. This added width is temporary generation workspace only. Final assets still register back onto the canonical 480×640 production artboard.
 
-Use `registration/MAIN_HERO_REGISTRATION_4X4.png` when visible hero context materially improves body-relative scale, side, and placement.
+## RIGHT ARM held-object production rule
 
-The hero supplies body context, scale, and pose. The model may incidentally redraw parts of the hero.
+For RIGHT ARM, use the current validated category workflow. The generated object must contain continuous usable local grip geometry and tolerate modest Illustrator translation/rotation plus canonical hand overlay.
 
-Acceptance is based on the COSMETIC:
-- correct category side;
-- correct approximate body-relative position;
-- correct approximate grip/attachment direction;
-- correct production-relative scale;
-- correct broad orientation;
-- sensible occlusion relationship;
-- registration-safe continuous geometry.
+Do not create:
+- hand-shaped holes
+- fake transparent grip cutouts
+- design-critical detail only in future hand occlusion
+- excessive grip-tolerance length
 
-Do not judge Stage A by exact generated finger pixels or exact anchor intersection.
+## Stage C — Illustrator is final registration truth
 
-## Stage B — isolation
+For held items:
 
-Remove the generated character and pedestal.
-
-Preserve the cosmetic's design, approximate position, scale, orientation, silhouette, colors, and usable attachment geometry.
-
-Reconstruct the full continuous hidden cosmetic region where the generated hand occluded it whenever practical.
-
-For held objects, the isolated result must contain a complete registration-safe grip/attachment region with no hand-shaped hole.
-
-## Stage C — deterministic Illustrator registration
-
-Stage C is the production truth.
-
-In Illustrator:
-1. place the isolated cosmetic on the canonical 480×640 artboard;
-2. move it to the category's exact final attachment position;
-3. apply small scale/rotation corrections so its grip/attachment geometry fits the canonical hand and intended axis;
-4. place the exact canonical MAIN HERO hand/body layer over the cosmetic;
-5. never reshape the canonical hand to fit the cosmetic;
-6. perform final vector cleanup and layering.
-
-This stage removes dependence on generated hero geometry.
-
-## Category mapping
-
-### RIGHT ARM
-- Screen-space side: viewer-right
-- Final Illustrator anchor: RIGHT_GRIP `(360,344)`
-- Default grip axis: 75°
-- Canonical hand overlays object in production
+1. place the selected isolated cosmetic on the canonical 480×640 artboard
+2. move it to the appropriate final anchor
+3. apply modest rotation and scale correction when necessary
+4. layer the canonical hand/body over the cosmetic
+5. never reshape the canonical hand to fit generated art
+6. perform final vector cleanup
 
 ### LEFT ARM
-- Screen-space side: viewer-left
-- Final Illustrator anchor: LEFT_GRIP `(123,382)`
-- Default grip axis: **45°**
-- Canonical hand overlays object in production
-- Hanging/flexible objects should separate local grip geometry from gravity geometry: attachment near the hand may angle, then the main body hangs naturally
+- screen-space side: viewer-left
+- final anchor: LEFT_GRIP `(123,382)`
+- default registration axis: 45° unless the object deliberately uses another pose
+- canonical hand overlays object in final production
+
+### RIGHT ARM
+- screen-space side: viewer-right
+- final anchor: RIGHT_GRIP `(360,344)`
+- default grip axis: 75° unless an approved reference establishes another orientation
+- canonical hand overlays object in production
 
 ### HAT
-- Anchor: HEAD_ANCHOR `(218,144)`
-- Use MAIN HERO head/hair silhouette and approved hats for scale/orientation
-- Hat-specific contact geometry may vary; head anchor is the stable final production reference point
-- Proven calibration progress: visible MAIN HERO context can be used in Stage A when needed for fit, followed by a separate Stage B isolation/extraction pass
+- anchor: HEAD_ANCHOR `(218,144)`
+- follow current HAT workflow and approved references
 
 ### FACE ACCESSORY
-- Reference anchor: FACE_CENTER `(218,249)`
-- Exact subtype geometry should follow approved references
+- reference anchor: FACE_CENTER `(218,249)`
 
 ### OUTFIT / ARMOR
-- Reference anchor: TORSO_CENTER `(218,365)`
-- Registration is primarily full-body silhouette matching, not a single-point attachment
-- MAIN HERO body geometry remains canonical
-
-### OTHER ACCESSORIES
-Define a subtype anchor before mass production if the item class repeats.
-Do not invent a different attachment point per asset.
+- reference anchor: TORSO_CENTER `(218,365)`
+- registration is primarily full-body silhouette matching
 
 ## Scale rule
 
-Anchor correctness does not authorize presentation scaling.
+Anchor correctness never authorizes presentation scaling.
 
-Objects remain at realistic production-relative size. Empty white space is expected.
-
-## Complex-object detail rule
-
-Prefer 3–5 major forms and strong silhouettes.
-Avoid mechanical greebles, micro-panels, dense filigree, tiny repeated details, and excessive tubing.
-
-This rule was validated during RIGHT ARM calibration and should carry forward to mechanically complex held objects.
-
-## Correction-pass rule
-
-Avoid correction approaches that cause the image generator to reflow or presentation-center the sheet. When a partial correction risks reflow, prefer a targeted edit of the existing full sheet or keep sufficient full-sheet context.
+For LEFT ARM, the active v7.65 universal visual-scale marker establishes the initial generation scale prior. For other categories, use current category references and approved art.
 
 ## Core principle
 
-**AI generation creates a production-ready design layer with registration tolerance. Illustrator creates the exact final registration.**
+**Image generation creates complete production-ready geometry with registration tolerance. Illustrator creates exact final registration.**
+
+For LEFT ARM specifically, complete geometry is generated with zero contact first; the canonical grip is applied only afterward in Illustrator.
