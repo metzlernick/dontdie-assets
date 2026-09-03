@@ -36,18 +36,18 @@ Generate ONE 4×4 LEFT ARM production sheet in one image-generation pass.
 - no hidden geometry
 - no AI isolation/reconstruction pass
 
-FINISHED-EXEMPLAR SCALE AUTHORITY
+FINISHED-EXEMPLAR SCALE AUTHORITY — V2.1
 
 Use:
 reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4.png
 
-Each cell contains a tiny neutral outlined finished-cosmetic exemplar on screen-left.
-Replace the exemplar with the assigned cosmetic. Do not reproduce the exemplar itself.
+Each cell contains ONE tiny contiguous neutral outlined finished-cosmetic exemplar on screen-left. Replace it with the assigned cosmetic. Do not reproduce exemplar geometry.
 
-The exemplar controls intended final cosmetic visual mass, small-side bias, outline behavior, simplicity, and relationship to MAIN HERO.
+The exemplar controls intended final cosmetic visual mass, small-side bias, outline behavior, simplicity, and relationship to MAIN HERO. The replacement must belong to the same tiny finished-art scale family.
 
-The replacement should occupy approximately the SAME OR SMALLER total visual mass as the exemplar.
-When uncertain, choose smaller.
+The replacement should occupy approximately the SAME OR SMALLER total visual mass as the exemplar. When uncertain, choose smaller.
+
+Do not reproduce detached reference-like artifacts. Do not add dots, beads, ellipses, particles, connector marks, trails, or floating secondary shapes between cosmetic and hero unless they are explicitly identity-critical to the requested cosmetic.
 
 Do not enlarge because:
 - the real-world object is large
@@ -61,12 +61,11 @@ Existing approved art may guide palette, design language, silhouette vocabulary,
 
 DETAIL MUST FOLLOW SCALE
 
-Establish production size first, then simplify until the object reads at that size.
-If optional detail requires enlargement, remove or simplify the detail.
+Establish production size first, then simplify until the object reads at that size. If optional detail requires enlargement, remove or simplify the detail.
 
 Use few major shapes, sparse interior lines, few color regions, large readable identity cues, no micro-decoration, and no texture-like detail.
 
-SCALE → SIMPLIFY DETAIL → EXACT IDENTITY → POSE/DESIGN/VARIATION.
+TINY FINISHED-EXEMPLAR SCALE → SIMPLIFY DETAIL → EXACT IDENTITY → POSE/DESIGN/VARIATION.
 
 OBJECT-SHAPE BEHAVIOR
 
@@ -78,16 +77,11 @@ OBJECT-SHAPE BEHAVIOR
 
 ROW IDENTITY
 
-Every cell in a populated row must remain the exact requested object type.
-Required features repeat in every applicable variation unless explicitly stated otherwise.
-Do not transfer features between rows.
-Do not substitute generic fantasy defaults.
+Every cell in a populated row must remain the exact requested object type. Required features repeat in every applicable variation unless explicitly stated otherwise. Do not transfer features between rows. Do not substitute generic fantasy defaults.
 
 VARIATION
 
-Four useful but simple interpretations per populated row.
-Variation may change modest silhouette/proportions and a few major design details.
-Variation may not increase scale or complexity enough to violate the finished-exemplar visual-mass rule.
+Four useful but simple interpretations per populated row. Variation may change modest silhouette/proportions and a few major design details. Variation may not increase scale or complexity enough to violate the finished-exemplar visual-mass rule.
 
 ZERO-CONTACT — MANDATORY
 
@@ -123,6 +117,7 @@ Before generation verify:
 - approved references affect design, not generation scale
 - all rows remain governed by the same canonical exemplar authority
 - all cosmetics are screen-left, complete, zero-contact, tiny, and simple
+- no detached exemplar-like artifacts were copied from the visual reference
 
 IF SIZE AND DETAIL CONFLICT: KEEP THE SMALLER SIZE AND REMOVE THE DETAIL.
 IF UNSURE: MAKE IT SMALLER AND SIMPLER.
