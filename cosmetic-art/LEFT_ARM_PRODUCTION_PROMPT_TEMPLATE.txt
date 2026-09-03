@@ -1,9 +1,7 @@
 DON'T DIE — LEFT ARM LOCKED PRODUCTION TEMPLATE
 
 IMPORTANT:
-This template is production infrastructure.
-Only the four ROW brief slots may change during normal production.
-Do not add row-specific scale exceptions or alter the invariant rules below.
+This template is production infrastructure. Only the four ROW brief slots may change during normal production. Do not add row-specific scale exceptions or alter the invariant rules below.
 
 ROW_1:
 {{ROW_1_BRIEF}}
@@ -36,90 +34,59 @@ Generate ONE 4×4 LEFT ARM production sheet in one image-generation pass.
 - no hidden geometry
 - no AI isolation/reconstruction pass
 
-FINISHED-EXEMPLAR SCALE AUTHORITY — V2.1
+FINISHED-EXEMPLAR SCALE AUTHORITY — V3
 
-Use:
-reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4.png
+Use `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4.png`.
 
-Each cell contains ONE tiny contiguous neutral outlined finished-cosmetic exemplar on screen-left. Replace it with the assigned cosmetic. Do not reproduce exemplar geometry.
+Each cell contains ONE extremely tiny contiguous neutral outlined finished-cosmetic exemplar on screen-left, approximately 14×19 px in the validated reference. Replace it with the assigned cosmetic. Do not reproduce exemplar geometry.
 
-The exemplar controls intended final cosmetic visual mass, small-side bias, outline behavior, simplicity, and relationship to MAIN HERO. The replacement must belong to the same tiny finished-art scale family.
+The exemplar is the ABSOLUTE FIRST-PRIORITY visual authority for final cosmetic visual mass. It is not merely a location marker. The replacement must remain in the same extremely tiny finished-art scale neighborhood relative to MAIN HERO and should match or undercut the exemplar's visual mass.
 
-The replacement should occupy approximately the SAME OR SMALLER total visual mass as the exemplar. When uncertain, choose smaller.
+Semantic identity never authorizes enlargement. Do not scale a gauntlet, weapon, throwing star, purse, nunchuk, shield, bag, spatula, lantern, wearable, handheld object, creature, container, or any other cosmetic according to its normal real-world or readable-prop size.
 
-Do not reproduce detached reference-like artifacts. Do not add dots, beads, ellipses, particles, connector marks, trails, or floating secondary shapes between cosmetic and hero unless they are explicitly identity-critical to the requested cosmetic.
+Do not enlarge because an approved reference is larger, empty space remains, details need room, or the brief uses words such as large/big/full-size/same size/similar scale. Existing approved art may guide palette, design language, silhouette vocabulary, material treatment, thematic family, and non-scale proportion cues only.
 
-Do not enlarge because:
-- the real-world object is large
-- an approved reference asset is larger
-- another cosmetic is a similar shape
-- empty space remains
-- optional detail needs room
-- the brief uses words such as large, big, full-size, same size as, or similar scale to
-
-Existing approved art may guide palette, design language, silhouette vocabulary, material treatment, thematic family, and non-scale proportion cues. It may not override canonical LEFT ARM generation scale.
+Do not reproduce detached reference-like artifacts. Unless explicitly identity-critical, do not add dots, beads, particles, connector marks, trails, or floating secondary shapes between cosmetic and hero.
 
 DETAIL MUST FOLLOW SCALE
 
-Establish production size first, then simplify until the object reads at that size. If optional detail requires enlargement, remove or simplify the detail.
+Lock the extremely tiny production footprint first. Simplify until identity survives. If normal details do not fit, delete/simplify them. NEVER enlarge to preserve detail.
 
-Use few major shapes, sparse interior lines, few color regions, large readable identity cues, no micro-decoration, and no texture-like detail.
+Use few major shapes, sparse interior lines, few color regions, and no micro-decoration or texture-like detail.
 
-TINY FINISHED-EXEMPLAR SCALE → SIMPLIFY DETAIL → EXACT IDENTITY → POSE/DESIGN/VARIATION.
+EXTREMELY TINY FINISHED-EXEMPLAR SCALE → REMOVE/SIMPLIFY DETAIL → EXACT IDENTITY → POSE/DESIGN → VARIATION.
 
 OBJECT-SHAPE BEHAVIOR
 
 - compact/simple: at or below exemplar visual mass
-- long/thin/hanging: extra extent permitted only by staying narrow and low-mass
+- broad/chunky: simplify and compress rather than grow
+- long/thin/hanging: extra extent only by becoming proportionally narrower and remaining low-mass
 - creatures/character-like: strong miniature bias and simplified anatomy/face
 - bottles/containers/multi-part handheld: strong miniature bias and minimal secondary construction
-- broad objects: may widen naturally but remain tiny relative to MAIN HERO
 
-ROW IDENTITY
+ROW IDENTITY / POSE
 
-Every cell in a populated row must remain the exact requested object type. Required features repeat in every applicable variation unless explicitly stated otherwise. Do not transfer features between rows. Do not substitute generic fantasy defaults.
+Every cell in a populated row must remain the exact requested object type. Required features repeat in every applicable variation. Do not transfer features between rows or substitute generic fantasy defaults.
+
+Pose instructions are identity/design constraints, not scale permissions. Pose may change shape; pose may not increase scale. When a brief specifies a visible surface or orientation (for example palm/underside toward camera), verify that requested surface is actually dominant rather than substituting the object's default view.
 
 VARIATION
 
-Four useful but simple interpretations per populated row. Variation may change modest silhouette/proportions and a few major design details. Variation may not increase scale or complexity enough to violate the finished-exemplar visual-mass rule.
+Four useful but simple interpretations per populated row. Variation may not increase scale or complexity enough to violate the exemplar rule.
 
 ZERO-CONTACT — MANDATORY
 
-Every cosmetic must:
-- stay viewer-left / screen-left
-- remain separated from every hero pixel by clean white space
-- not touch or overlap hero, hand, cape, body, pedestal, or shadow
-- remain complete and unobstructed
-- contain standalone geometry for later Illustrator placement
-
-The hero must not hold or interact with the cosmetic during generation.
+Every cosmetic must stay viewer-left/screen-left, remain separated from every hero pixel by clean white space, never touch/overlap hero/hand/cape/body/pedestal/shadow, remain complete and unobstructed, and contain standalone geometry for later Illustrator placement. The hero must not hold or interact with the cosmetic during generation.
 
 STYLE
 
-Match approved Don't Die production art:
-- flat vector-like cartoon
-- bold smooth true-black outer contour, visually about 5 px at canonical scale
-- rounded joins/caps
-- sparse interior linework
-- hard-edged solid colors
-- extremely low detail appropriate for tiny display
-- no cosmetic cast shadow
-- no texture/noise
-- no painterly rendering
-- no gradients unless explicitly requested and not scale-inducing
-- Illustrator/Image-Trace friendly
+Match approved Don't Die production art: flat vector-like cartoon; bold smooth true-black outer contour; rounded joins/caps; sparse interior linework; hard-edged colors; extremely low detail; no cosmetic cast shadow, texture/noise, or painterly rendering; no gradients unless explicitly requested and not scale-inducing; Illustrator/Image-Trace friendly. Explicit brief features such as unoutlined energy effects may override the outline rule locally.
 
 FINAL CHECK
 
-Before generation verify:
-- all row briefs are identity/design descriptions only
-- no row brief has been converted into a scale/placement/controller exception
-- approved references affect design, not generation scale
-- all rows remain governed by the same canonical exemplar authority
-- all cosmetics are screen-left, complete, zero-contact, tiny, and simple
-- no detached exemplar-like artifacts were copied from the visual reference
+Before generation verify that only row identity/design content changed; no row brief became a controller exception; all rows obey the same extremely tiny exemplar; semantic identity did not enlarge any object; requested orientation/surface is correct; zero-contact is clean; no detached exemplar-like artifacts were copied.
 
 IF SIZE AND DETAIL CONFLICT: KEEP THE SMALLER SIZE AND REMOVE THE DETAIL.
-IF UNSURE: MAKE IT SMALLER AND SIMPLER.
+IF UNSURE: SHRINK IT AND SIMPLIFY IT.
 
 Generate the single 4×4 sheet now.
