@@ -1,35 +1,16 @@
-# Don't Die Cosmetic Artwork — Repeatable Production Workflow v7.19
+# Don't Die Cosmetic Artwork — Repeatable Production Workflow v7.54
 
 ## Purpose
 
-This document defines the repeatable workflow for generating large quantities of Don't Die cosmetic art.
+This document defines the general repeatable workflow for generating Don't Die cosmetic art.
 
-The image generator is responsible for:
-- design exploration
-- Don't Die art style
-- approximate body-relative scale
-- approximate body-relative position
-- approximate orientation
-- usable object geometry
-
-Adobe Illustrator is responsible for:
-- exact production X/Y registration
-- exact final scale and small rotation corrections
-- exact canonical hand/finger occlusion
-- exact grip alignment
-- final cleanup and layering
-
-**Do not require image generation to solve pixel-perfect hand registration.**
-
-That distinction is intentional and permanent.
+**Important category override:** LEFT ARM held items now use `LEFT_ARM_ZERO_CONTACT_WORKFLOW.md`. That validated v7.54 workflow supersedes older held-object overlap/reconstruction instructions for LEFT ARM.
 
 ---
 
 ## 1. Source of Truth
 
-Before every new generation, freshly review the current canonical sources in:
-
-https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
+Before every new generation, freshly review the current canonical sources in the `cosmetic-art/` repository.
 
 At minimum:
 - `DONT_DIE_COSMETIC_ART_SPEC.md`
@@ -39,293 +20,152 @@ At minimum:
 - relevant `approved-art/<category>/`
 - especially similar approved cosmetics
 
+For LEFT ARM also read `LEFT_ARM_ZERO_CONTACT_WORKFLOW.md` and treat it as the category-specific authority wherever older general guidance conflicts.
+
 Approved art defines style, relative scale, complexity, and category conventions.
 
 ---
 
-## 2. Canonical Sheet
+## 2. General Art Requirements
 
-- Logical sheet: 1920×2560
-- 4 columns × 4 rows
-- Each cell: 480×640
-- No gutters
-- Pure white background
-- Four variants per populated row
-- No visible grid, labels, guides, anchors, proxies, or registration marks in final isolated artwork
-
-For registration/exploration passes, use the full MAIN HERO registration sheet when that improves body-relative scale and placement.
-
----
-
-## 3. Fundamental Production Split
-
-### AI Stage A — Design + Approximate Registration
-
-Use MAIN HERO as visual context.
-
-Stage A must optimize for:
-1. correct category
-2. correct side/body region
-3. correct approximate scale relative to MAIN HERO
-4. correct approximate position
-5. correct broad orientation
-6. correct silhouette
-7. correct style/detail level
-8. sufficient geometry for later Illustrator registration
-
-Stage A does **NOT** need:
-- exact hand pixels
-- exact finger placement
-- exact grip X/Y
-- exact final rotation
-- exact final production occlusion
-
-Generated hands/fingers are contextual and disposable.
-
-### AI Stage B — Isolation
-
-Remove:
-- MAIN HERO
-- hands
-- body
-- pedestal
-- registration context
-
-Retain:
-- cosmetic design
-- silhouette
-- colors
-- approximate scale
-- approximate orientation
-- complete usable geometry
-
-Stage B should reconstruct/retain geometry that was hidden by a generated hand whenever practical.
-
-### Illustrator Stage C — Production Registration
-
-The human production pass:
-- selects the chosen isolated cosmetic
-- Image Traces / cleans it
-- moves it to the exact canonical location
-- applies small scale/rotation corrections
-- layers the exact canonical hand over the object
-- trims/adjusts hidden geometry as needed
-- performs final production cleanup
-
-**Stage C is the authority for exact grip registration.**
+- flat 2D vector-style construction
+- true-black primary outer outline, approximately 5 px at canonical scale
+- large readable forms
+- low detail
+- clean silhouette
+- hard-edged flat color regions
+- pure white background
+- no cast shadow on isolated production artwork
+- no texture/noise
+- no presentation enlargement merely to fill space
+- Image-Trace-friendly construction
 
 ---
 
-## 4. Held-Object Geometry Rule
+## 3. LEFT ARM — Validated v7.54 Zero-Contact Architecture
 
-For RIGHT ARM and LEFT ARM items, do not demand exact grip registration from image generation.
+Do **not** use the older Stage A hero-overlap → Stage B reconstruction architecture for LEFT ARM.
 
-Instead, require a **registration-safe grip region**.
+Generate each LEFT ARM concept with:
 
-A registration-safe grip region means:
-- enough continuous object geometry exists where the canonical hand will eventually cover it
-- the grip/handle/neck/ring is long or broad enough to permit a modest Illustrator translation/rotation
-- no hand-shaped hole is baked into the object
-- no fake transparent grip cutout exists
-- no design-critical detail is placed exactly where the hand must cover it
-- the object remains visually coherent after a small registration adjustment
+- complete cosmetic on screen-left
+- canonical MAIN HERO on screen-right as body-relative scale reference
+- clear white separation between them
+- zero overlap/contact
+- no generated hand gripping or covering the cosmetic
+- complete object geometry visible in the first generation
 
-### Rigid held objects
+Stage A is the geometry authority. Missing object geometry is a generation failure.
 
-Examples:
-- sword
-- spatula
-- pan
-- staff
-- gun
-- shield handle
+Do not solve missing geometry later by:
 
-Require:
-- a clean continuous handle/grip segment
-- enough extra usable length around the approximate grip area for Illustrator adjustment
-- correct broad direction
-- correct overall body-relative scale
+- image-generation reconstruction
+- hero erasure that damages object pixels
+- rebuilding handles/necks/rings/outlines in Illustrator
 
-Do NOT make the entire object longer merely to create grip tolerance.
+Normal Image Trace/vector cleanup is expected; reconstruction is not.
 
-### Hanging / flexible objects
+### LEFT ARM scale calibration
 
-Examples:
-- money bag
-- lantern
-- pouch
-- charm
+Validated v7.54 results establish:
 
-Separate **grip geometry** from **gravity geometry**.
+- spatula: pass
+- money bag: pass
+- lantern: pass
+- shield: pass construction, but target approximately 20–25% larger than the v7.54 shield result
 
-Require:
-- a sufficiently long/usable attachment segment near the hand
-- approximate intended grip angle where useful
-- a natural bend/transition after the grip
-- the main hanging body obeys gravity and hangs approximately vertical
+Small LEFT ARM items must remain compact relative to MAIN HERO. Empty white space is acceptable.
 
-The entire object must NOT be forced onto the grip angle.
+### LEFT ARM acceptance
 
-Example — money bag:
-- gathered fabric neck should provide extra usable neck material
-- neck may angle approximately through the intended grip area
-- below that, fabric bends
-- main bag body hangs vertically
-- no suspension rope unless explicitly requested
+PASS only when the first generation has:
+
+- correct object identity
+- complete geometry
+- screen-left placement
+- zero contact with hero
+- correct body-relative scale
+- correct broad orientation/physics
+- continuous clean black outline
+- no hero contamination
+- suitable Don't Die style/detail level
+- no reconstruction requirement before Image Trace
+
+See `LEFT_ARM_ZERO_CONTACT_WORKFLOW.md` for full rules.
 
 ---
 
-## 5. Hand Rule
+## 4. RIGHT ARM
 
-The generator may redraw or slightly reposition a contextual hand during Stage A.
+Continue using the current validated RIGHT ARM production approach and approved references.
 
-This is **not a production failure by itself**.
+Optimize for:
+- correct category
+- correct body-relative scale
+- broad orientation
+- continuous usable grip geometry
+- clean low-detail construction
 
-Do not judge Stage A by generated finger accuracy.
-
-Judge whether the cosmetic:
-- is on the correct side
-- has sensible approximate registration
-- has enough hidden/extra grip geometry
-- can plausibly be moved a small amount underneath the canonical Illustrator hand
-
-Reject only when the object geometry itself cannot be made compatible without substantial redesign.
+Do not enlarge weapons merely to fill the canvas.
 
 ---
 
-## 6. Registration Tolerance
+## 5. HATS
 
-Stage A should intentionally leave modest adjustment tolerance.
+Continue using the validated HAT registration/isolation approach and current canonical references.
 
-The selected cosmetic should tolerate:
-- a small X/Y move
-- a small rotation
-- a modest scale correction
-
-without breaking its design.
-
-This does NOT mean:
-- oversized objects
-- excessively long handles
-- giant rings
-- giant bag necks
-- presentation-scale artwork
-
-Tolerance must be local to the attachment/grip region.
+Prioritize:
+- canonical head-relative scale
+- correct facing/orientation
+- attachment position
+- clean silhouette
+- consistent 5 px visual stroke system
 
 ---
 
-## 7. Scale Authority
+## 6. OUTFITS / ARMOR
+
+Body geometry matters directly. Use the canonical body template and current armor-specific rules. Do not apply the LEFT ARM zero-contact method to body silhouette alignment.
+
+---
+
+## 7. ACCESSORIES
+
+Use MAIN HERO to establish body-relative location and scale. Small accessories should remain small even when that creates substantial empty space.
+
+---
+
+## 8. Scale Authority
 
 Scale comes from:
+
 1. especially similar approved cosmetics
-2. category references
-3. MAIN HERO body proportions
-4. prompt description
+2. validated category calibration
+3. category references
+4. MAIN HERO body proportions
+5. prompt description
 
-Never enlarge an object because:
-- the cell looks empty
-- the object is small
-- a grip is difficult
-- the model wants a more balanced composition
+Never enlarge an object because the composition looks empty.
 
-Small cosmetics should remain small.
-
-For unusual objects, explicitly identify the closest approved scale reference before generation.
+For unusual objects, identify the closest approved or validated scale reference before generation.
 
 ---
 
-## 8. Complexity Authority
+## 9. Complexity Authority
 
 Default toward fewer, larger forms.
 
-At canonical 480×640 scale:
+At canonical scale:
 - prioritize silhouette
 - one strong focal detail is better than many small details
-- avoid micro-engraving, tiny rivets, dense filigree, repeated decorative marks, texture-like linework
-
-When matching an approved set:
-- match palette/material/shape language
-- do NOT automatically inherit every ornamental detail
+- avoid micro-engraving, tiny rivets, dense filigree, repeated decorative marks, and texture-like linework
 
 If a requested object repeatedly becomes too detailed, specify a hard major-form ceiling.
 
 ---
 
-## 9. Stage A Acceptance Checklist
+## 10. Core Principle
 
-PASS when:
-- correct category
-- correct viewer-side/body region
-- approximately correct body-relative scale
-- approximately correct position
-- correct broad orientation
-- readable Don't Die silhouette/style
-- acceptable detail level
-- usable registration-safe grip/attachment geometry
-- object can be corrected with a modest Illustrator move/rotation/scale adjustment
+**Generate complete, clean production geometry as early as the category allows. Do not create avoidable downstream reconstruction work.**
 
-DO NOT fail solely because:
-- generated fingers changed
-- hand pose changed slightly
-- exact grip point is a few pixels off
-- final occlusion is not production-perfect
-
-FAIL when:
-- wrong hand/side changes the object's basic geometry
-- object is presentation-centered or badly oversized
-- orientation is fundamentally wrong
-- grip/attachment geometry is too short or malformed to register later
-- hanging physics are wrong in the object itself
-- object requires substantial redrawing rather than modest Illustrator adjustment
-- style/detail level is materially wrong
-
----
-
-## 10. Stage B Acceptance Checklist
-
-PASS when the isolated object:
-- preserves the approved design
-- has no character/body/pedestal
-- has continuous usable grip geometry
-- has no hand-shaped hole
-- retains enough attachment tolerance for Illustrator
-- retains approximate Stage A scale/orientation
-- remains on pure white
-- is clean enough for Image Trace
-
----
-
-## 11. Category Notes
-
-### RIGHT ARM
-Use full hero registration for approximate placement/scale.
-Generate a registration-safe handle/grip.
-Final exact right-hand registration happens in Illustrator.
-
-### LEFT ARM
-Use full hero registration for approximate placement/scale.
-Do not fight the generator for exact canonical fingers.
-Generate extra usable local attachment geometry.
-Final exact viewer-left grip and canonical hand overlay happen in Illustrator.
-
-### HATS
-Continue using hero registration for head-relative scale/position when useful.
-Exact final cleanup/isolation follows the established Stage A → Stage B workflow.
-
-### OUTFITS / ARMOR
-Body geometry matters more directly.
-Use the canonical body template and existing armor-specific workflow.
-Do not apply the relaxed held-object grip rule to body silhouette alignment.
-
-### ACCESSORIES
-Use MAIN HERO for body-relative position/scale.
-Exact Illustrator registration may be used for small face/body accessories where a few pixels matter.
-
----
-
-## 12. Core Principle
-
-**Generation creates a production-ready design layer with enough geometric tolerance to register correctly. Illustrator creates the exact final registration.**
-
-Do not spend repeated generations trying to force the image model to preserve exact hand/finger geometry that will be replaced during production anyway.
+For LEFT ARM specifically, v7.54 establishes that the reliable method is to generate the complete item separately on screen-left while the canonical hero remains visible on screen-right only as a scale reference.
