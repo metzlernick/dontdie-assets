@@ -18,24 +18,21 @@ Hat calibration established that coordinate-only anchors were not reliable enoug
 
 RIGHT ARM calibration preserved useful findings about body-relative scale, broad orientation, low-detail construction, usable grip geometry, and the limits of isolation/reconstruction. Historical right-arm validation files remain evidence, not LEFT ARM authority.
 
-## Left-arm progress preserved here
+## Left-arm calibration chronology
 
-Two reports now cover the LEFT ARM pipeline chronology:
+- `LEFT_ARM_PIPELINE_CALIBRATION_REPORT_V7_20_V7_54.md` — grip/occlusion, reconstruction, deterministic extraction, and zero-contact breakthrough
+- `LEFT_ARM_4X4_SCALE_CALIBRATION_REPORT_V7_55_V7_65.md` — one-pass 4×4 throughput, wide cells, visual scale proxies, pose/scale interaction, and v7.65 controller
+- `LEFT_ARM_CLEAN_TRANSFER_SCALE_DETAIL_CALIBRATION.md` — fresh-instance transfer, smaller universal proxy, permanent small-side bias, semantic-class miniature behavior, and scale-driven detail simplification
 
-- `LEFT_ARM_PIPELINE_CALIBRATION_REPORT_V7_20_V7_54.md` — grip/occlusion, reconstruction, deterministic extraction, and the breakthrough to zero-contact geometry
-- `LEFT_ARM_4X4_SCALE_CALIBRATION_REPORT_V7_55_V7_65.md` — one-pass 4×4 throughput, wide cells, visual scale proxies, pose/scale interaction, and the validated v7.65 production controller
+The final clean-transfer calibration established the production principle:
 
-The first sequence established that generated hand/object contact was the root cause of repeated occlusion and reconstruction failures.
+**SMALL SCALE → SIMPLIFY DETAIL TO SURVIVE SCALE → EXACT IDENTITY → POSE/DESIGN/VARIATION.**
 
-The second sequence established that scalable production can remain a **single 4×4 generation** when LEFT ARM uses:
+**WHEN UNCERTAIN, SMALLER AND SIMPLER WINS.**
 
-- 600×640 logical generation cells / 2400×2560 sheet
-- complete zero-contact cosmetics on screen-left
-- a very small universal visual-scale marker
-- clean current-only row briefs
-- instruction priority: **scale/location → identity → pose/design**
+The neutral marker is now treated as an approximate maximum default visual-mass guide rather than a target to fill. Creatures/character-like objects and bottles/containers/multi-part handheld objects receive generic strong-miniature bias because semantic complexity otherwise tends to inflate scale.
 
-V7.65 is the calibration endpoint. Active production authority is now:
+Active LEFT ARM production authority:
 
 - `../LEFT_ARM_ZERO_CONTACT_WORKFLOW.md`
 - `../LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md`
