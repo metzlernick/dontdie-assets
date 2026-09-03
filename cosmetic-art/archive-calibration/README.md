@@ -32,7 +32,13 @@ RIGHT ARM calibration validated the same broad Stage A → Stage B architecture:
 - Stage B removes character/pedestal context and restores continuous object geometry through the grip region;
 - no hand-shaped holes should remain in isolated held objects.
 
-The current v7.19 workflow intentionally relaxes pixel-perfect generated hand/grip registration: Illustrator Stage C is now the authority for exact X/Y, rotation, scale, and canonical hand occlusion. The archived right-arm validation files remain valuable evidence for the design, scale, simplification, and isolation behavior that worked.
+The archived right-arm validation files remain valuable evidence for the design, scale, simplification, and isolation behavior that worked.
+
+## Left-arm progress preserved here
+
+See `LEFT_ARM_PIPELINE_CALIBRATION_REPORT_V7_20_V7_54.md` for the full V7.20–V7.54 test chronology, failed approaches, findings, scale/stroke conclusions, and the reasoning that led to the active zero-contact LEFT ARM workflow.
+
+The key historical conclusion is that generated hand/object interaction was the source of repeated occlusion, reconstruction, masking, and scale/stroke failures. The active LEFT ARM workflow therefore generates complete cosmetics separately on screen-left beside MAIN HERO with zero contact, using the hero only as a body-relative scale reference.
 
 ## Registration experiments
 
