@@ -29,7 +29,9 @@ The extra horizontal width is production workspace on screen-left. It must not i
 
 ## Required visual reference
 
-Use the active LEFT ARM wide visual-scale reference.
+Use:
+
+`reference-sheets/LEFT_ARM_V7_65_VISUAL_SCALE_REFERENCE_4X4.png`
 
 Each cell contains:
 
