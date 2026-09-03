@@ -11,7 +11,8 @@ Use these files for all new work:
 3. `PRODUCTION_SESSION_STARTER.txt` — new-session starter
 4. `CANONICAL_REGISTRATION_SYSTEM.md` — canonical anchors and final registration metadata
 5. `LEFT_ARM_ZERO_CONTACT_WORKFLOW.md` — validated LEFT ARM category override
-6. `LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md` — validated v7.65 one-pass LEFT ARM 4×4 controller
+6. `LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md` — validated one-pass LEFT ARM 4×4 controller
+7. `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4.png` — active LEFT ARM visual scale/detail controller
 
 Supporting production assets live in:
 
@@ -21,9 +22,9 @@ Supporting production assets live in:
 - `reference-sheets/` — active category, placement, style, and spatial references
 - `approved-art/` — approved production cosmetics by category
 
-## LEFT ARM production model — v7.65 validated
+## LEFT ARM production model — validated
 
-LEFT ARM uses the zero-contact architecture plus the v7.65 one-pass 4×4 controller.
+LEFT ARM uses one-pass zero-contact generation with a tiny finished-cosmetic exemplar as the active visual controller.
 
 Validated production format:
 
@@ -39,19 +40,32 @@ Validated production format:
 - no hidden cosmetic geometry
 - no AI isolation/reconstruction pass
 
-The active wide visual-scale reference contains a very small neutral screen-left marker. That marker establishes the universal initial LEFT ARM scale prior.
+The active exemplar is not merely a position marker. It communicates intended **final visual mass, finished-art status, bold outline, low detail, and relationship to MAIN HERO**.
 
-The v7.65 instruction hierarchy is:
+The production hierarchy is:
 
-1. **scale/location**
-2. **object identity**
-3. **pose/design**
+1. **match or undercut finished-exemplar scale/location**
+2. **simplify detail to survive that scale**
+3. **exact object identity**
+4. **pose/design/variation**
 
-**Pose may change shape. Pose may not increase scale.**
+**If size and detail conflict: keep the small size and remove the detail.**
 
-This hierarchy allowed the one-pass sheet to preserve small production scale while still generating four unrelated concepts, four variations per concept, unusual orientation requirements, and connected/hanging geometry.
+**When uncertain: smaller and simpler wins.**
+
+Slightly undersized source art is preferred because Illustrator enlargement is easy. Real-world object size and empty canvas space never authorize enlargement.
+
+Long/thin/hanging objects may extend farther in one direction only while remaining narrow and low in total visual mass. Creatures and bottles/containers receive strong miniature bias because semantic complexity otherwise tends to inflate scale.
 
 Normal production briefs should mention only the current requested cosmetics. Do not include calibration-object names, previous failures, or negative examples from old sheets.
+
+## Why the finished exemplar replaced the abstract marker
+
+Clean unseen-object testing showed that an abstract gray scale marker controlled position but did not reliably override the model's semantic idea of how large a finished object should be. Unseen trophy, grappling-hook, sunflower, and skull briefs reverted toward presentation-sized icon scale.
+
+Replacing the marker with a tiny neutral **finished cosmetic exemplar** immediately produced much smaller transferable results across those unseen object classes while preserving semantic binding, four variations, and zero-contact geometry.
+
+The finished exemplar is therefore the canonical LEFT ARM visual controller.
 
 ## Other categories
 
