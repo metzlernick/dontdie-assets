@@ -10,11 +10,13 @@ General repeatable workflow for Don't Die cosmetic art.
 
 Before every generation freshly review current canonical sources: master spec, MAIN HERO, Character Master Template, relevant reference-pack files, relevant approved-art category, and category-specific workflow/controller.
 
+For LEFT ARM, also use `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4.png`.
+
 ## 2. General art requirements
 
 - flat 2D vector-style construction
 - true-black primary outer outline, approximately 5 px at canonical scale
-- large readable forms
+- large readable forms appropriate to final display size
 - low detail
 - clean silhouette
 - hard-edged flat color regions
@@ -39,32 +41,46 @@ Generate up to four unrelated current briefs in one pass:
 - no generated grip or hidden geometry
 - no AI isolation/reconstruction
 
-Use the active final LEFT ARM production-scale reference.
+### LEFT ARM visual controller
+
+The active scale controller is a **tiny neutral outlined finished-cosmetic exemplar**, not an abstract marker.
+
+The requested cosmetic should read like a replacement finished asset at approximately the same or smaller total visual mass.
+
+The exemplar communicates:
+
+- production scale
+- finished-art status
+- bold outline behavior
+- low-detail construction
+- relationship to MAIN HERO
+
+Do not reinterpret it as merely a positional anchor.
 
 ### LEFT ARM production priority
 
-1. **Small scale/location**
-2. **Simplify detail to survive scale**
+1. **Finished-exemplar scale/location**
+2. **Simplify detail to survive that scale**
 3. **Exact identity**
 4. **Pose/design/variation**
 
-The neutral marker is an approximate maximum default visual-mass guide. Slightly undersized is preferred. When uncertain, choose smaller.
+Slightly undersized is preferred. When uncertain, choose smaller.
 
 Small size is a forcing function for simplicity. Never enlarge an object so optional detail remains visible. Remove/simplify the detail instead.
 
-Generic semantic-class behavior:
+Generic object-shape behavior:
 
-- compact/simple → at or below baseline
-- long/thin/hanging → extra length allowed only with narrow, low visual mass
+- compact/simple → at or below exemplar visual mass
+- long/thin/hanging → extra length allowed only with narrow, low total visual mass
 - creatures/character-like → strong miniature bias and extremely simple anatomy/face
 - bottles/containers/multi-part handheld → strong miniature bias and minimal secondary construction/detail
-- broad → wider silhouette allowed while remaining compact relative to hero fist
+- broad → wider silhouette allowed while remaining tiny relative to hero
 
 Real-world size is irrelevant to production scale.
 
 ### LEFT ARM acceptance
 
-PASS requires exact row identities, four useful variations, required features, small-side-biased scale, detail appropriate to tiny display, screen-left zero-contact placement, complete geometry, usable broad pose, bold outer stroke, and no reconstruction requirement.
+PASS requires exact row identities, four useful variations, required features, visual mass approximately at or below the finished exemplar, detail appropriate to tiny display, screen-left zero-contact placement, complete geometry, usable broad pose, bold outer stroke, and no reconstruction requirement.
 
 Normal production briefs contain only current requested items. Never inject calibration history or old failures.
 
@@ -102,4 +118,4 @@ Default toward fewer, larger forms. At tiny display scale, delete detail that ca
 
 ## 10. Core principle
 
-Generate complete clean production geometry as early as the category allows and avoid downstream reconstruction. For LEFT ARM specifically: **small first, simplify second, identity third, pose/design fourth.**
+Generate complete clean production geometry as early as the category allows and avoid downstream reconstruction. For LEFT ARM specifically: **finished-exemplar scale first, simplify second, identity third, pose/design fourth.**
