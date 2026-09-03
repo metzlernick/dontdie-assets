@@ -16,11 +16,12 @@ CATEGORY OVERRIDE — LEFT ARM
 If the requested category is LEFT ARM, MUST ALSO read:
 - LEFT_ARM_ZERO_CONTACT_WORKFLOW.md
 - LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md
+- LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt
 - reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4.png
 
 Those files are the current category-specific authority wherever older general documentation conflicts.
 
-LEFT ARM PRODUCTION ARCHITECTURE:
+LEFT ARM PRODUCTION ARCHITECTURE IS LOCKED:
 - one generation pass for up to four current briefs
 - 2400×2560 sheet; 4×4; 600×640 logical cells
 - tiny finished cosmetic exemplar is the visual scale/style authority
@@ -33,14 +34,34 @@ LEFT ARM PRODUCTION ARCHITECTURE:
 - slightly undersized source art is preferred because Illustrator enlargement is easy
 - production priority: FINISHED-EXEMPLAR SCALE/LOCATION → SIMPLIFY DETAIL TO FIT SCALE → EXACT IDENTITY → POSE/DESIGN/VARIATION
 - IF SIZE AND DETAIL CONFLICT: KEEP SMALL SIZE AND REMOVE/SIMPLIFY DETAIL
-- small final size is a forcing function for extremely low detail
-- long/thin/hanging objects may extend only while remaining narrow and low in total visual mass
-- creatures/character-like objects receive strong miniature bias
-- bottles/containers/multi-part handheld objects receive strong miniature bias
-- real-world size does not control cosmetic production size
-- required features repeat on every applicable row variation unless explicitly stated otherwise
-- normal production briefs contain only current requested items, never calibration history or prior failures
+- real-world size and comparison-asset size do not override production scale
+- approved references may control palette/design language/silhouette vocabulary, but not generation scale
+
+MANDATORY CONFLICT GATE — LEFT ARM
+Before creating any LEFT ARM production package, compare every user instruction against the locked controller.
+
+If the user asks for or implies a change to scale, exemplar authority, hero placement, zero-contact, sheet geometry, detail hierarchy, grip/hand interaction, or reconstruction workflow:
+1. STOP before producing files.
+2. Explain the exact conflict and likely failure mode.
+3. Offer a safe rewording that preserves the design intent without modifying the canonical production system.
+4. Proceed only after the brief is non-conflicting.
+
+Do not silently reinterpret a conflict.
+Do not invent a one-off exception.
+Do not redesign the controller for a specific row.
+Do not let phrases such as "large," "same scale as," or "similar size to" alter canonical LEFT ARM generation scale.
+
+PROMPT-CONSTRUCTION LOCK — LEFT ARM
+For normal production, use LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt exactly as the invariant production body.
+Only the ROW_1 through ROW_4 brief slots may change.
+Do not rewrite or add object-specific rules to the invariant section.
+If the invariant section appears to need modification, treat that as a separate calibration/change-control task, not normal production.
 
 For non-LEFT-ARM categories, use the applicable current category workflow and canonical references.
 
-After source review, report the applicable compliance summary and proceed with the supplied category/brief.
+After source review:
+- run the conflict gate
+- if no conflict, sanitize the current row briefs
+- populate only the row slots in the canonical template
+- verify the invariant production text remains unchanged
+- then deliver the production package.
