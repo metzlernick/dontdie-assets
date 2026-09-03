@@ -6,33 +6,35 @@ Historical calibration evidence only. Active production authority lives in the c
 
 ## Purpose
 
-After v7.65 validated one-pass 4×4 semantic binding and zero-contact production, a clean-instance transfer test checked whether arbitrary natural-language briefs could reach production quality without calibration-specific context.
+After v7.65 validated one-pass 4×4 semantic binding and zero-contact production, a clean-instance transfer sequence tested whether arbitrary natural-language briefs could reach production quality without calibration-specific context.
 
-Fixed clean test briefs were intentionally diverse: a compact sphere, elongated organic object, creature, and bottle/multi-part handheld object.
+## Phase 1 — abstract marker transfer
 
-## Findings
+A clean test using diverse briefs confirmed that fresh instances could preserve:
 
-### Initial clean transfer
+- exact row identities
+- four variations per row
+- screen-left zero-contact geometry
 
-Fresh-instance generation successfully preserved row identity, four variations, and zero-contact architecture, but semantic object priors inflated scale for non-spherical objects.
+But scale still inflated for semantically complex objects.
 
 ### Visual-mass strengthening
 
-Treating the neutral marker as total visual-mass guidance improved scale but did not fully eliminate inflation for creatures and bottles.
+Treating the neutral marker as total visual-mass guidance improved scale but did not eliminate semantic inflation.
 
 ### Smaller universal proxy
 
-Shrinking the proxy moved every tested class in the correct direction while preserving semantic binding and zero-contact behavior.
+Shrinking the proxy moved tested classes in the correct direction while preserving semantic binding and zero-contact behavior.
 
 ### Permanent small-side bias
 
-Production logic was changed from 'match the marker' to 'marker is an approximate maximum default visual-mass guide.' Slightly undersized generation is preferred because Illustrator enlargement is easier than correcting oversized source art.
+Production logic changed from 'match the marker' to 'marker is an approximate maximum default visual-mass guide.' Slightly undersized generation is preferred because Illustrator enlargement is easier than correcting oversized source art.
 
-### Detail as the hidden scale driver
+### Detail as a hidden scale driver
 
-Repeated tests showed that semantic complexity can cause enlargement because the model attempts to preserve anatomy, labels, wrapping, secondary construction, or decorative detail.
+Repeated tests showed that semantic complexity can cause enlargement because the model attempts to preserve anatomy, labels, wrapping, secondary construction, decorative detail, or other features.
 
-The final breakthrough was to make tiny scale a forcing function for simplicity:
+The resulting production principle became:
 
 1. establish tiny scale first
 2. simplify/remove details that do not survive
@@ -41,35 +43,66 @@ The final breakthrough was to make tiny scale a forcing function for simplicity:
 
 If detail requires enlargement, detail loses.
 
-### Semantic-class bias
+## Phase 2 — unseen-object generalization failure
 
-A universal scale prior remains useful, but generic semantic classes need reusable behavior:
+After the fixed calibration examples passed, a clean production test used four completely unseen descriptions spanning compact, elongated, organic, and broad object classes.
 
-- compact/simple: at or below baseline
-- long/thin/hanging: extra extent permitted only with narrow low visual mass
-- creatures/character-like: strong miniature bias; simplified anatomy/face
-- bottles/containers/multi-part handheld: strong miniature bias; minimal secondary construction/detail
-- broad: wider silhouette permitted while remaining compact
+Semantic identity, variation, and zero-contact all passed, but **all four unseen objects returned to presentation-sized icon scale**.
 
-These are generic production rules, not test-object special cases.
+This demonstrated that the abstract marker architecture had not fully generalized. Even a very small marker plus strong text instructions could still be interpreted primarily as a location/scale hint while the model separately decided how large a 'finished object' should be.
 
-## Final acceptance
+## Phase 3 — finished cosmetic exemplar breakthrough
 
-The final calibration passed:
+The abstract gray marker was replaced by a **tiny neutral outlined finished-cosmetic exemplar** in every cell.
 
-- semantic row binding
+The exemplar intentionally communicated several constraints at once:
+
+- tiny final visual mass
+- finished-art status
+- bold outline weight
+- extremely low detail
+- relationship to MAIN HERO
+- screen-left zero-contact placement
+
+The exact same unseen object descriptions were then rerun.
+
+**Result: pass.**
+
+All unseen rows moved into the desired production-scale neighborhood while preserving:
+
+- exact semantic row binding
 - four variations per row
-- screen-left zero contact
+- zero-contact separation
 - complete geometry
-- compact production scale
-- strong miniature behavior for semantically inflation-prone classes
-- substantially reduced detail appropriate for tiny display
-- Image-Trace-friendly construction
+- simple low-detail art
+
+The elongated object also demonstrated that extra directional extent can coexist with low total visual mass.
+
+## Why the exemplar worked better than an abstract marker
+
+An abstract shape can be interpreted as a positional or bounding cue while leaving the model free to apply semantic priors about how large a real finished object should appear.
+
+A tiny finished-art exemplar communicates not only where and roughly how large the replacement should be, but also **what kind of visual entity it is replacing**: a finished, tiny, bold-outlined, low-detail game cosmetic.
+
+This reduced the semantic jump from 'marker' to 'finished object' and substantially improved transfer to unseen descriptions.
+
+## Canonical scale/detail behavior
+
+The active reusable production logic is now:
+
+- replacement visual mass should be approximately the same or smaller than the tiny finished exemplar
+- slightly undersized is preferred
+- small display size forces low detail
+- long/thin/hanging objects may extend only while remaining narrow and low-mass
+- creatures/character-like objects receive strong miniature bias
+- bottles/containers/multi-part handheld objects receive strong miniature bias
+- real-world size does not control cosmetic production size
+- if detail requires enlargement, simplify/remove detail
 
 ## Canonical production principle
 
-**SMALL SCALE → SIMPLIFY DETAIL TO SURVIVE SCALE → EXACT IDENTITY → POSE/DESIGN/VARIATION.**
+**FINISHED-EXEMPLAR SCALE → SIMPLIFY DETAIL TO SURVIVE SCALE → EXACT IDENTITY → POSE/DESIGN/VARIATION.**
 
 **WHEN UNCERTAIN, SMALLER AND SIMPLER WINS.**
 
-This calibration should not be repeated or injected into normal production prompts. New production sessions should receive only current briefs plus active canonical production files.
+The abstract marker is superseded as the active LEFT ARM visual controller. Normal production sessions should use the finished cosmetic exemplar and only current user briefs.
