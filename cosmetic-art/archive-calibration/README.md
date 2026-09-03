@@ -22,20 +22,21 @@ RIGHT ARM calibration preserved useful findings about body-relative scale, broad
 
 - `LEFT_ARM_PIPELINE_CALIBRATION_REPORT_V7_20_V7_54.md` — grip/occlusion, reconstruction, deterministic extraction, and zero-contact breakthrough
 - `LEFT_ARM_4X4_SCALE_CALIBRATION_REPORT_V7_55_V7_65.md` — one-pass 4×4 throughput, wide cells, visual scale proxies, pose/scale interaction, and v7.65 controller
-- `LEFT_ARM_CLEAN_TRANSFER_SCALE_DETAIL_CALIBRATION.md` — fresh-instance transfer, smaller universal proxy, permanent small-side bias, semantic-class miniature behavior, and scale-driven detail simplification
+- `LEFT_ARM_CLEAN_TRANSFER_SCALE_DETAIL_CALIBRATION.md` — fresh-instance transfer, small-side bias, scale-driven detail simplification, unseen-object generalization failure with abstract markers, and the finished-cosmetic-exemplar breakthrough
 
-The final clean-transfer calibration established the production principle:
+The active production principle is:
 
-**SMALL SCALE → SIMPLIFY DETAIL TO SURVIVE SCALE → EXACT IDENTITY → POSE/DESIGN/VARIATION.**
+**FINISHED-EXEMPLAR SCALE → SIMPLIFY DETAIL TO SURVIVE SCALE → EXACT IDENTITY → POSE/DESIGN/VARIATION.**
 
 **WHEN UNCERTAIN, SMALLER AND SIMPLER WINS.**
 
-The neutral marker is now treated as an approximate maximum default visual-mass guide rather than a target to fill. Creatures/character-like objects and bottles/containers/multi-part handheld objects receive generic strong-miniature bias because semantic complexity otherwise tends to inflate scale.
+The abstract gray marker is superseded. The active LEFT ARM visual controller is a tiny neutral outlined finished cosmetic exemplar, because unseen-object testing showed that it communicates finished-art visual mass and complexity more reliably than an abstract positional cue.
 
 Active LEFT ARM production authority:
 
 - `../LEFT_ARM_ZERO_CONTACT_WORKFLOW.md`
 - `../LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md`
+- `../reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4.png`
 
 ## Registration experiments
 
