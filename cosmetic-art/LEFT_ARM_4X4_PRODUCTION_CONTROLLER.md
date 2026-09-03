@@ -22,85 +22,100 @@ Generate one sheet in one image-generation pass:
 - zero contact
 - no AI isolation/reconstruction pass afterward
 
-## Required visual reference
+## Required visual reference — finished cosmetic exemplar
 
-Use the active final LEFT ARM production-scale reference in `reference-sheets/`.
+Use:
 
-Each cell contains a tiny neutral marker on screen-left. Replace the marker conceptually with the requested cosmetic; never reproduce the marker.
+`reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4.png`
 
-The marker is an approximate **maximum default visual-mass guide**, not a target that must be filled.
+Each cell contains a **tiny neutral outlined finished-cosmetic exemplar** on screen-left.
+
+Replace that exemplar with the requested cosmetic. Do not reproduce the exemplar itself.
+
+The exemplar is the visual authority for:
+
+- intended final cosmetic visual mass
+- small-side production bias
+- bold outline weight at tiny scale
+- very low detail
+- finished-art status
+- relationship to MAIN HERO
+
+This is stronger than an abstract position/scale marker. The replacement cosmetic should read like the same kind of tiny finished production asset, not like a normal standalone icon.
 
 ## Permanent instruction hierarchy
 
 Apply instructions in this order:
 
-1. **Small production scale / location**
+1. **Match or undercut the tiny finished-exemplar visual mass / location**
 2. **Simplify detail to survive that scale**
 3. **Exact object identity**
 4. **Pose / design / variation**
-
-Scale is established before detail.
 
 **If size and detail conflict: keep the small size and remove the detail.**
 
 **When uncertain: smaller and simpler wins.**
 
-## Small-side bias
+## Finished-exemplar scale rule
 
-Slightly undersized source art is desirable because enlargement in Illustrator is easy. Oversized generation is a production failure.
+Treat the exemplar as an approximate **maximum default total visual mass**, not a minimum and not a target that must be filled.
 
-Do not enlarge because:
+The requested cosmetic should occupy approximately the same or smaller total visual mass.
 
-- the canvas has empty white space
-- the object is detailed or semantically complex
-- real-world proportions suggest a large object
-- readability would improve
-- a creature needs anatomy or expression
-- a bottle needs a label or construction detail
-- composition feels unbalanced
+Do not:
 
-The cosmetic is subordinate to MAIN HERO and should read as a small game asset beside the hero's fist.
+- interpret the exemplar as only a position marker
+- enlarge the replacement into a normal readable icon
+- use empty white space
+- preserve real-world size
+- enlarge for composition balance
+- enlarge so optional detail remains visible
+- make the cosmetic visually equal in importance to MAIN HERO
+
+Slightly undersized source art is desirable because enlargement in Illustrator is easy. Oversized source art is the failure mode to avoid.
 
 ## Detail follows scale
 
-Small final display size is a forcing function for simplicity.
+Small final display size is intentionally a forcing function for simplicity.
 
-Do not design a detailed object and enlarge it so the detail survives. Instead:
+Do not design a detailed object first and enlarge it so the detail survives. Instead:
 
-1. establish the tiny production size
-2. remove details that do not survive at that size
-3. simplify silhouette and color regions
-4. retain only the few features necessary for identity
+1. lock tiny production footprint first
+2. simplify silhouette and secondary geometry
+3. remove nonessential interior lines and color regions
+4. retain only the few identity-critical cues
 
-Tiny cosmetics should use very few major shapes, few interior lines, few color regions, large readable features, and no micro-decoration or texture-like detail.
+If a detail requires making the object larger, simplify or delete the detail unless it is essential to identity.
 
-Variation comes primarily from simple silhouette, proportion, and major color/decorative placement changes — not from adding complexity.
+Tiny cosmetics should use very few major shapes, few interior lines, few color regions, large simple readable features, and no micro-decoration or texture-like detail.
 
-## Universal scale prior with semantic-class bias
+Variation comes from simple silhouette, proportion, and major color/decorative placement changes — not from adding complexity.
 
-Use the same universal small baseline for arbitrary objects, then bias smaller when semantic complexity tends to inflate them.
+## Object-shape behavior
 
-### Compact simple objects
+The finished exemplar controls total visual mass across arbitrary object classes.
 
-Stay at or below the marker's small visual-mass class.
+### Compact / simple objects
+
+Stay at or below the exemplar's tiny visual-mass class.
 
 ### Long / thin / hanging objects
 
-May extend farther in one direction, but remain proportionally narrow and small in total visual mass. Simplify along the length.
+May extend farther in one direction only by remaining proportionally narrow and low in total visual mass. Simplify along the length.
 
 ### Creatures / character-like objects
 
-Apply a **strong miniature bias**. They must read as tiny mascot/toy cosmetics, not companion characters. Use extremely simplified anatomy and only essential facial features. Never enlarge to preserve wings, feet, feathers, expression, or body detail.
+Apply a strong miniature bias. They must read as tiny mascot/toy cosmetics, not companion characters. Use extremely simplified anatomy and only essential facial features.
 
 ### Bottles / containers / multi-part handheld objects
 
-Apply a **strong miniature bias**. Keep body, neck, attachment, cloth, flame, cap, or similar parts simple and compact. Use minimal or no label detail unless identity requires it. Never enlarge to preserve wrapping, glass detail, labels, or internal construction.
+Apply a strong miniature bias. Keep body, neck, attachment, cloth, flame, cap, or similar parts simple and compact. Use minimal or no label detail unless identity requires it.
 
 ### Broad objects
 
-May use a wider silhouette but remain compact relative to the hero's fist.
+May widen naturally but must remain tiny relative to MAIN HERO.
 
-Real-world size does not control production size. Cosmetic production scale wins.
+Real-world size does not control production scale. Cosmetic production scale wins.
 
 ## Exact row identity
 
@@ -131,15 +146,15 @@ Do not add a generated hand around the cosmetic. The hero is contextual and disp
 
 ## Style
 
-At canonical art scale:
+Match the finished exemplar's production logic:
 
 - flat vector-like cartoon construction
-- smooth true-black outer contour, visually about 5 px
+- bold smooth true-black outer contour, visually about 5 px at canonical scale
 - round joins/caps
 - sparse interior linework only where necessary
 - hard-edged solid color regions
-- **very low detail appropriate for tiny final display**
-- no cast shadow on the cosmetic
+- **extremely low detail appropriate for tiny final display**
+- no cast shadow on cosmetic
 - no texture/noise
 - no painterly rendering
 - no gradient unless explicitly requested
@@ -154,16 +169,16 @@ PASS only when:
 1. every populated row has the exact requested identity
 2. each populated row has four useful variations
 3. required features repeat correctly
-4. cosmetics are at or below the small production-scale prior
-5. detail has been simplified to fit the scale rather than scale enlarged to fit detail
-6. creature-like and container-like objects receive strong miniature bias when applicable
-7. cosmetics are screen-left and zero-contact
-8. geometry is complete and unobstructed
-9. broad pose/orientation is usable
-10. outer stroke remains bold and construction is Image-Trace friendly
+4. cosmetics remain approximately at or below the tiny finished-exemplar visual mass
+5. detail is simplified to fit scale rather than scale enlarged to fit detail
+6. elongated items stay narrow/low-mass
+7. semantic complexity does not inflate scale
+8. cosmetics are screen-left and zero-contact
+9. geometry is complete and unobstructed
+10. outer stroke remains bold and artwork is Image-Trace friendly
 11. no AI reconstruction/isolation pass is required
 
-FAIL if an object becomes presentation-sized, detail forces enlargement, semantic class causes size inflation, row identity changes, geometry touches the hero, or substantial reconstruction is required.
+FAIL if a replacement becomes a normal standalone icon, detail forces enlargement, real-world size inflates scale, row identity changes, geometry touches the hero, or substantial reconstruction is required.
 
 ## Illustrator handoff
 
