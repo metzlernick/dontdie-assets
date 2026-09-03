@@ -1,182 +1,107 @@
-# Don't Die LEFT ARM — Zero-Contact Production Workflow v7.65
+# Don't Die LEFT ARM — Zero-Contact Production Workflow
 
 ## Status
 
 **VALIDATED PRODUCTION AUTHORITY FOR LEFT ARM HELD ITEMS.**
 
-This category-specific workflow supersedes older LEFT ARM instructions that place generated objects over the hero, hide geometry under a generated hand, require AI Stage B reconstruction, or rely on Illustrator reconstruction of missing geometry.
-
-For scalable one-pass 4×4 generation, also use `LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md`.
+This workflow supersedes older LEFT ARM overlap, generated-grip, hidden-geometry, and AI reconstruction approaches. For scalable generation also use `LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md`.
 
 ## Core architecture
 
-LEFT ARM generation uses **zero-contact registration**:
+LEFT ARM uses zero-contact registration:
 
-- canonical MAIN HERO context on the right
+- 2400×2560 sheet
+- 4×4 logical grid
+- 600×640 cells
+- canonical MAIN HERO context on screen-right
 - complete cosmetic on viewer-left / screen-left
 - pure white background
-- clear white separation between cosmetic and hero
+- clean white separation
 - no generated grip
-- no object/hero overlap
+- no hero/object overlap
 - no hidden cosmetic geometry
-- no AI isolation/reconstruction pass afterward
+- no AI Stage B isolation/reconstruction
 
-The hero exists only as body-relative scale/context. The cosmetic is generated complete and standalone so the production pass is limited to Image Trace, normal cleanup, placement, and canonical hand layering.
+The hero is body-relative context only. The cosmetic is complete standalone geometry for Image Trace and Illustrator placement.
 
-## Validated scalable 4×4 format
+## One-pass production
 
-V7.65 validated a single-generation production sheet with four unrelated LEFT ARM briefs and four variations per brief.
+Up to four unrelated current briefs are generated simultaneously. Each populated row is one brief; four columns are four variations.
 
-For LEFT ARM, use:
+Normal production input contains only the current descriptions. Calibration examples, previous failures, and old object names must not be injected into the production prompt.
 
-- **2400 × 2560 px logical sheet**
-- **4 columns × 4 rows**
-- **600 × 640 px logical cells**
-- no gutters
-- no visible grid/labels
-- pure white background
+## Scale authority
 
-The extra 120 px of width per cell is screen-left workspace. It does **not** authorize larger cosmetics or a larger hero.
+Use the active final LEFT ARM production-scale reference. Its tiny neutral screen-left marker is an approximate **maximum default visual-mass guide**.
 
-Each populated row is one current user brief. Each row produces four moderately different variations of that same brief.
+Permanent production bias: **when uncertain, choose smaller.**
 
-## Active visual-scale reference
+Slightly undersized source art is preferred because Illustrator enlargement is easy. Oversized generation is a failure mode.
 
-Use the active LEFT ARM wide visual-scale reference. Each cell contains a very small neutral marker on screen-left beside the hero context.
+Empty white space is expected and never authorizes enlargement.
 
-The marker establishes the **universal initial production-scale prior** for new LEFT ARM cosmetics.
+## Scale and detail are one constraint
 
-The generated cosmetic replaces the marker conceptually; the marker itself must not appear in the output.
+Small display size is intentionally used as a forcing function for low-detail art.
 
-Natural long/hanging geometry may extend beyond the marker in one direction, but the item's component thickness and overall visual mass must remain small relative to the hero's fist.
+Production order:
 
-## Production instruction hierarchy
+1. establish tiny scale/location
+2. simplify detail until it survives that scale
+3. preserve exact identity
+4. apply pose/design/variation without increasing scale
 
-The V7.65 calibration established this ordering:
+If a feature requires enlarging the cosmetic to remain visible, simplify or remove that feature unless it is essential to object identity.
 
-1. **Scale and location** — first establish the item at the small marker-derived production scale on screen-left.
-2. **Identity** — make it the exact requested object without increasing scale.
-3. **Pose and design** — apply orientation, physics, and variation without increasing the established scale.
+**If size and detail conflict: keep the small size and remove the detail.**
 
-**Pose may change shape. Pose may not increase scale.**
+## Semantic-class scale behavior
 
-This ordering matters. V7.64 showed that adding pose/detail emphasis without explicit scale priority can cause the model to enlarge otherwise-correct cosmetics even when the visual proxy is unchanged.
+The universal marker remains the common baseline, but semantic classes receive generic scale behavior so natural model priors do not inflate them.
 
-## Stage A is the geometry authority
+- **Compact/simple:** at or below baseline.
+- **Long/thin/hanging:** may extend in one direction while remaining narrow and low in total visual mass.
+- **Creatures/character-like:** strong miniature bias; tiny mascot/toy treatment; extremely simplified anatomy and face.
+- **Bottles/containers/multi-part handheld:** strong miniature bias; compact body and minimal secondary construction/detail.
+- **Broad:** may widen naturally but remains compact relative to hero fist.
 
-The first generation must already contain:
+Real-world size does not control production size.
 
-- correct object identity
-- complete continuous silhouette
-- all required handles/attachments/components
-- correct broad pose/orientation
-- usable hanging/rigid physics
-- low-detail Don't Die styling
-- approximately final production scale
-- absolute bold stroke suitable for Image Trace
+## Zero-contact
 
-Do not approve a result that would require rebuilding missing cosmetic geometry.
+Every cosmetic remains fully screen-left and separated from every hero pixel by white space. It never touches the hand, cape, body, pedestal, or shadow and is never depicted as being held.
 
-## No AI Stage B for LEFT ARM
+All geometry must be complete and unobstructed. Exact final X/Y, rotation, modest enlargement if desired, and canonical hand occlusion occur in Illustrator.
 
-For LEFT ARM:
+## Style
 
-- do not generate the object over the hero hand
-- do not hide geometry behind hero pixels
-- do not ask a later generation to isolate, reconstruct, redraw, resize, or clean the chosen object
-- do not use semantic pixel masking across a touching hero/object boundary
-
-If an object-only raster is required, obtain it deterministically from the zero-contact source without changing cosmetic pixels.
-
-## Placement
-
-LEFT ARM means **viewer-left / screen-left lowered-hand side**.
-
-During generation, the cosmetic stays separate from the character. Exact final X/Y, small rotation, and hand occlusion are performed later in Illustrator.
-
-The generated hero may drift somewhat because it is disposable. Hero drift is only a failure if it becomes large enough to corrupt the scale/context relationship.
-
-## Scale
-
-Do not presentation-enlarge LEFT ARM cosmetics.
-
-The current production baseline is the validated V7.65 small universal visual-scale prior, not the older V7.54 object-by-object scale percentages.
-
-The universal marker is a strong initial scale prior across arbitrary object classes. It is not a requirement that every object share an identical rectangular bounding box.
-
-- broad objects remain compact relative to the hero's fist
-- long thin objects may extend farther while staying thin
-- hanging items may extend downward while preserving small component scale
-- empty white space is expected
-
-## Style / Image Trace
-
-The isolated cosmetic should use:
-
-- crisp continuous true-black outer contour
-- approximately 5 px visual outer stroke at canonical art scale
-- round joins/caps
-- sparse ~3–4 px interior linework where needed
-- large flat color regions
-- minimal detail
+- flat vector-like cartoon
+- bold continuous true-black outer contour, visually ~5 px at canonical scale
+- rounded joins/caps
+- sparse interior linework
+- few major shapes and color regions
+- very low detail appropriate to tiny final display
+- hard-edged solid colors
+- no cast shadow on cosmetic
 - no texture/noise
-- no cast shadow
-- pure white surrounding field
+- no painterly rendering
 - no gradients unless explicitly requested
+- Image-Trace friendly
 
-Soft effects such as flame, smoke, vapor, or explicitly unoutlined energy may use their requested outline exception.
+Soft effects may use explicit outline exceptions when required by the brief.
 
-## Row binding and required features
+## Row binding
 
-For one-pass 4×4 production:
+One row equals one exact brief. Four columns are four moderately different versions of that same identity. Required per-object features repeat on every applicable variation unless explicitly stated otherwise.
 
-- one row = one brief
-- four columns = four variations
-- keep row identity stable
-- every required per-object feature must appear on every applicable variation
-- do not distribute a feature across columns unless the user explicitly asks for that behavior
+Variation should come from simple silhouette, proportion, and major decoration/color-placement differences rather than extra detail.
 
-Keep production briefs clean. Do not mention prior calibration objects or prior failures in normal production prompts.
+## Acceptance
 
-## Object physics
+PASS requires correct identity, four useful variations, small-side-biased scale, detail simplified to fit scale, zero contact, complete geometry, usable broad pose, bold outline, and no reconstruction requirement.
 
-### Rigid objects
-
-Generate complete uninterrupted geometry. Preserve the requested broad orientation. Illustrator may later make a modest rotation for final hand placement.
-
-### Hanging / connected objects
-
-Describe the mechanical relationship concisely: which component is near the future hand, where the connection leaves it, and which component hangs under gravity.
-
-Do not over-explain pose. Detailed pose prose can compete with scale priority.
-
-## Acceptance gate
-
-PASS only when all are true:
-
-1. correct requested object identity
-2. four useful variations per populated row
-3. required features repeated correctly on each applicable variation
-4. compact marker-derived LEFT ARM production scale
-5. screen-left placement
-6. clean zero-contact separation
-7. complete unobstructed geometry
-8. usable broad pose/orientation/physics
-9. bold continuous outer stroke
-10. low-detail Image-Trace-friendly construction
-11. no reconstruction/isolation generation required
-
-FAIL if a row substitutes another object, items become presentation-sized, pose causes scale inflation, required features are distributed incorrectly, geometry touches the hero, or substantial reconstruction would be required.
+FAIL if semantic complexity inflates scale, detail causes enlargement, a row substitutes another object, hero contact hides geometry, or substantial rebuilding is needed.
 
 ## Production handoff
 
-After approval:
-
-1. select the chosen complete cosmetic from the zero-contact generation
-2. Image Trace / normal vector cleanup
-3. translate and rotate into the canonical viewer-left hand
-4. use only modest scale correction when genuinely necessary
-5. layer the canonical hand over the object
-6. perform normal final vector cleanup
-
-The user should not need to redraw or reconstruct cosmetic geometry lost during generation.
+Select a complete zero-contact cosmetic, Image Trace / clean normally, move and rotate into the canonical viewer-left hand, enlarge modestly if useful, layer the canonical hand over it, and finish normal vector cleanup.
