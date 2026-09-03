@@ -10,7 +10,10 @@ General repeatable workflow for Don't Die cosmetic art.
 
 Before every generation freshly review current canonical sources: master spec, MAIN HERO, Character Master Template, relevant reference-pack files, relevant approved-art category, and category-specific workflow/controller.
 
-For LEFT ARM, also use `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4.png`.
+For LEFT ARM, also use:
+
+- `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4.png`
+- `LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt`
 
 ## 2. General art requirements
 
@@ -43,17 +46,11 @@ Generate up to four unrelated current briefs in one pass:
 
 ### LEFT ARM visual controller
 
-The active scale controller is a **tiny neutral outlined finished-cosmetic exemplar**, not an abstract marker.
+The active scale controller is a tiny neutral outlined finished-cosmetic exemplar, not an abstract marker.
 
 The requested cosmetic should read like a replacement finished asset at approximately the same or smaller total visual mass.
 
-The exemplar communicates:
-
-- production scale
-- finished-art status
-- bold outline behavior
-- low-detail construction
-- relationship to MAIN HERO
+The exemplar communicates production scale, finished-art status, bold outline behavior, low-detail construction, and relationship to MAIN HERO.
 
 Do not reinterpret it as merely a positional anchor.
 
@@ -78,9 +75,52 @@ Generic object-shape behavior:
 
 Real-world size is irrelevant to production scale.
 
+### LEFT ARM mandatory conflict gate
+
+Before constructing the production prompt, compare the user's row descriptions against the locked LEFT ARM invariants.
+
+Conflict examples include requests to change or bypass:
+
+- generation scale / visual mass
+- exemplar authority
+- hero placement
+- zero-contact architecture
+- sheet/cell geometry
+- detail hierarchy
+- generated hand/grip behavior
+- hidden geometry / reconstruction workflow
+- presentation enlargement during generation
+
+Also treat comparison-scale language such as `same size as`, `similar scale to`, or `make it large like` as a conflict if it would override canonical generation scale.
+
+If a conflict is detected:
+
+1. stop before creating files
+2. state the conflicting instruction and likely failure mode
+3. provide a safe rewording
+4. wait for a non-conflicting brief
+
+Do not silently reinterpret or create a one-off exception.
+
+Approved references may control palette, thematic family, silhouette vocabulary, material treatment, and design language. They do not control LEFT ARM generation scale.
+
+### LEFT ARM prompt-construction lock
+
+Normal production uses `LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt` as the immutable invariant body.
+
+Only `ROW_1`, `ROW_2`, `ROW_3`, and `ROW_4` brief content may change.
+
+Do not add object-specific rules to the invariant section. Do not rewrite scale behavior for one row. Do not create a special-case controller.
+
+Before delivering the prompt, verify that the invariant body still matches the canonical template.
+
+If the invariant section genuinely needs modification, stop normal production and handle that as a separate calibration/change-control task.
+
 ### LEFT ARM acceptance
 
 PASS requires exact row identities, four useful variations, required features, visual mass approximately at or below the finished exemplar, detail appropriate to tiny display, screen-left zero-contact placement, complete geometry, usable broad pose, bold outer stroke, and no reconstruction requirement.
+
+FAIL if a row brief caused a controller exception or if a reference asset overrode generation scale.
 
 Normal production briefs contain only current requested items. Never inject calibration history or old failures.
 
@@ -110,6 +150,8 @@ Scale authority order:
 4. MAIN HERO proportions
 5. prompt description
 
+For LEFT ARM specifically, approved cosmetics below the controller may inform design but may not override the finished-exemplar generation scale.
+
 Never enlarge because composition looks empty.
 
 ## 9. Complexity authority
@@ -118,4 +160,4 @@ Default toward fewer, larger forms. At tiny display scale, delete detail that ca
 
 ## 10. Core principle
 
-Generate complete clean production geometry as early as the category allows and avoid downstream reconstruction. For LEFT ARM specifically: **finished-exemplar scale first, simplify second, identity third, pose/design fourth.**
+Generate complete clean production geometry as early as the category allows and avoid downstream reconstruction. For LEFT ARM specifically: **finished-exemplar scale first, simplify second, identity third, pose/design fourth — with a mandatory conflict gate and immutable production template.**
