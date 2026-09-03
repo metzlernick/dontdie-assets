@@ -1,4 +1,4 @@
-DON'T DIE COSMETIC ART — REPEATABLE PRODUCTION SESSION STARTER v7.54
+DON'T DIE COSMETIC ART — REPEATABLE PRODUCTION SESSION STARTER v7.65
 
 SOURCE OF TRUTH:
 https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
@@ -15,21 +15,27 @@ Before generation, freshly review:
 CATEGORY OVERRIDE — LEFT ARM
 If the requested category is LEFT ARM, you MUST ALSO read:
 - LEFT_ARM_ZERO_CONTACT_WORKFLOW.md
+- LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md
 
-For LEFT ARM, LEFT_ARM_ZERO_CONTACT_WORKFLOW.md is the current category-specific production authority wherever older general documentation conflicts with it.
+For LEFT ARM, those two files are the current category-specific production authority wherever older general documentation conflicts.
 
-LEFT ARM v7.54 architecture:
-- Stage A must generate complete object geometry on the first pass.
-- Show canonical MAIN HERO on screen-right as scale reference.
-- Generate the complete cosmetic separately on screen-left.
-- Maintain clear white zero-contact separation between item and hero.
-- Never place the item under/over/in the hero hand during generation.
-- Never hide object geometry behind hero pixels.
-- Do not use image-generation Stage B reconstruction/isolation.
-- Do not require Illustrator reconstruction of missing geometry.
-- Object must have a crisp continuous black outline and be Image-Trace friendly.
-- Spatula, money bag, and lantern v7.54 scales are validated.
-- Shield target is approximately 20–25% larger than the v7.54 shield calibration.
+LEFT ARM v7.65 architecture:
+- one image-generation pass for up to four current briefs
+- 2400×2560 logical sheet
+- 4 columns × 4 rows
+- 600×640 logical cells
+- use the active wide LEFT ARM visual-scale reference
+- hero context on screen-right
+- complete cosmetic on screen-left
+- maintain clean white zero-contact separation
+- never generate a grip or hide cosmetic geometry behind hero pixels
+- use the very small neutral marker as the universal initial production-scale prior
+- instruction priority is SCALE/LOCATION → IDENTITY → POSE/DESIGN
+- pose may change shape; pose may not increase scale
+- every required per-object feature applies independently to every row variation unless explicitly stated otherwise
+- no AI Stage B isolation/reconstruction
+- output must remain low-detail, bold-outline, and Image-Trace friendly
+- normal production briefs must contain only current requested items, not calibration history or prior failures
 
 For non-LEFT-ARM categories, continue using the applicable current category workflow and canonical references.
 
