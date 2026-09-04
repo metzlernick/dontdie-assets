@@ -4,7 +4,23 @@ This folder contains the canonical production system for Don't Die cosmetic artw
 
 ## Current production authority
 
-Use: `DONT_DIE_COSMETIC_ART_SPEC.md`, `REPEATABLE_PRODUCTION_WORKFLOW.md`, `PRODUCTION_SESSION_STARTER.txt`, `CANONICAL_REGISTRATION_SYSTEM.md`, `LEFT_ARM_ZERO_CONTACT_WORKFLOW.md`, `LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md`, `LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt`, and `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4.png`.
+Use: `DONT_DIE_COSMETIC_ART_SPEC.md`, `REPEATABLE_PRODUCTION_WORKFLOW.md`, `PRODUCTION_SESSION_STARTER.txt`, `CANONICAL_REGISTRATION_SYSTEM.md`, category-specific workflows/controllers, and current canonical reference assets.
+
+## ARMOR / OUTFITS — V44 Stage A + Stage B locked
+
+`ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md` is the category authority.
+
+Validated architecture:
+
+**Stage A registered outfit design on canonical hero → Stage B faithful outfit isolation → optional Stage B.5 cape operation → Illustrator.**
+
+V44 solved the recurring Stage-A structure failures closely enough for production: near-canonical body proportions, strong viewer-left lowered arm chain, stable raised arm, and usable stylized hands. Stage B then cleanly isolated the same 16 outfits without reintroducing stumpiness or redesigning the variants.
+
+Armor hand rule: **three fingers + one thumb = four total digits.** Never naturalize to five digits or add a rogue lower knuckle/finger.
+
+Normal Stage A production must not include old generated armor calibration sheets as visual references. Use the canonical geometry controller/substrate plus the current outfit briefs. Old generated references were found to contaminate pose, stumpiness, hand anatomy, and semantics.
+
+Cape behavior is intentionally modular. Stage A/B registration must not be destabilized to force universal cape removal. A downstream Stage B.5 will support KEEP / REMOVE / RESTYLE modes; validate REMOVE before locking B.5.
 
 ## LEFT ARM — V3 canonical
 
@@ -29,7 +45,7 @@ Before any LEFT ARM package is created, check every instruction against locked s
 
 ## Prompt lock
 
-Normal production uses `LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt`; only the four row brief slots change. Invariant modifications are separate calibration work.
+Normal LEFT ARM production uses `LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt`; only the four row brief slots change. Invariant modifications are separate calibration work.
 
 ## Supporting assets
 
