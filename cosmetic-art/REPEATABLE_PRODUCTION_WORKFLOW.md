@@ -6,6 +6,8 @@ General repeatable workflow for Don't Die cosmetic art.
 
 **LEFT ARM override:** `LEFT_ARM_ZERO_CONTACT_WORKFLOW.md` plus `LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md` are the category-specific authority.
 
+**ARMOR / OUTFIT override:** `ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md` is the category-specific authority. V44 Stage A + Stage B are validated and locked.
+
 ## 1. Source of truth
 
 Before every generation freshly review current canonical sources: master spec, MAIN HERO, Character Master Template, relevant reference-pack files, relevant approved-art category, and category-specific workflow/controller.
@@ -14,6 +16,14 @@ For LEFT ARM, also use:
 
 - `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4.png`
 - `LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt`
+
+For ARMOR / OUTFITS, also use:
+
+- `ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md`
+- canonical hero geometry controller/substrate
+- canonical hand reference
+
+Do not feed old generated armor calibration sheets into normal Stage A production; they can bias anatomy, proportions, hand count, and pose.
 
 ## 2. General art requirements
 
@@ -132,9 +142,19 @@ Use current validated RIGHT ARM approach and approved references. Optimize body-
 
 Use current HAT registration/isolation approach and canonical references. Prioritize head-relative scale, facing/orientation, attachment position, silhouette, and stroke language.
 
-## 6. OUTFITS / ARMOR
+## 6. OUTFITS / ARMOR — V44 validated
 
-Use canonical body template and armor-specific rules. Do not apply LEFT ARM zero-contact architecture to body silhouette alignment.
+Use `ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md`.
+
+Locked architecture:
+
+**Stage A registered design on canonical hero → Stage B faithful isolation → optional Stage B.5 cape operation → Illustrator.**
+
+Stage A owns design, near-canonical body/arm registration, four-digit hand treatment, and requested cape semantics. Stage B removes the hero while preserving the approved outfit, both hands, pose, proportions, scale, X/Y, and existing cape exactly.
+
+Do not use old generated armor calibration sheets as visual inputs during normal Stage A production. The canonical geometry controller plus current brief are the primary visual/semantic authorities.
+
+Do not ask Stage A or Stage B to solve universal cape removal. Cape KEEP / REMOVE / RESTYLE is a modular downstream Stage B.5 operation.
 
 ## 7. ACCESSORIES
 
@@ -161,3 +181,5 @@ Default toward fewer, larger forms. At tiny display scale, delete detail that ca
 ## 10. Core principle
 
 Generate complete clean production geometry as early as the category allows and avoid downstream reconstruction. For LEFT ARM specifically: **finished-exemplar scale first, simplify second, identity third, pose/design fourth — with a mandatory conflict gate and immutable production template.**
+
+For ARMOR / OUTFITS: **canonical registration + spectacular four-digit hands first; design second; faithful Stage B isolation third; cape manipulation downstream.**
