@@ -42,6 +42,14 @@ Approved art may guide palette, design language, silhouette vocabulary, thematic
 
 Pose instructions never authorize scale changes. Requested visible surface/orientation must dominate rather than reverting to default view.
 
+## Brief-preservation rule
+
+Sanitization may resolve wording that conflicts with locked LEFT ARM production invariants, but it must preserve every explicit directional, rotational, pose, visible-surface, count, color, attachment, relative-position, and required-feature constraint from the user's brief.
+
+Do not weaken a precise instruction into a generic description. Terms such as `left`, `right`, `top-left`, `bottom-right`, `up`, `down`, `slightly`, `hanging`, `faces viewer`, exact counts, required symbols, and specified colors remain binding.
+
+Unless the user explicitly permits variation, each hard brief constraint must be visibly present in **all four** variations of that row. Variation is allowed around hard constraints, never in place of them.
+
 ## Detached-artifact rule
 
 Unless identity-critical, do not add dots, beads, particles, connector marks, trails, or floating secondary shapes between cosmetic and hero. Do not copy reference residue.
@@ -56,7 +64,7 @@ Before generation, enumerate active images and roles. FAIL preflight if the exac
 
 ## Identity / variation / zero-contact
 
-Each row remains exact requested object type. Four simple useful interpretations. Variation may not increase scale. Every cosmetic remains screen-left with clean white separation from all hero pixels, complete/unobstructed and standalone for Image Trace. Hero never holds cosmetic during generation.
+Each row remains exact requested object type. Four simple useful interpretations. Variation may not increase scale and may not erase or weaken a hard brief constraint. Every cosmetic remains screen-left with clean white separation from all hero pixels, complete/unobstructed and standalone for Image Trace. Hero never holds cosmetic during generation.
 
 ## Style
 
@@ -64,7 +72,7 @@ Flat vector-like Don't Die cartoon; bold smooth true-black outer contour; round 
 
 ## Prompt-construction lock
 
-Normal production TXT = canonical `LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt` + sanitized row briefs. Only row-brief content varies. Invariant changes require separate calibration/change-control task.
+Normal production TXT = canonical `LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt` + sanitized row briefs. Only row-brief content varies. Sanitization is identity-preserving and constraint-preserving: it may remove conflicts with locked invariants, but it must not paraphrase away explicit direction/pose/count/color/relative-position requirements. Invariant changes require separate calibration/change-control task.
 
 ## Regression validation
 
