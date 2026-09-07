@@ -1,7 +1,15 @@
-DON'T DIE — LEFT ARM LOCKED PRODUCTION TEMPLATE
+DON'T DIE — LEFT ARM LOCKED V3 PRODUCTION TEMPLATE
 
 IMPORTANT:
 This template is production infrastructure. Only the four ROW brief slots may change during normal production. Do not add row-specific scale exceptions or alter the invariant rules below.
+
+ACTIVE VISUAL AUTHORITY
+
+PRIMARY_CANVAS_AUTHORITY = `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4_V3.png`
+
+This exact V3 image is the highest visual authority for LEFT ARM canvas composition, hero/cosmetic relationship, cosmetic location, cosmetic visual mass, and ZERO-CONTACT behavior. Do not substitute any generic MAIN HERO, approved-art image, older exemplar, or prose description for it.
+
+All approved art supplied for a row is DESIGN_ONLY unless explicitly stated otherwise. DESIGN_ONLY references may guide palette, material, theme, silhouette vocabulary, identity details, and non-scale proportions. They MUST NOT control canvas composition, hero clothing, hand pose, grip/contact, object scale, registration, or presentation size.
 
 ROW_1:
 {{ROW_1_BRIEF}}
@@ -26,7 +34,7 @@ Generate ONE 4×4 LEFT ARM production sheet in one image-generation pass.
 - four moderately different variations per populated row
 - pure white background
 - no gutters or visible grid
-- preserve canonical MAIN HERO scale and approximate position from the reference
+- preserve the V3 PRIMARY controller's canonical hero context/relationship
 - hero context on screen-right
 - complete cosmetic on screen-left
 - clean zero-contact separation
@@ -36,7 +44,7 @@ Generate ONE 4×4 LEFT ARM production sheet in one image-generation pass.
 
 FINISHED-EXEMPLAR SCALE AUTHORITY — V3
 
-Use `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4.png`.
+Use the exact PRIMARY controller `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4_V3.png`.
 
 Each cell contains ONE extremely tiny contiguous neutral outlined finished-cosmetic exemplar on screen-left, approximately 14×19 px in the validated reference. Replace it with the assigned cosmetic. Do not reproduce exemplar geometry.
 
@@ -68,7 +76,7 @@ ROW IDENTITY / POSE
 
 Every cell in a populated row must remain the exact requested object type. Required features repeat in every applicable variation. Do not transfer features between rows or substitute generic fantasy defaults.
 
-Pose instructions are identity/design constraints, not scale permissions. Pose may change shape; pose may not increase scale. When a brief specifies a visible surface or orientation (for example palm/underside toward camera), verify that requested surface is actually dominant rather than substituting the object's default view.
+Pose instructions are identity/design constraints, not scale permissions. Pose may change shape; pose may not increase scale. When a brief specifies a visible surface or orientation, verify that requested surface is actually dominant rather than substituting the object's default view.
 
 VARIATION
 
@@ -78,13 +86,26 @@ ZERO-CONTACT — MANDATORY
 
 Every cosmetic must stay viewer-left/screen-left, remain separated from every hero pixel by clean white space, never touch/overlap hero/hand/cape/body/pedestal/shadow, remain complete and unobstructed, and contain standalone geometry for later Illustrator placement. The hero must not hold or interact with the cosmetic during generation.
 
+If any active DESIGN_ONLY reference depicts a held object, armor, gauntlet, hand, or normal-size standalone prop, ignore those properties. Do not copy its hand interaction, body context, pose, scale, or composition.
+
 STYLE
 
 Match approved Don't Die production art: flat vector-like cartoon; bold smooth true-black outer contour; rounded joins/caps; sparse interior linework; hard-edged colors; extremely low detail; no cosmetic cast shadow, texture/noise, or painterly rendering; no gradients unless explicitly requested and not scale-inducing; Illustrator/Image-Trace friendly. Explicit brief features such as unoutlined energy effects may override the outline rule locally.
 
 FINAL CHECK
 
-Before generation verify that only row identity/design content changed; no row brief became a controller exception; all rows obey the same extremely tiny exemplar; semantic identity did not enlarge any object; requested orientation/surface is correct; zero-contact is clean; no detached exemplar-like artifacts were copied.
+Before generation verify:
+- exact V3 PRIMARY controller is active;
+- every other visual reference is role-labeled and subordinate;
+- only row identity/design content changed;
+- no row brief became a controller exception;
+- all rows obey the same extremely tiny exemplar;
+- semantic identity did not enlarge any object;
+- requested orientation/surface is correct;
+- zero-contact is clean;
+- hero does not hold any cosmetic;
+- approved design references did not alter hero clothing/hand/grip/scale/composition;
+- no detached exemplar-like artifacts were copied.
 
 IF SIZE AND DETAIL CONFLICT: KEEP THE SMALLER SIZE AND REMOVE THE DETAIL.
 IF UNSURE: SHRINK IT AND SIMPLIFY IT.
