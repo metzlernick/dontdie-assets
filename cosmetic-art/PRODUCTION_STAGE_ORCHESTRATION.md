@@ -2,7 +2,7 @@
 
 **Purpose:** Prevent a fresh agent from confusing an intermediate generation with a completed category deliverable.
 
-This file controls orchestration/evaluation only. It does not redesign any validated art workflow.
+This file controls orchestration/evaluation only. It does not redesign validated art workflows.
 
 ## Universal rule
 
@@ -15,38 +15,40 @@ An intermediate stage may PASS while the category remains IN PROGRESS.
 Never use `CATEGORY PASS`, `LOCKED PASSING BASELINE`, `stop calibrating`, or move to another category until the applicable FINAL DELIVERABLE GATE has been satisfied.
 
 Every evaluation must report two separate statuses:
-
 - `CURRENT STAGE: PASS | BRIEF FAIL | SYSTEM FAIL`
 - `CATEGORY: IN PROGRESS | COMPLETE`
 
-A PASS at Stage A is not automatically a completed-category PASS.
+## HATS — VALIDATED v6.7/v6.8
 
-## HATS
+Active authority: `HATS_PRODUCTION_WORKFLOW.md`.
 
-Validated workflow documentation describes the HATS process as a **registration/isolation approach**. A full-character sheet with hats worn on the canonical hero is registration-stage artwork, not the final isolated hat deliverable.
+Historical recovery confirms the validated sequence:
 
-Orchestration:
-
-1. **Stage A — registered hat generation**
-   - hero/context may be visible as required by the validated registration setup
-   - evaluate hat identity, head-relative scale, facing/orientation, attachment/baseline, style, and four useful variants
-   - if Stage A passes, do NOT declare HATS complete
-2. **Required downstream HATS isolation step**
-   - continue using the existing validated HATS registration/isolation process
-   - preserve the approved Stage-A hat artwork, scale, orientation, and registration behavior
-   - final hat/head cosmetic deliverable must be object-only unless a specific validated workflow says otherwise
+1. **Stage A — v6.7 exact MAIN HERO edit**
+   - exact canonical MAIN HERO 4×4 base is the edit base
+   - add hat pixels only
+   - hero remains registration context except where naturally occluded by hats
+   - evaluate identity, head-relative scale, facing/orientation, attachment, style, and four useful variants
+   - Stage A PASS = `CATEGORY: IN PROGRESS`
+2. **Stage B — v6.8 HAT extraction/cleanup**
+   - this is not new cosmetic generation
+   - input = approved Stage-A composite
+   - controller = `archive-calibration/HAT_EXTRACTION_MASK_4X4.png`
+   - canonical mask geometry per cell: X=45–355, Y=25–325
+   - preserve existing hats; remove MAIN HERO/body/face/hair/clothing/pedestal/context; restore pure white
+   - no redesign, redraw, move, resize, rotate, recenter, recolor, simplification, or new details
 3. **Final HATS gate**
-   - isolated hat artwork only
-   - no hero/body/cape/pedestal/context in the final isolated deliverable
-   - approved Stage-A identity/scale/orientation preserved
+   - 16 isolated hat/head cosmetics only
+   - pure white background
+   - no hero/body/cape/pedestal/context
+   - Stage-A identity/scale/orientation/registration preserved
    - only after this gate passes may HATS be called COMPLETE
 
-Do not invent a new isolation architecture merely because this orchestration file requires the downstream step. If exact historical isolation mechanics are not available in the active package/repo, report that evidence gap and recover the validated HATS isolation package/history before changing architecture.
+If an image-model export arrives at a noncanonical raster size while preserving the logical 4×4 composition, normalize the whole sheet proportionally to 1920×2560 before Stage B; do not alter cells independently.
 
 ## RIGHT ARM
 
 Validated documented responsibilities:
-
 - generation owns object identity, body-relative scale, broad orientation, silhouette/style, and continuous usable grip geometry
 - exact canonical hand overlay/final registration belongs to Illustrator
 
@@ -56,17 +58,13 @@ Final category gate: generated object artwork has passed all required validated 
 
 ## LEFT ARM — LOCKED V3
 
-Orchestration:
-
-1. **Single generation stage** — visible hero/context screen-right + complete cosmetic screen-left + zero contact
-2. **No AI Stage B/isolation/reconstruction**
-3. **Illustrator** — extraction, final placement/rotation, optional modest enlargement, canonical hand overlay
+1. Single generation stage — visible hero/context screen-right + complete cosmetic screen-left + zero contact
+2. No AI Stage B/isolation/reconstruction
+3. Illustrator — extraction, final placement/rotation, optional modest enlargement, canonical hand overlay
 
 A passing zero-contact generation is the completed AI-generation deliverable. Do not require hero removal by an AI Stage B.
 
 ## ARMOR / OUTFITS — LOCKED
-
-Orchestration:
 
 1. Stage A registered outfit generation
 2. optional Stage A.5 only for cape correction/RESTYLE when required
@@ -74,40 +72,32 @@ Orchestration:
 4. deterministic per-cell registration restoration
 5. Illustrator
 
-Stage A PASS means `CATEGORY: IN PROGRESS`.
-Stage B PASS means `CATEGORY: IN PROGRESS`.
-Only after deterministic registration restoration passes its exact final-sheet gate is the AI/deterministic production deliverable ready for Illustrator.
+Stage A PASS = `CATEGORY: IN PROGRESS`.
+Stage B PASS = `CATEGORY: IN PROGRESS`.
+Only after deterministic registration restoration passes its exact final-sheet gate is the production deliverable ready for Illustrator.
 
 ## ACCESSORIES — LOCATION AWARE
 
 ### FACE — LOCKED
-
-Orchestration:
-
 1. Stage A on ~6% faint literal canonical substrate
 2. deterministic faint-substrate extraction
 3. Illustrator
 
-Stage A PASS means `CATEGORY: IN PROGRESS`.
+Stage A PASS = `CATEGORY: IN PROGRESS`.
 There is no generative Stage B.
-Only after deterministic extraction passes may the face-accessory production deliverable be considered ready for Illustrator.
+Only after deterministic extraction passes may the face-accessory production deliverable be ready for Illustrator.
 
 ### NON-FACE
-
 Use only an already validated location-specific stage sequence. Do not infer a stage sequence from FACE, HATS, LEFT ARM, RIGHT ARM, or ARMOR. If no validated location workflow exists, stop before declaring completion.
 
 ## Failure classification remains separate
 
-For the current stage, classify misses as:
-
 - `SYSTEM FAIL` — validated controller/reference/stage/registration behavior was structurally violated
 - `BRIEF FAIL` — architecture/stage behavior is correct but an explicit cosmetic requirement was missed
 
-Neither classification changes the orchestration rule: an intermediate PASS is still `CATEGORY: IN PROGRESS` when another required stage remains.
+Neither classification changes orchestration: an intermediate PASS remains `CATEGORY: IN PROGRESS` when another required stage remains.
 
 ## Required response format after every returned production image
-
-State, in this order:
 
 1. `CATEGORY:`
 2. `CURRENT STAGE:`
@@ -119,4 +109,4 @@ State, in this order:
 
 ## Core rule
 
-**Never confuse "this image is a good intermediate result" with "this category is finished." Follow the validated stage graph to its final deliverable gate.**
+**Never confuse a good intermediate result with a finished category. Follow the validated stage graph to its final deliverable gate.**
