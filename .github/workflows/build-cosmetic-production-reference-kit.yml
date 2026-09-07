@@ -5,6 +5,23 @@ on:
   push:
     paths:
       - '.github/workflows/build-cosmetic-production-reference-kit.yml'
+      - 'cosmetic-art/FRESH_AGENT_PRODUCTION_HANDOFF.md'
+      - 'cosmetic-art/PRODUCTION_RUNTIME_ASSET_MANIFEST.md'
+      - 'cosmetic-art/DONT_DIE_COSMETIC_ART_SPEC.md'
+      - 'cosmetic-art/REPEATABLE_PRODUCTION_WORKFLOW.md'
+      - 'cosmetic-art/PRODUCTION_SESSION_STARTER.txt'
+      - 'cosmetic-art/CANONICAL_REGISTRATION_SYSTEM.md'
+      - 'cosmetic-art/ACCESSORY_FACE_PRODUCTION_WORKFLOW.md'
+      - 'cosmetic-art/ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md'
+      - 'cosmetic-art/ARMOR_STAGE_B_DETERMINISTIC_REGISTRATION.md'
+      - 'cosmetic-art/LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md'
+      - 'cosmetic-art/LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt'
+      - 'cosmetic-art/LEFT_ARM_ZERO_CONTACT_WORKFLOW.md'
+      - 'cosmetic-art/reference-sheets/**'
+      - 'cosmetic-art/reference-pack/**'
+      - 'cosmetic-art/approved-art/**'
+      - 'cosmetic-art/templates/**'
+      - 'cosmetic-art/registration/**'
 
 permissions:
   contents: read
@@ -23,14 +40,12 @@ jobs:
           KIT="DONT_DIE_COSMETIC_PRODUCTION_REFERENCES"
           mkdir -p "$KIT/cosmetic-art"
 
-          # Permanent visual/reference authorities and approved art.
           cp -a cosmetic-art/reference-sheets "$KIT/cosmetic-art/"
           cp -a cosmetic-art/reference-pack "$KIT/cosmetic-art/"
           cp -a cosmetic-art/approved-art "$KIT/cosmetic-art/"
           cp -a cosmetic-art/templates "$KIT/cosmetic-art/"
           cp -a cosmetic-art/registration "$KIT/cosmetic-art/"
 
-          # Current production text authorities. These make the fallback kit self-describing.
           for f in \
             ACCESSORY_FACE_PRODUCTION_WORKFLOW.md \
             ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md \
@@ -50,18 +65,16 @@ jobs:
           cat > "$KIT/README.txt" <<'EOF'
           DON'T DIE COSMETIC PRODUCTION REFERENCES — PERMANENT FALLBACK KIT
 
-          Purpose:
-          Upload this single ZIP alongside FRESH_AGENT_PRODUCTION_HANDOFF.md when a fresh ChatGPT runtime cannot materialize binary assets from GitHub.
+          Upload this single ZIP alongside FRESH_AGENT_PRODUCTION_HANDOFF.md when a fresh runtime cannot materialize complete binary assets from GitHub.
 
-          User contract:
-          - Do not hunt for individual canonical PNG/SVG references.
+          USER CONTRACT
+          - Never hunt for individual canonical PNG/SVG references.
           - Upload this ZIP once for the session.
           - Then provide CATEGORY + up to four row briefs.
-          - The agent selects the required files from this kit and builds any batch-specific package itself.
+          - The agent selects required files from this kit and builds batch-specific packages itself.
 
-          Source of truth:
-          This kit is built automatically from the current main branch of metzlernick/dontdie-assets.
-          If GitHub production authorities have changed since this ZIP was built, the live repository wins for text/workflow rules.
+          This kit is automatically rebuilt when canonical production authorities or reference assets change.
+          The live repository wins for any newer workflow/rule text.
           EOF
 
           zip -r -9 DONT_DIE_COSMETIC_PRODUCTION_REFERENCES.zip "$KIT"
