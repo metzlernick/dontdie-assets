@@ -1,0 +1,77 @@
+name: Build Cosmetic Production Reference Kit
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/build-cosmetic-production-reference-kit.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build-reference-kit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Assemble permanent production reference kit
+        shell: bash
+        run: |
+          set -euo pipefail
+          KIT="DONT_DIE_COSMETIC_PRODUCTION_REFERENCES"
+          mkdir -p "$KIT/cosmetic-art"
+
+          # Permanent visual/reference authorities and approved art.
+          cp -a cosmetic-art/reference-sheets "$KIT/cosmetic-art/"
+          cp -a cosmetic-art/reference-pack "$KIT/cosmetic-art/"
+          cp -a cosmetic-art/approved-art "$KIT/cosmetic-art/"
+          cp -a cosmetic-art/templates "$KIT/cosmetic-art/"
+          cp -a cosmetic-art/registration "$KIT/cosmetic-art/"
+
+          # Current production text authorities. These make the fallback kit self-describing.
+          for f in \
+            ACCESSORY_FACE_PRODUCTION_WORKFLOW.md \
+            ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md \
+            ARMOR_STAGE_B_DETERMINISTIC_REGISTRATION.md \
+            CANONICAL_REGISTRATION_SYSTEM.md \
+            DONT_DIE_COSMETIC_ART_SPEC.md \
+            FRESH_AGENT_PRODUCTION_HANDOFF.md \
+            LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md \
+            LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt \
+            LEFT_ARM_ZERO_CONTACT_WORKFLOW.md \
+            PRODUCTION_RUNTIME_ASSET_MANIFEST.md \
+            PRODUCTION_SESSION_STARTER.txt \
+            REPEATABLE_PRODUCTION_WORKFLOW.md; do
+            cp "cosmetic-art/$f" "$KIT/cosmetic-art/$f"
+          done
+
+          cat > "$KIT/README.txt" <<'EOF'
+          DON'T DIE COSMETIC PRODUCTION REFERENCES — PERMANENT FALLBACK KIT
+
+          Purpose:
+          Upload this single ZIP alongside FRESH_AGENT_PRODUCTION_HANDOFF.md when a fresh ChatGPT runtime cannot materialize binary assets from GitHub.
+
+          User contract:
+          - Do not hunt for individual canonical PNG/SVG references.
+          - Upload this ZIP once for the session.
+          - Then provide CATEGORY + up to four row briefs.
+          - The agent selects the required files from this kit and builds any batch-specific package itself.
+
+          Source of truth:
+          This kit is built automatically from the current main branch of metzlernick/dontdie-assets.
+          If GitHub production authorities have changed since this ZIP was built, the live repository wins for text/workflow rules.
+          EOF
+
+          zip -r -9 DONT_DIE_COSMETIC_PRODUCTION_REFERENCES.zip "$KIT"
+          test -s DONT_DIE_COSMETIC_PRODUCTION_REFERENCES.zip
+          unzip -t DONT_DIE_COSMETIC_PRODUCTION_REFERENCES.zip
+
+      - name: Upload production reference kit
+        uses: actions/upload-artifact@v4
+        with:
+          name: DONT_DIE_COSMETIC_PRODUCTION_REFERENCES
+          path: DONT_DIE_COSMETIC_PRODUCTION_REFERENCES.zip
+          if-no-files-found: error
+          retention-days: 90
