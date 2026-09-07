@@ -4,6 +4,15 @@
 
 A package is not ready merely because it contains the right files. It must preserve the validated category generation setup. These gates do not redesign category architectures.
 
+## Failure classification gate — before modifying anything
+
+Every imperfect result must first be classified:
+
+- **SYSTEM FAIL** — the validated production system itself was not obeyed or failed structurally: controller/reference/order/scale/contact/stage/registration/isolation architecture failure, or a repeatable system-level failure under correctly preserved briefs.
+- **BRIEF FAIL** — the validated system otherwise behaved correctly but one cosmetic missed an explicit local requirement: direction/tilt, rotation, visible surface, count, color, symbol, identity detail, attachment, or other row-specific feature.
+
+A BRIEF FAIL does not authorize architecture changes. Correct only the smallest brief-preservation/sanitization/prompt-adherence cause. If uncertain, make no architecture change until evidence establishes SYSTEM FAIL.
+
 ## Universal packaging conditions
 
 FAIL if generic packaging adds active visual references solely because they exist in the permanent kit, changes a category's validated controller/version, substitutes a generic reference sheet, or silently rewrites a locked prompt outside permitted brief substitutions.
@@ -49,6 +58,7 @@ Evaluation notes for Regression A:
 - Visible hero is expected and is not a failure.
 - Raster output dimensions alone are not a failure.
 - Money-bag neck direction is a hard local constraint and must visibly tilt slightly left in all four columns.
+- If the only miss is money-bag neck direction while scale/hero/zero-contact/controller behavior passes, classify it **BRIEF FAIL**, not SYSTEM FAIL.
 
 ### Regression B — difficult V3 control
 
