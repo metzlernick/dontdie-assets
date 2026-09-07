@@ -9,7 +9,11 @@ Historical calibration evidence only; nothing here is current production authori
 - `LEFT_ARM_CLEAN_TRANSFER_SCALE_DETAIL_CALIBRATION.md` — fresh-instance transfer and finished-exemplar breakthrough
 - `LEFT_ARM_V3_DUAL_REGRESSION_VALIDATION.md` — V2.1 generalization failure and V3 dual-regression pass
 
-## Current conclusion
+## ARMOR / OUTFIT chronology
+
+- `ARMOR_V44_A5_B_PIPELINE_VALIDATION.md` — Stage A V44 clean-room geometry/hand breakthrough, Stage B isolation pass, rejected post-isolation cape-removal approaches, and validated optional Stage A.5 cape control followed by Stage B
+
+## Current LEFT ARM conclusion
 
 V2.1 is superseded. It passed shield/money-bag/spatula/lantern but failed to generalize to gauntlet/throwing-star/purse/nunchuks, which inflated toward hero-sized readable props.
 
@@ -23,7 +27,21 @@ Active principle:
 
 Reopen calibration only for a repeatable new V3 failure.
 
-## Active authority
+## Current ARMOR / OUTFIT conclusion
+
+Validated architecture:
+
+**Stage A V44 → optional Stage A.5 V1 cape control → Stage B faithful isolation → Illustrator.**
+
+Normal production skips Stage A.5 unless cape state needs to change.
+
+Stage A.5 modes are KEEP / REMOVE / RESTYLE. Post-isolation generative cape removal and approximate spatial/color cape masks are rejected approaches.
+
+Current armor authority:
+
+- `../ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md`
+
+## Active LEFT ARM authority
 
 - `../LEFT_ARM_ZERO_CONTACT_WORKFLOW.md`
 - `../LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md`
