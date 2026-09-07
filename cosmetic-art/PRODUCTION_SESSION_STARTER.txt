@@ -57,11 +57,60 @@ Only the ROW_1 through ROW_4 brief slots may change.
 Do not rewrite or add object-specific rules to the invariant section.
 If the invariant section appears to need modification, treat that as a separate calibration/change-control task, not normal production.
 
-For non-LEFT-ARM categories, use the applicable current category workflow and canonical references.
+CATEGORY OVERRIDE — ARMOR / OUTFITS
+If the requested category is ARMOR / OUTFITS, MUST ALSO read:
+- ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md
+- current canonical-derived hero geometry/substrate reference
+- current canonical hand reference
+
+ARMOR / OUTFIT PRODUCTION ARCHITECTURE IS LOCKED:
+- Stage A = registered complete outfit generation on canonical hero
+- optional Stage A.5 = cape control only
+- Stage B = faithful isolation of the approved upstream result
+- final cleanup / registration = Illustrator
+
+STAGE A RULES:
+- use canonical-derived geometry/hand references plus current text briefs
+- do NOT include old generated dressed-character calibration sheets as visual references
+- preserve near-canonical body proportions and pose
+- preserve viewer-left lowered shoulder → upper arm → elbow → forearm → wrist → hand chain
+- preserve viewer-right raised arm chain
+- Don't Die hands = THREE FINGERS + ONE THUMB = FOUR TOTAL DIGITS
+- never add a fifth digit or rogue lower knuckle/finger
+- do not turn the hero into a shorter/wider generic chibi body
+
+OPTIONAL STAGE A.5 — CAPE CONTROL:
+Use only when cape state must change after Stage A.
+Per row/cell select one mode:
+- KEEP
+- REMOVE
+- RESTYLE
+
+Stage A.5 may change cape state only.
+It must preserve non-cape outfit design, body proportions, pose, both arm chains, both four-digit hands, feet, pedestal, X/Y, and row/column mapping as closely as possible.
+For REMOVE, do not invent substitute rear cloth, wings, scarf masses, coat tails, or a replacement cloak.
+For RESTYLE, modify only the cape and keep its established attachment/scale/flow controlled.
+
+STAGE B RULES:
+- use approved Stage A directly when no A.5 is required
+- use approved Stage A.5 when cape control was required
+- isolate, do not redesign
+- remove hero/head/pedestal/context
+- keep complete outfit, both hands, sleeves/armwear, footwear, details, and exact upstream cape state
+- preserve X/Y, scale, proportions, arm chains, hand geometry, and row/column assignment
+- reconstruct only the minimum hidden garment edge required for continuity
+
+DO NOT USE:
+- post-isolation generative Stage B.5 cape removal
+- approximate spatial/color cape masks on flattened Stage-B PNGs as a general cape-removal method
+
+Those approaches were tested and caused global redraw drift or damaged non-cape artwork.
+
+For other categories, use the applicable current category workflow and canonical references.
 
 After source review:
-- run the conflict gate
-- if no conflict, sanitize the current row briefs
-- populate only the row slots in the canonical template
-- verify the invariant production text remains unchanged
+- run the applicable category conflict/compliance gate
+- sanitize the current row briefs without changing intent
+- use the locked category workflow
+- verify canonical production invariants remain unchanged
 - then deliver the production package.
