@@ -23,6 +23,16 @@ ROW_3:
 ROW_4:
 {{ROW_4_BRIEF}}
 
+BRIEF PRESERVATION — HARD CONSTRAINTS
+
+Treat every explicit user-specified directional, rotational, pose, visible-surface, count, color, attachment, relative-position, and required-feature statement inside a row brief as a HARD BRIEF CONSTRAINT.
+
+Brief sanitization may remove only wording that conflicts with locked LEFT ARM production invariants. It must NOT delete, generalize, weaken, paraphrase away, or convert a hard brief constraint into an optional variation detail.
+
+A hard brief constraint applies to ALL FOUR variations in that row unless the user explicitly says it may vary. Variation happens around the constraint, not instead of it.
+
+Examples of hard brief constraints include: tilts left/right, points up/down, top-left/bottom-right, hangs downward, palm faces viewer, exactly four, specific color, or a required symbol. If the wording is subtle (for example “slightly leftward”), preserve the direction clearly enough that it is visibly assessable in every variation.
+
 LOCKED PRODUCTION INVARIANTS
 
 Generate ONE 4×4 LEFT ARM production sheet in one image-generation pass.
@@ -76,11 +86,11 @@ ROW IDENTITY / POSE
 
 Every cell in a populated row must remain the exact requested object type. Required features repeat in every applicable variation. Do not transfer features between rows or substitute generic fantasy defaults.
 
-Pose instructions are identity/design constraints, not scale permissions. Pose may change shape; pose may not increase scale. When a brief specifies a visible surface or orientation, verify that requested surface is actually dominant rather than substituting the object's default view.
+Pose instructions are identity/design constraints, not scale permissions. Pose may change shape; pose may not increase scale. When a brief specifies a visible surface or orientation, verify that requested surface or direction is visibly present in every variation rather than substituting the object's default view.
 
 VARIATION
 
-Four useful but simple interpretations per populated row. Variation may not increase scale or complexity enough to violate the exemplar rule.
+Four useful but simple interpretations per populated row. Variation may not increase scale or complexity enough to violate the exemplar rule, and may not negate or weaken any hard brief constraint.
 
 ZERO-CONTACT — MANDATORY
 
@@ -99,9 +109,10 @@ Before generation verify:
 - every other visual reference is role-labeled and subordinate;
 - only row identity/design content changed;
 - no row brief became a controller exception;
+- every explicit hard brief constraint is still present and visibly assessable in ALL FOUR variations of its row;
 - all rows obey the same extremely tiny exemplar;
 - semantic identity did not enlarge any object;
-- requested orientation/surface is correct;
+- requested orientation/surface/direction is correct in all four applicable variations;
 - zero-contact is clean;
 - hero does not hold any cosmetic;
 - approved design references did not alter hero clothing/hand/grip/scale/composition;
