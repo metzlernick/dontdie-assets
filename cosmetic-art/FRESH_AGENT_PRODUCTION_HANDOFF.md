@@ -34,13 +34,36 @@ Mandatory runtime authority:
 
 Read it before packaging any batch.
 
-If the GitHub connector can inspect a binary file but cannot export its bytes to the working environment, that is **not** a reason to ask the user to upload the file manually. This is a public repository. Retrieve the binary through raw GitHub using:
+## Permanent fallback reference ZIP
 
-`https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/<repo-path>`
+Official fallback file name:
 
-or use the `download_url` returned by the GitHub contents API. URL-encode spaces/special characters as needed.
+`DONT_DIE_COSMETIC_PRODUCTION_REFERENCES.zip`
 
-Use the available HTTP/container download mechanism to save the asset locally, verify it exists and is non-empty, then include it in the ZIP.
+This ZIP is a reusable session-level fallback containing the canonical visual/reference assets, approved art, templates, registration assets, and production authorities needed across HATS, RIGHT ARM, LEFT ARM, ARMOR / OUTFITS, and ACCESSORIES.
+
+The repository contains an automated builder at:
+
+`.github/workflows/build-cosmetic-production-reference-kit.yml`
+
+The builder assembles the fallback ZIP directly from the current repository so binary files are copied without passing through a chat connector.
+
+### Retrieval hierarchy
+
+Use this order:
+
+1. **Preferred:** retrieve required repo assets automatically into the working environment.
+2. **Fallback:** if the runtime cannot materialize complete repo binaries because of connector truncation, blocked raw downloads, or equivalent platform restrictions, use the user-supplied `DONT_DIE_COSMETIC_PRODUCTION_REFERENCES.zip` for the session.
+3. Select the needed files from that ZIP yourself and build the batch-specific package.
+4. **Never fall back to asking the user for individual canonical files.**
+
+If the fallback ZIP is already attached in the current session, reuse it for subsequent batches. Do not ask for it again.
+
+If neither automatic repo retrieval nor the fallback ZIP is available, ask for **the one permanent fallback ZIP only**, never a list of individual PNG/SVG files.
+
+If the live repository contains newer text/workflow rules than the fallback ZIP, the live repository wins for rules. The fallback ZIP is primarily a binary portability layer.
+
+If the GitHub connector can inspect a binary file but cannot export its bytes to the working environment, that is **not** a reason to ask the user to upload the file manually. This is a public repository. First attempt raw GitHub or the contents API `download_url`. If the runtime blocks that path, use the permanent fallback ZIP.
 
 A normal generation ZIP must contain:
 
@@ -52,25 +75,23 @@ A normal generation ZIP must contain:
 
 **Never respond with a shopping list of canonical files for the user to locate.**
 
-Only request a new user-supplied visual when the brief genuinely depends on a new/external reference that does not exist in the repo and cannot be faithfully resolved from approved art.
+Only request a new user-supplied visual when the brief genuinely depends on a new/external reference that does not exist in the repo or fallback kit and cannot be faithfully resolved from approved art.
 
 ## Fresh-agent rule
 
-The repository is the source of truth. Before creating any production package, freshly read:
+The repository is the source of truth for current rules. Before creating any production package, freshly read:
 
 - `DONT_DIE_COSMETIC_ART_SPEC.md`
 - `REPEATABLE_PRODUCTION_WORKFLOW.md`
 - `PRODUCTION_SESSION_STARTER.txt`
 - `CANONICAL_REGISTRATION_SYSTEM.md`
 - `PRODUCTION_RUNTIME_ASSET_MANIFEST.md`
-- `templates/MAIN HERO.svg`
-- `templates/Character Master Template.svg`
 - relevant category references
 - relevant `approved-art/<category>/`
 - especially similar approved cosmetics
 - every applicable category-specific workflow/controller
 
-Do not rely on memory or old calibration files. If a mandatory canonical source genuinely does not exist in the repository, stop before generation and identify the missing repository dependency. Do not ask the user to search their computer for canonical files.
+Use the permanent fallback ZIP as the binary source when direct repository binary transfer is unavailable. Do not rely on memory or old calibration files.
 
 ## Global invariants
 
@@ -78,15 +99,11 @@ Unless a category-specific workflow overrides them: 1920×2560 sheet; 4×4; 480�
 
 ## HATS
 
-Use the master spec plus `reference-sheets/MASTER_CHARACTER_REFERENCE.png`, `reference-sheets/HATS_REFERENCE.png`, `reference-sheets/HATS_PLACEMENT_REFERENCE.png`, `reference-sheets/HAT_HEAD_ORIENTATION_REFERENCE.png`, relevant approved hats, and canonical templates. Prioritize canonical head-relative placement, facing/orientation, attachment baseline, production scale, identity, style, then variation. Do not presentation-center. Follow the current validated hat registration/isolation approach in the live repository.
-
-Retrieve/package all of those repo assets yourself. Do not ask the user to upload them individually.
+Use the master spec plus `reference-sheets/MASTER_CHARACTER_REFERENCE.png`, `reference-sheets/HATS_REFERENCE.png`, `reference-sheets/HATS_PLACEMENT_REFERENCE.png`, `reference-sheets/HAT_HEAD_ORIENTATION_REFERENCE.png`, relevant approved hats, and canonical templates. Prioritize canonical head-relative placement, facing/orientation, attachment baseline, production scale, identity, style, then variation. Do not presentation-center. Retrieve/package these yourself from the repo or fallback ZIP.
 
 ## RIGHT ARM
 
-Viewer-right / screen-right raised-hand side. Use `reference-sheets/MASTER_CHARACTER_REFERENCE.png`, `reference-sheets/RIGHT_ARM_REFERENCE.png`, `reference-sheets/RIGHT_ARM_PLACEMENT_REFERENCE.png`, relevant approved art, and canonical templates. Generation owns identity, body-relative scale, broad orientation, silhouette, style, and continuous usable grip geometry. Do not create a hand-shaped hole/fake grip cutout. Final canonical hand overlays the object in Illustrator. Exact final grip registration is an Illustrator responsibility. Do not enlarge props/weapons to fill the canvas.
-
-Retrieve/package all repo assets yourself. Do not ask the user to upload them individually.
+Viewer-right / screen-right raised-hand side. Use `reference-sheets/MASTER_CHARACTER_REFERENCE.png`, `reference-sheets/RIGHT_ARM_REFERENCE.png`, `reference-sheets/RIGHT_ARM_PLACEMENT_REFERENCE.png`, relevant approved art, and canonical templates. Generation owns identity, body-relative scale, broad orientation, silhouette, style, and continuous usable grip geometry. Do not create a hand-shaped hole/fake grip cutout. Final canonical hand overlays the object in Illustrator. Exact final grip registration is an Illustrator responsibility. Do not enlarge props/weapons to fill the canvas. Retrieve/package these yourself from the repo or fallback ZIP.
 
 ## LEFT ARM — LOCKED V3
 
@@ -98,11 +115,7 @@ Priority: extremely tiny finished-exemplar scale/location → simplify detail �
 
 Before packaging, run the mandatory LEFT ARM conflict gate. If a brief conflicts with locked scale, zero-contact, hero placement, sheet geometry, detail hierarchy, grip, or reconstruction rules: stop, explain the conflict, offer safe wording, and wait for resolution.
 
-### LEFT ARM portability regression rule
-
-For the gold shield / money bag / spatula / lantern regression batch, or any analogous batch, the agent must retrieve the V3 exemplar, MAIN HERO, and all requested/matching approved-art references itself. If the brief calls for Gold Armor, Gold Sword, and Mirror Shield as design/scale precedents, locate those in `approved-art/`, download their repo files, and include them in the complete ZIP.
-
-**Do not ask the user to upload V3 exemplar, MAIN HERO, Gold Armor, Gold Sword, Mirror Shield, or any other repository-resident canonical reference.**
+For the gold shield / money bag / spatula / lantern regression batch, retrieve the V3 exemplar, MAIN HERO, Gold Armor, Gold Sword, Mirror Shield, and any other selected approved references from the repo or fallback ZIP. **Never ask the user for those individual files.**
 
 ## ARMOR / OUTFITS — LOCKED COMPLETE PIPELINE
 
@@ -120,7 +133,7 @@ Stage B is destructive erase-only. Remove head/context/headwear when body-only, 
 
 After isolation, deterministic registration is mandatory: Stage A/A.5 = coordinate/scale authority; Stage B = artwork authority; per-cell uniform scale + X/Y translation only; no rotation/stretch/warp/redraw/inpainting; rebuild exact 1920×2560 and 480×640 cells. No generative Stage B.5.
 
-Retrieve/package repository-resident controllers and references for every stage yourself.
+Retrieve/package repository-resident controllers and references for every stage yourself, using the fallback ZIP when direct binary transfer is unavailable.
 
 ## ACCESSORIES — LOCATION AWARE
 
@@ -138,7 +151,7 @@ Then deterministic extraction: normalize 480×640 cells; use location/row-specif
 
 Do not use generative face isolation or full-color generated-hero subtraction; both were calibrated and rejected.
 
-Retrieve repository-resident source assets yourself. If a controller/substrate is deterministically constructed from canonical repo assets during packaging, construct it yourself and include it in the ZIP. Do not ask the user to upload Meme Glass, MAIN HERO, or a canonical controller that can be retrieved or constructed.
+Retrieve repository-resident source assets yourself or use the fallback ZIP. If a controller/substrate is deterministically constructed from canonical assets during packaging, construct it yourself and include it in the batch ZIP.
 
 For non-face accessories, do not blindly reuse face extraction. Use a literal controller for the actual location and validate a reusable location workflow when needed.
 
@@ -149,18 +162,19 @@ After repository review:
 1. run the category conflict/compliance gate
 2. sanitize briefs without changing identity
 3. choose especially similar approved references
-4. resolve exact repo paths for all fixed + batch-specific visual dependencies
-5. retrieve their binary bytes into the working environment using raw GitHub/download URLs
-6. verify every required file exists and is non-empty
-7. create the exact category prompt/manifest/controller files
-8. provide **one complete ZIP** containing everything the next generation step needs
-9. explicitly PASS/FAIL returned sheets against the locked workflow
-10. correct the smallest actual failure rather than reopening validated architecture
-11. perform deterministic/file operations yourself when tools permit
-12. keep calibration artifacts out of canonical production folders unless validated
-13. leave final Illustrator work where the category workflow assigns it
+4. resolve exact fixed + batch-specific dependencies
+5. attempt automatic repo binary retrieval
+6. if binary transfer fails, use `DONT_DIE_COSMETIC_PRODUCTION_REFERENCES.zip`
+7. verify every required file exists and is non-empty
+8. create the exact category prompt/manifest/controller files
+9. provide **one complete batch ZIP** containing everything the next generation step needs
+10. explicitly PASS/FAIL returned sheets against the locked workflow
+11. correct the smallest actual failure rather than reopening validated architecture
+12. perform deterministic/file operations yourself when tools permit
+13. keep calibration artifacts out of canonical production folders unless validated
+14. leave final Illustrator work where the category workflow assigns it
 
-The user should not be asked to manually edit prompts, manifests, metadata, registration transforms, repository workflow text, or to rediscover canonical PNG/SVG references when the agent can retrieve them.
+The user should not be asked to manually edit prompts, manifests, metadata, registration transforms, repository workflow text, or rediscover canonical PNG/SVG references.
 
 ## Current completion state
 
