@@ -1,4 +1,4 @@
-# DON'T DIE — CANONICAL COSMETIC REGISTRATION SYSTEM v7.65
+# DON'T DIE — CANONICAL COSMETIC REGISTRATION SYSTEM v7.66
 
 This file defines final production registration independently from incidental character redraws made by image generation.
 
@@ -105,20 +105,22 @@ For held items:
 ### OUTFIT / ARMOR
 - reference anchor: TORSO_CENTER `(218,365)`
 - registration is primarily full-body silhouette matching
-- Stage A / approved Stage A.5 is the generated registration authority
-- Stage B is faithful erase-only isolation, not final coordinate authority
-- after Stage B, restore scale and X/Y deterministically per 480×640 cell against the corresponding approved upstream cell
-- use one uniform transform per isolated cell; never non-uniformly stretch, warp, or redraw the outfit
-- rebuild the registered sheet at exactly 1920×2560
+- Stage A / approved Stage A.5 is the generated coordinate and scale authority
+- Stage B is destructive erase-only isolation, not final coordinate authority
+- Stage B must completely remove pedestal/context before registration; registration never reconstructs hidden footwear or peg geometry
+- after Stage B passes isolation, restore scale and X/Y deterministically per logical cell against the corresponding approved upstream cell
+- use one uniform scale + X/Y translation transform per isolated cell; never rotate, non-uniformly stretch, warp, redraw, or inpaint the outfit
+- raw Stage-A and Stage-B downloads may have slightly different total dimensions; split them into corresponding logical 4×4 cells using their own dimensions rather than treating either raw canvas as canonical
+- rebuild the registered sheet at exactly 1920×2560 with exactly 480×640 cells
 - see `ARMOR_STAGE_B_DETERMINISTIC_REGISTRATION.md`
 
-This deterministic restoration exists because Stage B can isolate successfully while introducing small whole-cell scale/X/Y drift. Do not counter-bias Stage A to compensate for expected drift.
+This deterministic restoration exists because Stage B can isolate successfully while introducing significant cell-level scale/X/Y drift. A validated armor batch required roughly 10–17% per-cell shrink after isolation. Do not counter-bias Stage A or repeatedly regenerate Stage B to compensate for expected drift.
 
 ## Scale rule
 
 Anchor correctness never authorizes presentation scaling.
 
-For LEFT ARM, the active v7.65 universal visual-scale marker establishes the initial generation scale prior. For other categories, use current category references and approved art.
+For LEFT ARM, the active universal visual-scale marker establishes the initial generation scale prior. For other categories, use current category references and approved art.
 
 For ARMOR / OUTFITS, deterministic post-Stage-B scaling is permitted only to restore the approved upstream Stage A / A.5 registration. It is not presentation scaling and must not change internal proportions.
 
@@ -128,4 +130,4 @@ For ARMOR / OUTFITS, deterministic post-Stage-B scaling is permitted only to res
 
 For LEFT ARM specifically, complete geometry is generated with zero contact first; the canonical grip is applied only afterward in Illustrator.
 
-For ARMOR / OUTFITS specifically, Stage A owns design and registration, Stage B owns isolation, and deterministic post-processing restores Stage A registration before Illustrator.
+For ARMOR / OUTFITS specifically, Stage A owns design and registration, Stage B owns destructive isolation, and deterministic post-processing restores Stage A registration before Illustrator.
