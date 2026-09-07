@@ -105,6 +105,14 @@ For held items:
 ### OUTFIT / ARMOR
 - reference anchor: TORSO_CENTER `(218,365)`
 - registration is primarily full-body silhouette matching
+- Stage A / approved Stage A.5 is the generated registration authority
+- Stage B is faithful erase-only isolation, not final coordinate authority
+- after Stage B, restore scale and X/Y deterministically per 480×640 cell against the corresponding approved upstream cell
+- use one uniform transform per isolated cell; never non-uniformly stretch, warp, or redraw the outfit
+- rebuild the registered sheet at exactly 1920×2560
+- see `ARMOR_STAGE_B_DETERMINISTIC_REGISTRATION.md`
+
+This deterministic restoration exists because Stage B can isolate successfully while introducing small whole-cell scale/X/Y drift. Do not counter-bias Stage A to compensate for expected drift.
 
 ## Scale rule
 
@@ -112,8 +120,12 @@ Anchor correctness never authorizes presentation scaling.
 
 For LEFT ARM, the active v7.65 universal visual-scale marker establishes the initial generation scale prior. For other categories, use current category references and approved art.
 
+For ARMOR / OUTFITS, deterministic post-Stage-B scaling is permitted only to restore the approved upstream Stage A / A.5 registration. It is not presentation scaling and must not change internal proportions.
+
 ## Core principle
 
-**Image generation creates complete production-ready geometry with registration tolerance. Illustrator creates exact final registration.**
+**Image generation creates complete production-ready geometry with registration tolerance. Deterministic category-specific normalization restores validated upstream registration where required. Illustrator creates exact final vector registration.**
 
 For LEFT ARM specifically, complete geometry is generated with zero contact first; the canonical grip is applied only afterward in Illustrator.
+
+For ARMOR / OUTFITS specifically, Stage A owns design and registration, Stage B owns isolation, and deterministic post-processing restores Stage A registration before Illustrator.
