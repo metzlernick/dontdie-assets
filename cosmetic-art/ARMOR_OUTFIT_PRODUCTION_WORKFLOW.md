@@ -1,18 +1,18 @@
 # Don't Die — Armor / Outfit Production Workflow
 
-**Status:** Stage A V44 + optional Stage A.5 V1 + Stage B VALIDATED AND LOCKED
+**Status:** Stage A V44 CLEAN-ROOM + row-isolation discipline VALIDATED AND LOCKED; optional Stage A.5 V1 + Stage B VALIDATED AND LOCKED
 
 ## 1. Validated architecture
 
 Armor/outfit production uses:
 
-**Stage A — registered outfit design on canonical hero → optional Stage A.5 — cape control → Stage B — faithful outfit isolation → deterministic Illustrator finishing**
+**Stage A — clean-room registered outfit design on canonical hero → optional Stage A.5 — cape control → Stage B — faithful outfit isolation → deterministic Illustrator finishing**
 
 Stage A.5 is optional. Use it only when cape state must change after Stage A.
 
 Do not re-open Stage A, Stage A.5, or Stage B calibration during normal production unless a new failure is repeatable across fresh tests.
 
-## 2. Stage A — V44 locked behavior
+## 2. Stage A — locked production behavior
 
 Stage A owns:
 
@@ -52,13 +52,74 @@ Never complete them into natural five-digit hands. Do not add a rogue lower knuc
 
 The viewer-left lowered arm must connect cleanly into the hand; do not invent an extra finger-like form at the sleeve/wrist transition.
 
-### Reference discipline
+### Clean-room reference discipline
 
-Use canonical-derived geometry/hand references and the current text brief as the primary inputs.
+Normal Stage A production uses only:
 
-Do **not** include old generated armor calibration sheets as visual references during normal Stage A production. Testing showed that even when labeled semantic-only, generated dressed-character references can bias anatomy, stumpiness, hand count, pose, and semantics.
+1. literal canonical hero substrate
+2. canonical-derived proportion controller
+3. canonical hand-anatomy reference
+4. canonical viewer-left arm-chain reference
+5. current text briefs
 
-Approved art may guide palette/material/design language when needed, but must not override canonical body geometry.
+Do **not** include prior generated armor/outfit sheets as visual references during normal Stage A production. Testing showed that even when labeled semantic-only, dressed generated references can bias anatomy, stumpiness, hand count, pose, and semantics.
+
+Approved art may guide palette/material/design language only when genuinely necessary, and must never become geometry authority.
+
+### Row-isolation / contamination discipline
+
+Rows are not independent to the generator merely because the prompt says they are. A visually extreme style in an earlier row can contaminate anatomy and rendering in later rows.
+
+Therefore order rows from **most canonical/anatomically conventional to most visually transformative** whenever possible.
+
+In particular:
+
+- pixel-art / 8-bit / voxel-like / heavily geometric styles belong in the **last available row**
+- do not place anatomy-hostile styles before conventional outfits
+- style transformations apply to the outfit only unless the brief explicitly requires otherwise
+- face, hair, body anatomy, hand silhouette, stance, and pedestal remain canonical
+- for pixel outfits, keep the hand contour smooth canonical geometry; pixel treatment may affect glove color/surface only
+
+This rule was validated by the leather → shimmering scale → pirate → 8-bit test: all four rows retained strong hands/anatomy while the final 8-bit row remained explicitly pixelated.
+
+### Brief hierarchy
+
+For every row, express requirements in this order:
+
+1. identity / dominant material or construction language
+2. mandatory palette
+3. mandatory structural features
+4. cape state
+5. hand/glove treatment
+6. forbidden additions
+7. variation freedom
+
+If a feature is critical, state it as mandatory and describe its visible geometry rather than relying on a label. Example: a pirate peg leg is specified as the viewer-left lower leg being replaced below the knee by a narrow wooden peg with no foot/boot, while preserving pelvis, stance width, and standing height.
+
+Material concepts should likewise be structural. A shimmering scale outfit should state that repeated overlapping scales are the construction language across the body, not merely ask for 'scale armor.'
+
+### Production lesson from validated multi-style sheet
+
+A successful Stage A prompt should be conservative about global instructions and specific about row semantics:
+
+- preserve the proven canonical geometry block unchanged
+- preserve the proven hand block unchanged
+- change only row briefs for new concepts
+- avoid adding new registration experiments during ordinary production
+- avoid counter-biasing canonical geometry to compensate for model drift
+- avoid using previous generated successes as visual authorities
+- isolate unusual style logic to its own row
+- place the most anatomy-transformative row last
+- prefer explicit visible constraints over semantic shorthand
+
+The validated reference batch successfully produced:
+
+- sleek leather armor with readable contrasting cape
+- light-blue/white/lavender shimmering repeated-scale armor with sheer cape
+- pirate coat with red sash, dark gloves, tattered cape, and viewer-left peg leg
+- coarse low-detail 8-bit armor with large pixels while preserving the character concept
+
+This is the baseline mindset for future Stage A concept batches.
 
 ## 3. Stage A.5 — V1 cape control, optional and locked
 
@@ -148,6 +209,8 @@ Do **not** use approximate deterministic color/spatial cape masks on flattened S
 
 If cape state must change, use Stage A.5 before isolation.
 
+Do **not** compensate for registration drift by deliberately feeding a smaller/off-center canonical hero. That creates a calibration constant rather than a stable authority. If exact post-generation registration normalization is required at scale, solve it deterministically downstream rather than corrupting the canonical Stage-A reference.
+
 ## 6. Output
 
 Standard armor sheet:
@@ -160,4 +223,4 @@ Standard armor sheet:
 
 ## 7. Core rule
 
-**Canonical registration + four-digit hand fidelity first. Stage A establishes the registered outfit. Optional Stage A.5 changes cape state only. Stage B extracts the approved result faithfully.**
+**Canonical clean-room references + four-digit hand fidelity first. Conventional rows before anatomy-hostile style rows. Stage A establishes the outfit; optional Stage A.5 changes cape state only; Stage B extracts faithfully. Change briefs, not the proven geometry system.**
