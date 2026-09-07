@@ -2,88 +2,67 @@
 
 ## Status
 
-**V3 VALIDATED AND LOCKED.** Normal user input may change only current row briefs. Do not redesign or add one-off controller exceptions during production.
+**V3 VALIDATED, PASSING, LOCKED, AND CLOSED FOR CALIBRATION.**
 
-Also mandatory: `GENERATION_EXECUTION_CONTRACT.md` and `PRODUCTION_PACKAGE_REGRESSION_GATES.md`.
+Current approved baseline: golden ceremonial shield / tan money bag with visibly left-leaning neck / metal spatula / black lantern with green flame.
+
+Normal production may change only current row briefs. Do not redesign the LEFT ARM architecture for a local cosmetic miss.
 
 ## Production target
 
-One 2400×2560 sheet; logical 4×4; 600×640 cells; four variations per populated row; white background; MAIN HERO context screen-right; complete standalone cosmetic screen-left; zero contact; no generated grip; no hidden geometry; no AI reconstruction pass.
+Logical LEFT ARM composition: 2400×2560; 4×4; 600×640 logical cells; four variations per populated row; white background; visible MAIN HERO context screen-right; complete standalone cosmetic source art screen-left; clean zero contact; no generated grip; no hidden geometry; no AI Stage B/isolation or reconstruction.
 
-## V3 visual scale authority — exact path
+Generated export raster dimensions are not an acceptance criterion by themselves. Judge the logical 4×4 composition and body-relative relationships. The exact 2400×2560 dimensions/bytes requirement belongs to the canonical input controller, not necessarily the downloaded model export.
+
+## V3 visual authority
 
 **PRIMARY_CANVAS_AUTHORITY:** `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4_V3.png`
 
-This exact V3 file is mandatory and is the absolute first-priority visual authority for canvas relationship, cosmetic location, cosmetic visual mass, and zero-contact behavior. Do not use the obsolete/nonexistent filename `LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4.png`.
+This exact V3 controller is mandatory for normal LEFT ARM generation. It controls body/context relationship, screen-left source-art location, the validated tiny scale class, and zero-contact behavior.
 
-Every other active visual must be role-labeled. MAIN HERO is anatomy/context only. Approved art is DESIGN_ONLY unless explicitly granted a narrower property. DESIGN_ONLY art cannot control hero clothing, hand pose, grip/contact, object scale, canvas composition, or registration.
+The exemplar is a scale-class reference, not a literal maximum bounding box. The current approved baseline establishes that the generated shield/money bag/spatula/lantern footprint is acceptable. Broad shields and hanging lanterns may be modestly larger when useful for identity/readability while remaining in the tiny LEFT ARM production neighborhood. Normal standalone prop/icon scale remains a failure.
 
-Each cell contains one extremely tiny contiguous neutral finished-cosmetic exemplar, approximately 14×19 px in the validated V3 reference. Replace it with the requested cosmetic without reproducing exemplar geometry. Replacement should match or undercut its tiny visual mass relative to MAIN HERO.
-
-V3 supersedes V2.1. V2.1 passed shield/money-bag/spatula/lantern but later failed on gauntlet/throwing-star/purse/nunchuks by reverting toward hero-sized readable props. V3 materially reduced the universal exemplar and the same difficult batch then passed all rows at desired production scale.
+Approved art is DESIGN_ONLY unless explicitly given a narrower property. It cannot control hero clothing, hand pose, grip/contact, canvas relationship, or production scale class.
 
 ## Locked hierarchy
 
-1. extremely tiny V3 finished-exemplar scale/location
-2. remove/simplify detail to survive scale
-3. exact identity
-4. pose/design
-5. variation
+1. validated V3 tiny scale/location class
+2. preserve exact hard brief constraints
+3. simplify detail as needed
+4. exact identity
+5. pose/design
+6. variation
 
-Semantic identity never authorizes enlargement. If size/detail conflict, keep smaller. When uncertain, shrink and simplify.
+Semantic real-world size never authorizes presentation-scale enlargement.
 
-## Scale behavior
+## Hard brief constraints
 
-Do not enlarge due to real-world size, readable-prop expectations, comparison assets, composition balance, empty space, optional detail, or words such as large/big/same size/similar scale. Broad/chunky objects simplify/compress rather than grow. Long/thin/hanging objects extend farther only by narrowing and staying low-mass. Creatures, containers, wearables, weapons, and multi-part handheld objects remain strongly miniature-biased.
+Directional, rotational, pose, visible-surface, count, color, symbol, attachment, and relative-position requirements are hard constraints. They apply to all four row variations unless the user explicitly says they may vary.
 
-Approved art may guide palette, design language, silhouette vocabulary, thematic family, material treatment, identity details, and non-scale proportion cues only.
+Variation happens around a hard constraint rather than replacing it.
 
-## Pose/surface rule
+## Zero-contact
 
-Pose instructions never authorize scale changes. Requested visible surface/orientation must dominate rather than reverting to default view.
+Every cosmetic remains screen-left with clean white separation from hero/hand/cape/body/pedestal/shadow and remains complete/unobstructed. The visible hero/context is intentional Stage-A context. Final placement, modest enlargement if useful, rotation, and canonical hand occlusion happen in Illustrator.
 
-## Brief-preservation rule
+## Failure classification
 
-Sanitization may resolve wording that conflicts with locked LEFT ARM production invariants, but it must preserve every explicit directional, rotational, pose, visible-surface, count, color, attachment, relative-position, and required-feature constraint from the user's brief.
+Before changing anything, classify an imperfect output:
 
-Do not weaken a precise instruction into a generic description. Terms such as `left`, `right`, `top-left`, `bottom-right`, `up`, `down`, `slightly`, `hanging`, `faces viewer`, exact counts, required symbols, and specified colors remain binding.
+- **SYSTEM FAIL:** controller/reference/stage/scale-class/contact/registration behavior is structurally wrong.
+- **BRIEF FAIL:** validated system behavior passes but one row misses a local explicit instruction.
 
-Unless the user explicitly permits variation, each hard brief constraint must be visibly present in **all four** variations of that row. Variation is allowed around hard constraints, never in place of them.
+A BRIEF FAIL does not authorize architecture/controller changes.
 
-## Detached-artifact rule
+## Passing Regression A baseline
 
-Unless identity-critical, do not add dots, beads, particles, connector marks, trails, or floating secondary shapes between cosmetic and hero. Do not copy reference residue.
+- Row 1: golden ceremonial shield matching Gold Armor + Gold Sword design language; broad Mirror Shield-inspired silhouette.
+- Row 2: tan money bag with dollar sign; neck/top visibly tilts slightly left in all four variations.
+- Row 3: standard silver metal spatula, head toward top-left and black handle toward bottom-right; slots only when explicitly requested.
+- Row 4: black spooky lantern hanging downward with green flame; restrained internal green gradient allowed when requested.
 
-## Conflict gate
-
-Before creating a package, inspect user instructions for conflicts with scale, exemplar authority, hero placement, zero-contact, sheet geometry, detail hierarchy, generated grip, hidden geometry/reconstruction, or presentation enlargement. If conflict exists: stop, identify it, offer safe wording, and proceed only after resolution. Never silently invent an exception.
-
-## Reference-contamination gate
-
-Before generation, enumerate active images and roles. FAIL preflight if the exact V3 PRIMARY controller is missing, any image is unlabeled, or any DESIGN_ONLY reference can be interpreted as coequal scale/pose/context authority. For design references showing armor/hands/held objects, explicitly prohibit copying their hero clothing, hand interaction, scale, and composition.
-
-## Identity / variation / zero-contact
-
-Each row remains exact requested object type. Four simple useful interpretations. Variation may not increase scale and may not erase or weaken a hard brief constraint. Every cosmetic remains screen-left with clean white separation from all hero pixels, complete/unobstructed and standalone for Image Trace. Hero never holds cosmetic during generation.
-
-## Style
-
-Flat vector-like Don't Die cartoon; bold smooth true-black outer contour; round joins/caps; sparse interior lines; hard-edged colors; extremely low detail; no cosmetic cast shadow/texture/noise/painterly rendering; gradient only when explicitly requested and non-scale-inducing.
-
-## Prompt-construction lock
-
-Normal production TXT = canonical `LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt` + sanitized row briefs. Only row-brief content varies. Sanitization is identity-preserving and constraint-preserving: it may remove conflicts with locked invariants, but it must not paraphrase away explicit direction/pose/count/color/relative-position requirements. Invariant changes require separate calibration/change-control task.
-
-## Regression validation
-
-Regression A: golden ceremonial shield, tan money bag, diagonal metal spatula, hanging black lantern with green flame.
-
-Expected V3 output behavior is not a hero holding normal-size props. It is four rows of extremely tiny standalone cosmetics screen-left with white separation from hero context. Any gripping hand/gauntlet, normal readable-prop scale, or design-reference-driven hero armor is an immediate FAIL.
-
-Regression B: chunky golden palm-facing gauntlet with four colored unoutlined energy streaks, silver throwing star, slightly three-quarter bedazzled pink purse, red nunchuks.
-
-Do not reopen calibration for ordinary asset preferences. Reopen only if a genuinely new class produces a repeatable V3 failure under the correct controller execution.
+This batch is the current LEFT ARM V3 production baseline. Stop calibrating LEFT ARM unless a future result demonstrates a genuine repeatable SYSTEM FAIL under the locked setup.
 
 ## Illustrator handoff
 
-Image Trace/cleanup; move/rotate into canonical viewer-left hand; enlarge modestly if desired; layer canonical hand; final vector cleanup.
+Image Trace / cleanup; move/rotate into canonical viewer-left hand; enlarge modestly if useful; layer canonical hand; final vector cleanup.
