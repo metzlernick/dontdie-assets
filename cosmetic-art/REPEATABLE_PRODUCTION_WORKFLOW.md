@@ -8,6 +8,8 @@ General repeatable workflow for Don't Die cosmetic art.
 
 **ARMOR / OUTFIT override:** `ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md` plus `ARMOR_STAGE_B_DETERMINISTIC_REGISTRATION.md` are the category-specific authority. The armor pipeline is validated, complete, and locked.
 
+**FACE ACCESSORY override:** `ACCESSORY_FACE_PRODUCTION_WORKFLOW.md` is the category/location-specific authority. The face-accessory pipeline is validated and locked.
+
 ## 1. Source of truth
 
 Before every generation freshly review current canonical sources: master spec, MAIN HERO, Character Master Template, relevant reference-pack files, relevant approved-art category, and category-specific workflow/controller.
@@ -24,6 +26,13 @@ For ARMOR / OUTFITS, also use:
 - canonical-derived hero geometry controller/substrate
 - canonical hand reference
 - canonical viewer-left arm-chain reference
+
+For FACE ACCESSORIES, also use:
+
+- `ACCESSORY_FACE_PRODUCTION_WORKFLOW.md`
+- faint literal canonical hero substrate (~6% opacity)
+- literal face/location registration controller
+- closest approved face-accessory scale/style precedent (currently `Meme Glass` where relevant)
 
 Do not feed old generated armor calibration sheets into normal Stage A production as geometry authority. If the user explicitly requests reuse of an already-approved outfit concept, it may appear only as a clearly labeled DESIGN-ONLY reference.
 
@@ -191,7 +200,27 @@ Do not use a post-isolation generative Stage B.5 cape operation or approximate f
 
 ## 7. ACCESSORIES
 
-Use MAIN HERO for body-relative location and scale. Small accessories remain small despite empty canvas space.
+Accessories are location-aware. Use MAIN HERO plus a literal controller for the accessory's actual body location. Small accessories remain small despite empty canvas space.
+
+### FACE ACCESSORIES — validated locked pipeline
+
+Use `ACCESSORY_FACE_PRODUCTION_WORKFLOW.md`.
+
+Locked architecture:
+
+**Current briefs → Stage A on ~6% faint literal canonical hero substrate → deterministic faint-substrate extraction → Illustrator.**
+
+There is **no generative Stage B** for face accessories.
+
+Stage A generates only the full-opacity accessory while the canonical hero remains a faint literal registration substrate. Use literal eye/mouth anchors and an approved similar face accessory such as Meme Glass as scale/style evidence.
+
+After Stage A passes, isolate deterministically using the contrast separation between faint substrate and full-opacity accessory, with row/location-specific ROIs and thresholds. Retained pixels come from the approved Stage A; do not reconstruct hidden geometry or regenerate artwork.
+
+Do not use full-color canonical-hero subtraction: calibration showed that a generated full-color hero differs too much from the canonical hero for reliable subtraction.
+
+Do not use generative face-accessory isolation: two calibration passes showed scale inflation, independent centering, geometry reconstruction, and regularization even under strict erase-only prompting.
+
+Accessories attached elsewhere on the body are not automatically governed by the face-specific extraction rules. Build/reuse a literal location-specific controller and validate that location before locking it.
 
 ## 8. Scale authority
 
@@ -220,3 +249,5 @@ Generate complete clean production geometry as early as the category allows and 
 For LEFT ARM specifically: **finished-exemplar scale first, simplify second, identity third, pose/design fourth — with a mandatory conflict gate and immutable production template.**
 
 For ARMOR / OUTFITS: **canonical geometry + explicit cape metadata → simple flat Stage A design → destructive no-reconstruction Stage B with total pedestal removal → deterministic per-cell registration → Illustrator.**
+
+For FACE ACCESSORIES: **faint literal canonical substrate → final-position full-opacity accessory → deterministic substrate removal → Illustrator.**
