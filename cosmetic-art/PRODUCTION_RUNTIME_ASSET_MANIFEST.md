@@ -12,53 +12,60 @@ For normal production, the user supplies only:
 
 The agent owns retrieval of canonical visual references and creation of a **single complete ZIP** for any generation step that requires uploads.
 
+## Critical distinction: portable files are not active references
+
+This manifest names files that may need to be available in a session. **Presence in the permanent reference kit does not mean a file should be supplied to image generation.**
+
+The applicable validated category/stage workflow determines the active generation visual set and order. `GENERATION_EXECUTION_CONTRACT.md` and `PRODUCTION_PACKAGE_REGRESSION_GATES.md` verify that fresh-agent packaging preserves that setup.
+
+Do not convert a portability dependency into an active image merely because it is listed here. Do not add duplicate hero/context, category-reference, style, or approved-art images unless the validated workflow for the current stage requires them.
+
 ## Hard rule — never make the user hunt for canonical files
 
 If a required PNG/SVG already exists in `metzlernick/dontdie-assets`, **do not ask the user to find, download, or re-upload it individually**.
-
-The GitHub connector may be able to inspect a binary repository entry without exporting its bytes into the working container. That is not a user problem and is not a reason to request manual uploads.
 
 This repository is public. Binary repository assets can be retrieved from the raw GitHub endpoint:
 
 `https://raw.githubusercontent.com/metzlernick/dontdie-assets/main/<repo-path>`
 
-For paths containing spaces or other URL-sensitive characters, URL-encode the path.
+For paths containing spaces or other URL-sensitive characters, URL-encode the path. After retrieval, verify that the local file exists and is non-empty.
 
-An agent with a container/download tool should download the raw URL directly to its working directory. An agent with another HTTP/file-fetch mechanism should use that mechanism. The GitHub contents API `download_url` is also valid when surfaced by repository listing.
-
-After retrieval, verify that the local file exists and is non-empty before packaging.
+For exact/locked controllers, also verify canonical basename, dimensions, and SHA-256 before packaging. Do not resize, re-encode, screenshot, duplicate-rename, or round-trip an exact controller through chat/UI merely to make it uploadable.
 
 ## Package contract
 
-Whenever a generation step requires the user to upload references, provide **one ZIP** containing:
+Whenever a generation step requires transfer, provide **one ZIP** containing:
 
-1. the exact production prompt
-2. manifest/metadata files required by that category/stage
-3. every fixed canonical visual dependency required by the prompt
-4. every batch-specific approved-art reference selected by the agent
-5. a short README naming the intended generation stage and expected output
+1. the exact production prompt;
+2. manifest/metadata required by that category/stage;
+3. every fixed canonical dependency needed for portability/audit;
+4. every batch-specific approved-art reference selected by the agent;
+5. `GENERATION_INPUT/` containing **only** the active generation files required by the validated category/stage setup;
+6. `00_REFERENCE_ROLES.txt` and `00_INPUT_ORDER.txt` when applicable;
+7. an integrity record for exact controller basename/dimensions/SHA-256;
+8. a short README naming the intended generation stage and expected output.
 
-Never give the user a list of repo PNGs/SVGs to collect manually.
-
-If the generation system accepts visual references directly from the agent's working environment, use them directly. Otherwise package them into the ZIP.
+Files outside `GENERATION_INPUT/` are not active generation references.
 
 ## Retrieval order
 
-1. Inspect the live repo and category workflow.
-2. Resolve exact canonical paths.
-3. Resolve batch-specific approved-art references by semantic/design similarity.
-4. Retrieve binary assets from raw GitHub into the working environment.
-5. Verify the files.
-6. Build one complete ZIP.
-7. Only then ask the user to run/upload the package.
+1. Inspect the live repo and applicable category/stage workflow.
+2. Determine the validated active visual set and order.
+3. Resolve exact canonical paths.
+4. Resolve only batch-specific approved-art references actually needed by the brief.
+5. Retrieve binary assets from raw GitHub or the permanent fallback ZIP.
+6. Verify exact controller bytes/dimensions where locked.
+7. Build `GENERATION_INPUT/` without expanding the validated active set.
+8. Build one complete ZIP.
+9. Run package regression gates.
 
 If a mandatory asset genuinely does not exist in the repository, stop and identify that missing repository asset. Do not phrase this as a request for the user to hunt for it locally.
 
 ---
 
-# Fixed runtime assets by category
+# Portable runtime assets by category
 
-These are baseline dependencies. Category workflows may require additional current canonical files; the live workflow wins.
+These are **availability dependencies**, not automatic active-generation lists. The live category workflow always decides what is active.
 
 ## Shared canonical visual assets
 
@@ -66,7 +73,7 @@ Preferred raster hero reference:
 
 - `cosmetic-art/reference-sheets/MASTER_CHARACTER_REFERENCE.png`
 
-Additional registration/context assets when required:
+Additional registration/context assets when required by a validated stage:
 
 - `cosmetic-art/reference-sheets/SPATIAL_TEMPLATE_MAIN_HERO_4X4.png`
 - `cosmetic-art/registration/MAIN_HERO_REGISTRATION.png`
@@ -81,39 +88,33 @@ Canonical SVG sources:
 
 ## HATS
 
-Fixed visual dependencies:
+Portable dependencies may include:
 
 - `cosmetic-art/reference-sheets/MASTER_CHARACTER_REFERENCE.png`
 - `cosmetic-art/reference-sheets/HATS_REFERENCE.png`
 - `cosmetic-art/reference-sheets/HATS_PLACEMENT_REFERENCE.png`
 - `cosmetic-art/reference-sheets/HAT_HEAD_ORIENTATION_REFERENCE.png`
-
-Batch-specific dependencies:
-
 - especially similar files from `cosmetic-art/approved-art/hats/`
 
-The agent retrieves and packages these. The user does not locate them.
+Activate only the subset/order required by the current validated hat workflow.
 
 ## RIGHT ARM
 
-Fixed visual dependencies:
+Portable dependencies may include:
 
 - `cosmetic-art/reference-sheets/MASTER_CHARACTER_REFERENCE.png`
 - `cosmetic-art/reference-sheets/RIGHT_ARM_REFERENCE.png`
 - `cosmetic-art/reference-sheets/RIGHT_ARM_PLACEMENT_REFERENCE.png`
-
-Batch-specific dependencies:
-
 - especially similar files from `cosmetic-art/approved-art/right-arm/`
 
-The agent retrieves and packages these. The user does not locate them.
+Activate only the subset/order required by the current validated right-arm workflow.
 
-## LEFT ARM — V3
+## LEFT ARM — LOCKED V3
 
-Fixed visual dependencies:
+Portable dependencies include:
 
-- `cosmetic-art/reference-sheets/MASTER_CHARACTER_REFERENCE.png`
-- `cosmetic-art/reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4_V3.png`
+- `cosmetic-art/reference-sheets/MASTER_CHARACTER_REFERENCE.png` — portability/audit only for normal V3; **not a separate active generation reference** unless a future validated LEFT ARM workflow explicitly changes that rule.
+- `cosmetic-art/reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4_V3.png` — exact active PRIMARY for normal V3 generation.
 
 Mandatory text authorities:
 
@@ -121,11 +122,13 @@ Mandatory text authorities:
 - `cosmetic-art/LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md`
 - `cosmetic-art/LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt`
 
-Batch-specific dependencies:
+Normal LEFT ARM V3 active-input rule:
 
-- especially similar approved art from any relevant category, including `approved-art/left-arm/`, `approved-art/right-arm/`, `approved-art/armor/`, etc., when the brief explicitly asks to match an existing set/design family
+1. `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4_V3.png` first, exact basename/bytes, **2400×2560**;
+2. only approved DESIGN_ONLY references explicitly required by the current briefs, after V3;
+3. no separate full-color `MASTER_CHARACTER_REFERENCE.png` active image because the composite V3 controller already supplies the validated hero/context relationship.
 
-Example regression batch: gold shield / money bag / spatula / lantern. If the gold shield is explicitly required to match Gold Armor + Gold Sword and use Mirror Shield as a scale/design precedent, the agent must retrieve those approved files itself and include them in the ZIP. It must **not** ask the user to upload Gold Armor, Gold Sword, Mirror Shield, MAIN HERO, or the V3 exemplar.
+Example Regression A: gold shield / money bag / spatula / lantern. Because the shield explicitly matches Gold Armor + Gold Sword and borrows Mirror Shield silhouette language, those three approved references may be active after V3 as DESIGN_ONLY. They must not alter scale/context/contact.
 
 ## ARMOR / OUTFITS
 
@@ -134,27 +137,21 @@ Mandatory text authorities:
 - `cosmetic-art/ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md`
 - `cosmetic-art/ARMOR_STAGE_B_DETERMINISTIC_REGISTRATION.md`
 
-Fixed visual dependencies are the current canonical-derived hero geometry/substrate, canonical hand, viewer-left arm-chain, and master hero references named by the live armor workflow/package.
+Portable dependencies include the current canonical-derived hero geometry/substrate, canonical hand, viewer-left arm-chain, master hero references, and relevant approved armor/design references.
 
-Batch-specific dependencies:
-
-- relevant approved armor/design references
-- DESIGN-ONLY prior approved outfit only when explicitly requested
-
-The agent retrieves all repository-resident dependencies and packages each generation stage completely. Do not ask the user to rediscover canonical armor controllers.
+**Do not activate all of them generically.** Reproduce the exact stage-specific active input set named by the locked armor workflow/package. Stage B must not inherit unrelated Stage-A/design reference soup.
 
 ## ACCESSORIES — GENERAL
 
-Fixed baseline visual dependencies:
+Portable baseline assets may include:
 
 - `cosmetic-art/reference-sheets/MASTER_CHARACTER_REFERENCE.png`
 - `cosmetic-art/reference-sheets/ACCESSORIES_REFERENCE.png`
 - `cosmetic-art/reference-sheets/ACCESSORIES_PLACEMENT_REFERENCE.png`
+- relevant files from `cosmetic-art/approved-art/accessories/`
+- validated location-specific controllers
 
-Batch-specific dependencies:
-
-- relevant approved files from `cosmetic-art/approved-art/accessories/`
-- location-specific controllers required by a validated workflow
+Activate only a validated location-specific set. General accessory availability does not validate a body location.
 
 ## FACE ACCESSORIES — LOCKED
 
@@ -162,26 +159,25 @@ Mandatory text authority:
 
 - `cosmetic-art/ACCESSORY_FACE_PRODUCTION_WORKFLOW.md`
 
-Runtime package must include the current faint literal canonical hero substrate/controller, face registration controller, and especially similar approved face-accessory references required by the live workflow/package.
+Portable kit/session should contain the current faint literal canonical hero substrate/controller, face registration controller, master hero source assets, and especially similar approved face-accessory references required for future batches.
 
-If those controllers are generated deterministically from canonical repo assets as part of packaging, the agent performs that operation itself and includes the generated controllers in the ZIP.
+Normal face Stage-A active input must reproduce the locked face workflow. **Do not add full-color MAIN HERO as an active generation image through generic packaging.** The faint substrate remains PRIMARY; face controller and only required DESIGN_ONLY art follow according to the validated workflow.
 
-Do not ask the user to upload Meme Glass, MAIN HERO, or a canonical face controller when those are repository-resident or deterministically constructible from repository assets.
+If controllers are generated deterministically from canonical repo assets as part of packaging, the agent performs that operation itself, records the derivation, and includes the generated controllers in the ZIP.
 
 ---
 
 # Batch-specific approved-art selection
 
-A fixed production kit cannot predict which approved design references a future brief will invoke. Therefore the fresh agent must select them automatically.
+A fixed production kit cannot predict which approved design references a future brief will invoke. Therefore the fresh agent selects them automatically **only when the brief actually requires them**.
 
 When a brief says things such as:
 
 - "match the gold armor/sword"
-- "similar scale to Mirror Shield"
 - "same style as X"
 - "closest to Meme Glass"
 
-search the relevant `approved-art/` directories, resolve the best matching canonical file(s), retrieve them from raw GitHub, and include them in the package.
+search the relevant `approved-art/` directories, resolve the best matching canonical file(s), retrieve them, and include them in the package. Whether they are active generation references is controlled by the validated category workflow.
 
 Do not require exact filename spelling from the user when the intended approved asset can be resolved from the repository.
 
@@ -199,8 +195,8 @@ Canonical production files are never treated as user-supplied dependencies.
 
 # Core portability principle
 
-**Repo asset retrieval is agent work.**
+**Repo asset retrieval is agent work. Portability availability and active generation input are different concepts.**
 
 The normal user-facing contract is:
 
-**handoff + category + four briefs → agent-built complete ZIP → generation → review.**
+**handoff + category + four briefs → agent-built complete ZIP preserving validated input topology → generation → review.**
