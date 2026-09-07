@@ -6,13 +6,17 @@ This folder contains the canonical production system for Don't Die cosmetic artw
 
 Use: `DONT_DIE_COSMETIC_ART_SPEC.md`, `REPEATABLE_PRODUCTION_WORKFLOW.md`, `PRODUCTION_SESSION_STARTER.txt`, `CANONICAL_REGISTRATION_SYSTEM.md`, category-specific workflows/controllers, and current canonical reference assets.
 
-## ARMOR / OUTFITS — Stage A V44 + optional Stage A.5 V1 + Stage B locked
+## ARMOR / OUTFITS — Stage A V44 + optional Stage A.5 V1 + Stage B + deterministic registration locked
 
-`ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md` is the category authority.
+`ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md` is the category authority. `ARMOR_STAGE_B_DETERMINISTIC_REGISTRATION.md` is the companion authority for the validated post-isolation registration step.
 
 Validated architecture:
 
-**Stage A registered outfit design on canonical hero → optional Stage A.5 cape control → Stage B faithful outfit isolation → Illustrator.**
+**Stage A registered outfit design on canonical hero → optional Stage A.5 cape control → Stage B faithful erase-only outfit isolation → deterministic per-cell registration restoration → Illustrator.**
+
+Stage A is the design and registration authority. Stage B is the isolation authority, but small Stage-B scale/X/Y drift must not be treated as final registration truth. Restore the approved upstream registration deterministically after Stage B rather than counter-biasing Stage A or repeatedly tuning prompt offsets.
+
+Stage B must not invent hidden garment geometry behind the removed head/neck. Preserve the visible upstream neckline boundary only; the final outfit layer must not occlude the canonical head art with newly completed collar/neck material.
 
 Stage A V44 solved the recurring structure failures closely enough for production: near-canonical body proportions, strong viewer-left lowered arm chain, stable raised arm, and usable stylized hands.
 
@@ -41,7 +45,9 @@ The approved A.5 result then passed Stage B isolation while preserving row ident
 
 ### Stage B
 
-Stage B is faithful isolation, not redesign. It uses the approved upstream sheet — Stage A directly, or Stage A.5 when used — as design/cape-state authority and removes the hero/head/pedestal/context while preserving outfit geometry, hands, arm chains, X/Y, scale, and exact approved cape state.
+Stage B is faithful erase-only isolation, not redesign. It uses the approved upstream sheet — Stage A directly, or Stage A.5 when used — as design/cape-state authority and removes the hero/head/pedestal/context while preserving outfit geometry, hands, arm chains, and exact approved cape state.
+
+After Stage B, restore registration deterministically per 480×640 cell using the approved upstream cell as scale/X/Y authority. Do not warp or redraw the outfit. Rebuild the final 4×4 at exactly 1920×2560.
 
 Do **not** use post-isolation generative cape removal. It was tested and caused global redraw drift. Do **not** use approximate spatial/color masking of flattened Stage-B PNGs as a general cape-removal method; the validation damaged non-cape artwork.
 
