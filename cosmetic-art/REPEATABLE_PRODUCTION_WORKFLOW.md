@@ -4,7 +4,7 @@
 
 General repeatable workflow for Don't Die cosmetic art.
 
-**LEFT ARM override:** `LEFT_ARM_ZERO_CONTACT_WORKFLOW.md` plus `LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md` are the category-specific authority.
+**LEFT ARM override:** `LEFT_ARM_ZERO_CONTACT_WORKFLOW.md` plus `LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md` are the category-specific authority. LEFT ARM V3 is validated, passing, locked, and closed for calibration.
 
 **ARMOR / OUTFIT override:** `ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md` plus `ARMOR_STAGE_B_DETERMINISTIC_REGISTRATION.md` are the category-specific authority. The armor pipeline is validated, complete, and locked.
 
@@ -15,12 +15,10 @@ General repeatable workflow for Don't Die cosmetic art.
 Before every generation freshly review current canonical sources: master spec, MAIN HERO, Character Master Template, relevant reference-pack files, relevant approved-art category, and category-specific workflow/controller.
 
 For LEFT ARM, also use:
-
-- `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4.png`
+- `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4_V3.png`
 - `LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt`
 
 For ARMOR / OUTFITS, also use:
-
 - `ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md`
 - `ARMOR_STAGE_B_DETERMINISTIC_REGISTRATION.md`
 - canonical-derived hero geometry controller/substrate
@@ -28,106 +26,66 @@ For ARMOR / OUTFITS, also use:
 - canonical viewer-left arm-chain reference
 
 For FACE ACCESSORIES, also use:
-
 - `ACCESSORY_FACE_PRODUCTION_WORKFLOW.md`
 - faint literal canonical hero substrate (~6% opacity)
 - literal face/location registration controller
-- closest approved face-accessory scale/style precedent (currently `Meme Glass` where relevant)
+- closest approved face-accessory scale/style precedent when relevant
 
-Do not feed old generated armor calibration sheets into normal Stage A production as geometry authority. If the user explicitly requests reuse of an already-approved outfit concept, it may appear only as a clearly labeled DESIGN-ONLY reference.
+Do not feed old generated calibration sheets into normal production as geometry authority. A previous approved concept is DESIGN_ONLY only when the user explicitly asks to reuse that design.
 
 ## 2. General art requirements
 
 - flat 2D vector-style construction
 - true-black primary outer outline, approximately 5 px at canonical scale
-- large readable forms appropriate to final display size
-- low detail
-- clean silhouette
+- low detail and clean silhouette
 - hard-edged flat color regions
 - pure white background
-- no cast shadow on cosmetic
-- no texture/noise
-- no presentation enlargement to fill space
+- no cosmetic cast shadow, texture/noise, or presentation enlargement to fill space
 - Image-Trace friendly
 
-## 3. LEFT ARM — validated one-pass 4×4 architecture
+## 3. LEFT ARM — validated locked V3 architecture
 
-Generate up to four unrelated current briefs in one pass:
-
-- 2400×2560
-- 4×4
-- 600×640 logical cells
-- one brief per populated row
-- four variations per populated row
-- hero context right
-- complete cosmetic left
+Logical production composition:
+- 2400×2560 controller / 4×4 logical grid / 600×640 logical cells
+- one brief per populated row; four variations per row
+- visible hero/context screen-right
+- complete cosmetic source art screen-left
 - zero contact
 - no generated grip or hidden geometry
-- no AI isolation/reconstruction
+- **no AI Stage B/isolation/reconstruction**
+- final extraction, placement, rotation, optional modest enlargement, and canonical hand overlay occur in Illustrator
 
-### LEFT ARM visual controller
+### LEFT ARM scale authority
 
-The active scale controller is a tiny neutral outlined finished-cosmetic exemplar, not an abstract marker.
+Use `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4_V3.png` as the scale/location/contact authority.
 
-The requested cosmetic should read like a replacement finished asset at approximately the same or smaller total visual mass.
+The exemplar defines the validated **tiny LEFT ARM source-art scale class**, not a literal maximum bounding box. The current approved Regression A scale is valid. Broad or hanging items may vary modestly in footprint while remaining clearly tiny/body-relative. Do not inflate an object to normal standalone prop/icon scale because of semantic real-world size or empty composition.
 
-The exemplar communicates production scale, finished-art status, bold outline behavior, low-detail construction, and relationship to MAIN HERO.
+The current approved baseline is:
+1. golden ceremonial shield matching Gold Armor + Gold Sword with broad Mirror Shield vocabulary;
+2. tan money bag with dollar sign and visibly left-leaning neck/top in all four variations;
+3. silver spatula with black handle, head toward top-left; slots only when explicitly requested;
+4. black hanging lantern with green flame.
 
-Do not reinterpret it as merely a positional anchor.
+### LEFT ARM brief preservation
 
-### LEFT ARM production priority
-
-1. **Finished-exemplar scale/location**
-2. **Simplify detail to survive that scale**
-3. **Exact identity**
-4. **Pose/design/variation**
-
-Slightly undersized is preferred. When uncertain, choose smaller.
-
-Small size is a forcing function for simplicity. Never enlarge an object so optional detail remains visible. Remove/simplify the detail instead.
-
-Generic object-shape behavior:
-
-- compact/simple → at or below exemplar visual mass
-- long/thin/hanging → extra length allowed only with narrow, low total visual mass
-- creatures/character-like → strong miniature bias and extremely simple anatomy/face
-- bottles/containers/multi-part handheld → strong miniature bias and minimal secondary construction/detail
-- broad → wider silhouette allowed while remaining tiny relative to hero
-
-Real-world size is irrelevant to production scale.
-
-### LEFT ARM mandatory conflict gate
-
-Before constructing the production prompt, compare the user's row descriptions against the locked LEFT ARM invariants.
-
-If a conflict is detected:
-
-1. stop before creating files
-2. state the conflicting instruction and likely failure mode
-3. provide a safe rewording
-4. wait for a non-conflicting brief
-
-Do not silently reinterpret or create a one-off exception.
-
-Approved references may control palette, thematic family, silhouette vocabulary, material treatment, and design language. They do not control LEFT ARM generation scale.
-
-### LEFT ARM prompt-construction lock
-
-Normal production uses `LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt` as the immutable invariant body.
-
-Only `ROW_1`, `ROW_2`, `ROW_3`, and `ROW_4` brief content may change.
+Explicit direction, tilt, rotation, pose, visible surface, count, color, symbol, attachment, and relative-position instructions are hard brief constraints and must remain visible in all four variations unless the user explicitly allows variation.
 
 ### LEFT ARM acceptance
 
-PASS requires exact row identities, four useful variations, required features, visual mass approximately at or below the finished exemplar, detail appropriate to tiny display, screen-left zero-contact placement, complete geometry, usable broad pose, bold outer stroke, and no reconstruction requirement.
+PASS requires correct row identities, four useful variations, hard brief constraints, validated tiny scale class, visible hero/context as expected, clean zero-contact separation, complete geometry, and no AI reconstruction requirement.
+
+Generated export raster dimensions are **not** a failure by themselves when the logical 4×4 composition, body-relative placement, scale class, and zero-contact behavior remain correct. The exact 2400×2560 requirement applies to the canonical V3 input controller/logical composition.
+
+Before changing anything, classify a miss as `SYSTEM FAIL` or `BRIEF FAIL`. A local pose/detail miss is a BRIEF FAIL and does not reopen the LEFT ARM architecture.
 
 ## 4. RIGHT ARM
 
-Use current validated RIGHT ARM approach and approved references. Optimize body-relative scale, broad orientation, continuous usable grip geometry, and low-detail construction.
+Use the current validated RIGHT ARM approach and approved references. Optimize body-relative scale, broad orientation, continuous usable grip geometry, and low-detail construction. `RIGHT_ARM_PLACEMENT_REFERENCE.png` remains the spatial authority. Final exact canonical hand overlay/registration remains Illustrator work.
 
 ## 5. HATS
 
-Use current HAT registration/isolation approach and canonical references. Prioritize head-relative scale, facing/orientation, attachment position, silhouette, and stroke language.
+Use the current validated HAT registration/isolation approach and canonical references. Prioritize head-relative scale, facing/orientation, attachment position, silhouette, and stroke language. `HATS_PLACEMENT_REFERENCE.png` is the primary placement authority; `HAT_HEAD_ORIENTATION_REFERENCE.png` controls orientation when needed.
 
 ## 6. OUTFITS / ARMOR — completed locked pipeline
 
@@ -139,68 +97,48 @@ Locked architecture:
 
 ### Stage A
 
-Stage A owns outfit design, near-canonical body/arm registration, four-digit hand treatment, and the registered character/outfit structure.
+Stage A owns outfit design, near-canonical body/arm registration, four-digit hand treatment, and registered character/outfit structure. Use canonical-derived geometry/hand/arm references plus the current brief. Default toward simple flat canonical-hero-like rendering.
 
-Use canonical-derived geometry/hand/arm references plus the current brief. Pixel/8-bit/heavily geometric rows should be placed last when practical.
+A previous approved dressed-character sheet may be used only when the user explicitly requests reuse and then only as DESIGN_ONLY.
 
-Default toward simple flat canonical-hero-like rendering: few colors, large hard-edged regions, bold black contour, restrained interior lines, minimal micro-detail.
-
-A previous approved dressed-character sheet may be used only when the user explicitly asks to reuse that design, and then only as a clearly labeled DESIGN-ONLY reference. Preserve the approved concept while simplifying secondary detail rather than regenerating a new idea.
-
-### Cape manifest — mandatory
+### Cape manifest
 
 Carry explicit per-row cape metadata from the initial brief:
-
 - KEEP
 - NONE
 - RESTYLE
 
-Cape ownership is semantic metadata, not a visual inference. The same manifest must accompany Stage B.
+The same manifest accompanies Stage B.
 
 ### Optional Stage A.5
 
-Use only when Stage A visually disagrees with cape metadata or RESTYLE was requested. A.5 changes cape state only and must not become a general outfit redesign or registration pass.
+Use only when Stage A visually disagrees with cape metadata or RESTYLE was requested. A.5 changes cape state only.
 
 ### Stage B
 
-Stage B is destructive erase-only isolation.
+Stage B is destructive erase-only isolation. Remove head/face/hair/ears/exposed non-outfit hero anatomy, context, headwear when body outfit only is requested, the entire wooden pedestal/platform, and rear cape/context mass in rows marked NONE.
 
-Remove:
+Keep only visibly existing approved outfit artwork and intended structural features. Never reconstruct hidden boots, feet, peg legs, collars, necklines, sleeves, capes, wraps, or garments into newly exposed regions. Treat cells independently.
 
-- head/face/hair/ears/exposed non-outfit hero anatomy
-- context
-- headwear when body outfit only is requested
-- **the entire wooden pedestal/platform in all cells**
-- rear cape/context mass in rows marked NONE
-
-Keep only visibly existing approved outfit artwork and intended structural features.
-
-**Any surviving pedestal is a Stage-B failure.** Former pedestal regions remain white. Never reconstruct hidden boots, feet, peg legs, collars, necklines, sleeves, capes, wraps, or garments into newly exposed regions.
-
-Treat cells independently. Do not borrow semantics across rows or columns.
-
-Raw Stage-B scale/X/Y drift does not by itself fail isolation. Do not regenerate Stage B simply to chase registration drift.
+Raw Stage-B scale/X/Y drift does not itself fail isolation.
 
 ### Deterministic registration
 
-After isolation passes:
-
-- Stage A / A.5 = coordinate and scale authority
+After isolation:
+- Stage A/A.5 = coordinate and scale authority
 - Stage B = artwork/isolation authority
-- process each logical cell independently
+- process cells independently
 - uniform scale + X/Y translation only
 - no rotation, non-uniform stretch, warp, redraw, inpainting, or semantic change
-- rebuild exactly 1920×2560 with exactly 480×640 cells
-- do not trust raw downloaded Stage-B dimensions as canonical
-- do not use whole-sheet resize as a substitute for per-cell restoration
+- rebuild exactly 1920×2560 with 480×640 cells
+- do not trust raw Stage-B dimensions as canonical
+- do not use whole-sheet resize instead of per-cell restoration
 
-The Leather / Shimmering / Pirate / 8-bit validation showed substantial cell-level Stage-B drift, confirming deterministic restoration is mandatory and prompt counter-bias is not scalable.
-
-Do not use a post-isolation generative Stage B.5 cape operation or approximate flattened cape masks as the general solution.
+The Leather / Shimmering / Pirate / 8-bit validation established deterministic restoration as mandatory.
 
 ## 7. ACCESSORIES
 
-Accessories are location-aware. Use MAIN HERO plus a literal controller for the accessory's actual body location. Small accessories remain small despite empty canvas space.
+Accessories are location-aware. Use MAIN HERO plus a literal controller for the accessory's actual body location. Small accessories remain small despite empty canvas.
 
 ### FACE ACCESSORIES — validated locked pipeline
 
@@ -210,44 +148,34 @@ Locked architecture:
 
 **Current briefs → Stage A on ~6% faint literal canonical hero substrate → deterministic faint-substrate extraction → Illustrator.**
 
-There is **no generative Stage B** for face accessories.
+There is no generative Stage B for face accessories. Stage A generates only the full-opacity accessory while the canonical hero remains a faint registration substrate. Use literal eye/mouth anchors and approved similar face art as scale/style evidence when needed.
 
-Stage A generates only the full-opacity accessory while the canonical hero remains a faint literal registration substrate. Use literal eye/mouth anchors and an approved similar face accessory such as Meme Glass as scale/style evidence.
+After Stage A passes, isolate deterministically using the contrast separation between faint substrate and full-opacity accessory. Retained pixels come from approved Stage A; do not reconstruct hidden geometry or regenerate artwork.
 
-After Stage A passes, isolate deterministically using the contrast separation between faint substrate and full-opacity accessory, with row/location-specific ROIs and thresholds. Retained pixels come from the approved Stage A; do not reconstruct hidden geometry or regenerate artwork.
+Do not use full-color canonical-hero subtraction or generative face-accessory isolation.
 
-Do not use full-color canonical-hero subtraction: calibration showed that a generated full-color hero differs too much from the canonical hero for reliable subtraction.
-
-Do not use generative face-accessory isolation: two calibration passes showed scale inflation, independent centering, geometry reconstruction, and regularization even under strict erase-only prompting.
-
-Accessories attached elsewhere on the body are not automatically governed by the face-specific extraction rules. Build/reuse a literal location-specific controller and validate that location before locking it.
+Accessories elsewhere on the body are not automatically governed by face-specific extraction. Reuse or validate a literal location-specific controller for that location.
 
 ## 8. Scale authority
 
 Scale authority order:
-
 1. validated category production reference/controller
 2. especially similar approved cosmetics
 3. category references
 4. MAIN HERO proportions
 5. prompt description
 
-For LEFT ARM specifically, approved cosmetics below the controller may inform design but may not override the finished-exemplar generation scale.
-
-Never enlarge because composition looks empty.
+Never enlarge solely because composition looks empty.
 
 ## 9. Complexity authority
 
 Default toward fewer, larger forms. At tiny display scale, delete detail that cannot survive rather than enlarging the asset. Prioritize silhouette and essential identity cues over micro-decoration.
 
-For ARMOR simplification passes, preserve the approved idea while deleting secondary rendering/detail before changing core identity.
+## 10. Failure classification / change control
 
-## 10. Core principle
+For every category, classify an imperfect result before modifying reusable production infrastructure:
 
-Generate complete clean production geometry as early as the category allows and avoid downstream reconstruction.
+- **SYSTEM FAIL** — validated controller/reference/stage/scale/contact/registration behavior is structurally wrong.
+- **BRIEF FAIL** — system behavior passes but an explicit row-specific requirement is missed.
 
-For LEFT ARM specifically: **finished-exemplar scale first, simplify second, identity third, pose/design fourth — with a mandatory conflict gate and immutable production template.**
-
-For ARMOR / OUTFITS: **canonical geometry + explicit cape metadata → simple flat Stage A design → destructive no-reconstruction Stage B with total pedestal removal → deterministic per-cell registration → Illustrator.**
-
-For FACE ACCESSORIES: **faint literal canonical substrate → final-position full-opacity accessory → deterministic substrate removal → Illustrator.**
+A BRIEF FAIL does not justify architecture redesign. Compare every category only to its own validated control; do not transfer LEFT ARM behavior to HATS, RIGHT ARM, ARMOR/OUTFITS, or ACCESSORIES.
