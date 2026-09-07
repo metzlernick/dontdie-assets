@@ -1,14 +1,16 @@
 # Don't Die — Armor / Outfit Production Workflow
 
-**Status:** V44 Stage A + Stage B VALIDATED AND LOCKED
+**Status:** Stage A V44 + optional Stage A.5 V1 + Stage B VALIDATED AND LOCKED
 
 ## 1. Validated architecture
 
 Armor/outfit production uses:
 
-**Stage A — registered outfit design on canonical hero → Stage B — faithful outfit isolation → optional Stage B.5 — cape operation → deterministic Illustrator finishing**
+**Stage A — registered outfit design on canonical hero → optional Stage A.5 — cape control → Stage B — faithful outfit isolation → deterministic Illustrator finishing**
 
-Do not re-open Stage A or Stage B calibration during normal production unless a new failure is repeatable across fresh tests.
+Stage A.5 is optional. Use it only when cape state must change after Stage A.
+
+Do not re-open Stage A, Stage A.5, or Stage B calibration during normal production unless a new failure is repeatable across fresh tests.
 
 ## 2. Stage A — V44 locked behavior
 
@@ -18,8 +20,9 @@ Stage A owns:
 - canonical hero-relative scale and proportions
 - shoulder, torso, hip, leg, foot, and arm-chain structure
 - outfit-specific hand treatment
-- cape design when the current brief requests a cape
 - flat Don't Die visual language
+
+Stage A does **not** need to perfectly solve cape removal. Body/hand registration outranks cape cleanup.
 
 ### Geometry authority
 
@@ -51,27 +54,62 @@ The viewer-left lowered arm must connect cleanly into the hand; do not invent an
 
 ### Reference discipline
 
-Use the canonical geometry controller and current text brief as the primary inputs. Do not include old generated armor calibration sheets as visual references during normal Stage A production; they were shown to bias anatomy, stumpiness, hands, and semantics even when described as semantic-only references.
+Use canonical-derived geometry/hand references and the current text brief as the primary inputs.
+
+Do **not** include old generated armor calibration sheets as visual references during normal Stage A production. Testing showed that even when labeled semantic-only, generated dressed-character references can bias anatomy, stumpiness, hand count, pose, and semantics.
 
 Approved art may guide palette/material/design language when needed, but must not override canonical body geometry.
 
-### Cape policy in Stage A
+## 3. Stage A.5 — V1 cape control, optional and locked
 
-Do not force universal cape removal.
+Stage A.5 exists only when cape state must change after Stage A.
 
-The current outfit brief determines cape semantics:
+Input: the approved Stage-A sheet.
 
-- cape requested → Stage A may design it in-style
-- cape not requested / neutral → do not spend geometry calibration effort forcing removal if that destabilizes the body
-- explicit no-cape → final removal may be deferred to Stage B.5
+Per row/cell, assign one explicit cape mode:
 
-Body/hand registration outranks cape cleanup during Stage A.
+- **KEEP** — leave the approved cape unchanged
+- **REMOVE** — remove the cape while preserving the complete approved hero/outfit geometry
+- **RESTYLE** — redesign only the cape to match the outfit while preserving its approximate attachment, placement, scale, and flow
 
-## 3. Stage B — V44 locked behavior
+Stage A.5 is **not** an outfit redesign pass and is **not** a body/pose correction pass.
+
+### Stage A.5 invariants
+
+Preserve as closely as possible:
+
+- hero proportions and pose
+- total height/width
+- shoulders, torso, hips, legs, and feet
+- pedestal and X/Y
+- both complete arm chains
+- both wrists
+- both four-digit hands
+- all non-cape outfit semantics and details
+- row/column correspondence
+
+Do not add headwear or held items.
+
+For REMOVE, newly exposed regions should remain background except for the minimum local garment-edge completion genuinely needed for continuity. Do not invent substitute rear cloth, wings, scarf masses, coat tails, or a replacement cloak.
+
+For RESTYLE, cape work must remain localized to the cape. Do not allow the cape to force broader shoulders, shorter legs, different arms, or changed outfit semantics.
+
+### Stage A.5 validation evidence
+
+Validated test:
+
+- Row 1 animal/fur armor — RESTYLE passed
+- Row 2 chef — REMOVE passed
+- Row 3 green heroic-fantasy tunic — REMOVE passed
+- Row 4 mummy — REMOVE passed
+
+The result preserved usable Stage-A geometry and then passed Stage B isolation.
+
+## 4. Stage B — locked faithful isolation
 
 Stage B is **faithful isolation, not redesign**.
 
-Stage A is absolute design/variant authority. Canonical references remain geometry checks.
+The approved upstream sheet — Stage A directly, or Stage A.5 when used — is the absolute design/variant/cape-state authority. Canonical references remain geometry checks.
 
 Remove:
 
@@ -83,12 +121,12 @@ Remove:
 
 Keep:
 
-- complete generated outfit
-- both generated hands
+- complete approved outfit
+- both approved hands
 - sleeves/armwear
 - boots/leg coverings
 - belts, straps, aprons, tunics, wraps, fur, leather, metal
-- cape exactly where it exists in the approved Stage-A result
+- the exact approved cape state from upstream
 
 Preserve row/column assignment, X/Y, scale, pose, silhouette, arm chains, hand geometry, and design details. Do not presentation-center or enlarge isolated outfits.
 
@@ -96,25 +134,21 @@ Where hero removal exposes a hidden garment region, reconstruct only the minimum
 
 ### Stage B acceptance
 
-PASS only if the result reads as the same 16 approved Stage-A outfits cut away from the hero while retaining near-canonical registration and hand geometry.
+PASS only if the result reads as the same 16 approved upstream outfits cut away from the hero while retaining near-canonical registration, four-digit hand geometry, and the approved cape state.
 
-FAIL if Stage B redesigns variants, makes proportions stumpy, drifts arm chains, adds a hand digit, removes hands, normalizes scale/position, or newly interprets cape treatment.
+FAIL if Stage B redesigns variants, makes proportions stumpy, drifts arm chains, adds a hand digit, removes hands, normalizes scale/position, changes cape state, or introduces new rear cloth.
 
-## 4. Stage B.5 — cape operation
+## 5. Rejected architecture — do not use
 
-Cape handling is intentionally separated from validated Stage A/B.
+Do **not** use a generative Stage B.5 cape-removal pass after isolation.
 
-Per outfit/cell, Stage B.5 will use one explicit mode:
+Testing showed that post-isolation generative cape deletion redraws the entire outfit, including proportions, arms, hands, boots, and semantics.
 
-- **KEEP** — preserve cape exactly
-- **REMOVE** — remove cape while preserving every non-cape element and reconstruct only newly exposed local garment edges
-- **RESTYLE** — modify only cape design while preserving body/outfit registration
+Do **not** use approximate deterministic color/spatial cape masks on flattened Stage-B PNGs as a general solution. Cape and foreground art share outlines/fills and overlap spatially; the test produced rectangular removal artifacts and damaged non-cape artwork.
 
-Stage B.5 must never alter hands, sleeves, arm chains, torso proportions, legs, boots, or overall outfit registration.
+If cape state must change, use Stage A.5 before isolation.
 
-Validate REMOVE first before locking the full B.5 module.
-
-## 5. Output
+## 6. Output
 
 Standard armor sheet:
 
@@ -124,6 +158,6 @@ Standard armor sheet:
 - no gutters/grid/labels
 - pure white background for isolated production output
 
-## 6. Core rule
+## 7. Core rule
 
-**Registration and hand fidelity outrank semantic embellishment. Stage A establishes the registered design. Stage B extracts it faithfully. Cape manipulation is downstream and modular.**
+**Canonical registration + four-digit hand fidelity first. Stage A establishes the registered outfit. Optional Stage A.5 changes cape state only. Stage B extracts the approved result faithfully.**
