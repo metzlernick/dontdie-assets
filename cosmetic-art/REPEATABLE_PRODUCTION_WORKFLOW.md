@@ -6,7 +6,7 @@ General repeatable workflow for Don't Die cosmetic art.
 
 **LEFT ARM override:** `LEFT_ARM_ZERO_CONTACT_WORKFLOW.md` plus `LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md` are the category-specific authority.
 
-**ARMOR / OUTFIT override:** `ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md` is the category-specific authority. V44 Stage A + Stage B are validated and locked.
+**ARMOR / OUTFIT override:** `ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md` is the category-specific authority. Stage A V44 + optional Stage A.5 V1 + Stage B are validated and locked.
 
 ## 1. Source of truth
 
@@ -20,10 +20,10 @@ For LEFT ARM, also use:
 For ARMOR / OUTFITS, also use:
 
 - `ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md`
-- canonical hero geometry controller/substrate
+- canonical-derived hero geometry controller/substrate
 - canonical hand reference
 
-Do not feed old generated armor calibration sheets into normal Stage A production; they can bias anatomy, proportions, hand count, and pose.
+Do not feed old generated armor calibration sheets into normal Stage A production; testing showed they can bias anatomy, proportions, hand count, pose, and semantics.
 
 ## 2. General art requirements
 
@@ -142,19 +142,41 @@ Use current validated RIGHT ARM approach and approved references. Optimize body-
 
 Use current HAT registration/isolation approach and canonical references. Prioritize head-relative scale, facing/orientation, attachment position, silhouette, and stroke language.
 
-## 6. OUTFITS / ARMOR — V44 validated
+## 6. OUTFITS / ARMOR — validated pipeline
 
 Use `ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md`.
 
 Locked architecture:
 
-**Stage A registered design on canonical hero → Stage B faithful isolation → optional Stage B.5 cape operation → Illustrator.**
+**Stage A registered design on canonical hero → optional Stage A.5 cape control → Stage B faithful isolation → Illustrator.**
 
-Stage A owns design, near-canonical body/arm registration, four-digit hand treatment, and requested cape semantics. Stage B removes the hero while preserving the approved outfit, both hands, pose, proportions, scale, X/Y, and existing cape exactly.
+### Stage A
 
-Do not use old generated armor calibration sheets as visual inputs during normal Stage A production. The canonical geometry controller plus current brief are the primary visual/semantic authorities.
+Stage A owns outfit design, near-canonical body/arm registration, four-digit hand treatment, and the registered character/outfit structure.
 
-Do not ask Stage A or Stage B to solve universal cape removal. Cape KEEP / REMOVE / RESTYLE is a modular downstream Stage B.5 operation.
+Normal Stage A production uses canonical-derived geometry/hand references plus the current brief. Do not include old generated dressed-character calibration sheets as visual inputs.
+
+### Optional Stage A.5
+
+Use only when cape state must change after Stage A.
+
+Per row/cell choose:
+
+- KEEP
+- REMOVE
+- RESTYLE
+
+Stage A.5 must leave non-cape body/outfit geometry essentially unchanged. Hands, arm chains, body proportions, X/Y, footwear, pedestal, and row semantics remain locked.
+
+For REMOVE, do not invent substitute rear cloth. For RESTYLE, modify only the cape and keep its general attachment/scale/flow controlled.
+
+### Stage B
+
+Stage B removes the hero while preserving the approved upstream sheet — Stage A directly when no A.5 is needed, or Stage A.5 when cape control was used.
+
+Preserve both hands, arm chains, proportions, scale, X/Y, design details, row/column assignment, and exact upstream cape state.
+
+Do not use a post-isolation generative Stage B.5 cape operation. It was tested and caused global redraw drift. Do not use approximate spatial/color masking of a flattened Stage-B sheet as a general cape-removal method; the test damaged non-cape artwork.
 
 ## 7. ACCESSORIES
 
@@ -182,4 +204,4 @@ Default toward fewer, larger forms. At tiny display scale, delete detail that ca
 
 Generate complete clean production geometry as early as the category allows and avoid downstream reconstruction. For LEFT ARM specifically: **finished-exemplar scale first, simplify second, identity third, pose/design fourth — with a mandatory conflict gate and immutable production template.**
 
-For ARMOR / OUTFITS: **canonical registration + spectacular four-digit hands first; design second; faithful Stage B isolation third; cape manipulation downstream.**
+For ARMOR / OUTFITS: **canonical registration + spectacular four-digit hands first; design second; optional cape control third; faithful Stage B isolation fourth.**
