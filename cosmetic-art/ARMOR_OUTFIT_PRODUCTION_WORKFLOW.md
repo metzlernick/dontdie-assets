@@ -1,6 +1,6 @@
 # Don't Die — Armor / Outfit Production Workflow
 
-**Status:** VALIDATED AND LOCKED — Stage A clean-room production + explicit cape-state metadata + optional Stage A.5 + Stage B destructive isolation + deterministic registration restoration
+**Status:** VALIDATED, COMPLETE, AND LOCKED — Stage A clean-room production + explicit cape-state metadata + optional Stage A.5 + Stage B destructive isolation + deterministic registration restoration
 
 ## 1. Validated architecture
 
@@ -36,7 +36,9 @@ Don't Die hands use **THREE FINGERS + ONE THUMB = FOUR TOTAL DIGITS**. Never com
 
 Normal Stage A geometry must come only from canonical-derived references. Prior generated dressed-character sheets are not geometry/anatomy authorities.
 
-When the user explicitly wants an earlier approved outfit used as design inspiration, it may be included only as a clearly labeled **DESIGN-ONLY** reference. It may guide broad identity, palette/material distribution, or silhouette ideas, but never anatomy, registration, hand geometry, scale, rendering complexity, or body proportions.
+When the user explicitly wants an earlier approved outfit used as design inspiration, it may be included only as a clearly labeled **DESIGN-ONLY** reference. It may guide broad identity, palette/material distribution, silhouette ideas, or the exact approved concept family, but never anatomy, registration, hand geometry, scale, or body proportions.
+
+A DESIGN-ONLY reference may also be used for a simplification pass. In that case, preserve the approved idea while reducing rendering complexity: fewer colors, larger flat regions, fewer seams/straps/buckles/highlights, and less micro-detail. Do not reinterpret the design simply because it is being simplified.
 
 ### Simplicity target
 
@@ -103,8 +105,9 @@ Remove:
 
 - head / face / hair / ears / exposed hero skin not belonging to outfit treatment
 - underlying hero anatomy/context
-- pedestal
+- **the entire wooden pedestal/platform, including top, rim, outline, highlight, shadow, and fragments**
 - canonical/context rear cape-like mass for every row marked `CAPE_STATE = NONE`
+- headwear when the requested deliverable is body outfit only
 
 Keep:
 
@@ -113,12 +116,19 @@ Keep:
 - sleeves, torso garments, belts, aprons, trousers, footwear, armor, fur, leather, tunics, wraps, etc.
 - intentional cape artwork for rows marked `CAPE_STATE = KEEP`
 - legitimate local trailing outfit elements that are not capes
+- structural outfit features such as a requested peg leg
+
+### Pedestal hard lock
+
+**Any visible pedestal in any Stage-B cell is a FAIL.**
+
+After pedestal erasure, the former pedestal region is pure white except for outfit/foot/peg pixels that were already visibly present above it. Do not complete boots, feet, peg legs, or garments into areas that were hidden by the pedestal.
 
 ### Absolute no-reconstruction rule
 
 **Erase only what was visible. Never complete what was hidden.**
 
-When head/body/pedestal/context is erased, newly exposed regions remain white. Do not complete collars, invent neck openings, sharpen necklines, extend shoulder cloth behind hair, reconstruct cape behind anatomy, extend garments behind removed body, complete hidden boots, invent hidden wraps, close white gaps, or repair occlusion boundaries.
+When head/body/pedestal/context is erased, newly exposed regions remain white. Do not complete collars, invent neck openings, sharpen necklines, extend shoulder cloth behind hair, reconstruct cape behind anatomy, extend garments behind removed body, complete hidden boots, extend hidden peg geometry, invent hidden wraps, close white gaps, or repair occlusion boundaries.
 
 The exact upstream visible occlusion boundary is final.
 
@@ -128,20 +138,26 @@ Treat every cell independently. Do not borrow semantic features between rows or 
 
 ### Stage B registration
 
-Do not deliberately resize, recenter, enlarge, shrink, rotate, or normalize cells. Stage B may nevertheless introduce small generative scale/X/Y drift. Do not chase that drift with prompt calibration; deterministic registration restoration owns the correction.
+Do not deliberately resize, recenter, enlarge, shrink, rotate, or normalize cells. Stage B may nevertheless introduce significant generative scale/X/Y drift. Do not chase that drift with prompt calibration; deterministic registration restoration owns the correction.
+
+The raw downloaded Stage-B image may also differ by a few pixels in total width/height from the approved Stage-A download. This does not change the canonical target. Registration must process corresponding logical cells independently and rebuild the final sheet exactly at canonical dimensions.
 
 ### Stage B acceptance
 
 PASS only if:
 
 - all 16 isolated designs remain faithful to approved upstream art
+- head/headwear/context are removed as required
+- **pedestal is completely absent in all 16 cells**
 - cape state exactly matches the manifest
 - capeless rows contain no canonical/context cape mass
 - intended capes remain
 - local non-cape trailing elements remain where appropriate
-- no hidden garment geometry is reconstructed
+- no hidden garment/foot/peg geometry is reconstructed
 - hands and row identities remain intact
 - no cross-row contamination occurs
+
+Raw scale/X/Y drift does **not** by itself fail isolation if the artwork is otherwise faithful; it is corrected by the deterministic registration stage.
 
 ## 6. Deterministic registration restoration
 
@@ -149,7 +165,9 @@ After Stage B passes isolation, use `ARMOR_STAGE_B_DETERMINISTIC_REGISTRATION.md
 
 Stage A / A.5 is coordinate authority. Stage B is artwork/isolation authority. Restore each cell with deterministic uniform scale + X/Y translation only, then rebuild exactly 1920×2560 with 480×640 cells.
 
-No warping, stretching, redrawing, regeneration, or semantic changes.
+No rotation, warping, stretching, redrawing, regeneration, or semantic changes.
+
+Do not trust the raw Stage-B sheet dimensions or apparent in-cell scale as final registration truth.
 
 ## 7. Rejected architecture — do not use
 
@@ -158,23 +176,24 @@ Do not use:
 - generative Stage B.5 cape removal
 - visual guessing of cape ownership at Stage B
 - approximate flattened color/spatial cape masks as a general solution
-- hidden garment reconstruction after hero removal
+- hidden garment/foot/peg reconstruction after hero or pedestal removal
 - counter-biased Stage A geometry
 - repeated prompt tuning to chase Stage-B registration drift
+- whole-sheet resizing as a substitute for per-cell registration
 
 ## 8. Output
 
-Standard armor sheet:
+Standard final armor sheet after deterministic registration:
 
-- 1920×2560
+- exactly 1920×2560
 - 4×4
-- 480×640 cells
+- exactly 480×640 cells
 - no gutters/grid/labels
-- pure white isolated background after Stage B
+- pure white isolated background
 
 ## 9. Validation evidence
 
-Validated cape-manifest test: Animal / Chef / Green Heroic Tunic / Mummy.
+### Cape-manifest validation — Animal / Chef / Green Heroic Tunic / Mummy
 
 Manifest:
 
@@ -185,8 +204,23 @@ Manifest:
 
 Fresh Stage B from the approved Stage-A sheet correctly retained the animal cape, removed the black rear cape/context mass from Chef/Tunic/Mummy, preserved local mummy bandage tails, preserved outfit identity/hands, and avoided problematic hidden-geometry reconstruction.
 
-This validates explicit cape metadata as the scalable production solution. Cape ownership must be carried from the initial brief rather than rediscovered visually downstream.
+This validated explicit cape metadata as the scalable solution. Cape ownership must be carried from the initial brief rather than rediscovered visually downstream.
+
+### Simplification + pedestal + registration validation — Leather / Shimmering / Pirate / 8-bit
+
+A second production pass reused the already-approved leather, shimmering, pirate, and 8-bit concepts as a clearly labeled DESIGN-ONLY reference and simplified them without redesigning the idea. The resulting Stage A passed with fewer colors, flatter regions, reduced detail, retained shimmering scales, retained the pirate peg leg, and kept 8-bit last.
+
+Stage B initially isolated the outfits correctly but retained the wooden pedestal; that result was rejected. A fresh Stage B with pedestal erasure hard-locked removed the platform completely while retaining the correct capes, pirate peg leg, neck boundaries, and row identities.
+
+The accepted raw Stage B then showed large per-cell scale/X/Y drift. Deterministic registration restored the isolated art against the exact approved Stage-A cells using uniform scale + X/Y only and rebuilt the final 1920×2560 sheet. The result was visually accepted.
+
+This confirms:
+
+- DESIGN-ONLY simplification is valid when geometry authority remains canonical
+- pedestal removal is a mandatory Stage-B acceptance gate
+- raw Stage-B registration is not trusted
+- per-cell deterministic restoration is required before Illustrator
 
 ## 10. Core rule
 
-**Canonical clean-room geometry + simple flat outfit design. Carry cape ownership explicitly from the initial brief. Stage A creates; optional A.5 corrects cape state; Stage B destructively isolates using the manifest; deterministic processing restores registration; Illustrator finishes.**
+**Canonical clean-room geometry + simple flat outfit design. Carry cape ownership explicitly from the initial brief. Stage A creates; optional A.5 corrects cape state; Stage B destructively isolates and completely removes pedestal/context using the manifest; deterministic processing restores canonical registration; Illustrator finishes.**
