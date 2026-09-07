@@ -3,38 +3,51 @@ DON'T DIE COSMETIC ART — REPEATABLE PRODUCTION SESSION STARTER
 SOURCE OF TRUTH:
 https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
 
+MANDATORY ORCHESTRATION:
+Before packaging, generation, or evaluation, read `PRODUCTION_STAGE_ORCHESTRATION.md`.
+The agent—not the user—owns pipeline state. Always resolve:
+CATEGORY → CURRENT STAGE → CURRENT-STAGE ACCEPTANCE → NEXT REQUIRED STAGE → FINAL DELIVERABLE GATE.
+An intermediate stage PASS does not mean category COMPLETE when another validated stage remains.
+If a stage passes and another user-run generation is required, provide one complete ZIP for that next stage automatically. Never make the user remember stage sequences or coordinate between chats.
+
 Before generation, freshly review:
 - current DONT_DIE_COSMETIC_ART_SPEC.md
 - REPEATABLE_PRODUCTION_WORKFLOW.md
+- PRODUCTION_STAGE_ORCHESTRATION.md
 - templates/MAIN HERO.svg
 - templates/Character Master Template.svg
 - relevant reference-pack files
 - relevant approved-art category
 - especially similar approved cosmetics
 
+CATEGORY OVERRIDE — HATS
+HATS uses its validated registration/isolation approach.
+A full-character sheet with hats worn on the hero is Stage A registration artwork, not the final category deliverable.
+After Stage A passes, continue through the validated HATS isolation step.
+HATS is COMPLETE only after the final isolated deliverable contains the intended hat/head cosmetic artwork without hero/body/cape/pedestal/context while preserving approved Stage-A identity, scale, orientation, and registration.
+If exact historical HATS isolation mechanics are not available, recover the validated package/history before changing architecture; never skip the stage or declare Stage A to be final.
+
 CATEGORY OVERRIDE — LEFT ARM
 If the requested category is LEFT ARM, MUST ALSO read:
 - LEFT_ARM_ZERO_CONTACT_WORKFLOW.md
 - LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md
 - LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt
-- reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4.png
+- reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4_V3.png
 
 Those files are the current category-specific authority wherever older general documentation conflicts.
 
 LEFT ARM PRODUCTION ARCHITECTURE IS LOCKED:
 - one generation pass for up to four current briefs
 - 2400×2560 sheet; 4×4; 600×640 logical cells
-- tiny finished cosmetic exemplar is the visual scale/style authority
+- V3 finished cosmetic exemplar is the visual scale/style authority
 - hero context screen-right; complete cosmetic screen-left
 - clean white zero-contact separation
 - no generated grip, hidden geometry, or AI reconstruction pass
-- replacement should occupy approximately the SAME OR SMALLER total visual mass as the exemplar
-- permanent bias: WHEN UNCERTAIN, SMALLER
-- slightly undersized source art is preferred because Illustrator enlargement is easy
-- production priority: FINISHED-EXEMPLAR SCALE/LOCATION → SIMPLIFY DETAIL TO FIT SCALE → EXACT IDENTITY → POSE/DESIGN/VARIATION
-- IF SIZE AND DETAIL CONFLICT: KEEP SMALL SIZE AND REMOVE/SIMPLIFY DETAIL
+- current approved Regression A scale class is valid; exemplar is not a literal maximum bounding box
+- production priority: VALIDATED V3 SCALE/LOCATION → SIMPLIFY DETAIL → EXACT IDENTITY → POSE/DESIGN/VARIATION
 - real-world size and comparison-asset size do not override production scale
 - approved references may control palette/design language/silhouette vocabulary, but not generation scale
+- passing zero-contact Stage A proceeds directly to Illustrator; DO NOT invent Stage B
 
 MANDATORY CONFLICT GATE — LEFT ARM
 Before creating any LEFT ARM production package, compare every user instruction against the locked controller.
@@ -65,6 +78,10 @@ Initial briefs + cape manifest
 → Stage B destructive isolation using the same manifest
 → deterministic per-cell registration restoration
 → Illustrator
+
+Stage A PASS = category IN PROGRESS.
+Stage B PASS = category IN PROGRESS.
+Only deterministic registration reaching its final gate makes the production deliverable ready for Illustrator.
 
 STAGE A RULES:
 - use canonical-derived geometry/hand/arm references plus current text briefs
@@ -100,7 +117,6 @@ STAGE B — DESTRUCTIVE ISOLATION ONLY:
 - remove head/face/hair/ears/exposed non-outfit hero anatomy/context
 - remove ALL headwear when body outfit only is requested
 - remove the ENTIRE wooden pedestal/platform in every cell
-- pedestal top, rim, outline, highlight, shadow, and fragments must all be absent
 - former pedestal area remains white; NEVER reconstruct hidden feet/boots/peg geometry into it
 - rows marked NONE contain no cape/rear-cloak mass
 - rows marked KEEP retain their approved cape
@@ -130,19 +146,27 @@ DETERMINISTIC REGISTRATION — MANDATORY AFTER STAGE B:
 - rebuild final sheet EXACTLY 1920×2560 with EXACT 480×640 cells
 - whole-sheet resize is NOT a substitute for per-cell restoration
 
+CATEGORY OVERRIDE — FACE ACCESSORIES
+FACE architecture is:
+Stage A on ~6% faint literal canonical substrate → deterministic faint-substrate extraction → Illustrator.
+Stage A PASS = category IN PROGRESS. There is no generative Stage B. Only deterministic extraction reaching its final gate makes the deliverable ready for Illustrator.
+
 DO NOT USE:
-- post-isolation generative Stage B.5
+- post-isolation generative Stage B.5 for armor
 - visual guessing of cape ownership
-- approximate flattened color/spatial cape masks as the general solution
+- approximate flattened color/spatial cape masks as the general armor solution
 - hidden geometry reconstruction
 - prompt counter-bias to compensate for Stage-B drift
 - repeated Stage-B regeneration just to fix scale/X/Y
+- cross-category inference of stage sequences
 
-For other categories, use the applicable current category workflow and canonical references.
+For RIGHT ARM and non-face ACCESSORIES, use the applicable current validated category/location workflow and verify its stage graph before declaring completion.
 
 After source review:
+- state CURRENT STAGE and CATEGORY STATUS
 - run the applicable category conflict/compliance gate
 - sanitize current row briefs without changing intent
 - use the locked category workflow
 - verify canonical production invariants remain unchanged
-- then deliver the production package.
+- deliver the production package for the current required stage
+- after a returned result, evaluate the current stage, then automatically continue to the next required stage until the final deliverable gate is reached.
