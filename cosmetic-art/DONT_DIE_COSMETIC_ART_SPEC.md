@@ -1,6 +1,6 @@
 # Don't Die Cosmetic Artwork — Master Production Specification
 
-**Version:** 1.4  
+**Version:** 1.5  
 **Purpose:** Canonical visual and category specification for generating Illustrator-friendly cosmetic artwork for *Don't Die*.
 
 ## 0. Mandatory fresh pre-flight
@@ -20,7 +20,7 @@ Do not rely on memory or an earlier reading. If a required source cannot be veri
 
 For LEFT ARM, `LEFT_ARM_ZERO_CONTACT_WORKFLOW.md` and `LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md` are the category-specific authority and override any general held-object rule.
 
-For ARMOR / OUTFITS, `ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md` is the category-specific authority. V44 Stage A + Stage B are validated and locked.
+For ARMOR / OUTFITS, `ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md` is the category-specific authority. Stage A V44 + optional Stage A.5 V1 + Stage B are validated and locked.
 
 ## 1. Authority order
 
@@ -152,23 +152,39 @@ Use:
 
 The generated item stays complete, standalone, screen-left, and separated from MAIN HERO by white space. No geometry is hidden by a generated hand. Final hand placement/occlusion happens in Illustrator.
 
-### Armor / outfits — V44 locked
+### Armor / outfits — locked pipeline
 
 Armor is tied directly to canonical body geometry. Use `ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md`.
 
 Validated architecture:
 
-**Stage A registered outfit design → Stage B faithful isolation → optional Stage B.5 cape operation → Illustrator.**
+**Stage A registered outfit design → optional Stage A.5 cape control → Stage B faithful isolation → Illustrator.**
 
 Stage A must preserve near-canonical hero proportions and pose, with particular attention to both arm chains and hands. Do not normalize the hero into a generic/stumpy chibi body.
 
 Armor hands are production-critical. Don't Die hand anatomy is **three fingers + one thumb = four total digits**. Never add a fifth digit or rogue lower knuckle/finger. Preserve canonical hand pose, scale, wrist attachment, and silhouette.
 
-Normal Stage A production should use the canonical geometry controller/substrate plus the current brief. Do not include old generated armor calibration sheets as visual references; they can contaminate anatomy, pose, hand count, and proportions.
+Normal Stage A production should use canonical-derived geometry/hand references plus the current brief. Do not include old generated armor calibration sheets as visual references; testing showed they can contaminate anatomy, pose, hand count, proportions, and semantics.
 
-Stage B is isolation, not redesign. Preserve the approved Stage-A outfit, both hands, arm chains, scale, X/Y, silhouette, and cape exactly while removing the underlying hero/head/pedestal/context.
+#### Optional Stage A.5 cape control
 
-Cape handling is modular. Do not destabilize Stage A/B to force universal cape behavior. A later Stage B.5 may KEEP, REMOVE, or RESTYLE cape according to the current brief while leaving all non-cape registration untouched.
+Use Stage A.5 only when cape state must change after Stage A.
+
+Allowed cape modes:
+
+- **KEEP** — preserve the approved cape
+- **REMOVE** — remove the cape while preserving all non-cape geometry
+- **RESTYLE** — redesign only the cape to match the outfit while keeping the established attachment/scale/flow approximately fixed
+
+Stage A.5 must preserve body proportions, pose, both arm chains, both hands, footwear, X/Y, pedestal, and all non-cape outfit semantics as closely as possible.
+
+For REMOVE, do not invent substitute rear cloth, wings, scarf masses, coat tails, or a replacement cloak. Reconstruct only the smallest local garment edge genuinely needed for continuity.
+
+#### Stage B
+
+Stage B is isolation, not redesign. Preserve the approved upstream outfit — Stage A directly, or Stage A.5 when used — including both hands, arm chains, scale, X/Y, silhouette, and exact approved cape state while removing the underlying hero/head/pedestal/context.
+
+Do **not** use a post-isolation generative Stage B.5 cape-removal pass. It was tested and caused global redraw drift. Do **not** use approximate spatial/color masking of a flattened Stage-B PNG as a general cape-removal solution; overlap between cape and foreground caused damaged non-cape pixels.
 
 ### Accessories
 
@@ -185,7 +201,7 @@ Final production registration is deterministic in Illustrator.
 
 Image generation should not be asked to solve pixel-perfect final hand registration when the category workflow assigns that responsibility to Illustrator.
 
-For ARMOR / OUTFITS, however, Stage A and Stage B must remain extremely close to canonical body and hand geometry because the outfit itself overlays the hero in game.
+For ARMOR / OUTFITS, however, Stage A, optional Stage A.5, and Stage B must remain extremely close to canonical body and hand geometry because the outfit itself overlays the hero in game.
 
 ## 8. Background and output hygiene
 
@@ -248,4 +264,4 @@ For LEFT ARM specifically:
 
 For ARMOR / OUTFITS:
 
-**CANONICAL REGISTRATION + FOUR-DIGIT HAND FIDELITY → OUTFIT DESIGN → FAITHFUL ISOLATION → OPTIONAL CAPE OPERATION.**
+**CANONICAL REGISTRATION + FOUR-DIGIT HAND FIDELITY → OUTFIT DESIGN → OPTIONAL CAPE CONTROL → FAITHFUL ISOLATION.**
