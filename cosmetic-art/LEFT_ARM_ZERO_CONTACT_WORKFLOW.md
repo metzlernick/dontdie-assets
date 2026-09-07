@@ -2,64 +2,48 @@
 
 ## Status
 
-**V3 VALIDATED PRODUCTION AUTHORITY FOR LEFT ARM HELD ITEMS.**
+**V3 VALIDATED, PASSING, AND CLOSED FOR CALIBRATION.**
 
-This workflow supersedes older LEFT ARM overlap, generated-grip, hidden-geometry, AI reconstruction, abstract-marker scale, and presentation-sized prop approaches. Also use `LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md`, `GENERATION_EXECUTION_CONTRACT.md`, and `PRODUCTION_PACKAGE_REGRESSION_GATES.md`.
+The current passing regression baseline is: golden ceremonial shield / tan money bag with visibly left-leaning neck / metal spatula / black lantern with green flame.
 
-## Core architecture
+Do not reopen LEFT ARM calibration for ordinary production misses. Classify any imperfect result as `SYSTEM FAIL` or `BRIEF FAIL` first using `PRODUCTION_PACKAGE_REGRESSION_GATES.md`.
 
-LEFT ARM uses zero-contact registration: 2400×2560 sheet; 4×4 logical grid; 600×640 cells; canonical MAIN HERO context screen-right; complete cosmetic screen-left; pure white background; clean white separation; no generated grip; no hero/object overlap; no hidden cosmetic geometry; no AI Stage B isolation/reconstruction.
+## Locked architecture
 
-The hero is body-relative context only. The cosmetic is complete standalone geometry for Image Trace and Illustrator placement.
+LEFT ARM uses one-pass zero-contact source-art generation followed by Illustrator:
 
-## One-pass production
+**V3 hero/context controller → one-pass zero-contact generation with visible hero/context → NO AI Stage B/isolation → Image Trace / Illustrator placement → canonical hand overlay.**
 
-Up to four unrelated current briefs are generated simultaneously. Each populated row is one brief; four columns are four variations. Normal production input contains only current descriptions. Calibration failures and old object names are not injected into normal prompts.
+Logical production composition is 2400×2560, 4×4, 600×640 cells. MAIN HERO context is screen-right. Complete standalone cosmetic source art is screen-left with clean white separation. No generated grip, overlap, hidden geometry, or AI reconstruction.
 
-## Active visual authority — exact V3 file
+The visible hero/context in Stage A is intentional and expected. It is not a failure and is not supposed to be removed by an AI isolation stage.
+
+Generated/downloaded raster dimensions are not, by themselves, a LEFT ARM failure. The exact 2400×2560 requirement applies to the canonical V3 controller/logical composition. If the generated export preserves the correct 4×4 logical relationship, hero/context placement, source-art scale class, and zero-contact behavior, raw raster dimensions alone do not fail the result.
+
+## Active visual authority
 
 **PRIMARY_CANVAS_AUTHORITY:**
 
 `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4_V3.png`
 
-This exact file is mandatory. There is no filename alias. Older/non-V3 exemplar filenames must not be used or referenced.
+This exact V3 controller remains the scale/location/contact authority. Approved art is DESIGN_ONLY unless explicitly granted a narrower property and cannot override hero behavior, grip/contact, location, or production scale class.
 
-The V3 image controls canvas relationship, hero/cosmetic placement, cosmetic visual mass, and zero-contact behavior. Every approved-art image is subordinate DESIGN_ONLY unless a narrower role is explicitly assigned. Approved art never controls hero clothing, hand pose, grip/contact, canvas composition, object scale, or registration.
+The exemplar establishes the **validated tiny LEFT ARM source-art neighborhood**, not a literal maximum bounding box. Current approved regression scale is valid. Broad or hanging objects may vary modestly in footprint when needed for identity/readability while remaining clearly within the tiny body-relative LEFT ARM range. Do not inflate an object toward normal standalone prop/icon scale merely because of semantic real-world size or empty canvas.
 
-Each cell contains a tiny neutral outlined finished-cosmetic exemplar on screen-left. Generated cosmetic replaces it conceptually; exemplar itself must not appear. Requested cosmetic should occupy approximately the same or smaller total visual mass. Permanent bias: when uncertain, choose smaller.
+## Brief preservation
 
-Slightly undersized source art is preferred because Illustrator enlargement is easy. Oversized generation is failure.
+One row equals one brief; four columns are four useful variations. Explicit direction, tilt, orientation, visible surface, count, color, symbol, attachment, and relative-position requirements are hard brief constraints and remain visible in all four variations unless the user explicitly permits variation.
 
-## Scale and detail are one constraint
-
-Production order: (1) match/undercut tiny V3 exemplar scale/location; (2) simplify detail; (3) preserve exact identity; (4) pose/design/variation without increasing scale. If a feature requires enlargement, simplify/remove it unless identity-critical.
-
-**If size and detail conflict: keep the small size and remove the detail.**
-
-## Object-shape behavior
-
-Compact/simple: at or below exemplar visual mass. Long/thin/hanging: may extend farther only while proportionally narrow and low-mass. Creatures/character-like: strong miniature bias. Bottles/containers/multi-part handheld: compact and minimal. Broad objects may widen naturally but remain tiny relative to hero. Real-world size does not control production size.
-
-## Zero-contact
-
-Every cosmetic remains fully screen-left and separated from every hero pixel by white space. It never touches the hand, cape, body, pedestal, or shadow and is never depicted as being held. All geometry is complete and unobstructed. Exact final X/Y, rotation, modest enlargement, and canonical hand occlusion occur in Illustrator.
-
-A generated gripping hand/gauntlet is an immediate controller failure, even if the cosmetic itself looks good.
-
-## Style
-
-Flat vector-like cartoon; bold continuous true-black outer contour visually ~5 px at canonical scale; rounded joins/caps; sparse interior linework; very few major shapes/colors; hard-edged fills; no cast shadow, texture/noise, painterly rendering; no gradients unless explicitly requested. Soft effects may use explicit outline exceptions.
-
-## Row binding
-
-One row equals one exact brief. Four columns are moderately different versions. Required features repeat. Variation comes from simple silhouette/proportion/major decoration differences rather than added detail.
+A miss such as the wrong money-bag neck direction is a `BRIEF FAIL` when controller, scale class, hero/context, and zero-contact behavior otherwise pass. It does not reopen the architecture.
 
 ## Acceptance
 
-PASS requires correct identity, four useful variations, visual mass at/below V3 exemplar, simplified detail, zero contact, complete geometry, usable broad pose, bold outline, and no reconstruction requirement.
+PASS requires correct row identities, four useful variations, required brief details, validated tiny LEFT ARM source-art scale, visible hero/context as expected, clean zero-contact separation, complete cosmetic geometry, usable silhouette, bold production stroke, and no AI reconstruction requirement.
 
-FAIL if replacement becomes normal standalone icon scale, semantic complexity inflates scale, detail causes enlargement, row substitutes another object, hero contact/grip occurs, approved design art contaminates hero/body context, or substantial rebuilding is needed.
+SYSTEM FAIL examples: wrong/missing V3 controller, wrong reference topology that changes controller behavior, hero gripping/overlapping the cosmetic, loss of zero-contact, normal presentation-scale props, or an architecture/stage violation.
 
-## Production handoff
+BRIEF FAIL examples: a missed tilt/direction, wrong required symbol/color/count, or another isolated row-specific instruction while the system behavior remains correct.
 
-Select complete zero-contact cosmetic, Image Trace/clean, move/rotate into canonical viewer-left hand, enlarge modestly if useful, layer canonical hand over it, finish vector cleanup.
+## Illustrator handoff
+
+Select the complete zero-contact cosmetic, Image Trace / clean, move and rotate into the canonical viewer-left hand, enlarge modestly if useful, layer the canonical hand over it, and finish normal vector cleanup.
