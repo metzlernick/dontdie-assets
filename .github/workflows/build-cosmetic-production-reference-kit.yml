@@ -7,6 +7,8 @@ on:
       - '.github/workflows/build-cosmetic-production-reference-kit.yml'
       - 'cosmetic-art/FRESH_AGENT_PRODUCTION_HANDOFF.md'
       - 'cosmetic-art/PRODUCTION_RUNTIME_ASSET_MANIFEST.md'
+      - 'cosmetic-art/GENERATION_EXECUTION_CONTRACT.md'
+      - 'cosmetic-art/PRODUCTION_PACKAGE_REGRESSION_GATES.md'
       - 'cosmetic-art/DONT_DIE_COSMETIC_ART_SPEC.md'
       - 'cosmetic-art/REPEATABLE_PRODUCTION_WORKFLOW.md'
       - 'cosmetic-art/PRODUCTION_SESSION_STARTER.txt'
@@ -53,6 +55,8 @@ jobs:
             CANONICAL_REGISTRATION_SYSTEM.md \
             DONT_DIE_COSMETIC_ART_SPEC.md \
             FRESH_AGENT_PRODUCTION_HANDOFF.md \
+            GENERATION_EXECUTION_CONTRACT.md \
+            PRODUCTION_PACKAGE_REGRESSION_GATES.md \
             LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md \
             LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt \
             LEFT_ARM_ZERO_CONTACT_WORKFLOW.md \
@@ -72,6 +76,13 @@ jobs:
           - Upload this ZIP once for the session.
           - Then provide CATEGORY + up to four row briefs.
           - The agent selects required files from this kit and builds batch-specific packages itself.
+
+          EXECUTION CONTRACT
+          - A large reference library is portability storage, NOT an image-generation input set.
+          - The agent must read GENERATION_EXECUTION_CONTRACT.md.
+          - The agent must create a minimal GENERATION_INPUT selection with explicit reference roles.
+          - The agent must run PRODUCTION_PACKAGE_REGRESSION_GATES.md before generation.
+          - Never feed this entire ZIP's image library to the image model as coequal references.
 
           This kit is automatically rebuilt when canonical production authorities or reference assets change.
           The live repository wins for any newer workflow/rule text.
