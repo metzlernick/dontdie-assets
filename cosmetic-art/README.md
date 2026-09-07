@@ -6,21 +6,44 @@ This folder contains the canonical production system for Don't Die cosmetic artw
 
 Use: `DONT_DIE_COSMETIC_ART_SPEC.md`, `REPEATABLE_PRODUCTION_WORKFLOW.md`, `PRODUCTION_SESSION_STARTER.txt`, `CANONICAL_REGISTRATION_SYSTEM.md`, category-specific workflows/controllers, and current canonical reference assets.
 
-## ARMOR / OUTFITS — V44 Stage A + Stage B locked
+## ARMOR / OUTFITS — Stage A V44 + optional Stage A.5 V1 + Stage B locked
 
 `ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md` is the category authority.
 
 Validated architecture:
 
-**Stage A registered outfit design on canonical hero → Stage B faithful outfit isolation → optional Stage B.5 cape operation → Illustrator.**
+**Stage A registered outfit design on canonical hero → optional Stage A.5 cape control → Stage B faithful outfit isolation → Illustrator.**
 
-V44 solved the recurring Stage-A structure failures closely enough for production: near-canonical body proportions, strong viewer-left lowered arm chain, stable raised arm, and usable stylized hands. Stage B then cleanly isolated the same 16 outfits without reintroducing stumpiness or redesigning the variants.
+Stage A V44 solved the recurring structure failures closely enough for production: near-canonical body proportions, strong viewer-left lowered arm chain, stable raised arm, and usable stylized hands.
 
 Armor hand rule: **three fingers + one thumb = four total digits.** Never naturalize to five digits or add a rogue lower knuckle/finger.
 
-Normal Stage A production must not include old generated armor calibration sheets as visual references. Use the canonical geometry controller/substrate plus the current outfit briefs. Old generated references were found to contaminate pose, stumpiness, hand anatomy, and semantics.
+Normal Stage A production must not include old generated armor calibration sheets as visual references. Use canonical-derived geometry/hand references plus the current outfit briefs. Old generated references were found to contaminate pose, stumpiness, hand anatomy, and semantics.
 
-Cape behavior is intentionally modular. Stage A/B registration must not be destabilized to force universal cape removal. A downstream Stage B.5 will support KEEP / REMOVE / RESTYLE modes; validate REMOVE before locking B.5.
+### Optional Stage A.5 cape control
+
+Use Stage A.5 only when cape state must change after Stage A.
+
+Supported validated modes:
+
+- **KEEP** — leave cape unchanged
+- **REMOVE** — remove cape while preserving non-cape geometry
+- **RESTYLE** — redesign only cape to fit the outfit
+
+Validated end-to-end cape test:
+
+- animal/fur armor: RESTYLE passed
+- chef: REMOVE passed
+- green heroic-fantasy tunic: REMOVE passed
+- mummy: REMOVE passed
+
+The approved A.5 result then passed Stage B isolation while preserving row identities, arm chains, four-digit hands, proportions, and cape state.
+
+### Stage B
+
+Stage B is faithful isolation, not redesign. It uses the approved upstream sheet — Stage A directly, or Stage A.5 when used — as design/cape-state authority and removes the hero/head/pedestal/context while preserving outfit geometry, hands, arm chains, X/Y, scale, and exact approved cape state.
+
+Do **not** use post-isolation generative cape removal. It was tested and caused global redraw drift. Do **not** use approximate spatial/color masking of flattened Stage-B PNGs as a general cape-removal method; the validation damaged non-cape artwork.
 
 ## LEFT ARM — V3 canonical
 
