@@ -30,6 +30,24 @@ A batch ZIP may contain larger portability/audit material outside `GENERATION_IN
 
 If the PRIMARY controller is missing/misnamed/substituted/transformed, if its bytes/dimensions changed, if reference order changed, if a locked prompt was rewritten, or if a subordinate design reference could control pose/scale/context/contact, STOP before generation.
 
+# Mandatory failure classification — BEFORE modifying anything
+
+Every failed or imperfect output must first be classified as exactly one of these:
+
+## SYSTEM FAIL
+Use this only when the validated production system itself was not obeyed or failed structurally. Examples: wrong/missing controller, wrong active-reference set/order, broken scale class, wrong hero/contact behavior, overlap where zero-contact is required, architecture/stage violation, wrong isolation behavior, corrupted registration, or a repeatable failure that persists despite the brief being correctly preserved and executed.
+
+A SYSTEM FAIL may justify changing reusable workflow/controller/package infrastructure, but only after the concrete system-level cause is identified.
+
+## BRIEF FAIL
+Use this when the validated system behavior is otherwise correct and the miss is local to one cosmetic brief: wrong direction/tilt, omitted required feature, wrong count, color, symbol, surface orientation, row identity detail, or another explicit user constraint.
+
+A BRIEF FAIL does **not** justify reopening or redesigning category architecture. Fix the smallest brief-preservation, sanitization, or prompt-adherence issue needed for that constraint.
+
+If uncertain, default to **no architecture change** until evidence establishes a SYSTEM FAIL. Do not convert a local cosmetic-detail miss into a system redesign proposal.
+
+This classification rule is an evaluation/change-control gate only. It does not alter the validated workflows of HATS, RIGHT ARM, LEFT ARM, ARMOR / OUTFITS, or ACCESSORIES.
+
 # Mandatory fresh read
 
 Before packaging/generation read current:
@@ -72,7 +90,7 @@ Approved art—including Gold Armor, Gold Sword, Mirror Shield—is DESIGN_ONLY 
 
 Normal `00_GENERATION_PROMPT.txt` is the canonical `LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt` with only the four row slots substituted. Do not summarize, shorten, or freshly rewrite its invariant body.
 
-Regression A shield/money-bag/spatula/lantern expected behavior: extremely tiny standalone cosmetics screen-left. If hero/gauntlet grips them, or they become normal readable-prop size, immediate FAIL regardless of design quality.
+LEFT ARM row sanitization must preserve explicit hard brief constraints: direction, rotation, visible surface, pose, exact count, color, required symbol/feature, attachment, and relative position. A word such as `slightly` does not make the constraint optional. Unless the user explicitly allows variation, every hard constraint must remain visibly present in all four row variations.
 
 ## ARMOR / OUTFITS — LOCKED
 Read `ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md` and `ARMOR_STAGE_B_DETERMINISTIC_REGISTRATION.md` and reproduce each stage's validated input set exactly.
@@ -102,7 +120,7 @@ For every generation stage:
 
 1. identify the applicable validated category/stage workflow;
 2. run category conflict gate;
-3. sanitize only permitted user-brief fields without changing identity;
+3. sanitize only permitted user-brief fields without changing identity or weakening explicit hard constraints;
 4. resolve exact binaries from repo or permanent fallback ZIP;
 5. write down the validated active visual set and order before adding files;
 6. create `GENERATION_INPUT/` containing only that active set;
@@ -114,8 +132,8 @@ For every generation stage:
 12. run `PRODUCTION_PACKAGE_REGRESSION_GATES.md`;
 13. immediately before generation verify transferred controller bytes/dimensions still match; duplicate-suffixed/downsampled UI copies are not acceptable substitutes;
 14. invoke generation with the exact packaged prompt and the exact ordered active visual set—do not replace either with a synthesized summary;
-15. post-generation check controller obedience BEFORE aesthetics: sheet relationship, body/context placement, scale, contact/occlusion, registration;
-16. hard-fail controller violations rather than polishing them;
+15. post-generation classify any miss as SYSTEM FAIL or BRIEF FAIL before proposing or applying a fix;
+16. for SYSTEM FAIL, debug controller/workflow execution before aesthetics; for BRIEF FAIL, preserve architecture and fix only the smallest local brief-adherence cause;
 17. provide one complete ZIP whenever user transfer is required;
 18. perform deterministic/file/repo edits yourself when tools permit.
 
@@ -129,6 +147,6 @@ If attached in a session, reuse it. Do not ask again.
 
 # Core principle
 
-**Portability gets the right bytes into the session. Fresh-agent packaging must preserve the validated category setup. Execution hierarchy must not mutate that setup.**
+**Portability gets the right bytes into the session. Fresh-agent packaging must preserve the validated category setup. Execution hierarchy must not mutate that setup. Classify SYSTEM FAIL versus BRIEF FAIL before changing anything.**
 
 The live repository supersedes this handoff when later validated work changes a workflow.
