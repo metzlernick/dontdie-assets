@@ -18,6 +18,8 @@ Every evaluation must report two separate statuses:
 - `CURRENT STAGE: PASS | BRIEF FAIL | SYSTEM FAIL`
 - `CATEGORY: IN PROGRESS | COMPLETE`
 
+A generic image-generation backend/tool error with no input-specific reason is not automatically a SYSTEM FAIL or BRIEF FAIL. If a valid 4×4 edit/isolation request repeatedly fails generically, use the documented 4×1 row fallback while preserving the same category stage semantics.
+
 ## HATS — VALIDATED / LOCKED
 
 Active authority: `HATS_PRODUCTION_WORKFLOW.md`.
@@ -47,7 +49,7 @@ Validated sequence:
    - approved Stage-A scale/registration restored
    - only after this gate passes may HATS be called COMPLETE
 
-A clean Stage-B isolation that enlarges/recenters hats is a registration SYSTEM FAIL until deterministic restoration is applied. Isolation cleanliness and registration are separate gates.
+A clean Stage-B isolation that enlarges/recenters hats is not final registration. Isolation cleanliness and registration are separate gates; deterministic restoration must still be applied.
 
 ## RIGHT ARM — VALIDATED / ACTIVE
 
@@ -55,21 +57,46 @@ Active authority: `RIGHT_ARM_PRODUCTION_WORKFLOW.md`.
 
 Validated sequence:
 
-1. **Single registered generation pass**
+1. **Stage A — registered held-object generation**
    - PRIMARY base = `registration/MAIN_HERO_REGISTRATION_4X4.png`
    - full hero remains visible as registration context
    - generate exactly one viewer-right held object per hero
-   - generation owns identity, approximate body-relative scale, broad orientation, approximate grip placement, silhouette/style, and continuous usable grip geometry
+   - Stage A owns identity, body-relative scale, broad orientation, grip placement, silhouette/style, and visible held-object geometry
    - approximate grip center X=360, Y=344 per 480×640 cell; principal handle axis ~75° from horizontal
-2. **No normal AI Stage B**
-   - historical validation found generative cleanup worse for held-object geometry/registration
-3. **Illustrator**
-   - isolate/trace selected object
-   - straighten/reconstruct hidden handle sections as needed
-   - overlay canonical right-hand/finger artwork
-   - precise scale/rotation/X/Y registration and vector cleanup
+   - Stage A PASS = `CATEGORY: IN PROGRESS`
+2. **Stage B — isolation + minimal hidden-grip reconstruction**
+   - input = approved Stage-A artwork
+   - remove hero/head/hair/body/hands/cape/pedestal/context
+   - preserve the visible item identity/design/colors/orientation and legitimate attached parts
+   - reconstruct only the minimum handle/grip segment hidden by the fist
+   - require continuous grip geometry, no hand-shaped holes, no surviving skin/glove pixels, and no redesign outside the former hand overlap
+   - raw presentation enlargement/X/Y drift does not by itself fail faithful isolation
+   - Stage B PASS = `CATEGORY: IN PROGRESS`
+3. **Deterministic per-cell registration restoration**
+   - Stage A = scale/X/Y authority
+   - Stage B = isolated-art + completed-hidden-grip authority
+   - restore with uniform scale + translation only
+   - long/thin items such as fishing rods retain legitimate Stage-A extent rather than being normalized to compact weapon sizes
+   - rebuild exact 1920×2560 / 480×640 for a full batch
+4. **Final RIGHT ARM gate**
+   - isolated standalone items exist in all 16 cells
+   - hero/hand/context absent
+   - Stage-A production scale/X/Y restored
+   - handle/grip continuity usable
+   - only after this gate passes may RIGHT ARM be marked `CATEGORY: COMPLETE`
+5. **Illustrator downstream**
+   - final vector tracing/cleanup
+   - canonical right-hand/finger overlay in the final game asset
 
-A passing single registered generation is the completed RIGHT ARM AI-generation deliverable and may be marked `CATEGORY: COMPLETE` for the AI pipeline, ready for Illustrator. Do not invent HATS-style isolation or LEFT ARM zero-contact behavior.
+### RIGHT ARM backend-failure fallback
+
+If a valid 4×4 Stage-B isolation request fails twice with the same generic backend error and no input-specific cause:
+- split into four independent 4×1 row isolation jobs;
+- preserve the exact Stage-B semantics;
+- after rows pass, recombine and deterministically restore each cell against Stage A;
+- do not redesign the RIGHT ARM architecture.
+
+This fallback is validated by a successful 4×1 fishing-rod isolation after repeated generic 4×4 failures. The isolated rods were presentation-enlarged; isolation remained usable and scale/X/Y is restored deterministically from Stage A.
 
 ## LEFT ARM — LOCKED V3
 
@@ -91,6 +118,8 @@ Stage A PASS = `CATEGORY: IN PROGRESS`.
 Stage B PASS = `CATEGORY: IN PROGRESS`.
 Only after deterministic registration restoration passes its exact final-sheet gate is the production deliverable ready for Illustrator.
 
+If an Armor 4×4 edit/isolation stage hits repeated generic backend failures, the cross-category 4×1 execution fallback may be used only as a transport/execution workaround. Cape ownership, cell independence, no-reconstruction, and deterministic-registration rules remain unchanged.
+
 ## ACCESSORIES — LOCATION AWARE
 
 ### FACE — LOCKED
@@ -110,6 +139,8 @@ Use only an already validated location-specific stage sequence. Do not infer a s
 - `SYSTEM FAIL` — validated controller/reference/stage/registration behavior was structurally violated
 - `BRIEF FAIL` — architecture/stage behavior is correct but an explicit cosmetic requirement was missed
 
+A generic backend/tool failure without an input-specific cause is not enough by itself to classify the artwork workflow as SYSTEM FAIL.
+
 Neither classification changes orchestration: an intermediate PASS remains `CATEGORY: IN PROGRESS` when another required stage remains.
 
 ## Required response format after every returned production image
@@ -120,8 +151,8 @@ Neither classification changes orchestration: an intermediate PASS remains `CATE
 4. `CATEGORY STATUS: IN PROGRESS | COMPLETE`
 5. concise acceptance/failure evidence
 6. `NEXT REQUIRED STAGE:`
-7. if another user-run generation is required, provide one complete ZIP for that stage; do not make the user reconstruct the package
+7. if another user-run generation is required, provide one flat minimal upload ZIP for that stage; do not make the user reconstruct the package
 
 ## Core rule
 
-**Never confuse a good intermediate result with a finished category. Follow the validated category-specific stage graph to its final deliverable gate.**
+**Never confuse a good intermediate result with a finished category. Follow the validated category-specific stage graph to its final deliverable gate. Backend reliability workarounds may reduce execution complexity, but they do not rewrite category architecture.**
