@@ -65,6 +65,29 @@ No generative Stage B. Only accessory artwork is full opacity; substrate stays f
 ## NON-FACE ACCESSORIES
 Use only a validated location-specific controller/workflow.
 
+## Illustrator vectorization handoff
+Authority: `ILLUSTRATOR_VECTOR_TRACE_WORKFLOW.md`.
+
+For approved normal flat outlined rasters, the downstream architecture is:
+
+**approved raster → TRACE PREP V3 → Illustrator Image Trace + Expand → manual vector cleanup/placement.**
+
+Treat TRACE PREP V3 and Image Trace as one operational handoff:
+- agent batch-processes all eligible rasters through `scripts/DONT_DIE_TRACE_PREP_V3.py` whenever tools permit;
+- user places/selects all trace-ready images in Illustrator and invokes `scripts/DONT_DIE_IMAGE_TRACE.jsx` once.
+
+Validated normal Image Trace baseline:
+- Color / 30 colors
+- Paths 25%
+- Corners 70%
+- Noise 4 px
+- Abutting
+- Fills only
+- Ignore White
+- Expand
+
+Neon/glow/soft-effect assets are excluded from this flat trace baseline.
+
 ## Multi-strip handling
 When 1–4 approved 4×1 strips need assembly, use only supplied strips. Shorten canvas height or leave unused lower rows blank. Never invent filler. Agent performs deterministic assembly.
 
@@ -75,3 +98,5 @@ When 1–4 approved 4×1 strips need assembly, use only supplied strips. Shorten
 Freeze passing controls. Do not regenerate unrelated passing cosmetics. Do not redesign architecture for a BRIEF FAIL.
 
 For repeated local brief failures that begin causing scale/architecture regression, retain the best passing-scale result and defer tiny Illustrator cleanup when appropriate.
+
+Trace-only contour artifacts are downstream vectorization problems and do not justify reopening a passing generation architecture.
