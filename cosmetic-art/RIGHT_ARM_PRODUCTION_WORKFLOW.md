@@ -1,6 +1,6 @@
 # Don't Die Cosmetic Art — RIGHT ARM Production Workflow
 
-**Status: VALIDATED / ACTIVE**
+**Status: VALIDATED / ACTIVE / REGRESSION BASELINE LOCKED**
 
 This active workflow promotes the historically validated RIGHT ARM route from calibration into production authority. It does not borrow HATS, LEFT ARM, ARMOR, or ACCESSORY stages.
 
@@ -78,6 +78,18 @@ Semantic identity does not override the scale regime. Words such as `gold`, `cer
 - no soft airbrushed shading
 - no texture/noise
 - no cast/drop shadow
+
+## Locked regression baseline
+
+The validated four-row control is now:
+1. **Dagger** — compact one-handed blade, correct viewer-right grip behavior.
+2. **Fishing Rod** — justified long/thin extent with handle registered through the viewer-right grip zone.
+3. **Gold Sword** — compact one-handed ceremonial sword; the accepted corrected row uses the V3 row-only local regression rather than the oversized V1 row.
+4. **Charred Interloper Flamethrower** — compact one-handed dark/charred weapon with hot orange/fire accents and usable grip geometry.
+
+Rows 1, 2, and 4 are preserved from the accepted V1 system regression. Row 3 is preserved from the accepted V3 row-only Gold Sword correction. This deterministic merged control is the current RIGHT ARM regression baseline.
+
+The failed V2 full-sheet rerun is explicitly rejected as a regression-strategy SYSTEM FAIL because it swapped all objects to the opposite hand while attempting only a Gold Sword scale correction. It is not evidence against the RIGHT ARM architecture.
 
 ## Stage acceptance
 
