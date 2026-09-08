@@ -65,6 +65,8 @@ Use existing approved RIGHT ARM art and the category placement/reference sheets 
 
 Real-world size does not override production size. Simplify detail before enlarging beyond the approved category regime.
 
+Semantic identity does not override the scale regime. Words such as `gold`, `ceremonial`, `legendary`, `powerful`, `sword`, `heavy`, or `dramatic` never by themselves authorize enlargement.
+
 ## Style
 
 - Don't Die flat vector-like cosmetic style
@@ -92,6 +94,22 @@ A RIGHT ARM generation passes when:
 
 Approximate finger/hand rendering is not required to be final production geometry. Do not regenerate solely because the AI hand/grip is not Illustrator-perfect when the object itself is usable.
 
+## Minimal-change regression rule — mandatory
+
+If a multi-row regression has already established passing rows and one row has only a local BRIEF FAIL, **do not regenerate the passing rows just to test the failed row's prompt correction**.
+
+Instead:
+1. freeze the last approved system behavior as the baseline;
+2. isolate only the failed row/cells for the next generative regression;
+3. preserve the same hand side, hero registration, grip convention, and scale system already demonstrated by the passing baseline;
+4. evaluate only the failed row against the local correction;
+5. if it passes, merge/replace that row deterministically into the accepted baseline for review or downstream use;
+6. do not expose passing rows to new generative variance unless the test is explicitly a category-wide SYSTEM regression.
+
+A local row test may use a cropped 4-cell strip derived from the accepted full-sheet baseline. This is a regression device, not a new production architecture.
+
+If a local BRIEF correction unexpectedly changes hand side/category, grip side, hero registration, or other already-passing system behavior, classify that attempt as **SYSTEM FAIL of the regression strategy**, reject it, and return to the last accepted baseline. Do not reinterpret the category architecture from that failed attempt.
+
 ## Final category gate
 
 A passing single registered generation is the completed AI-generation deliverable for RIGHT ARM and proceeds directly to Illustrator.
@@ -114,8 +132,9 @@ SYSTEM FAIL examples:
 - reference contamination changes hero/context or held-object behavior
 - wrong side/category behavior
 - an invented downstream AI stage
+- a supposedly local brief correction causes already-passing hand-side/system behavior to regress
 
 BRIEF FAIL examples:
-- one requested color/symbol/count/orientation/detail is missed while the registered held-object architecture otherwise works
+- one requested color/symbol/count/orientation/detail/scale constraint is missed while the registered held-object architecture otherwise works
 
-A BRIEF FAIL does not reopen this architecture.
+A BRIEF FAIL does not reopen this architecture and does not justify regenerating already-passing controls.
