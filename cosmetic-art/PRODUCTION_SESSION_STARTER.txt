@@ -10,6 +10,21 @@ CATEGORY → CURRENT STAGE → CURRENT-STAGE ACCEPTANCE → NEXT REQUIRED STAGE 
 An intermediate stage PASS does not mean category COMPLETE when another validated stage remains.
 If a stage passes and another user-run generation is required, provide one complete ZIP for that next stage automatically. Never make the user remember stage sequences or coordinate between chats.
 
+GENERATION UPLOAD ZIP STANDARD:
+Read `00_GENERATION_UPLOAD_ZIP_STANDARD.md` before packaging any user-facing generation ZIP.
+Every generation ZIP must be FLAT: no subfolders.
+It must contain exactly the files the user should Ctrl+A and upload to the generation chat, and nothing else.
+Do not include audit-only files, package checks, workflow docs, provenance copies, checksums, unused references, or portability-library material in the user-facing generation ZIP.
+
+GENERIC IMAGE-GENERATION FAILURE FALLBACK:
+A generic backend/tool failure after successful submission is not evidence that the validated package or category architecture is wrong.
+For a multi-row 4×4 edit/isolation job:
+1. Retry the same valid 4×4 package once.
+2. If the same generic backend failure repeats, split execution into independent 4×1 row operations while preserving the exact same stage semantics.
+3. After the rows pass, the agent recombines them and performs the normal deterministic registration/restoration step.
+4. Do not redesign the workflow merely because the backend is temporarily less reliable on the 4×4 request.
+RIGHT ARM Stage-B fishing-rod isolation has validated this fallback: isolation can PASS even when the generated row is presentation-enlarged; retain the isolated art and restore scale/X/Y deterministically from Stage A.
+
 Before generation, freshly review:
 - current DONT_DIE_COSMETIC_ART_SPEC.md
 - REPEATABLE_PRODUCTION_WORKFLOW.md
@@ -23,9 +38,22 @@ Before generation, freshly review:
 CATEGORY OVERRIDE — HATS
 HATS uses its validated registration/isolation approach.
 A full-character sheet with hats worn on the hero is Stage A registration artwork, not the final category deliverable.
-After Stage A passes, continue through the validated HATS isolation step.
-HATS is COMPLETE only after the final isolated deliverable contains the intended hat/head cosmetic artwork without hero/body/cape/pedestal/context while preserving approved Stage-A identity, scale, orientation, and registration.
-If exact historical HATS isolation mechanics are not available, recover the validated package/history before changing architecture; never skip the stage or declare Stage A to be final.
+After Stage A passes, continue through the validated HATS foreground-only isolation step and deterministic registration restoration.
+HATS is COMPLETE only after the final isolated deliverable contains the intended foreground hat/head cosmetic artwork without hero/body/cape/pedestal/context while preserving approved Stage-A identity, scale, orientation, and registration.
+Do not reconstruct hat geometry that belongs behind the head layer.
+
+CATEGORY OVERRIDE — RIGHT ARM
+RIGHT ARM architecture is locked:
+Stage A held-object generation on canonical hero
+→ Stage B isolation + minimal hidden-grip reconstruction
+→ deterministic scale/X/Y registration restoration
+→ final isolated asset.
+
+Stage A owns identity, body-relative scale, broad orientation, and held-object geometry.
+Stage B removes hero/head/hair/body/hands/cape/pedestal/context and reconstructs only the minimum handle/grip segment hidden by the fist. No hand-shaped holes, skin/glove pixels, or redesign outside the former hand overlap.
+Raw Stage-B presentation enlargement or X/Y drift does not by itself fail faithful isolation. Stage A remains scale/X/Y authority; Stage B is isolated-art/complete-handle authority. Restore deterministically using uniform scale + translation only.
+Long/thin items such as fishing rods keep their legitimate Stage-A extent rather than being normalized to compact weapon sizes.
+RIGHT ARM is not COMPLETE until isolation and deterministic restoration are done.
 
 CATEGORY OVERRIDE — LEFT ARM
 If the requested category is LEFT ARM, MUST ALSO read:
@@ -159,8 +187,6 @@ DO NOT USE:
 - prompt counter-bias to compensate for Stage-B drift
 - repeated Stage-B regeneration just to fix scale/X/Y
 - cross-category inference of stage sequences
-
-For RIGHT ARM and non-face ACCESSORIES, use the applicable current validated category/location workflow and verify its stage graph before declaring completion.
 
 After source review:
 - state CURRENT STAGE and CATEGORY STATUS
