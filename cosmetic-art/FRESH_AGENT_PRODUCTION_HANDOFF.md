@@ -1,213 +1,105 @@
 # Don't Die Cosmetic Art — Fresh Agent Production Handoff
 
 ## User contract
+Normal input is:
 
-Normal input from the user is only:
+- `CATEGORY: HATS | RIGHT ARM | LEFT ARM | ARMOR / OUTFITS | ACCESSORIES`
+- `BRIEF: <one cosmetic brief>`
 
-- CATEGORY: HATS | RIGHT ARM | LEFT ARM | ARMOR / OUTFITS | ACCESSORIES
-- ROW 1–4 cosmetic briefs
+One brief produces four variants in one horizontal 4×1 strip.
 
-For ACCESSORIES, resolve body location; ask only if genuinely ambiguous.
+For ARMOR / OUTFITS: if cape state is not stated or unambiguous, ask **cape or no cape?** before Stage A.
+For ACCESSORIES: resolve body location; ask only when genuinely ambiguous.
 
 Canonical repo: `metzlernick/dontdie-assets/cosmetic-art`.
 
-# FOUR HARD CONTRACTS
-
-## 1. Portability
-The user does not hunt for canonical files. Read `PRODUCTION_RUNTIME_ASSET_MANIFEST.md`. Retrieve repo binaries automatically; if runtime transfer fails, use the session-level `DONT_DIE_COSMETIC_PRODUCTION_REFERENCES.zip`. If neither is available, ask for that ONE permanent ZIP only, never individual canonical PNG/SVG files.
-
-## 2. Validated-setup preservation
-Fresh-agent packaging must reproduce the applicable validated category/stage generation setup. It may package and role-label that setup; it may not silently add references, remove references, change reference order, resize/re-encode controllers, duplicate hero/context images, or rewrite locked prompt templates.
-
-**The permanent reference ZIP is a portability library, not an instruction to activate every contained image.** A file becomes an active generation reference only because the applicable category/stage workflow requires it for the current task.
-
-## 3. Generation execution
-Read `GENERATION_EXECUTION_CONTRACT.md` and run `PRODUCTION_PACKAGE_REGRESSION_GATES.md` before every image-generation stage.
-
-Every active image must be role-labeled as PRIMARY_CANVAS_AUTHORITY, ANATOMY_AUTHORITY, DESIGN_ONLY, or STYLE_ONLY. No unlabeled image may be supplied to generation, but role-labeling never authorizes an otherwise unnecessary image.
-
-**Upload ZIP standard:** read `00_GENERATION_UPLOAD_ZIP_STANDARD.md`. Any ZIP handed to the user for a generation step must be flat: no subfolders. It must contain exactly the files the user should Ctrl+A and upload to the generation chat—nothing else. Internal audit, portability, checksums, workflow docs, package checks, and unused references stay out of the user-facing generation ZIP.
-
-If the PRIMARY controller is missing/misnamed/substituted/transformed, if its bytes/dimensions changed, if reference order changed, if a locked prompt was rewritten, or if a subordinate design reference could control pose/scale/context/contact, STOP before generation.
-
-## 4. Stage orchestration — mandatory
-Read `PRODUCTION_STAGE_ORCHESTRATION.md` before packaging and again before evaluating every returned image.
-
-The agent owns stage tracking. The user must not have to remember whether a category has Stage A, Stage B, deterministic extraction/registration, or no downstream AI stage.
-
-Before evaluating an output, explicitly resolve:
-
-`CATEGORY → CURRENT STAGE → CURRENT-STAGE ACCEPTANCE → NEXT REQUIRED STAGE → FINAL DELIVERABLE GATE`
-
-Report both:
-- `CURRENT STAGE: PASS | BRIEF FAIL | SYSTEM FAIL`
-- `CATEGORY: IN PROGRESS | COMPLETE`
-
-An intermediate PASS is never a category PASS when another validated stage remains. If the current stage passes and another user-run generation is required, automatically build and provide the ONE complete ZIP for the next stage. Do not tell the user to switch chats, debug the workflow, identify stage files, or reconstruct the package.
-
-Category stage graphs are category-specific:
-- HATS: registered Stage A → validated isolation step → deterministic registration restoration → final isolated hat gate.
-- RIGHT ARM: Stage A held-object generation → Stage B isolation with minimal hidden-grip reconstruction → deterministic registration restoration → final isolated asset.
-- LEFT ARM V3: single zero-contact generation → Illustrator; no AI Stage B.
-- ARMOR / OUTFITS: Stage A → optional A.5 → Stage B destructive isolation → deterministic per-cell registration → Illustrator.
-- FACE ACCESSORIES: Stage A on faint substrate → deterministic extraction → Illustrator; no generative Stage B.
-- NON-FACE ACCESSORIES: use only a validated location-specific stage graph.
-
-If historical mechanics for a required stage are not sufficiently documented, report the evidence gap and recover the validated package/history before redesigning anything. Never silently skip the stage and never declare the category complete.
-
-# Mandatory failure classification — BEFORE modifying anything
-
-Every failed or imperfect output must first be classified as exactly one of these:
-
-## SYSTEM FAIL
-Use this only when the validated production system itself was not obeyed or failed structurally. Examples: wrong/missing controller, wrong active-reference set/order, broken scale class, wrong hero/contact behavior, overlap where zero-contact is required, architecture/stage violation, wrong isolation behavior, corrupted registration, or a repeatable failure that persists despite the brief being correctly preserved and executed.
-
-A SYSTEM FAIL may justify changing reusable workflow/controller/package infrastructure, but only after the concrete system-level cause is identified.
-
-## BRIEF FAIL
-Use this when the validated system behavior is otherwise correct and the miss is local to one cosmetic brief: wrong direction/tilt, omitted required feature, wrong count, color, symbol, surface orientation, row identity detail, or another explicit user constraint.
-
-A BRIEF FAIL does **not** justify reopening or redesigning category architecture. Fix the smallest brief-preservation, sanitization, or prompt-adherence issue needed for that constraint.
-
-If uncertain, default to **no architecture change** until evidence establishes a SYSTEM FAIL. Do not convert a local cosmetic-detail miss into a system redesign proposal.
-
-This classification rule is an evaluation/change-control gate only. It does not alter the validated workflows of HATS, RIGHT ARM, LEFT ARM, ARMOR / OUTFITS, or ACCESSORIES.
-
-# Image-generation backend failure fallback
-
-A generic image-generation backend/tool failure is not evidence that the package or category architecture is wrong when preflight passed and the request was successfully submitted.
-
-For multi-row 4×4 edit/isolation stages, use this retry ladder:
-
-1. Retry the exact valid 4×4 package once if the failure is generic and gives no input-specific reason.
-2. If the same generic backend failure repeats, keep the workflow unchanged and reduce only execution complexity by splitting the 4×4 into independent 4×1 row operations.
-3. Each 4×1 row package must preserve the same stage semantics and use only that row's source artwork plus its exact stage prompt.
-4. After all rows pass, the agent recombines them and performs the normal deterministic registration/restoration step. The user must not manually composite rows.
-5. Do not redesign the category workflow merely because the generation backend is temporarily less reliable on a 4×4 request.
-
-This fallback is especially validated for RIGHT ARM Stage-B isolation. A successful 4×1 fishing-rod isolation showed that isolation quality can pass while raw output is presentation-enlarged; keep the result and restore scale/X/Y deterministically from Stage A rather than regenerating just to chase raw scale.
-
-# Mandatory fresh read
-
-Before packaging/generation read current:
-
+## Mandatory fresh read
+Before packaging or evaluating, read current:
+- `00_GENERATION_UPLOAD_ZIP_STANDARD.md`
 - `DONT_DIE_COSMETIC_ART_SPEC.md`
 - `REPEATABLE_PRODUCTION_WORKFLOW.md`
-- `PRODUCTION_SESSION_STARTER.txt`
-- `CANONICAL_REGISTRATION_SYSTEM.md`
+- `PRODUCTION_STAGE_ORCHESTRATION.md`
 - `PRODUCTION_RUNTIME_ASSET_MANIFEST.md`
 - `GENERATION_EXECUTION_CONTRACT.md`
 - `PRODUCTION_PACKAGE_REGRESSION_GATES.md`
-- `PRODUCTION_STAGE_ORCHESTRATION.md`
-- applicable category/location workflow/controller
-- relevant canonical reference sheets
-- especially similar approved art when actually required by the brief
+- applicable category workflow
 
-Live repo wins for rules. Permanent reference ZIP is primarily a binary portability layer.
+Live repo wins over memory or historical calibration files.
 
-# Global art invariants
+## Portability
+The user does not hunt for canonical files. Retrieve repo assets automatically. If runtime binary retrieval fails, use the session-level `DONT_DIE_COSMETIC_PRODUCTION_REFERENCES.zip`. Ask for that one fallback ZIP only if needed; never ask for individual canonical assets already in the repo.
 
-Unless category workflow overrides: 1920×2560; 4×4; 480×640 cells; one brief/row; four moderate variations; pure white; no visible grid/gutters/labels; body-relative rather than presentation-centered; flat vector-like Don't Die art; true-black ~5 px primary contour at canonical scale; hard fills; low detail; no texture/painterly rendering/cast shadow. Never enlarge merely to fill empty space. Simplify detail before increasing scale.
+## Upload ZIP contract
+Every generation ZIP given to the user is:
+- flat; no subfolders
+- directly Ctrl+A uploadable
+- contains exactly and only the files required by that generation invocation
+- no README, package check, checksums, audit logs, workflow docs, or unused references
 
-# Category execution
+## Universal production unit
+**One brief → four variants → one 4×1 strip.**
 
-## HATS
-Preserve the currently validated hat input topology and order. PRIMARY spatial authority = `reference-sheets/HATS_PLACEMENT_REFERENCE.png` plus current validated orientation controller when required. MAIN HERO, orientation, approved hats, and style sheets are active only when the validated hat workflow calls for them. Approved hats remain DESIGN_ONLY. Never let standalone approved hats become independently centered/presentation-sized.
+Historical 4×4 sources remain valid references. Do not batch unrelated new briefs into 4×4 generation.
 
-**Stage A is not the final HATS deliverable.** A full-character sheet with hats worn on the hero is registered Stage-A artwork. After Stage-A acceptance, continue through the validated HATS isolation step and deterministic registration restoration. HATS may be declared COMPLETE only when the final isolated deliverable contains the hat/head cosmetic artwork without hero/body/cape/pedestal/context while preserving approved Stage-A scale/orientation/identity and foreground-only layering. Do not reconstruct geometry that belongs behind the head layer.
+## Stage orchestration
+The agent owns stage tracking and reports:
+- `CURRENT STAGE: PASS | BRIEF FAIL | SYSTEM FAIL`
+- `CATEGORY: IN PROGRESS | COMPLETE`
 
-## RIGHT ARM
-Preserve the currently validated right-arm input topology and order. PRIMARY spatial authority = `reference-sheets/RIGHT_ARM_PLACEMENT_REFERENCE.png`. Other hero/category/approved references are active only when the validated right-arm workflow calls for them. Approved weapons/props remain DESIGN_ONLY.
+If another generation stage is required, automatically build the next flat ZIP. If deterministic processing is required and tools permit it, perform it directly.
 
-Architecture is locked:
-**Stage A held-object generation on canonical hero → Stage B isolation + minimal hidden-grip reconstruction → deterministic scale/X/Y registration restoration → final isolated asset.**
+### HATS
+4×1 registered Stage A → 4×1 foreground-only Stage B isolation → deterministic registration restoration → Illustrator.
 
-Stage A owns design identity, body-relative scale, broad orientation, and visible held-object geometry. Stage B removes hero/head/hair/body/hands/cape/pedestal/context, preserves the visible approved weapon/prop, and reconstructs only the minimum handle/grip segment hidden by the hand so the final item has continuous grip geometry with no hand-shaped hole and no skin/glove pixels. Stage B must not redesign the item outside the former hand overlap and must not intentionally recenter/enlarge it.
+Stage B keeps only hat geometry that belongs in front of/on top of the in-game head layer. Never reconstruct behind-head geometry.
 
-Raw Stage-B presentation enlargement or X/Y drift does not by itself invalidate a faithful isolation. Stage A remains the scale/X/Y authority; Stage B is isolated-art/complete-handle authority. Restore each item deterministically using uniform scale + translation only. Long/thin items such as fishing rods retain their legitimate Stage-A extent rather than being normalized to compact weapon classes.
+### RIGHT ARM
+4×1 Stage A held-object generation on canonical hero → 4×1 Stage B isolation + minimal hidden-grip reconstruction → deterministic scale/X/Y restoration → Illustrator.
 
-RIGHT ARM is COMPLETE only after isolation and deterministic restoration are complete. Exact final canonical hand overlay in the game/Illustrator remains downstream and does not replace the required isolation stage.
+Stage A owns scale/X/Y. Stage B owns isolated art + minimum completed grip. Presentation enlargement during Stage B is corrected deterministically rather than regenerated solely for scale drift.
 
-## LEFT ARM — LOCKED V3
-Mandatory workflow files: `LEFT_ARM_ZERO_CONTACT_WORKFLOW.md`, `LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md`, `LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt`.
+### LEFT ARM
+4×1 Stage A only → Illustrator. No AI Stage B.
 
-**PRIMARY_CANVAS_AUTHORITY = `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4_V3.png` exactly.** It is a 2400×2560 composite V3 controller and must be active visual input #1 under that exact basename and with exact canonical bytes.
+Use the V3 controller as historical source and crop one logical 2400×640 row for the active 4×1 controller. Hero/context screen-right; complete cosmetic screen-left; zero contact.
 
-Locked: 2400×2560; 4×4; 600×640; hero context screen-right; tiny complete cosmetic screen-left; clean white zero-contact; no generated grip; no overlap; no hidden geometry; no AI reconstruction. The current approved Regression A scale class is valid; the exemplar is not a literal maximum bounding box. Priority = validated V3 scale/location → simplify detail → exact identity → pose/design → variation.
+**Hard scale rule:** the tiny screen-left exemplar is a literal spatial placeholder. Fit the whole requested cosmetic approximately inside that footprint. If detail conflicts, remove detail. Never enlarge.
 
-**Normal V3 generation does not add `MASTER_CHARACTER_REFERENCE.png` as a separate active visual.** The V3 composite controller already supplies the validated hero/context relationship. MASTER HERO may remain outside the active generation input for portability/audit.
+### ARMOR / OUTFITS
+Mandatory cape preflight. If cape state is absent/ambiguous, ask the user.
 
-Approved art—including Gold Armor, Gold Sword, Mirror Shield—is DESIGN_ONLY and active only when a current brief explicitly needs that design family. Supply those references after V3; they may never control hero clothing, hand pose, grip/contact, object scale, canvas composition, or registration.
+4×1 Stage A using the validated clean-room geometry/anatomy controls → optional A.5 cape correction/RESTYLE → 4×1 Stage B destructive isolation → deterministic registration → Illustrator.
 
-Normal `00_GENERATION_PROMPT.txt` is the canonical `LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt` with only the four row slots substituted. Do not summarize, shorten, or freshly rewrite its invariant body.
+Do not change the passing Stage-A hand/viewer-left-arm architecture to make isolation easier. Faint-substrate Armor Stage A is rejected.
 
-LEFT ARM row sanitization must preserve explicit hard brief constraints: direction, rotation, visible surface, pose, exact count, color, required symbol/feature, attachment, and relative position. A word such as `slightly` does not make the constraint optional. Unless the user explicitly allows variation, every hard constraint must remain visibly present in all four row variations.
+If KEEP, Stage A intentionally designs the cape to match the outfit. Stage B preserves/removes; it does not restyle.
 
-A passing LEFT ARM zero-contact generation is the completed AI-generation deliverable and proceeds directly to Illustrator. Do not invent an AI Stage B.
+### FACE ACCESSORIES
+4×1 Stage A on ~6% faint literal canonical substrate → deterministic faint-substrate extraction → Illustrator. No generative Stage B.
 
-## ARMOR / OUTFITS — LOCKED
-Read `ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md` and `ARMOR_STAGE_B_DETERMINISTIC_REGISTRATION.md` and reproduce each stage's validated input set exactly.
+### NON-FACE ACCESSORIES
+Use only an already validated location-specific workflow/controller.
 
-Architecture remains: briefs + cape manifest → Stage A → optional A.5 → Stage B destructive isolation → deterministic per-cell registration → Illustrator.
+## Failure classification
+### SYSTEM FAIL
+Validated controller/stage/scale/contact/registration architecture failed structurally.
 
-Stage A authority stack: literal canonical hero substrate + canonical-derived proportion controller = PRIMARY geometry/canvas; canonical hand + viewer-left arm-chain = ANATOMY; approved/prior outfit refs = DESIGN_ONLY only when actually needed. Do not let generic packaging add generic armor reference soup.
+### BRIEF FAIL
+Architecture passes but one explicit cosmetic constraint was missed.
 
-Cape metadata KEEP/NONE/RESTYLE is carried automatically. Stage B receives approved Stage A/A.5 as literal artwork authority + cape manifest as semantic authority; do not feed unrelated approved art into Stage B. Stage B erase-only; pedestal zero pixels; no hidden reconstruction. Then deterministic uniform scale + X/Y restoration only; exact 1920×2560 / 480×640.
+Do not redesign category architecture for a BRIEF FAIL. Freeze passing controls. If repeated local prompt escalation starts causing scale or architecture regression, retain the best passing-scale result and defer tiny cleanup to Illustrator when appropriate.
 
-Stage A PASS and Stage B PASS both leave ARMOR `IN PROGRESS`; only deterministic registration restoration reaching its final gate makes the production deliverable ready for Illustrator.
+## Backend failures
+A generic image-generation backend error is not proof that the package or workflow is wrong. Because 4×1 is already the normal production unit, retry the same valid 4×1 once before changing anything. Do not redesign validated architecture because of a generic tool error.
 
-## ACCESSORIES — LOCATION AWARE
-General accessory references do not by themselves validate every body location.
+## Normal fresh-session workflow
+1. User sends category + one brief.
+2. Agent reads repo authorities and retrieves required assets.
+3. Agent asks only genuinely required preflight question (e.g. Armor cape state).
+4. Agent returns one flat upload ZIP for the current stage.
+5. User uploads everything in that ZIP to an image-generation chat and says `go`.
+6. User returns the result.
+7. Agent evaluates it and automatically continues through required stages/deterministic processing.
+8. Repeat with the next cosmetic.
 
-### FACE — LOCKED
-Read `ACCESSORY_FACE_PRODUCTION_WORKFLOW.md` and reproduce its validated Stage-A input set exactly.
-
-PRIMARY_CANVAS_AUTHORITY = current ~6% faint literal canonical hero substrate. Face registration controller = spatial/anchor authority. Meme Glass/approved face art = DESIGN_ONLY / compact scale-class precedent only when needed. **Do not add full-color MAIN HERO as an active Stage-A visual through generic packaging.**
-
-Architecture remains: Stage A on faint literal substrate → deterministic faint-substrate extraction → Illustrator. Accessory is only full-opacity generated art. No generative Stage B; no full-color hero subtraction.
-
-Stage A PASS leaves FACE ACCESSORIES `IN PROGRESS`; only deterministic extraction reaching its final gate makes the production deliverable ready for Illustrator.
-
-### NON-FACE
-Before reusable production, use an already validated location-specific controller/setup or stop. Do not silently reuse the face controller or invent a new architecture from generic packaging rules.
-
-# Required package behavior
-
-For every generation stage:
-
-1. identify the applicable validated category/stage workflow and stage graph;
-2. state CURRENT STAGE and FINAL DELIVERABLE GATE;
-3. run category conflict gate;
-4. sanitize only permitted user-brief fields without changing identity or weakening explicit hard constraints;
-5. resolve exact binaries from repo or permanent fallback ZIP;
-6. write down the validated active visual set and order before adding files;
-7. create a flat user-facing generation ZIP containing only the exact files the user should upload;
-8. put PRIMARY/controller image(s) first in the logical reference order and preserve exact canonical bytes/basename/dimensions where locked;
-9. include `00_REFERENCE_ROLES.txt` only when role metadata is genuinely required by that generation stage;
-10. include `00_INPUT_ORDER.txt` only when multiple active visuals require an explicit order file;
-11. create exact `00_GENERATION_PROMPT.txt` from the category's locked template/manifest rules; never rewrite invariant template text;
-12. keep integrity checks, portability material, workflow docs, and unused references internal rather than putting them in the upload ZIP;
-13. run `PRODUCTION_PACKAGE_REGRESSION_GATES.md`;
-14. immediately before generation verify transferred controller bytes/dimensions still match; duplicate-suffixed/downsampled UI copies are not acceptable substitutes;
-15. invoke generation with the exact packaged prompt and exact ordered active visual set—do not replace either with a synthesized summary;
-16. post-generation classify current-stage result as PASS, SYSTEM FAIL, or BRIEF FAIL;
-17. separately report CATEGORY as IN PROGRESS or COMPLETE according to `PRODUCTION_STAGE_ORCHESTRATION.md`;
-18. if current stage passes and another stage is required, proceed to/package that next stage automatically rather than moving categories;
-19. for SYSTEM FAIL, debug controller/workflow execution before aesthetics; for BRIEF FAIL, preserve architecture and fix only the smallest local brief-adherence cause;
-20. on repeated generic backend failure of a valid 4×4 edit/isolation request, fall back to independent 4×1 row operations without changing category architecture, then recombine/deterministically restore downstream;
-21. provide one flat, minimal upload ZIP whenever user transfer is required;
-22. perform deterministic/file/repo edits yourself when tools permit.
-
-Never ask user to manually edit prompts/manifests/metadata/transforms/workflow text, rediscover canonical files, remember the next stage, coordinate row composites, or coordinate work between multiple chats.
-
-# Permanent fallback kit
-
-Official filename: `DONT_DIE_COSMETIC_PRODUCTION_REFERENCES.zip`.
-Builder: `.github/workflows/build-cosmetic-production-reference-kit.yml`.
-If attached in a session, reuse it. Do not ask again.
-
-# Core principle
-
-**Portability gets the right bytes into the session. Fresh-agent packaging preserves the validated category setup. Stage orchestration carries each category through its actual final deliverable gate. Classify SYSTEM FAIL versus BRIEF FAIL before changing anything. Generic backend generation failures do not rewrite validated architecture; reduce execution complexity only when needed. The user should manage art decisions, not pipeline state.**
-
-The live repository supersedes this handoff when later validated work changes a workflow.
+The user should never manually edit prompts/manifests, select files from inside a ZIP, hunt repo assets, remember stage sequences, or composite rows.
