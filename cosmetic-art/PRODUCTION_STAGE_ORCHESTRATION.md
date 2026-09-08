@@ -45,13 +45,25 @@ Validated reliability note: 4×1 fishing-rod Stage-B isolation succeeded after r
 
 1. Stage A registered outfit generation — one brief/four variants/4×1.
 2. Optional Stage A.5 only for cape correction/RESTYLE when required.
-3. Stage B destructive isolation of the same 4×1 using that cosmetic's cape state/manifest.
+3. Stage B / isolation architecture remains subject to the validated Armor workflow and any later explicitly validated deterministic replacement.
 4. Deterministic per-cell registration restoration.
 5. Illustrator.
 
-Armor cape semantics are now naturally local to a single 4×1 job rather than mixed across four unrelated rows. KEEP/NONE/RESTYLE remains authoritative; moving to 4×1 does not change cape ownership or the no-hidden-geometry-reconstruction rule.
+### ARMOR STAGE-A FREEZE — HARD RULE
 
-Historical 4×4 Armor sheets should normally be split into 4×1 rows before any new Stage-B generation. This specifically avoids the observed failure where a full 4×4 Stage-B pass retained chef headwear, retained NONE-state cape/hood material, and contaminated mummy rows with green-tunic semantics.
+The move from 4×4 to 4×1 changes **batch layout only**. It does NOT authorize changing the validated Armor Stage-A generation method.
+
+Normal Armor Stage A must preserve the already-validated clean-room authority stack and behavior from `ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md`: literal canonical hero substrate, canonical-derived proportion control, canonical hand anatomy, viewer-left arm-chain authority, canonical pose/proportions, and outfit-specific four-digit hands.
+
+Do **not** replace the validated full-strength canonical Stage-A substrate with a faint-substrate/extraction experiment, and do not weaken/remove the hand or viewer-left-arm authorities in order to make downstream isolation easier.
+
+A downstream isolation problem must never be fixed by changing an already-passing Stage A. This is the universal freeze-passing-controls rule applied to stage architecture.
+
+A faint-substrate Armor Stage-A experiment was explicitly rejected because it regressed outfit-specific hands and the validated viewer-left arm chain. It is not production authority and must not be reused.
+
+Armor cape semantics remain local to the single 4×1 cosmetic: KEEP/NONE/RESTYLE remains authoritative; no-hidden-geometry-reconstruction remains authoritative.
+
+Historical 4×4 Armor sheets should normally be split into 4×1 rows before any new downstream generative operation, but their approved Stage-A artwork itself remains the source of truth.
 
 ## ACCESSORIES
 
@@ -96,4 +108,4 @@ Because each brief is now its own 4×1, a failure should normally affect only th
 
 ## Core rule
 
-**The scalable production architecture is now one brief → four variants → 4×1. Category-specific stage semantics remain intact, while cross-cosmetic generation and isolation are avoided by default.**
+**The scalable production architecture is one brief → four variants → 4×1, but validated category-specific stage controls remain frozen. Never solve a downstream failure by regressing an already-passing upstream stage.**
