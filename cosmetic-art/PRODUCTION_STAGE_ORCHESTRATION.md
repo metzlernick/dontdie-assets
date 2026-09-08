@@ -13,19 +13,25 @@ Every evaluation reports:
 1. 4×1 registered Stage A.
 2. 4×1 foreground-only Stage B isolation; no behind-head reconstruction.
 3. Deterministic registration restoration.
-4. Illustrator.
+4. TRACE PREP V3 for normal flat raster output.
+5. Illustrator batch Image Trace + Expand.
+6. Illustrator cleanup/placement.
 
 ## RIGHT ARM
 1. 4×1 Stage A held-object generation on canonical hero.
 2. 4×1 Stage B isolation + minimum hidden-grip reconstruction.
 3. Deterministic scale/X/Y restoration from Stage A.
-4. Illustrator.
+4. TRACE PREP V3 for normal flat raster output.
+5. Illustrator batch Image Trace + Expand.
+6. Illustrator cleanup/placement.
 
 Raw Stage-B presentation enlargement is corrected deterministically when isolation artwork otherwise passes.
 
 ## LEFT ARM
 1. 4×1 zero-contact Stage A only.
-2. Illustrator extraction/placement/rotation/modest enlargement/canonical hand overlay.
+2. TRACE PREP V3 for normal flat raster output.
+3. Illustrator batch Image Trace + Expand.
+4. Illustrator extraction/placement/rotation/modest enlargement/canonical hand overlay.
 
 No AI Stage B.
 
@@ -39,7 +45,9 @@ If a local BRIEF FAIL repeatedly resists correction and prompt escalation starts
 3. Optional Stage A.5 for cape correction/RESTYLE only.
 4. 4×1 Stage B destructive isolation.
 5. Deterministic registration restoration.
-6. Illustrator.
+6. TRACE PREP V3 for normal flat raster output.
+7. Illustrator batch Image Trace + Expand.
+8. Illustrator cleanup/placement.
 
 ### Armor hard rules
 - 4×1 changes batching only; never weaken the validated Stage-A hand/viewer-left-arm architecture.
@@ -55,12 +63,23 @@ The validated Animal/Fur 4×1 control demonstrated that clean-room Stage A can p
 ## FACE ACCESSORIES
 1. 4×1 Stage A on ~6% faint literal canonical substrate.
 2. Deterministic faint-substrate extraction.
-3. Illustrator.
+3. TRACE PREP V3 for normal flat raster output.
+4. Illustrator batch Image Trace + Expand.
+5. Illustrator cleanup/placement.
 
 No generative Stage B.
 
 ## NON-FACE ACCESSORIES
 Use only an already validated location-specific workflow/controller.
+
+## Illustrator vectorization handoff
+Authority: `ILLUSTRATOR_VECTOR_TRACE_WORKFLOW.md`.
+
+For normal flat outlined assets, the agent batches TRACE PREP V3 across all eligible approved rasters whenever tools permit. The user then selects all trace-ready `PlacedItem`/`RasterItem` objects in Illustrator and invokes `scripts/DONT_DIE_IMAGE_TRACE.jsx` once.
+
+Validated baseline: Color / 30 colors / Paths 25% / Corners 70% / Noise 4 px / Abutting / Fills only / Ignore White / Expand.
+
+Neon/glow/soft-effect assets do not use this flat trace baseline.
 
 ## Multi-strip downstream work
 Use only supplied 4×1 strips. For 1–4 strips, reduce canvas height or leave unused lower rows blank. Never invent filler. Agent performs deterministic assembly.
@@ -70,6 +89,8 @@ Use only supplied 4×1 strips. For 1–4 strips, reduce canvas height or leave u
 - `BRIEF FAIL`: architecture passes but an explicit cosmetic requirement is missed.
 
 Freeze passing controls. Do not redesign architecture for a BRIEF FAIL or generic backend error.
+
+Trace/vectorization artifacts are downstream failures and do not justify regressing passing generation stages.
 
 ## Core rule
 **4×1 is the scalable production unit. Validated category-specific stage controls stay frozen; downstream problems never justify regressing a passing upstream stage.**
