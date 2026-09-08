@@ -11,6 +11,7 @@ on:
       - 'cosmetic-art/PRODUCTION_PACKAGE_REGRESSION_GATES.md'
       - 'cosmetic-art/PRODUCTION_STAGE_ORCHESTRATION.md'
       - 'cosmetic-art/HATS_PRODUCTION_WORKFLOW.md'
+      - 'cosmetic-art/RIGHT_ARM_PRODUCTION_WORKFLOW.md'
       - 'cosmetic-art/DONT_DIE_COSMETIC_ART_SPEC.md'
       - 'cosmetic-art/REPEATABLE_PRODUCTION_WORKFLOW.md'
       - 'cosmetic-art/PRODUCTION_SESSION_STARTER.txt'
@@ -67,6 +68,7 @@ jobs:
             PRODUCTION_PACKAGE_REGRESSION_GATES.md \
             PRODUCTION_STAGE_ORCHESTRATION.md \
             HATS_PRODUCTION_WORKFLOW.md \
+            RIGHT_ARM_PRODUCTION_WORKFLOW.md \
             LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md \
             LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt \
             LEFT_ARM_ZERO_CONTACT_WORKFLOW.md \
@@ -95,7 +97,8 @@ jobs:
           - Run PRODUCTION_PACKAGE_REGRESSION_GATES.md before generation.
           - Never feed this entire ZIP's image library to the image model as coequal references.
 
-          Validated HATS binaries needed for the v6.7/v6.8 workflow are included under cosmetic-art/validated-hats/.
+          Active HATS and RIGHT ARM production workflow files are included in the kit.
+          Validated HATS historical binaries are included under cosmetic-art/validated-hats/.
 
           This kit is automatically rebuilt when canonical production authorities or reference assets change.
           The live repository wins for any newer workflow/rule text.
