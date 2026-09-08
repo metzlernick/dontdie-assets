@@ -39,6 +39,21 @@ Normally:
 
 All files remain at ZIP root.
 
+## Generic image-generation backend failure fallback
+
+A generic backend/tool failure after a valid package was successfully submitted is not evidence that the ZIP contents or category architecture are wrong.
+
+For multi-row 4×4 **edit/isolation** stages:
+
+1. Retry the same valid flat 4×4 package once.
+2. If the same generic backend failure repeats with no input-specific reason, reduce execution complexity only: split the source into independent **4×1 row jobs**.
+3. Each 4×1 ZIP remains flat and minimal, normally only the row-specific `00_GENERATION_PROMPT.txt` plus that row source image.
+4. Preserve the same stage semantics; do not simplify or redesign the category workflow merely to fit the fallback.
+5. After all row jobs pass, the agent recombines them and performs any normal downstream deterministic scale/registration restoration itself.
+6. The user must not manually composite the rows.
+
+This fallback is an execution-reliability workaround, not a new category architecture. It has been validated on RIGHT ARM Stage-B isolation: a 4×1 fishing-rod isolation succeeded after repeated generic 4×4 backend failures. Raw presentation enlargement was accepted as normal Stage-B drift and is corrected deterministically from Stage A.
+
 ## Relationship to portability/reference kits
 
 `DONT_DIE_COSMETIC_PRODUCTION_REFERENCES.zip` is a session-level portability library and is **not** a normal per-generation upload ZIP. The agent may use it to obtain canonical dependencies, but must extract/select only the exact active files required for the current generation stage when creating the user's batch ZIP.
@@ -57,4 +72,4 @@ If NO, rebuild the ZIP before giving it to the user.
 
 ## Core rule
 
-**Every user-facing generation ZIP is flat, minimal, and directly uploadable in full.**
+**Every user-facing generation ZIP is flat, minimal, and directly uploadable in full. Generic 4×4 backend failures are handled by a 4×1 execution fallback without changing validated category architecture.**
