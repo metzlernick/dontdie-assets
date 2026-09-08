@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - '.github/workflows/build-cosmetic-production-reference-kit.yml'
+      - 'cosmetic-art/00_GENERATION_UPLOAD_ZIP_STANDARD.md'
       - 'cosmetic-art/FRESH_AGENT_PRODUCTION_HANDOFF.md'
       - 'cosmetic-art/PRODUCTION_RUNTIME_ASSET_MANIFEST.md'
       - 'cosmetic-art/GENERATION_EXECUTION_CONTRACT.md'
@@ -19,7 +20,6 @@ on:
       - 'cosmetic-art/ACCESSORY_FACE_PRODUCTION_WORKFLOW.md'
       - 'cosmetic-art/ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md'
       - 'cosmetic-art/ARMOR_STAGE_B_DETERMINISTIC_REGISTRATION.md'
-      - 'cosmetic-art/LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md'
       - 'cosmetic-art/LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt'
       - 'cosmetic-art/LEFT_ARM_ZERO_CONTACT_WORKFLOW.md'
       - 'cosmetic-art/archive-calibration/HAT_EXACT_MAIN_HERO_4X4.png'
@@ -58,6 +58,7 @@ jobs:
           cp cosmetic-art/archive-calibration/HAT_EXTRACTION_MASK_4X4.png "$KIT/cosmetic-art/validated-hats/"
 
           for f in \
+            00_GENERATION_UPLOAD_ZIP_STANDARD.md \
             ACCESSORY_FACE_PRODUCTION_WORKFLOW.md \
             ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md \
             ARMOR_STAGE_B_DETERMINISTIC_REGISTRATION.md \
@@ -69,7 +70,6 @@ jobs:
             PRODUCTION_STAGE_ORCHESTRATION.md \
             HATS_PRODUCTION_WORKFLOW.md \
             RIGHT_ARM_PRODUCTION_WORKFLOW.md \
-            LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md \
             LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt \
             LEFT_ARM_ZERO_CONTACT_WORKFLOW.md \
             PRODUCTION_RUNTIME_ASSET_MANIFEST.md \
@@ -81,27 +81,18 @@ jobs:
           cat > "$KIT/README.txt" <<'EOF'
           DON'T DIE COSMETIC PRODUCTION REFERENCES — PERMANENT FALLBACK KIT
 
-          Upload this single ZIP alongside FRESH_AGENT_PRODUCTION_HANDOFF.md when a fresh runtime cannot materialize complete binary assets from GitHub.
+          Use this ZIP only when a fresh runtime cannot retrieve required binary assets from the live GitHub repo.
 
-          USER CONTRACT
-          - Never hunt for individual canonical PNG/SVG references.
-          - Upload this ZIP once for the session.
-          - Then provide CATEGORY + up to four row briefs.
-          - The agent selects required files from this kit and builds batch-specific packages itself.
-          - The agent owns category stage orchestration through the final deliverable gate.
+          NORMAL USER CONTRACT
+          - Provide CATEGORY + ONE cosmetic brief.
+          - One brief generates four variants in one 4×1 strip.
+          - Never hunt for individual canonical assets.
+          - The agent selects required references and builds flat minimal generation-upload ZIPs.
+          - The agent owns stage tracking and deterministic processing.
 
-          EXECUTION CONTRACT
-          - A large reference library is portability storage, NOT an image-generation input set.
-          - Read GENERATION_EXECUTION_CONTRACT.md and PRODUCTION_STAGE_ORCHESTRATION.md.
-          - Create a minimal GENERATION_INPUT selection with explicit reference roles.
-          - Run PRODUCTION_PACKAGE_REGRESSION_GATES.md before generation.
-          - Never feed this entire ZIP's image library to the image model as coequal references.
+          This fallback ZIP is a portability library, NOT a generation input set. Never upload the whole reference library to image generation as coequal references.
 
-          Active HATS and RIGHT ARM production workflow files are included in the kit.
-          Validated HATS historical binaries are included under cosmetic-art/validated-hats/.
-
-          This kit is automatically rebuilt when canonical production authorities or reference assets change.
-          The live repository wins for any newer workflow/rule text.
+          The live repository wins for newer workflow/rule text.
           EOF
 
           zip -r -9 DONT_DIE_COSMETIC_PRODUCTION_REFERENCES.zip "$KIT"
