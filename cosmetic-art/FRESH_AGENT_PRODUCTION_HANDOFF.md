@@ -22,6 +22,7 @@ Before packaging or evaluating, read current:
 - `PRODUCTION_RUNTIME_ASSET_MANIFEST.md`
 - `GENERATION_EXECUTION_CONTRACT.md`
 - `PRODUCTION_PACKAGE_REGRESSION_GATES.md`
+- `ILLUSTRATOR_VECTOR_TRACE_WORKFLOW.md`
 - applicable category workflow
 
 Live repo wins over memory or historical calibration files.
@@ -80,6 +81,27 @@ If KEEP, Stage A intentionally designs the cape to match the outfit. Stage B pre
 ### NON-FACE ACCESSORIES
 Use only an already validated location-specific workflow/controller.
 
+## Illustrator vector handoff
+For normal flat outlined approved rasters, read `ILLUSTRATOR_VECTOR_TRACE_WORKFLOW.md`.
+
+The validated downstream unit is:
+**approved raster → agent-batched TRACE PREP V3 → Illustrator batch Image Trace + Expand.**
+
+The agent performs TRACE PREP V3 for all eligible files in one batch whenever tools permit. The user should not manually preprocess rasters. The user can then place/select all trace-ready images in Illustrator and run `scripts/DONT_DIE_IMAGE_TRACE.jsx` once.
+
+Validated normal trace baseline:
+- Color
+- 30 colors
+- Paths 25%
+- Corners 70%
+- Noise 4 px
+- Abutting
+- Fills only
+- Ignore White
+- Expand
+
+Neon/glow/soft-effect cosmetics are excluded from this flat trace baseline.
+
 ## Failure classification
 ### SYSTEM FAIL
 Validated controller/stage/scale/contact/registration architecture failed structurally.
@@ -100,6 +122,8 @@ A generic image-generation backend error is not proof that the package or workfl
 5. User uploads everything in that ZIP to an image-generation chat and says `go`.
 6. User returns the result.
 7. Agent evaluates it and automatically continues through required stages/deterministic processing.
-8. Repeat with the next cosmetic.
+8. For approved normal flat rasters headed to Illustrator, agent batch-runs TRACE PREP V3 and returns trace-ready files.
+9. User places/selects the trace-ready files in Illustrator and invokes `DONT_DIE_IMAGE_TRACE.jsx` once.
+10. Repeat with the next cosmetic.
 
-The user should never manually edit prompts/manifests, select files from inside a ZIP, hunt repo assets, remember stage sequences, or composite rows.
+The user should never manually edit prompts/manifests, select files from inside a ZIP, hunt repo assets, remember stage sequences, composite rows, or manually preprocess trace rasters.
