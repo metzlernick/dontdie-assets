@@ -18,43 +18,58 @@ Every evaluation must report two separate statuses:
 - `CURRENT STAGE: PASS | BRIEF FAIL | SYSTEM FAIL`
 - `CATEGORY: IN PROGRESS | COMPLETE`
 
-## HATS — VALIDATED v6.7/v6.8
+## HATS — VALIDATED / LOCKED
 
 Active authority: `HATS_PRODUCTION_WORKFLOW.md`.
 
-Historical recovery confirms the validated sequence:
+Validated sequence:
 
-1. **Stage A — v6.7 exact MAIN HERO edit**
-   - exact canonical MAIN HERO 4×4 base is the edit base
-   - add hat pixels only
-   - hero remains registration context except where naturally occluded by hats
+1. **Stage A — registered hat generation**
+   - canonical hero registration context
+   - approved equipped-hat scale regime relative to hero head
    - evaluate identity, head-relative scale, facing/orientation, attachment, style, and four useful variants
    - Stage A PASS = `CATEGORY: IN PROGRESS`
-2. **Stage B — v6.8 HAT extraction/cleanup**
-   - this is not new cosmetic generation
+2. **Stage B — foreground-only destructive isolation**
    - input = approved Stage-A composite
-   - controller = `archive-calibration/HAT_EXTRACTION_MASK_4X4.png`
-   - canonical mask geometry per cell: X=45–355, Y=25–325
-   - preserve existing hats; remove MAIN HERO/body/face/hair/clothing/pedestal/context; restore pure white
-   - no redesign, redraw, move, resize, rotate, recenter, recolor, simplification, or new details
-3. **Final HATS gate**
-   - 16 isolated hat/head cosmetics only
-   - pure white background
+   - retain only cosmetic geometry that belongs in front of/on top of the in-game HEAD layer
+   - omit all cosmetic geometry that would be behind the head/hair; do not reconstruct it
+   - remove hero/body/face/hair/clothing/pedestal/context; restore pure white
+   - Stage B artwork/occlusion PASS = `CATEGORY: IN PROGRESS`
+3. **Deterministic per-cell registration restoration**
+   - Stage A = scale/X/Y authority
+   - Stage B = isolated foreground artwork/occlusion authority
+   - uniform scale + X/Y only; no redraw/regeneration/hidden reconstruction
+   - rebuild exact 1920×2560 / 480×640 cells
+4. **Final HATS gate**
+   - 16 foreground-only hat-layer cosmetics on pure white
    - no hero/body/cape/pedestal/context
-   - Stage-A identity/scale/orientation/registration preserved
+   - no behind-head geometry reconstructed
+   - approved Stage-A scale/registration restored
    - only after this gate passes may HATS be called COMPLETE
 
-If an image-model export arrives at a noncanonical raster size while preserving the logical 4×4 composition, normalize the whole sheet proportionally to 1920×2560 before Stage B; do not alter cells independently.
+A clean Stage-B isolation that enlarges/recenters hats is a registration SYSTEM FAIL until deterministic restoration is applied. Isolation cleanliness and registration are separate gates.
 
-## RIGHT ARM
+## RIGHT ARM — VALIDATED / ACTIVE
 
-Validated documented responsibilities:
-- generation owns object identity, body-relative scale, broad orientation, silhouette/style, and continuous usable grip geometry
-- exact canonical hand overlay/final registration belongs to Illustrator
+Active authority: `RIGHT_ARM_PRODUCTION_WORKFLOW.md`.
 
-Before calling RIGHT ARM complete, verify the current validated workflow's required generated stages have all been run and that the deliverable entering Illustrator is the intended object artwork rather than merely an unevaluated intermediate character sheet. Do not infer or invent an AI isolation stage from HATS or LEFT ARM. If the historical RIGHT ARM stage sequence is not explicitly available, recover it before declaring a category regression complete.
+Validated sequence:
 
-Final category gate: generated object artwork has passed all required validated generation stages and is ready for the documented Illustrator hand-overlay/registration step.
+1. **Single registered generation pass**
+   - PRIMARY base = `registration/MAIN_HERO_REGISTRATION_4X4.png`
+   - full hero remains visible as registration context
+   - generate exactly one viewer-right held object per hero
+   - generation owns identity, approximate body-relative scale, broad orientation, approximate grip placement, silhouette/style, and continuous usable grip geometry
+   - approximate grip center X=360, Y=344 per 480×640 cell; principal handle axis ~75° from horizontal
+2. **No normal AI Stage B**
+   - historical validation found generative cleanup worse for held-object geometry/registration
+3. **Illustrator**
+   - isolate/trace selected object
+   - straighten/reconstruct hidden handle sections as needed
+   - overlay canonical right-hand/finger artwork
+   - precise scale/rotation/X/Y registration and vector cleanup
+
+A passing single registered generation is the completed RIGHT ARM AI-generation deliverable and may be marked `CATEGORY: COMPLETE` for the AI pipeline, ready for Illustrator. Do not invent HATS-style isolation or LEFT ARM zero-contact behavior.
 
 ## LEFT ARM — LOCKED V3
 
@@ -109,4 +124,4 @@ Neither classification changes orchestration: an intermediate PASS remains `CATE
 
 ## Core rule
 
-**Never confuse a good intermediate result with a finished category. Follow the validated stage graph to its final deliverable gate.**
+**Never confuse a good intermediate result with a finished category. Follow the validated category-specific stage graph to its final deliverable gate.**
