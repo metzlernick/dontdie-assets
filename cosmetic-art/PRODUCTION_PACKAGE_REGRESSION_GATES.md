@@ -14,11 +14,27 @@ The validated category system was not obeyed or failed structurally: wrong/missi
 A SYSTEM FAIL may justify changing reusable infrastructure only after a concrete system cause is identified.
 
 ### BRIEF FAIL
-The category system is behaving correctly but a row misses an explicit cosmetic constraint: direction/tilt, orientation, visible surface, count, color, symbol, required feature, relative position, or row identity detail.
+The category system is behaving correctly but a row misses an explicit cosmetic constraint: direction/tilt, orientation, visible surface, count, color, symbol, required feature, relative position, scale, or row identity detail.
 
 A BRIEF FAIL never justifies reopening category architecture. Preserve the validated workflow and fix only the smallest brief-preservation/adherence issue.
 
 If uncertain, make no architecture change until evidence establishes a SYSTEM FAIL.
+
+## Freeze-passing-controls rule — mandatory
+
+Once a row/control passes inside a multi-row regression, a local BRIEF FAIL elsewhere must not expose that passing row/control to unnecessary new generative variance.
+
+For the next regression:
+- freeze already-passing controls as the accepted baseline;
+- isolate only the failed row/cells whenever technically practical;
+- change only the brief/constraint that failed;
+- keep category side, registration, controller, stage architecture, scale regime, and other passing behavior unchanged;
+- if the local test passes, merge the corrected row/cells back into the accepted baseline deterministically when needed;
+- do not regenerate all rows merely for convenience.
+
+Regenerating passing controls is allowed only when the hypothesis is explicitly category-wide/system-level and those controls are required to test it.
+
+If a supposedly local BRIEF correction causes previously passing system behavior to regress—wrong hand/side, broken registration, contact behavior, stage behavior, etc.—classify the attempt as a **SYSTEM FAIL of the regression strategy**, reject that attempt, and return to the last accepted baseline. Do not reinterpret the category architecture from the failed rerun.
 
 ## Universal packaging conditions
 
@@ -71,7 +87,9 @@ Portable dependencies currently exist in the repo: `HATS_PLACEMENT_REFERENCE.png
 
 Evaluate RIGHT ARM only against its validated held-object workflow: body-relative scale, broad orientation, continuous usable grip geometry, canonical placement reference, with final exact canonical hand overlay/registration in Illustrator.
 
-Portable dependencies currently exist: `RIGHT_ARM_PLACEMENT_REFERENCE.png`, `RIGHT_ARM_REFERENCE.png`, `MASTER_CHARACTER_REFERENCE.png`, and approved right-arm art. No concrete packaging discrepancy was found in this audit. Fresh-agent regression remains to be rerun.
+Portable dependencies currently exist: `RIGHT_ARM_PLACEMENT_REFERENCE.png`, `RIGHT_ARM_REFERENCE.png`, `MASTER_CHARACTER_REFERENCE.png`, and approved right-arm art.
+
+For a local RIGHT ARM BRIEF FAIL, freeze passing rows and rerun only the failed row/cells. Do not regenerate passing rows. Wrong-hand/side behavior introduced by a local correction is a regression-strategy SYSTEM FAIL, not evidence against the previously passing baseline.
 
 ## ARMOR / OUTFITS audit gate
 
