@@ -1,198 +1,38 @@
-DON'T DIE COSMETIC ART — REPEATABLE PRODUCTION SESSION STARTER
+DON'T DIE COSMETIC ART — PRODUCTION SESSION STARTER
 
 SOURCE OF TRUTH:
 https://github.com/metzlernick/dontdie-assets/tree/main/cosmetic-art
 
-MANDATORY ORCHESTRATION:
-Before packaging, generation, or evaluation, read `PRODUCTION_STAGE_ORCHESTRATION.md`.
-The agent—not the user—owns pipeline state. Always resolve:
-CATEGORY → CURRENT STAGE → CURRENT-STAGE ACCEPTANCE → NEXT REQUIRED STAGE → FINAL DELIVERABLE GATE.
-An intermediate stage PASS does not mean category COMPLETE when another validated stage remains.
-If a stage passes and another user-run generation is required, provide one complete ZIP for that next stage automatically. Never make the user remember stage sequences or coordinate between chats.
+USER INPUT:
+CATEGORY: HATS | RIGHT ARM | LEFT ARM | ARMOR / OUTFITS | ACCESSORIES
+BRIEF: one cosmetic brief
 
-GENERATION UPLOAD ZIP STANDARD:
-Read `00_GENERATION_UPLOAD_ZIP_STANDARD.md` before packaging any user-facing generation ZIP.
-Every generation ZIP must be FLAT: no subfolders.
-It must contain exactly the files the user should Ctrl+A and upload to the generation chat, and nothing else.
-Do not include audit-only files, package checks, workflow docs, provenance copies, checksums, unused references, or portability-library material in the user-facing generation ZIP.
+UNIVERSAL UNIT:
+ONE BRIEF → FOUR VARIANTS → ONE 4×1 STRIP.
+Historical 4×4 files remain valid source/reference material only.
 
-GENERIC IMAGE-GENERATION FAILURE FALLBACK:
-A generic backend/tool failure after successful submission is not evidence that the validated package or category architecture is wrong.
-For a multi-row 4×4 edit/isolation job:
-1. Retry the same valid 4×4 package once.
-2. If the same generic backend failure repeats, split execution into independent 4×1 row operations while preserving the exact same stage semantics.
-3. After the rows pass, the agent recombines them and performs the normal deterministic registration/restoration step.
-4. Do not redesign the workflow merely because the backend is temporarily less reliable on the 4×4 request.
-RIGHT ARM Stage-B fishing-rod isolation has validated this fallback: isolation can PASS even when the generated row is presentation-enlarged; retain the isolated art and restore scale/X/Y deterministically from Stage A.
+BEFORE PACKAGING:
+Read current FRESH_AGENT_PRODUCTION_HANDOFF.md, PRODUCTION_STAGE_ORCHESTRATION.md, applicable category workflow, 00_GENERATION_UPLOAD_ZIP_STANDARD.md, GENERATION_EXECUTION_CONTRACT.md, and PRODUCTION_PACKAGE_REGRESSION_GATES.md.
 
-Before generation, freshly review:
-- current DONT_DIE_COSMETIC_ART_SPEC.md
-- REPEATABLE_PRODUCTION_WORKFLOW.md
-- PRODUCTION_STAGE_ORCHESTRATION.md
-- templates/MAIN HERO.svg
-- templates/Character Master Template.svg
-- relevant reference-pack files
-- relevant approved-art category
-- especially similar approved cosmetics
+ZIP RULE:
+Every user-facing generation ZIP is flat and contains exactly what the user should Ctrl+A upload. No subfolders, README, checksums, package checks, audit files, or unused references.
 
-CATEGORY OVERRIDE — HATS
-HATS uses its validated registration/isolation approach.
-A full-character sheet with hats worn on the hero is Stage A registration artwork, not the final category deliverable.
-After Stage A passes, continue through the validated HATS foreground-only isolation step and deterministic registration restoration.
-HATS is COMPLETE only after the final isolated deliverable contains the intended foreground hat/head cosmetic artwork without hero/body/cape/pedestal/context while preserving approved Stage-A identity, scale, orientation, and registration.
-Do not reconstruct hat geometry that belongs behind the head layer.
+CATEGORY STAGES:
+HATS: 4×1 Stage A → foreground-only Stage B → deterministic registration → Illustrator.
+RIGHT ARM: 4×1 Stage A → Stage B isolation/minimal hidden grip → deterministic registration → Illustrator.
+LEFT ARM: 4×1 zero-contact Stage A → Illustrator; no AI Stage B.
+ARMOR: cape preflight → 4×1 validated clean-room Stage A → optional A.5 → 4×1 destructive Stage B → deterministic registration → Illustrator.
+FACE ACCESSORIES: 4×1 faint-substrate Stage A → deterministic extraction → Illustrator; no generative Stage B.
+NON-FACE ACCESSORIES: use only a validated location-specific workflow.
 
-CATEGORY OVERRIDE — RIGHT ARM
-RIGHT ARM architecture is locked:
-Stage A held-object generation on canonical hero
-→ Stage B isolation + minimal hidden-grip reconstruction
-→ deterministic scale/X/Y registration restoration
-→ final isolated asset.
+ARMOR CAPE PREFLIGHT:
+If cape state is not stated or unambiguous, ASK whether the outfit should have a cape before Stage A. If KEEP, Stage A designs/styles the cape as part of the outfit. Stage B never restyles it.
 
-Stage A owns identity, body-relative scale, broad orientation, and held-object geometry.
-Stage B removes hero/head/hair/body/hands/cape/pedestal/context and reconstructs only the minimum handle/grip segment hidden by the fist. No hand-shaped holes, skin/glove pixels, or redesign outside the former hand overlap.
-Raw Stage-B presentation enlargement or X/Y drift does not by itself fail faithful isolation. Stage A remains scale/X/Y authority; Stage B is isolated-art/complete-handle authority. Restore deterministically using uniform scale + translation only.
-Long/thin items such as fishing rods keep their legitimate Stage-A extent rather than being normalized to compact weapon sizes.
-RIGHT ARM is not COMPLETE until isolation and deterministic restoration are done.
+LEFT ARM SCALE:
+Use a 4×1 crop of the historical V3 exemplar controller. The tiny screen-left exemplar is a literal footprint constraint. Fit the requested cosmetic inside approximately that footprint. Delete detail before enlarging.
 
-CATEGORY OVERRIDE — LEFT ARM
-If the requested category is LEFT ARM, MUST ALSO read:
-- LEFT_ARM_ZERO_CONTACT_WORKFLOW.md
-- LEFT_ARM_4X4_PRODUCTION_CONTROLLER.md
-- LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt
-- reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4_V3.png
+FAILURE CONTROL:
+Classify SYSTEM FAIL vs BRIEF FAIL before modifying anything. Freeze passing controls. Do not redesign validated architecture for a local brief miss or a generic backend error.
 
-Those files are the current category-specific authority wherever older general documentation conflicts.
-
-LEFT ARM PRODUCTION ARCHITECTURE IS LOCKED:
-- one generation pass for up to four current briefs
-- 2400×2560 sheet; 4×4; 600×640 logical cells
-- V3 finished cosmetic exemplar is the visual scale/style authority
-- hero context screen-right; complete cosmetic screen-left
-- clean white zero-contact separation
-- no generated grip, hidden geometry, or AI reconstruction pass
-- current approved Regression A scale class is valid; exemplar is not a literal maximum bounding box
-- production priority: VALIDATED V3 SCALE/LOCATION → SIMPLIFY DETAIL → EXACT IDENTITY → POSE/DESIGN/VARIATION
-- real-world size and comparison-asset size do not override production scale
-- approved references may control palette/design language/silhouette vocabulary, but not generation scale
-- passing zero-contact Stage A proceeds directly to Illustrator; DO NOT invent Stage B
-
-MANDATORY CONFLICT GATE — LEFT ARM
-Before creating any LEFT ARM production package, compare every user instruction against the locked controller.
-
-If the user asks for or implies a change to scale, exemplar authority, hero placement, zero-contact, sheet geometry, detail hierarchy, grip/hand interaction, or reconstruction workflow:
-1. STOP before producing files.
-2. Explain the exact conflict and likely failure mode.
-3. Offer a safe rewording that preserves the design intent without modifying the canonical production system.
-4. Proceed only after the brief is non-conflicting.
-
-PROMPT-CONSTRUCTION LOCK — LEFT ARM
-For normal production, use LEFT_ARM_PRODUCTION_PROMPT_TEMPLATE.txt exactly as the invariant production body.
-Only the ROW_1 through ROW_4 brief slots may change.
-
-CATEGORY OVERRIDE — ARMOR / OUTFITS
-If the requested category is ARMOR / OUTFITS, MUST ALSO read:
-- ARMOR_OUTFIT_PRODUCTION_WORKFLOW.md
-- ARMOR_STAGE_B_DETERMINISTIC_REGISTRATION.md
-- current canonical-derived hero geometry/substrate reference
-- current canonical hand reference
-- current viewer-left arm-chain reference
-
-ARMOR / OUTFIT PRODUCTION ARCHITECTURE IS LOCKED AND COMPLETE:
-
-Initial briefs + cape manifest
-→ Stage A
-→ optional Stage A.5 cape correction
-→ Stage B destructive isolation using the same manifest
-→ deterministic per-cell registration restoration
-→ Illustrator
-
-Stage A PASS = category IN PROGRESS.
-Stage B PASS = category IN PROGRESS.
-Only deterministic registration reaching its final gate makes the production deliverable ready for Illustrator.
-
-STAGE A RULES:
-- use canonical-derived geometry/hand/arm references plus current text briefs
-- preserve near-canonical body proportions, pose, both arm chains, feet, and hand scale
-- Don't Die hands = THREE FINGERS + ONE THUMB = FOUR TOTAL DIGITS
-- never add a fifth digit or rogue lower knuckle/finger
-- default to simple flat canonical-hero-like rendering: large color regions, low color count, restrained interior lines, minimal micro-detail
-- pixel/8-bit/heavily geometric rows should be placed last when possible
-- old generated dressed-character calibration sheets are NOT geometry authorities
-
-DESIGN-ONLY EXCEPTION:
-If the user explicitly wants an already-approved outfit idea reused, a prior approved sheet may be included only as a clearly labeled DESIGN-ONLY reference.
-It may guide identity/palette/material distribution/silhouette family, but NEVER anatomy, registration, hand geometry, scale, or body proportions.
-For simplification passes, preserve the approved idea while removing secondary detail and colors rather than redesigning it.
-
-CAPE MANIFEST — MANDATORY:
-Every armor batch carries explicit row metadata from the initial brief:
-- KEEP = intended cape remains
-- NONE = row is capeless; Stage B removes rear cape/context mass rather than guessing visually
-- RESTYLE = use localized Stage A.5 cape redesign before Stage B
-
-The user should NOT need to restate cape state at Stage B.
-The same manifest travels downstream.
-
-OPTIONAL STAGE A.5:
-Use only when Stage A visually disagrees with cape metadata or RESTYLE is requested.
-It changes cape state only; it is not a general outfit-redesign or registration pass.
-
-STAGE B — DESTRUCTIVE ISOLATION ONLY:
-- use approved Stage A directly, or approved A.5 if used
-- image = literal outfit artwork authority
-- manifest = cape-ownership authority
-- remove head/face/hair/ears/exposed non-outfit hero anatomy/context
-- remove ALL headwear when body outfit only is requested
-- remove the ENTIRE wooden pedestal/platform in every cell
-- former pedestal area remains white; NEVER reconstruct hidden feet/boots/peg geometry into it
-- rows marked NONE contain no cape/rear-cloak mass
-- rows marked KEEP retain their approved cape
-- preserve only visibly existing approved outfit art
-- preserve structural outfit features such as requested peg legs
-- NEVER complete hidden collars, necklines, sleeves, capes, boots, wraps, or peg geometry
-- newly exposed regions remain white
-- treat cells independently; no semantic borrowing
-
-STAGE B ACCEPTANCE:
-PASS only if:
-- outfit identities/hands remain faithful
-- cape state matches manifest
-- pedestal is completely absent in all 16 cells
-- no hidden geometry was reconstructed
-- no cross-row contamination
-
-Raw Stage-B scale/X/Y drift does NOT fail isolation by itself. Do not regenerate merely to chase registration drift.
-
-DETERMINISTIC REGISTRATION — MANDATORY AFTER STAGE B:
-- Stage A/A.5 = coordinate and scale authority
-- Stage B = artwork/isolation authority
-- solve every logical cell independently
-- uniform scale + X/Y translation only
-- no rotation, non-uniform stretch, warp, redraw, inpainting, or semantic changes
-- raw download dimensions may differ slightly from Stage A; do not trust them as canonical
-- rebuild final sheet EXACTLY 1920×2560 with EXACT 480×640 cells
-- whole-sheet resize is NOT a substitute for per-cell restoration
-
-CATEGORY OVERRIDE — FACE ACCESSORIES
-FACE architecture is:
-Stage A on ~6% faint literal canonical substrate → deterministic faint-substrate extraction → Illustrator.
-Stage A PASS = category IN PROGRESS. There is no generative Stage B. Only deterministic extraction reaching its final gate makes the deliverable ready for Illustrator.
-
-DO NOT USE:
-- post-isolation generative Stage B.5 for armor
-- visual guessing of cape ownership
-- approximate flattened color/spatial cape masks as the general armor solution
-- hidden geometry reconstruction
-- prompt counter-bias to compensate for Stage-B drift
-- repeated Stage-B regeneration just to fix scale/X/Y
-- cross-category inference of stage sequences
-
-After source review:
-- state CURRENT STAGE and CATEGORY STATUS
-- run the applicable category conflict/compliance gate
-- sanitize current row briefs without changing intent
-- use the locked category workflow
-- verify canonical production invariants remain unchanged
-- deliver the production package for the current required stage
-- after a returned result, evaluate the current stage, then automatically continue to the next required stage until the final deliverable gate is reached.
+AGENT RESPONSIBILITY:
+Retrieve repo assets, build finished ZIPs, track stages, perform deterministic transforms/compositing when possible, and return finished outputs. The user should not manually edit workflow files or assemble packages.
