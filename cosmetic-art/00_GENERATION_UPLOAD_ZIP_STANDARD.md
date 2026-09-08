@@ -1,8 +1,33 @@
 # Don't Die Cosmetic Art — Generation Upload ZIP Standard
 
-**Status: MANDATORY cross-category packaging authority.**
+**Status: MANDATORY cross-category packaging and generation-unit authority.**
 
-This rule applies whenever the agent creates a ZIP that the user will upload into a fresh image-generation chat.
+## Primary production unit: 4×1
+
+All new cosmetic image-generation jobs default to **one cosmetic brief → four variants → one 4×1 horizontal strip**.
+
+The former 4×4 multi-brief generation format is retired as the default production unit. Do not combine four unrelated cosmetic briefs into one generation merely to fill a 4×4 sheet.
+
+Reasons:
+- lower generation/edit complexity;
+- reduced cross-row semantic contamination;
+- fewer generic backend failures;
+- easier BRIEF FAIL correction without regenerating passing cosmetics;
+- cleaner Stage-B isolation/reconstruction;
+- one brief remains the sole semantic target of each generation.
+
+A category workflow may still have Stage A, Stage B, deterministic registration, extraction, or other validated stages. Changing the canvas unit to 4×1 does **not** remove those category-specific stages.
+
+## Variable batch counts
+
+The user may produce fewer than four cosmetics before a downstream isolation/reconstruction pass.
+
+- One cosmetic = one 4×1 strip.
+- Multiple approved strips may be processed independently or assembled for a downstream operation when useful.
+- Never invent filler cosmetics merely to reach four rows.
+- If a combined downstream sheet contains fewer than four strips, either crop the page height to the used rows or leave unused lower rows completely blank. Choose whichever is technically cleaner for that stage.
+- Never duplicate a passing row as filler.
+- Final deterministic assembly may use only the number of rows actually supplied.
 
 ## User-facing ZIP contract
 
@@ -10,66 +35,55 @@ The user uploads **everything in the ZIP** with Ctrl+A / drag-and-drop. Therefor
 
 ### Hard rules
 
-1. **FLAT ZIP ONLY.** Never put files in subfolders. No `GENERATION_INPUT/`, reference-pack folder, audit folder, nested package, or other directory inside a user-upload generation ZIP.
-2. **MINIMAL CONTENTS ONLY.** Include exactly the files that must be uploaded for the current generation stage. Do not include files merely because they are useful for audit, portability, provenance, or pipeline bookkeeping.
-3. `00_GENERATION_PROMPT.txt` is required for a generation ZIP unless the validated stage explicitly uses another instruction mechanism.
-4. Include only the active visual input(s) required by the validated category/stage workflow.
-5. `00_REFERENCE_ROLES.txt` is included only when the generation model genuinely needs role disambiguation among multiple active visuals. If there is one unambiguous visual input, omit it unless the validated workflow explicitly requires it.
-6. `00_INPUT_ORDER.txt` is included only when multiple active visuals must be supplied in a specific order and the file is genuinely needed by the generation chat. Do not include it as generic metadata.
-7. Include manifests only when they are active semantic input required by that generation stage (for example, a required cape manifest). Do not include generic manifests/checks.
-8. **NEVER include** `PACKAGE_CHECK.json`, SHA/integrity reports, README files, regression reports, transform logs, source-history copies, workflow documentation, portability libraries, or other audit-only material in a generation-upload ZIP.
-9. Audit/provenance/integrity information may be retained by the agent separately, committed to the repo when appropriate, or included in a separate final/archive package only if the user asks. It does not belong in the upload ZIP.
-10. If a reference is not supposed to be an active image-generation input, it must not be in the upload ZIP.
-11. The ZIP root is the upload set. There is no distinction between 'files in the ZIP' and 'files the user should upload.'
+1. **FLAT ZIP ONLY.** Never put files in subfolders.
+2. **MINIMAL CONTENTS ONLY.** Include exactly the files required by the current generation stage.
+3. `00_GENERATION_PROMPT.txt` is required unless the validated stage explicitly uses another instruction mechanism.
+4. Include only active visual inputs required by the validated category/stage workflow.
+5. `00_REFERENCE_ROLES.txt` only when multiple active visuals genuinely need role disambiguation.
+6. `00_INPUT_ORDER.txt` only when multiple active visuals require non-obvious ordering.
+7. Include manifests only when they are active semantic inputs required by that generation stage.
+8. **NEVER include** package checks, SHA reports, README files, regression reports, transform logs, source-history copies, workflow documentation, portability libraries, or audit-only material.
+9. If a reference is not supposed to be an active generation input, it must not be in the ZIP.
+10. The ZIP root is the complete upload set.
 
-## Default package shapes
+## Default package shape
 
-### One active visual
-Normally exactly:
+For a normal one-brief 4×1 job with one active visual:
 - `00_GENERATION_PROMPT.txt`
 - `01_<DESCRIPTIVE_SOURCE>.png`
 
-### Multiple active visuals
-Normally:
-- `00_GENERATION_PROMPT.txt`
-- required active visual files in explicit numeric order
-- `00_REFERENCE_ROLES.txt` only when needed to prevent authority ambiguity
-- `00_INPUT_ORDER.txt` only when needed to preserve non-obvious ordering
-- any stage-specific semantic manifest only if generation actually consumes it
+Add other files only when genuinely required by the validated stage.
 
-All files remain at ZIP root.
+## Stage-B / reconstruction rule
 
-## Generic image-generation backend failure fallback
+Stage B also defaults to 4×1. Process each approved Stage-A cosmetic strip independently whenever possible. This prevents one cosmetic's semantics from contaminating another.
 
-A generic backend/tool failure after a valid package was successfully submitted is not evidence that the ZIP contents or category architecture are wrong.
+If several 4×1 strips are intentionally combined for one downstream pass:
+- each strip remains semantically independent;
+- use only supplied rows;
+- unused lower space is blank or omitted by reducing canvas height;
+- deterministic registration/reassembly remains the agent's responsibility after generative isolation where applicable.
 
-For multi-row 4×4 **edit/isolation** stages:
+## Historical 4×4 compatibility
 
-1. Retry the same valid flat 4×4 package once.
-2. If the same generic backend failure repeats with no input-specific reason, reduce execution complexity only: split the source into independent **4×1 row jobs**.
-3. Each 4×1 ZIP remains flat and minimal, normally only the row-specific `00_GENERATION_PROMPT.txt` plus that row source image.
-4. Preserve the same stage semantics; do not simplify or redesign the category workflow merely to fit the fallback.
-5. After all row jobs pass, the agent recombines them and performs any normal downstream deterministic scale/registration restoration itself.
-6. The user must not manually composite the rows.
+Existing validated 4×4 assets remain usable as historical sources and controls. They do not need to be regenerated solely because production has moved to 4×1.
 
-This fallback is an execution-reliability workaround, not a new category architecture. It has been validated on RIGHT ARM Stage-B isolation: a 4×1 fishing-rod isolation succeeded after repeated generic 4×4 backend failures. Raw presentation enlargement was accepted as normal Stage-B drift and is corrected deterministically from Stage A.
+When a historical 4×4 source must undergo a new generative edit/isolation, prefer splitting it into four 4×1 jobs first rather than sending the full 4×4 edit.
 
 ## Relationship to portability/reference kits
 
-`DONT_DIE_COSMETIC_PRODUCTION_REFERENCES.zip` is a session-level portability library and is **not** a normal per-generation upload ZIP. The agent may use it to obtain canonical dependencies, but must extract/select only the exact active files required for the current generation stage when creating the user's batch ZIP.
-
-Older documentation that describes putting portability/audit material outside `GENERATION_INPUT/` inside the same user ZIP is superseded for user-facing generation packages by this standard.
+`DONT_DIE_COSMETIC_PRODUCTION_REFERENCES.zip` is a session-level portability library, not a normal generation upload ZIP. Select only the exact active files required for the current 4×1 generation stage.
 
 ## Agent responsibility
 
-The agent decides what the generation invocation actually requires, creates the finished flat ZIP, and gives the user that single ZIP. The user must not be asked to open the ZIP, choose a subset, navigate subfolders, remove metadata, rename files, or manually reconstruct the upload set.
+The agent creates the finished flat upload ZIP. The user must not be asked to open the ZIP, choose a subset, navigate subfolders, remove metadata, rename files, or manually reconstruct the upload set.
 
-Before presenting any generation ZIP, perform this gate:
+Before presenting any generation ZIP, verify:
 
-> If the user Ctrl+A uploads every file at ZIP root, will the generation chat receive exactly and only the intended active inputs?
+> If the user Ctrl+A uploads every file at ZIP root, will generation receive exactly and only the intended active inputs?
 
-If NO, rebuild the ZIP before giving it to the user.
+If NO, rebuild it.
 
 ## Core rule
 
-**Every user-facing generation ZIP is flat, minimal, and directly uploadable in full. Generic 4×4 backend failures are handled by a 4×1 execution fallback without changing validated category architecture.**
+**One brief → four variants → one 4×1 strip. User-facing ZIPs are flat, minimal, and directly uploadable in full. Fewer-than-four-strip downstream batches use only the supplied rows; no filler is invented.**
