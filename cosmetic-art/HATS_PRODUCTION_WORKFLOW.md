@@ -1,82 +1,116 @@
 # Don't Die Cosmetic Art — HATS Production Workflow
 
-**Status: VALIDATED / ACTIVE**
+**Status: VALIDATED / LOCKED**
 
-This active workflow promotes the historically successful v6.7 registration stage and v6.8 extraction stage from calibration into production authority. It does not invent a new HATS architecture.
+This active workflow incorporates the validated HATS production result and the final game-layering correction.
 
-## Architecture
+## Final architecture
 
-**Stage A exact MAIN HERO edit → Stage B HAT-only extraction/cleanup → Illustrator**
+**Stage A registered hat generation at approved equipped-hat scale → Stage B foreground-only destructive isolation → deterministic per-cell registration restoration → Illustrator**
 
-A Stage-A pass is not a completed HATS deliverable.
+A Stage-A or Stage-B pass alone is not a completed HATS deliverable.
 
-## Stage A — exact registered hat generation
-
-Validated historical authority: v6.7 exact MAIN HERO edit behavior.
+## Stage A — registered hat generation
 
 - logical sheet: 1920×2560
 - 4×4
 - 480×640 logical cells
-- four concepts × four variations
-- use the exact canonical MAIN HERO 4×4 edit base
-- this is image editing, not character generation
-- MAIN HERO pixels are immutable except where newly added hat pixels naturally cover them
-- add cosmetic pixels only
-- preserve successful head-relative scale, position, foreground-over-hair behavior, bold black stroke, hard-edged flat fills, and moderate variation
-- no grid, labels, borders, dots, texture, painterly shading, or presentation centering
+- four concepts × four moderate variations
+- canonical MAIN HERO remains visible as registration context
+- hat is generated at final head-relative production scale/position
+- hats may naturally overlap/cover hair
+- no grid, labels, borders, texture, painterly shading, cast shadow, or presentation centering
+
+### Stage-A scale authority
+
+The equipped approved HAT art and `reference-sheets/HATS_PLACEMENT_REFERENCE.png` define the production scale regime relative to the canonical hero head.
+
+Do not infer scale from real-world object size or empty canvas space. Broad/tall/chunky concepts may differ naturally in silhouette, but remain plausible beside existing equipped approved hats. Simplify detail before increasing visual mass outside that regime.
 
 Stage-A acceptance:
 - correct row identities and hard brief constraints
 - useful four-variation spread
 - correct head-relative scale/orientation/attachment
-- hats may overlap hair naturally
-- hero/context remains the registration base
+- no presentation-sized cosmetics
+- hero/context remains usable registration authority
 
-If the runtime cannot actually use the canonical base as an edit base, report a SYSTEM FAIL rather than silently substituting a newly generated character.
+## Stage B — foreground-only destructive isolation
 
-## Stage B — HAT-only extraction / cleanup
-
-Validated historical authority: v6.8 HAT extraction.
-
-This is **not new cosmetic generation**.
+This is an isolation/removal operation, not new cosmetic generation.
 
 Input:
 - approved Stage-A composite
 
-Extraction controller:
-- `archive-calibration/HAT_EXTRACTION_MASK_4X4.png`
-- canonical mask geometry per 480×640 cell: X=45–355, Y=25–325
+### Critical game-layering rule
 
-Objective:
-- preserve all 16 Stage-A hats at their existing coordinates, size, silhouette, stroke, colors, and design details
-- remove MAIN HERO, pedestal/base, body, face, hair, clothing, weapons, and every other non-hat character/context pixel
-- final background pure white
+The final HAT cosmetic is rendered **above the character HEAD layer in-game**.
 
-Outside white mask regions: pure white.
-Inside white mask regions: retain only the existing HAT cosmetic pixels; remove registration character art and restore removed areas to white.
+Therefore Stage B keeps only cosmetic geometry that should be visible **in front of/on top of the hero head or hair** in Stage A.
 
-Stage B must NOT:
-- regenerate or reinterpret hats
-- redesign or improve hats
-- move, resize, rotate, recenter, recolor, simplify, or change stroke width
-- invent new variation details
+Any cosmetic geometry whose correct visual layer is behind the hero head/hair is omitted from the final isolated asset and must NOT be reconstructed.
 
-## Stage-B acceptance
+Examples:
+- cat headphones: a far/rear ear cup or rear headband segment hidden behind the head stays absent
+- rear brim/band/strap/petal surfaces hidden behind the head stay absent
+- removing the hero may create white gaps; those gaps are correct
 
-Overlay the cleaned output on the pre-cleanup composite. Hat artwork must register to the approved Stage-A hats in X/Y, scale, and silhouette. Only the MAIN HERO/context should disappear.
+Do not turn a partially occluded worn cosmetic into a complete freestanding object.
 
-Raw image-model export dimensions are not trusted as canonical. If a Stage-A download arrives at another raster size while preserving the logical 4×4 composition, normalize the full sheet proportionally to 1920×2560 before the extraction stage; do not alter cells independently or change relative geometry.
+Stage B removes:
+- hero head/face/hair/ears
+- body/cape/hands/clothing/boots
+- pedestal
+- all other character/context artwork
+
+Final background is pure white.
+
+Stage B must not intentionally redesign, improve, recenter, or presentation-size the hats. However, generative isolation has been empirically observed to drift scale/X/Y, so Stage B is treated as **artwork + foreground-occlusion authority**, not final coordinate authority.
+
+Stage-B acceptance:
+- correct foreground-only layering behavior
+- no behind-head reconstruction
+- hero/context removed
+- cosmetic identity/silhouette/colors remain usable
+
+Scale/X/Y drift by itself is corrected downstream rather than accepted as final registration.
+
+## Deterministic per-cell registration restoration — mandatory
+
+Authority split:
+- **Stage A = coordinate + scale + broad rotation authority**
+- **Stage B = isolated foreground cosmetic artwork + occlusion authority**
+
+For every logical cell, restore the Stage-B foreground cosmetic to the approved Stage-A production position using deterministic transforms only:
+- uniform scale
+- X translation
+- Y translation
+
+Do NOT:
+- rotate unless the validated Stage-A/Stage-B comparison explicitly requires preservation of an existing rotation and the transform is deterministic
+- warp/stretch non-uniformly
+- redraw/regenerate
+- reconstruct hidden behind-head geometry
+- alter colors/details
+- make the cosmetic more complete
+
+Rebuild the final sheet at exactly 1920×2560 with exact 480×640 logical cells.
+
+A raw model export dimension is not registration authority. Normalize whole-sheet raster dimensions when necessary before solving cells; preserve logical geometry.
 
 ## Final HATS gate
 
 HATS is COMPLETE only when:
-- 16 isolated hat/head cosmetics remain
+- 16 foreground-only hat/head-layer cosmetics remain
 - pure white background
 - no hero/body/cape/pedestal/context remains
-- Stage-A hat identity/scale/orientation/registration is preserved
+- no behind-head geometry has been reconstructed
+- approved Stage-A head-relative scale and registration have been restored
+- Stage-B visible cosmetic identity/occlusion has been preserved
 
 Then proceed to Illustrator / Image Trace cleanup.
 
-## Orchestration rule
+## Locked regression lesson
 
-After Stage A passes, automatically package Stage B using the approved Stage-A result + HAT extraction mask + locked extraction instructions. Do not ask the user to rediscover files, do not move to another category, and do not declare HATS complete before Stage B passes.
+A clean isolated sheet can still fail if Stage B enlarges/recenters the hats. Isolation cleanliness and registration are separate gates. Deterministic registration restoration is mandatory after generative Stage B.
+
+The validated control established that Stage A can achieve approved equipped-hat scale, Stage B can achieve foreground-only layering, and deterministic restoration can return the isolated foreground cosmetics to correct Stage-A scale/location.
