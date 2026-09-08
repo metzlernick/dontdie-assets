@@ -1,124 +1,69 @@
-DON'T DIE — LEFT ARM LOCKED V3 PRODUCTION TEMPLATE
+DON'T DIE — LEFT ARM V3 — 4×1 PRODUCTION TEMPLATE
 
-IMPORTANT:
-This template is production infrastructure. Only the four ROW brief slots may change during normal production. Do not add row-specific scale exceptions or alter the invariant rules below.
+Generate exactly FOUR variants of ONE cosmetic.
 
-ACTIVE VISUAL AUTHORITY
+COSMETIC BRIEF:
+{{COSMETIC_BRIEF}}
 
-PRIMARY_CANVAS_AUTHORITY = `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4_V3.png`
+PRIMARY VISUAL AUTHORITY
+01_LEFT_ARM_V3_CONTROLLER_4X1.png
 
-This exact V3 image is the highest visual authority for LEFT ARM canvas composition, hero/cosmetic relationship, cosmetic location, cosmetic visual mass, and ZERO-CONTACT behavior. Do not substitute any generic MAIN HERO, approved-art image, older exemplar, or prose description for it.
-
-All approved art supplied for a row is DESIGN_ONLY unless explicitly stated otherwise. DESIGN_ONLY references may guide palette, material, theme, silhouette vocabulary, identity details, and non-scale proportions. They MUST NOT control canvas composition, hero clothing, hand pose, grip/contact, object scale, registration, or presentation size.
-
-ROW_1:
-{{ROW_1_BRIEF}}
-
-ROW_2:
-{{ROW_2_BRIEF}}
-
-ROW_3:
-{{ROW_3_BRIEF}}
-
-ROW_4:
-{{ROW_4_BRIEF}}
-
-BRIEF PRESERVATION — HARD CONSTRAINTS
-
-Treat every explicit user-specified directional, rotational, pose, visible-surface, count, color, attachment, relative-position, and required-feature statement inside a row brief as a HARD BRIEF CONSTRAINT.
-
-Brief sanitization may remove only wording that conflicts with locked LEFT ARM production invariants. It must NOT delete, generalize, weaken, paraphrase away, or convert a hard brief constraint into an optional variation detail.
-
-A hard brief constraint applies to ALL FOUR variations in that row unless the user explicitly says it may vary. Variation happens around the constraint, not instead of it.
-
-Examples of hard brief constraints include: tilts left/right, points up/down, top-left/bottom-right, hangs downward, palm faces viewer, exactly four, specific color, or a required symbol. If the wording is subtle (for example “slightly leftward”), preserve the direction clearly enough that it is visibly assessable in every variation.
-
-LOCKED PRODUCTION INVARIANTS
-
-Generate ONE 4×4 LEFT ARM production sheet in one image-generation pass.
-
-- 2400×2560 px
-- 4 columns × 4 rows
-- 600×640 logical cells
-- one brief per populated row
-- four moderately different variations per populated row
+OUTPUT
+- one horizontal 4×1 strip
+- 2400×640 logical canvas
+- four 600×640 cells
 - pure white background
-- no gutters or visible grid
-- preserve the V3 PRIMARY controller's canonical hero context/relationship
-- hero context on screen-right
-- complete cosmetic on screen-left
-- clean zero-contact separation
-- no generated grip/hand interaction
+- no gutters, labels, or visible grid
+- four moderately different variants of the SAME cosmetic
+
+V3 COMPOSITION LOCK
+- hero/context stays screen-right
+- complete cosmetic stays screen-left
+- clean white space between cosmetic and hero
+- ZERO CONTACT
+- no touching or overlap
+- no generated grip
 - no hidden geometry
-- no AI isolation/reconstruction pass
+- complete standalone cosmetic for later Illustrator placement
 
-FINISHED-EXEMPLAR SCALE AUTHORITY — V3
+ABSOLUTE COSMETIC FOOTPRINT LOCK — HIGHEST PRIORITY
+The tiny screen-left cosmetic visible in the controller is a LITERAL SPATIAL PLACEHOLDER.
 
-Use the exact PRIMARY controller `reference-sheets/LEFT_ARM_FINISHED_COSMETIC_EXEMPLAR_REFERENCE_4X4_V3.png`.
+Replace that placeholder with the requested cosmetic INSIDE APPROXIMATELY THE SAME WIDTH × HEIGHT FOOTPRINT.
 
-Each cell contains ONE extremely tiny contiguous neutral outlined finished-cosmetic exemplar on screen-left, approximately 14×19 px in the validated reference. Replace it with the assigned cosmetic. Do not reproduce exemplar geometry.
+The placeholder is intentionally extremely small relative to the hero. That tiny scale is REQUIRED.
 
-The exemplar is the ABSOLUTE FIRST-PRIORITY visual authority for final cosmetic visual mass. It is not merely a location marker. The replacement must remain in the same extremely tiny finished-art scale neighborhood relative to MAIN HERO and should match or undercut the exemplar's visual mass.
+The complete outer silhouette, including handles, blades, shield edges, hooks, flames, straps, tops, or other protrusions, must remain approximately inside the placeholder footprint.
 
-Semantic identity never authorizes enlargement. Do not scale a gauntlet, weapon, throwing star, purse, nunchuk, shield, bag, spatula, lantern, wearable, handheld object, creature, container, or any other cosmetic according to its normal real-world or readable-prop size.
+DO NOT expand the footprint because of real-world size, recognizability, complexity, orientation, semantic importance, or empty canvas.
 
-Do not enlarge because an approved reference is larger, empty space remains, details need room, or the brief uses words such as large/big/full-size/same size/similar scale. Existing approved art may guide palette, design language, silhouette vocabulary, material treatment, thematic family, and non-scale proportion cues only.
+If the requested design cannot retain all details inside the footprint: DELETE OR SIMPLIFY DETAILS. NEVER INCREASE SIZE.
 
-Do not reproduce detached reference-like artifacts. Unless explicitly identity-critical, do not add dots, beads, particles, connector marks, trails, or floating secondary shapes between cosmetic and hero.
+Any cosmetic substantially larger than the placeholder is a FAILED GENERATION.
 
-DETAIL MUST FOLLOW SCALE
+BRIEF PRESERVATION
+Treat explicit direction, tilt, pose, visible surface, count, color, attachment, relative position, and required symbols/features as hard constraints. Apply them to all four variants unless the user explicitly allows variation.
 
-Lock the extremely tiny production footprint first. Simplify until identity survives. If normal details do not fit, delete/simplify them. NEVER enlarge to preserve detail.
-
-Use few major shapes, sparse interior lines, few color regions, and no micro-decoration or texture-like detail.
-
-EXTREMELY TINY FINISHED-EXEMPLAR SCALE → REMOVE/SIMPLIFY DETAIL → EXACT IDENTITY → POSE/DESIGN → VARIATION.
-
-OBJECT-SHAPE BEHAVIOR
-
-- compact/simple: at or below exemplar visual mass
-- broad/chunky: simplify and compress rather than grow
-- long/thin/hanging: extra extent only by becoming proportionally narrower and remaining low-mass
-- creatures/character-like: strong miniature bias and simplified anatomy/face
-- bottles/containers/multi-part handheld: strong miniature bias and minimal secondary construction
-
-ROW IDENTITY / POSE
-
-Every cell in a populated row must remain the exact requested object type. Required features repeat in every applicable variation. Do not transfer features between rows or substitute generic fantasy defaults.
-
-Pose instructions are identity/design constraints, not scale permissions. Pose may change shape; pose may not increase scale. When a brief specifies a visible surface or orientation, verify that requested surface or direction is visibly present in every variation rather than substituting the object's default view.
-
-VARIATION
-
-Four useful but simple interpretations per populated row. Variation may not increase scale or complexity enough to violate the exemplar rule, and may not negate or weaken any hard brief constraint.
-
-ZERO-CONTACT — MANDATORY
-
-Every cosmetic must stay viewer-left/screen-left, remain separated from every hero pixel by clean white space, never touch/overlap hero/hand/cape/body/pedestal/shadow, remain complete and unobstructed, and contain standalone geometry for later Illustrator placement. The hero must not hold or interact with the cosmetic during generation.
-
-If any active DESIGN_ONLY reference depicts a held object, armor, gauntlet, hand, or normal-size standalone prop, ignore those properties. Do not copy its hand interaction, body context, pose, scale, or composition.
+DESIGN REFERENCES
+Any additional approved art is DESIGN_ONLY unless explicitly stated otherwise. It may control palette/material/theme/silhouette vocabulary only. It may NOT control canvas composition, hero pose/clothing, grip/contact, location, or production scale.
 
 STYLE
+- flat vector-like Don't Die cartoon style
+- bold true-black rounded outer contour
+- sparse interior linework
+- hard-edged solid colors
+- very low detail
+- no cast shadow
+- no texture/noise/painterly rendering
+- no gradients unless explicitly permitted by the brief
 
-Match approved Don't Die production art: flat vector-like cartoon; bold smooth true-black outer contour; rounded joins/caps; sparse interior linework; hard-edged colors; extremely low detail; no cosmetic cast shadow, texture/noise, or painterly rendering; no gradients unless explicitly requested and not scale-inducing; Illustrator/Image-Trace friendly. Explicit brief features such as unoutlined energy effects may override the outline rule locally.
+FINAL GATE
+1. four variants of the requested cosmetic
+2. complete silhouette respects the tiny placeholder footprint
+3. hero screen-right, cosmetic screen-left
+4. zero contact
+5. no grip/hidden geometry
+6. hard brief constraints remain visible
+7. scale wins over detail
 
-FINAL CHECK
-
-Before generation verify:
-- exact V3 PRIMARY controller is active;
-- every other visual reference is role-labeled and subordinate;
-- only row identity/design content changed;
-- no row brief became a controller exception;
-- every explicit hard brief constraint is still present and visibly assessable in ALL FOUR variations of its row;
-- all rows obey the same extremely tiny exemplar;
-- semantic identity did not enlarge any object;
-- requested orientation/surface/direction is correct in all four applicable variations;
-- zero-contact is clean;
-- hero does not hold any cosmetic;
-- approved design references did not alter hero clothing/hand/grip/scale/composition;
-- no detached exemplar-like artifacts were copied.
-
-IF SIZE AND DETAIL CONFLICT: KEEP THE SMALLER SIZE AND REMOVE THE DETAIL.
-IF UNSURE: SHRINK IT AND SIMPLIFY IT.
-
-Generate the single 4×4 sheet now.
+IF SIZE AND DETAIL CONFLICT: REMOVE DETAIL. NEVER ENLARGE.
