@@ -3,88 +3,66 @@
 **Status: VALIDATED / LOCKED for normal flat cosmetic raster-to-vector handoff.**
 
 ## Scope
-This workflow applies after the applicable category generation/isolation/registration stage has produced an approved raster ready for Illustrator.
-
-It applies to normal flat outlined cosmetics. Neon/glow/soft-effect cosmetics are excluded and require separate treatment because flat Image Trace cannot faithfully preserve raster glow behavior.
+This is the Illustrator production step after an approved normal flat outlined cosmetic raster has completed deterministic trace preparation. Neon/glow/soft-effect cosmetics remain excluded and require separate treatment.
 
 ## Validated downstream architecture
 
-**Approved raster → deterministic TRACE PREP V3 → Illustrator Image Trace baseline → Expand → manual vector cleanup/placement.**
+**Approved raster → deterministic trace prep → Illustrator one-sheet trace → Expand → scripted Pathfinder Divide → Expand Appearance → Ungroup → manual cleanup/placement.**
 
-The two downstream operations are treated as one production handoff:
+The agent owns deterministic trace preparation. The user owns Illustrator execution and selects exactly one trace-ready placed/raster image at a time.
 
-1. **TRACE PREP V3 — agent-owned, batchable.** The agent runs all eligible approved rasters through the deterministic preprocessing script in one batch whenever tools permit. The user should not manually preprocess files.
-2. **ILLUSTRATOR TRACE — user-owned, one image at a time.** The user selects exactly one trace-ready placed/raster image and runs `DONT_DIE_IMAGE_TRACE.jsx`.
+## Validated trace-prep correction
+The production trace-prep output must have a clean pure-white exterior and must not contain a dark-gray antialias fringe outside/along the black outline. Earlier V3/V4/V5 experiments exposed this failure mode. The validated correction is to collapse dark neutral fringe pixels in the exterior edge zone into the true black outline while keeping the exterior pure white and preserving interior color regions.
 
-Normal user experience: receive trace-ready files → place all in Illustrator → select one image → invoke trace script → inspect → repeat for next image.
+Do not add a second black rim. Do not globally quantize the artwork. Inspect the prepared raster before Image Trace when changing preprocessing.
 
-One-at-a-time tracing is intentionally preferred because Illustrator tracing is asynchronous and can be computationally heavy. This gives more reliable execution, immediate QC, and prevents a failed trace from being buried inside a multi-image batch. Each source sheet already contains multiple variants, so per-sheet tracing is still efficient.
-
-## TRACE PREP V3
-Authority implementation: `scripts/DONT_DIE_TRACE_PREP_V3.py`.
-
-Purpose: eliminate scalloped/blobby outer contours caused by tracing low-resolution antialiased raster boundaries while preserving interior colors.
-
-Algorithm:
-- detect non-white artwork conservatively;
-- reconstruct the outer artwork silhouette separately from interior colors;
-- supersample silhouette 4× with Lanczos;
-- smooth the silhouette mask at high resolution;
-- threshold to a crisp outer boundary;
-- enlarge original interior colors 4× with Lanczos;
-- composite preserved interior colors through the reconstructed mask onto pure white;
-- apply only a very light final high-resolution smoothing pass;
-- do **not** globally quantize the palette.
-
-The V1/V2 experiments that only enlarged/smoothed the original antialiasing or globally quantized colors are rejected for normal production because they either preserved contour chatter or damaged color fidelity.
-
-## Validated Illustrator Image Trace baseline
-For TRACE PREP V3 normal assets:
-
-- Mode: **Color**
-- Palette: **Limited / automatic**
-- Colors: **30**
-- Paths: **25%**
-- Corners: **70%**
-- Noise: **4 px**
-- Method: **Abutting**
-- Create: **Fills only**
-- Strokes: **Off**
-- Snap Curves to Lines: **Off**
-- Ignore Color White: **Off / unchecked**
-
-Then **Expand**.
-
-This baseline was validated against the fishing-rod stress test: long thin outer contours remained smooth while small reel/fish/bobber details survived to a production-usable degree.
-
-## Illustrator automation
+## Validated Illustrator settings
 Authority implementation: `scripts/DONT_DIE_IMAGE_TRACE.jsx`.
 
-The script:
-- requires exactly one selected `PlacedItem` / `RasterItem`;
-- applies the validated trace settings;
-- uses color tracing, 30 max colors, fills only, and keeps white (`ignoreWhite = false`);
-- maps the validated UI Paths/Corners/Noise values to Illustrator scripting values;
-- expands the result by default;
-- leaves the resulting vector group selected;
-- rejects multi-selection intentionally.
+The locked scripting values are:
+- Mode: **Color**
+- Max Colors: **30**
+- `pathFitting = 1.5`
+- `cornerAngle = 35`
+- `minArea = 2`
+- `preprocessBlur = 0`
+- Fills: **ON**
+- Strokes: **OFF**
+- Ignore Color White: **OFF / unchecked** (`ignoreWhite = false`)
 
-If a future Illustrator version changes internal trace behavior, validate against the same long-thin fishing-rod contour stress test before changing this authority.
+These values were validated on representative character + lantern + spatula sheets. They preserve smooth large contours and substantially improve small-detail fidelity without making the final cleanup structure live/recalculating.
+
+Small raster features intended to be perfect geometry—especially tiny circles such as spatula holes—may still require minor manual Illustrator cleanup. Do not tighten the global trace merely to perfect a tiny circle if the rest of the sheet passes.
+
+## Required Illustrator script sequence
+Select exactly one `PlacedItem` or `RasterItem`, then run `scripts/DONT_DIE_IMAGE_TRACE.jsx`.
+
+The script performs:
+1. Image Trace with the locked settings above.
+2. Expand Image Trace.
+3. `Live Pathfinder Divide`.
+4. `expandStyle` / Expand Appearance to bake the scripted live Pathfinder result.
+5. Ungroup.
+
+Important distinction: manually clicking the Pathfinder-panel **Divide** button is destructive immediately. ExtendScript uses the live Pathfinder Divide command, so the scripted workflow requires Expand Appearance before Ungroup. This leaves ordinary vector paths afterward and avoids live Pathfinder recalculation during later deletion/cleanup.
+
+## Why one image at a time
+One-at-a-time execution is intentional. Illustrator tracing is asynchronous and computationally heavy. Per-sheet execution provides immediate QC and avoids burying a bad trace inside a batch. Each sheet already contains multiple variants.
 
 ## Acceptance gate
 PASS when:
-- outer black contours are smooth rather than scalloped/blobby;
-- apparent outline thickness remains faithful to source;
-- major interior color regions remain recognizable and correctly separated;
-- small useful details survive without exploding into raster-edge fragments;
-- white regions are preserved through tracing when required;
-- no global muddy palette shift is introduced.
-
-Minor vector cleanup after Expand is expected. Do not re-open upstream generation architecture for trace-only artifacts.
+- prepared raster has no dark-gray exterior fringe;
+- outer black contours remain smooth and faithful;
+- major interior color regions survive correctly;
+- small useful details survive to production-usable quality;
+- white regions are preserved where required;
+- final script output is ordinary editable vector artwork after Divide/Expand Appearance/Ungroup;
+- deleting unwanted final pieces does not require live-effect recalculation;
+- minor imperfect tiny circles are treated as local manual cleanup rather than a reason to destabilize global settings.
 
 ## Failure classification
-- `SYSTEM FAIL` at this downstream stage: TRACE PREP V3 or the validated trace baseline structurally produces scalloped/blobby contours across representative normal assets.
-- local missing/merged tiny detail after otherwise clean tracing: downstream cleanup issue, not evidence to redesign a validated category generation architecture.
+- **SYSTEM FAIL:** representative normal assets structurally produce gray outline fringe, scalloped/blobby contours, broken script flattening, or live/recalculating final artwork.
+- **Local cleanup issue:** an isolated tiny circle/detail is imperfect after otherwise passing tracing. Do not redesign upstream category architecture or global trace settings for this.
 
 ## Core rule
-**Normal approved rasters are batch-prepared by the agent with TRACE PREP V3, then vectorized in Illustrator one sheet at a time with the locked trace script. Preserve white, inspect each trace immediately, and keep validated generation architecture unchanged.**
+**For normal approved flat rasters: use the validated clean-edge trace preparation, then select one sheet in Illustrator and run `scripts/DONT_DIE_IMAGE_TRACE.jsx`. The locked Illustrator sequence is Trace → Expand → scripted Divide → Expand Appearance → Ungroup. Preserve passing upstream architecture and handle isolated tiny geometric imperfections locally.**
