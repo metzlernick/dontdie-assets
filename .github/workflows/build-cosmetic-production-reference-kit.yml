@@ -106,3 +106,5 @@ jobs:
           path: DONT_DIE_COSMETIC_PRODUCTION_REFERENCES.zip
           if-no-files-found: error
           retention-days: 90
+
+# Fresh-build trigger marker: 2026-09-09
