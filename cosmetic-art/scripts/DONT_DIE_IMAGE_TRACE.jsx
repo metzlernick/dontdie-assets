@@ -2,19 +2,30 @@
 
 /*
 DONT_DIE_IMAGE_TRACE.jsx
-Validated normal-cosmetic trace baseline:
-- Color
-- Max colors: 30
-- Paths: 25%
-- Corners: 70%
-- Noise: 4 px
-- Fills only
-- Ignore White: OFF
-- Auto-expand: ON
+VALIDATED production Illustrator step for normal flat cosmetics.
 
-RECOMMENDED USE:
-Select exactly ONE PlacedItem or RasterItem and run the script.
-One-at-a-time execution is intentional for reliability and easier QC.
+Select exactly ONE PlacedItem or RasterItem.
+
+Trace settings:
+- Color
+- Max Colors: 30
+- pathFitting: 1.5
+- cornerAngle: 35
+- minArea: 2
+- Fills ON
+- Strokes OFF
+- Ignore White OFF
+
+Sequence:
+1. Image Trace
+2. Expand Image Trace
+3. Live Pathfinder Divide
+4. Expand Appearance (bakes scripted live Divide)
+5. Ungroup
+
+The final Expand Appearance is required because ExtendScript invokes the live-effect
+Pathfinder Divide command rather than the destructive Pathfinder-panel button.
+The final artwork is ordinary vector paths for responsive manual cleanup/deletion.
 */
 
 (function () {
@@ -27,25 +38,15 @@ One-at-a-time execution is intentional for reliability and easier QC.
     var sel = doc.selection;
 
     if (!sel || sel.length !== 1) {
-        alert("Select exactly ONE placed/raster image, then run Don't Die Trace.");
+        alert("Select exactly ONE placed/raster image.");
         return;
     }
 
     var item = sel[0];
     if (item.typename !== "PlacedItem" && item.typename !== "RasterItem") {
-        alert("The selected object must be a PlacedItem or RasterItem.");
+        alert("Selection must be a PlacedItem or RasterItem.");
         return;
     }
-
-    var AUTO_EXPAND = true;
-
-    // Validated UI baseline mapping.
-    // Paths 25%   -> pathFitting ~7.5
-    // Corners 70% -> cornerAngle ~54 degrees
-    // Noise 4 px  -> minArea 4
-    var PATH_FITTING = 7.5;
-    var CORNER_ANGLE = 54;
-    var MIN_AREA = 4;
 
     try {
         var plugin = item.trace();
@@ -55,30 +56,30 @@ One-at-a-time execution is intentional for reliability and easier QC.
         o.tracingMode = TracingModeType.TRACINGMODECOLOR;
         o.palette = "";
         o.maxColors = 30;
-        o.pathFitting = PATH_FITTING;
-        o.cornerAngle = CORNER_ANGLE;
-        o.minArea = MIN_AREA;
+        o.pathFitting = 1.5;
+        o.cornerAngle = 35;
+        o.minArea = 2;
         o.preprocessBlur = 0;
         o.fills = true;
         o.strokes = false;
-
-        // Keep white: "Ignore Color: White" remains unchecked.
         o.ignoreWhite = false;
-
         o.outputToSwatches = false;
         o.livePaintOutput = false;
 
-        // Illustrator tracing completes asynchronously.
         app.redraw();
         doc.selection = null;
 
-        if (AUTO_EXPAND) {
-            var group = tracing.expandTracing(false);
-            group.selected = true;
-        } else {
-            plugin.selected = true;
-        }
+        var expanded = tracing.expandTracing(false);
+        expanded.selected = true;
+        app.redraw();
 
+        app.executeMenuCommand("Live Pathfinder Divide");
+        app.redraw();
+
+        app.executeMenuCommand("expandStyle");
+        app.redraw();
+
+        app.executeMenuCommand("ungroup");
         app.redraw();
 
     } catch (e) {
