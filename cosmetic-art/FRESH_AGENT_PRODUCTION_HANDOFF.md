@@ -22,7 +22,6 @@ Before packaging or evaluating, read current:
 - `PRODUCTION_RUNTIME_ASSET_MANIFEST.md`
 - `GENERATION_EXECUTION_CONTRACT.md`
 - `PRODUCTION_PACKAGE_REGRESSION_GATES.md`
-- `ILLUSTRATOR_VECTOR_TRACE_WORKFLOW.md`
 - applicable category workflow
 
 Live repo wins over memory or historical calibration files.
@@ -63,31 +62,16 @@ Mandatory cape preflight. 4×1 Stage A using validated clean-room controls → o
 ### NON-FACE ACCESSORIES
 Use only an already validated location-specific workflow/controller.
 
-## Illustrator vector handoff
-For normal flat outlined approved rasters, `ILLUSTRATOR_VECTOR_TRACE_WORKFLOW.md` is the authority.
+## Illustrator handoff
+After the final generated/isolation result is approved, the only fresh-agent responsibility for the Illustrator handoff is to make sure the raster is sufficiently large/high-resolution for reliable Image Trace. If the approved output is too small, deterministically upscale it before delivery while preserving its appearance, proportions, registration, and color.
 
-The validated Illustrator production step is one sheet at a time using `scripts/DONT_DIE_IMAGE_TRACE.jsx`.
+Do not make the user manually resize or preprocess approved output just to make it large enough for Illustrator.
 
-Locked script settings:
-- Color / 30 max colors
-- `pathFitting = 1.5`
-- `cornerAngle = 35`
-- `minArea = 2`
-- fills on / strokes off
-- Ignore Color White OFF (`ignoreWhite = false`)
-
-Locked script sequence:
-**Image Trace → Expand Trace → scripted Live Pathfinder Divide → Expand Appearance → Ungroup.**
-
-The Expand Appearance step is required in the script because ExtendScript invokes the live Pathfinder Divide command; it bakes the result so final cleanup/deletion operates on ordinary vector paths.
-
-Trace-prep output must have a pure-white exterior and no dark-gray antialias fringe around the black outline. Do not add a second rim or globally quantize colors. Tiny imperfect circles after otherwise passing tracing are local manual cleanup, not a reason to change the global trace settings.
-
-Neon/glow/soft-effect cosmetics are excluded from this flat trace baseline.
+The actual Illustrator Image Trace settings, script, Pathfinder/cleanup sequence, and Illustrator-specific validation live separately in `ILLUSTRATOR_VECTOR_TRACE_WORKFLOW.md` and `scripts/DONT_DIE_IMAGE_TRACE.jsx`. They are not part of the generation-stage architecture and should not be duplicated here.
 
 ## Failure classification
 ### SYSTEM FAIL
-Validated controller/stage/scale/contact/registration architecture or downstream trace architecture failed structurally.
+Validated controller/stage/scale/contact/registration architecture failed structurally.
 
 ### BRIEF FAIL
 Architecture passes but one explicit cosmetic constraint was missed.
@@ -105,9 +89,8 @@ A generic image-generation backend error is not proof that the package or workfl
 5. User uploads everything in that ZIP to an image-generation chat and says `go`.
 6. User returns the result.
 7. Agent evaluates it and automatically continues through required stages/deterministic processing.
-8. For approved normal flat rasters headed to Illustrator, agent performs the validated deterministic clean-edge trace preparation.
-9. User places trace-ready files in Illustrator, selects exactly one sheet, and invokes `DONT_DIE_IMAGE_TRACE.jsx`.
-10. Script returns expanded/divided/flattened/ungrouped ordinary vector artwork for manual deletion/cleanup.
-11. Repeat with the next cosmetic.
+8. Once the final art is approved, ensure the raster is sufficiently large/high-resolution for Illustrator Image Trace; upscale deterministically if needed.
+9. Deliver the Illustrator-ready raster. Illustrator-specific tracing/cleanup follows its separate authority document.
+10. Repeat with the next cosmetic.
 
-The user should never manually edit prompts/manifests, select files from inside a ZIP, hunt repo assets, remember stage sequences, composite rows, or manually preprocess trace rasters.
+The user should never manually edit prompts/manifests, select files from inside a ZIP, hunt repo assets, remember stage sequences, composite rows, or manually resize/preprocess final rasters solely to make them large enough for Illustrator.
