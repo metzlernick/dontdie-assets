@@ -39,6 +39,27 @@ Use clean-room canonical-derived authorities:
 
 Preserve overall proportions, shoulders, torso, hips, leg lengths/spacing, feet, both arm chains, wrist endpoints, and hand scale. Do not normalize into a generic chibi body.
 
+### Validated canonical-controller lock
+A user-validated Leather Armor calibration established the current Stage-A geometry procedure:
+
+- build the active 4×1 controller from four literal copies of the canonical 480×640 hero, one per cell;
+- treat that controller as both `PRIMARY_CANVAS_AUTHORITY` and `ANATOMY_AUTHORITY`;
+- generate a genuinely new outfit around the canonical body/pose rather than redesigning the body to suit the costume;
+- preserve the canonical head/neck relationship, both hand/wrist endpoints, leg length, and bottom-of-sole Y relationship as hard acceptance gates;
+- modest foot-width/lateral-spacing variation is tolerable only when the vertical sole level and overall limb proportions remain canonical;
+- preserve the canonical body-height/torso/leg balance. A shorter/stumpier hero is `SYSTEM FAIL` even when the hands look good;
+- freeze a passing geometry result. Design revisions must not reopen or re-proportion the body.
+
+The accepted calibration was checked against the canonical character in Illustrator and approved at approximately production-exact registration. This is stronger evidence than text-only visual estimation.
+
+### Stage-A trifecta acceptance
+A Stage-A result passes only when all three are true at the same time:
+1. **canonical registration** — canonical body proportions and registration-critical relationships are preserved;
+2. **undistorted new armor** — the outfit is genuinely new, coherent artwork rather than a cutout/composite of the base costume or a warped raster;
+3. **seamless art/style/stroke consistency** — flat Don't Die rendering, true-black bold contour, compatible stroke weight, hard-edged fills, and coherent transitions across hands, sleeves, torso, legs, boots, and cape.
+
+Do not use non-rigid raster warping, stretching, local mesh correction, or partial base-outfit cut-and-paste to force a numerical registration pass. Those methods are rejected even if anchor coordinates improve.
+
 ### Hand lock
 Don't Die hands use **THREE FINGERS + ONE THUMB = FOUR TOTAL DIGITS**. Never complete them into natural five-digit hands or add rogue lower knuckles/fingers. Both outfit-specific hand/glove/wrap treatments are generated as part of the outfit while preserving canonical silhouette and scale.
 
@@ -51,8 +72,10 @@ Normal Stage A geometry comes only from canonical-derived references. Prior gene
 ### Simplicity target
 Default armor/outfit art uses large flat shapes, hard-edged solid colors, bold black outer contour, restrained interior lines, low color count, and minimal micro-detail.
 
-### Rejected Stage-A regression
+### Rejected Stage-A regressions
 Do **not** replace the validated clean-room Armor Stage-A controls with a faint-substrate/direct-isolation generation architecture. That experiment caused missing outfit-specific hands and viewer-left arm regression and is permanently rejected.
+
+Do **not** chase a local design correction by repeatedly escalating prompts if the result begins shortening legs, enlarging the torso/head, widening boots vertically, or otherwise making the character stumpier. Reject that result and return to the last passing canonical-controller baseline.
 
 ## 4. Cape-state metadata
 
@@ -131,10 +154,11 @@ Historical approved 4×4 Armor sources remain valid. They do not need regenerati
 ## 9. Failure classification
 
 - Anatomy/hand/viewer-left-arm regression = `SYSTEM FAIL`.
+- Stumpy/shortened canonical proportions after a design revision = `SYSTEM FAIL`.
 - Missing/wrongly styled cape while Stage-A architecture passes = `BRIEF FAIL`, corrected at Stage A/A.5.
 - Clean Stage-B isolation with presentation scale/X/Y drift = isolation PASS; correct deterministically.
 - Generic backend generation error without evidence of bad inputs is a tool failure, not artwork SYSTEM FAIL.
 
 ## 10. Core rule
 
-**Ask about cape state when the brief does not specify it. Stage A creates the complete outfit and intentionally designs any requested cape; Stage B destructively isolates without redesign; deterministic processing restores Stage-A registration. 4×1 changes batching, not the validated Armor anatomy architecture.**
+**Ask about cape state when the brief does not specify it. Stage A creates the complete outfit around the canonical controller without re-proportioning the hero and must simultaneously pass registration, undistorted-new-art, and style/stroke gates; Stage B destructively isolates without redesign; deterministic processing restores Stage-A registration. 4×1 changes batching, not the validated Armor anatomy architecture.**
