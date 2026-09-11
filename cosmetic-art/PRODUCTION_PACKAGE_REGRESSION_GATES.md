@@ -53,7 +53,25 @@ If repeated local brief correction begins enlarging the cosmetic or otherwise re
 Locked 4×1 architecture:
 **cape preflight → validated clean-room Stage A → optional A.5 → destructive Stage B → deterministic registration → Illustrator.**
 
-FAIL Stage A for missing/incorrect outfit-specific hands, viewer-left arm-chain regression, or generic/stumpy geometry. Never solve isolation by weakening Stage A.
+Stage A uses a literal 4×1 canonical-hero controller as the body/proportion authority. A result passes Stage A only when it simultaneously satisfies the validated trifecta:
+1. canonical registration/proportions;
+2. genuinely new, undistorted armor artwork;
+3. seamless Don't Die art/style/stroke consistency.
+
+FAIL Stage A for:
+- missing/incorrect outfit-specific hands;
+- viewer-left arm-chain regression;
+- generic/stumpy geometry or shortened canonical leg/body proportions;
+- head/neck, hand/wrist, or bottom-of-sole relationships drifting materially from canonical;
+- non-rigid raster warping/stretching used to force registration;
+- partial base-outfit cut-and-paste/compositing that is not genuinely new seamless armor;
+- inconsistent outline weight/style that breaks the canonical visual language.
+
+A design revision that keeps good hands but makes the body stumpier is a `SYSTEM FAIL`, not a partial pass. Reject it and return to the last passing canonical-controller baseline.
+
+Modest lateral foot-spacing variation can pass when sole-bottom Y, leg length, and overall canonical proportions remain correct.
+
+Never solve isolation by weakening Stage A.
 
 FAIL Stage B for surviving head/pedestal/context, wrong cape ownership, lost approved hands/arms, cross-variant contamination, or hidden reconstruction. Raw scale/X/Y drift alone is corrected deterministically.
 
