@@ -82,8 +82,37 @@ The canonical viewer-left lowered shoulder→upper arm→elbow→forearm→wrist
 ### Clean-room / inspiration discipline
 Normal Stage A geometry comes only from canonical-derived references. Prior generated dressed-character sheets are not geometry/anatomy authorities. When the user explicitly wants an approved prior design as inspiration, it may be DESIGN-ONLY and cannot control anatomy, registration, hands, scale, or body proportions.
 
-### Simplicity target
-Default armor/outfit art uses large flat shapes, hard-edged solid colors, bold black outer contour, restrained interior lines, low color count, and minimal micro-detail.
+### Validated Stage-A detail-density lock
+The default Armor Stage-A detail level is intentionally **low-detail**, matching the simpler approved animal-print direction rather than the more ornate/densely rendered version.
+
+Use the following production target by default:
+- broad, readable material regions instead of many small panels;
+- large flat fur, leather, cloth, and metal shapes;
+- sparse interior linework and very limited tiny highlights;
+- one or two clear material transitions per body region rather than stacked trim systems;
+- simple belts, buckles, straps, cuffs, knee pieces, shoulder pieces, and closures;
+- animal print/patterns represented with a restrained number of large readable marks, not dense texture;
+- fur may have an irregular/furry outer silhouette, but interior fur strokes/tufts stay sparse;
+- metal accents should read through silhouette and flat color blocks rather than dense beveling, rivets, filigree, or repeated highlight bands;
+- variant differentiation should come primarily from **big-shape design, material distribution, silhouette, and palette**, not micro-detail.
+
+Actively avoid by default:
+- dense layered straps;
+- repeated tiny plates or segmented armor scales;
+- numerous rivets/studs;
+- multiple nested trim bands;
+- ornamental filigree;
+- excessive pouches/accessories;
+- dense fur texture lines;
+- tiny seam networks;
+- repeated specular/highlight fragments;
+- micro-details added merely because empty space is available.
+
+When choosing between a simpler and a more ornate interpretation that both satisfy the brief, choose the simpler one. **Simplify/delete detail before adding complexity or changing body scale.**
+
+Approved or user-supplied reference art may communicate theme, palette, material, or silhouette, but it does not authorize a higher detail density than this Stage-A target unless the user explicitly asks for more detail.
+
+If geometry/anatomy/style all pass but the generated outfit is materially more detailed than this target, classify it as a Stage-A `BRIEF FAIL`: preserve the passing canonical geometry/controller and simplify only the outfit design. Do not reopen anatomy, registration, or arm/hand structure to solve detail density.
 
 ### Rejected Stage-A regressions
 Do **not** replace the validated clean-room Armor Stage-A controls with a faint-substrate/direct-isolation generation architecture. That experiment caused missing outfit-specific hands and viewer-left arm regression and is permanently rejected.
@@ -168,10 +197,11 @@ Historical approved 4×4 Armor sources remain valid. They do not need regenerati
 
 - Anatomy/hand/viewer-left-arm regression = `SYSTEM FAIL`.
 - Stumpy/shortened canonical proportions after a design revision = `SYSTEM FAIL`.
+- Excessive Stage-A detail density while geometry/anatomy/style otherwise pass = `BRIEF FAIL`; simplify the outfit without changing the controller/body.
 - Missing/wrongly styled cape while Stage-A architecture passes = `BRIEF FAIL`, corrected at Stage A/A.5.
 - Clean Stage-B isolation with presentation scale/X/Y drift = isolation PASS; correct deterministically.
 - Generic backend generation error without evidence of bad inputs is a tool failure, not artwork SYSTEM FAIL.
 
 ## 10. Core rule
 
-**Ask about cape state when the brief does not specify it. Stage A creates the complete outfit around the canonical controller without re-proportioning the hero and must simultaneously pass registration, undistorted-new-art, and style/stroke gates; Stage B destructively isolates without redesign; deterministic processing restores Stage-A registration. 4×1 changes batching, not the validated Armor anatomy architecture.**
+**Ask about cape state when the brief does not specify it. Stage A creates the complete outfit around the canonical controller without re-proportioning the hero, uses the validated lower-detail production target by default, and must simultaneously pass registration, undistorted-new-art, and style/stroke gates; Stage B destructively isolates without redesign; deterministic processing restores Stage-A registration. 4×1 changes batching, not the validated Armor anatomy architecture.**
