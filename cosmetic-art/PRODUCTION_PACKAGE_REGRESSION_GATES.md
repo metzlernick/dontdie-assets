@@ -58,6 +58,8 @@ Stage A uses a literal 4×1 canonical-hero controller as the body/proportion aut
 2. genuinely new, undistorted armor artwork;
 3. seamless Don't Die art/style/stroke consistency.
 
+The default Stage-A rendering target is the validated **lower-detail** Armor style: broad flat material regions, sparse interior linework, restrained trim/pattern density, simple hardware, and variant differentiation through big shapes/material distribution rather than micro-detail. Simplify/delete detail before increasing complexity or changing body geometry.
+
 FAIL Stage A for:
 - missing/incorrect outfit-specific hands;
 - viewer-left arm-chain regression;
@@ -71,7 +73,11 @@ A design revision that keeps good hands but makes the body stumpier is a `SYSTEM
 
 Modest lateral foot-spacing variation can pass when sole-bottom Y, leg length, and overall canonical proportions remain correct.
 
-Never solve isolation by weakening Stage A.
+If canonical geometry/anatomy/style pass but the outfit is noticeably more ornate/dense than the locked low-detail target, classify it as `BRIEF FAIL`. Freeze the passing geometry and simplify the outfit only. Do not reopen registration, hands, arm chains, body scale, or proportions to reduce detail.
+
+Common over-detail signals include dense repeated straps, tiny plates, many rivets/studs, nested trim bands, ornamental filigree, excessive pouches/accessories, dense fur strokes, tiny seam networks, or repeated specular/highlight fragments.
+
+Never solve isolation or detail-density problems by weakening Stage A geometry.
 
 FAIL Stage B for surviving head/pedestal/context, wrong cape ownership, lost approved hands/arms, cross-variant contamination, or hidden reconstruction. Raw scale/X/Y drift alone is corrected deterministically.
 
