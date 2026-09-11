@@ -52,6 +52,19 @@ A user-validated Leather Armor calibration established the current Stage-A geome
 
 The accepted calibration was checked against the canonical character in Illustrator and approved at approximately production-exact registration. This is stronger evidence than text-only visual estimation.
 
+### Vertical silhouette lock / anti-stumpy rule
+The Leather Armor calibration also established that vague requests to "preserve proportions" are not sufficient by themselves. Stage-A prompts/packages must operationalize the canonical controller as an **immutable body frame**:
+
+- preserve the same full-body vertical occupancy inside each 480×640 logical cell from top of hair/head through bottom of boots/soles;
+- preserve the canonical head-size-to-body-height ratio and torso-to-leg ratio; do not enlarge the head/torso while shortening the legs;
+- keep shoulders, hip/crotch band, knees/ankles, wrist endpoints, and sole-bottom level in the same hero-relative vertical relationships as the controller;
+- armor may add thickness or silhouette outward, but it may not pull anatomical landmarks upward/downward or compress the skeleton to make the costume fit;
+- boots may become wider or more decorative, but must not become vertically taller in a way that shortens the visible lower leg or raises the sole-bottom relationship;
+- do not shrink the hero to create extra white margin or to fit more costume detail. Keep approximately the same canvas occupancy as the canonical controller;
+- if outfit detail conflicts with canonical body geometry, simplify/delete outfit detail rather than changing anatomy.
+
+Treat Stage A as an **outfit-only redesign around an immutable canonical body**, not a new character redraw. A result that is only slightly stumpier than canonical is still a `SYSTEM FAIL`.
+
 ### Stage-A trifecta acceptance
 A Stage-A result passes only when all three are true at the same time:
 1. **canonical registration** — canonical body proportions and registration-critical relationships are preserved;
