@@ -8,6 +8,8 @@ Normal input is:
 
 One brief produces four variants in one horizontal 4×1 strip.
 
+Alias: if the user says **RIGHT HAND**, treat it as **RIGHT ARM** (held-object category).
+
 For ARMOR / OUTFITS: if cape state is not stated or unambiguous, ask **cape or no cape?** before Stage A.
 For ACCESSORIES: resolve body location; ask only when genuinely ambiguous.
 
@@ -27,7 +29,7 @@ Before packaging or evaluating, read current:
 Live repo wins over memory or historical calibration files.
 
 ## Portability
-The user does not hunt for canonical files. Retrieve repo assets automatically. If runtime binary retrieval fails, use the session-level `DONT_DIE_COSMETIC_PRODUCTION_REFERENCES.zip`. Ask for that one fallback ZIP only if needed; never ask for individual canonical assets already in the repo.
+The user does not hunt for canonical files. Retrieve repo assets automatically. If runtime binary retrieval fails, use the session-level `DONT_DIE_COSMETIC_PRODUCTION_REFERENCES_CANONICAL_v2.zip`. Ask for that one fallback ZIP only if needed; never ask for individual canonical assets already in the repo.
 
 ## Upload ZIP contract
 Every generation ZIP given to the user is flat, directly Ctrl+A uploadable, and contains exactly the files required by that generation invocation. No README, package check, checksums, audit logs, workflow docs, or unused references.
@@ -56,6 +58,8 @@ If another generation stage is required, automatically build the next flat ZIP. 
 ### ARMOR / OUTFITS
 Mandatory cape preflight. 4×1 Stage A using validated clean-room controls → optional A.5 cape correction/RESTYLE → 4×1 Stage B destructive isolation → deterministic registration → Illustrator.
 
+**Current Armor Stage A detail lock:** use the validated **lower-detail** Stage A style, not the older higher-detail style. Favor large readable flat shapes, restrained interior seams, low micro-detail, low buckle/stitch density, and simplified material breakup. When in doubt, simplify. Registration, silhouette, hands, neck opening, and sole height remain locked while detail level stays intentionally modest.
+
 ### FACE ACCESSORIES
 4×1 Stage A on ~6% faint literal canonical substrate → deterministic faint-substrate extraction → Illustrator. No generative Stage B.
 
@@ -71,7 +75,7 @@ The actual Illustrator Image Trace settings, script, Pathfinder/cleanup sequence
 
 ## Failure classification
 ### SYSTEM FAIL
-Validated controller/stage/scale/contact/registration architecture failed structurally.
+Validated controller/stage/scale/contact/registration architecture or downstream trace architecture failed structurally.
 
 ### BRIEF FAIL
 Architecture passes but one explicit cosmetic constraint was missed.
